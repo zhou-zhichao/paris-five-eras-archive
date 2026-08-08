@@ -1,42 +1,42 @@
-# Paris Through Five Eras — Project Archive
+# 巴黎五个时代 — 项目完整归档
 
-[**English**](README.md) | [简体中文](README.zh-CN.md)
+[English](README.md) | [**简体中文**](README.zh-CN.md)
 
-Public archive of the Blender scene history and rendered previews for a stylized animation of Paris across the Roman, medieval, 1700, 1850 and modern eras.
+这是“巴黎五个时代”风格化动画的公开项目归档，保存了从罗马、中世纪、1700 年、1850 年到现代巴黎的 Blender 场景历史版本和渲染预览。
 
-> This repository stores the catalog and preview thumbnails. The large Blender and MP4 files are attached to the [archive-2026-08-08 release](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/tag/archive-2026-08-08).
+> 本仓库保存版本目录和预览缩略图。体积较大的 Blender 与 MP4 文件收录在 [archive-2026-08-08 Release](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/tag/archive-2026-08-08) 中。
 
-## Featured videos
+## 主要视频
 
-| Final 2-minute animation | Early base version |
+| 最终 2 分钟动画 | 早期基础版本 |
 | --- | --- |
-| [![Final animation](thumbnails/youtube-final.jpg)](https://youtu.be/6st9cc6HeCs) | [![Early base](thumbnails/youtube-base.jpg)](https://youtu.be/yC6kgCsfEdE) |
-| [Watch on YouTube](https://youtu.be/6st9cc6HeCs) | [Watch on YouTube](https://youtu.be/yC6kgCsfEdE) |
+| [![最终动画](thumbnails/youtube-final.jpg)](https://youtu.be/6st9cc6HeCs) | [![早期基础版本](thumbnails/youtube-base.jpg)](https://youtu.be/yC6kgCsfEdE) |
+| [在 YouTube 观看](https://youtu.be/6st9cc6HeCs) | [在 YouTube 观看](https://youtu.be/yC6kgCsfEdE) |
 
-## Archive summary
+## 归档概览
 
-- 55 Blender scenes (.blend)
-- 6 Blender backups (.blend1)
-- 30 rendered or QA videos (.mp4)
-- 21.47 GiB total release payload
-- SHA-256 checksums in [SHA256SUMS.txt](SHA256SUMS.txt)
-- Machine-readable metadata in [manifest.json](manifest.json)
+- 55 个 Blender 场景（`.blend`）
+- 6 个 Blender 自动备份（`.blend1`）
+- 30 条成片、预览或质量检查视频（`.mp4`）
+- Release 文件总计 21.47 GiB
+- SHA-256 校验值见 [`SHA256SUMS.txt`](SHA256SUMS.txt)
+- 可供程序读取的元数据见 [`manifest.json`](manifest.json)
 
-## Rendered videos
+## 渲染视频
 
-Each thumbnail opens the downloadable MP4 attached to the release.
+点击缩略图即可下载 Release 中对应的 MP4 文件。
 
-| Version | Preview | File | Size |
+| 版本 | 预览 | 文件 | 大小 |
 | --- | --- | --- | ---: |
-| Unversioned | [![encode_test_perceptual.mp4](thumbnails/encode_test_perceptual.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/encode_test_perceptual.mp4) | [encode_test_perceptual.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/encode_test_perceptual.mp4) | 1.1 MiB |
-| Unversioned | [![encode_test.mp4](thumbnails/encode_test.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/encode_test.mp4) | [encode_test.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/encode_test.mp4) | 726.1 KiB |
-| Unversioned | [![medieval_transition_2min_timing.mp4](thumbnails/medieval_transition_2min_timing.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/medieval_transition_2min_timing.mp4) | [medieval_transition_2min_timing.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/medieval_transition_2min_timing.mp4) | 3.8 MiB |
-| Unversioned | [![opening_motion.mp4](thumbnails/opening_motion.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/opening_motion.mp4) | [opening_motion.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/opening_motion.mp4) | 3.1 MiB |
-| Unversioned | [![paris_base_before_windows_eiffel.mp4](thumbnails/paris_base_before_windows_eiffel.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_base_before_windows_eiffel.mp4) | [paris_base_before_windows_eiffel.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_base_before_windows_eiffel.mp4) | 51.5 MiB |
-| Unversioned | [![paris_base.mp4](thumbnails/paris_base.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_base.mp4) | [paris_base.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_base.mp4) · [YouTube](https://youtu.be/yC6kgCsfEdE) | 52.3 MiB |
-| Unversioned | [![paris_five_eras_blender_2min_1080p_minerva.mp4](thumbnails/paris_five_eras_blender_2min_1080p_minerva.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min_1080p_minerva.mp4) | [paris_five_eras_blender_2min_1080p_minerva.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min_1080p_minerva.mp4) | 540.1 MiB |
-| Unversioned | [![paris_five_eras_blender_2min.mp4](thumbnails/paris_five_eras_blender_2min.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min.mp4) | [paris_five_eras_blender_2min.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min.mp4) | 207.2 MiB |
-| Unversioned | [![timing_30f.mp4](thumbnails/timing_30f.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/timing_30f.mp4) | [timing_30f.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/timing_30f.mp4) | 990.6 KiB |
+| 未标版本 | [![encode_test_perceptual.mp4](thumbnails/encode_test_perceptual.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/encode_test_perceptual.mp4) | [encode_test_perceptual.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/encode_test_perceptual.mp4) | 1.1 MiB |
+| 未标版本 | [![encode_test.mp4](thumbnails/encode_test.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/encode_test.mp4) | [encode_test.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/encode_test.mp4) | 726.1 KiB |
+| 未标版本 | [![medieval_transition_2min_timing.mp4](thumbnails/medieval_transition_2min_timing.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/medieval_transition_2min_timing.mp4) | [medieval_transition_2min_timing.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/medieval_transition_2min_timing.mp4) | 3.8 MiB |
+| 未标版本 | [![opening_motion.mp4](thumbnails/opening_motion.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/opening_motion.mp4) | [opening_motion.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/opening_motion.mp4) | 3.1 MiB |
+| 未标版本 | [![paris_base_before_windows_eiffel.mp4](thumbnails/paris_base_before_windows_eiffel.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_base_before_windows_eiffel.mp4) | [paris_base_before_windows_eiffel.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_base_before_windows_eiffel.mp4) | 51.5 MiB |
+| 未标版本 | [![paris_base.mp4](thumbnails/paris_base.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_base.mp4) | [paris_base.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_base.mp4) · [YouTube](https://youtu.be/yC6kgCsfEdE) | 52.3 MiB |
+| 未标版本 | [![paris_five_eras_blender_2min_1080p_minerva.mp4](thumbnails/paris_five_eras_blender_2min_1080p_minerva.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min_1080p_minerva.mp4) | [paris_five_eras_blender_2min_1080p_minerva.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min_1080p_minerva.mp4) | 540.1 MiB |
+| 未标版本 | [![paris_five_eras_blender_2min.mp4](thumbnails/paris_five_eras_blender_2min.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min.mp4) | [paris_five_eras_blender_2min.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min.mp4) | 207.2 MiB |
+| 未标版本 | [![timing_30f.mp4](thumbnails/timing_30f.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/timing_30f.mp4) | [timing_30f.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/timing_30f.mp4) | 990.6 KiB |
 | v2 | [![paris_five_eras_blender_2min_v2.partial.mp4](thumbnails/paris_five_eras_blender_2min_v2.partial.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min_v2.partial.mp4) | [paris_five_eras_blender_2min_v2.partial.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min_v2.partial.mp4) | 78.8 MiB |
 | v2 | [![paris_five_eras_timing_v2.mp4](thumbnails/paris_five_eras_timing_v2.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_timing_v2.mp4) | [paris_five_eras_timing_v2.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_timing_v2.mp4) | 26.6 MiB |
 | v3 | [![paris_five_eras_sprout_v3_720p.mp4](thumbnails/paris_five_eras_sprout_v3_720p.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_sprout_v3_720p.mp4) | [paris_five_eras_sprout_v3_720p.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_sprout_v3_720p.mp4) | 188.4 MiB |
@@ -59,15 +59,15 @@ Each thumbnail opens the downloadable MP4 attached to the release.
 | v37 | [![paris_roman_medieval_v37_720p.mp4](thumbnails/paris_roman_medieval_v37_720p.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_roman_medieval_v37_720p.mp4) | [paris_roman_medieval_v37_720p.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_roman_medieval_v37_720p.mp4) | 64.3 MiB |
 | v44 | [![paris_five_eras_v44_temple_enclosure_720p.mp4](thumbnails/paris_five_eras_v44_temple_enclosure_720p.png)](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_v44_temple_enclosure_720p.mp4) | [paris_five_eras_v44_temple_enclosure_720p.mp4](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_v44_temple_enclosure_720p.mp4) · [YouTube](https://youtu.be/6st9cc6HeCs) | 165.3 MiB |
 
-## Blender scenes
+## Blender 场景
 
-| Version | File | Type | Size | SHA-256 prefix |
+| 版本 | 文件 | 类型 | 大小 | SHA-256 前缀 |
 | --- | --- | --- | ---: | --- |
-| Unversioned | [paris_5_eras_before_batched_sprouts.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_before_batched_sprouts.blend) | .blend | 109.5 MiB | 850c2b311616 |
-| Unversioned | [paris_5_eras_minerva_1080p.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_minerva_1080p.blend) | .blend | 109.2 MiB | a6edf998b0b6 |
-| Unversioned | [paris_5_eras_pre_density_retime.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_pre_density_retime.blend) | .blend | 499.8 MiB | 8f719aa09aba |
-| Unversioned | [paris_5_eras.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras.blend) | .blend | 529.1 MiB | bd9d15e892fa |
-| Unversioned | [paris_5_eras.blend1](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras.blend1) | .blend1 | 109.5 MiB | 850c2b311616 |
+| 未标版本 | [paris_5_eras_before_batched_sprouts.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_before_batched_sprouts.blend) | .blend | 109.5 MiB | 850c2b311616 |
+| 未标版本 | [paris_5_eras_minerva_1080p.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_minerva_1080p.blend) | .blend | 109.2 MiB | a6edf998b0b6 |
+| 未标版本 | [paris_5_eras_pre_density_retime.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_pre_density_retime.blend) | .blend | 499.8 MiB | 8f719aa09aba |
+| 未标版本 | [paris_5_eras.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras.blend) | .blend | 529.1 MiB | bd9d15e892fa |
+| 未标版本 | [paris_5_eras.blend1](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras.blend1) | .blend1 | 109.5 MiB | 850c2b311616 |
 | v1 | [paris_5_eras_v1_before_growth_rework.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_v1_before_growth_rework.blend) | .blend | 499.8 MiB | 6e31991ec07d |
 | v2 | [paris_5_eras_v2_before_rail_land_fix.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_v2_before_rail_land_fix.blend) | .blend | 522.6 MiB | b6bf251990a5 |
 | v2 | [paris_5_eras_v2_pre_tail_stretch.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_v2_pre_tail_stretch.blend) | .blend | 522.6 MiB | e368f5a69a70 |
@@ -125,9 +125,11 @@ Each thumbnail opens the downloadable MP4 attached to the release.
 | v43 | [paris_5_eras_roman_medieval_v43_landmark_clearance_fixed.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v43_landmark_clearance_fixed.blend) | .blend | 563.0 MiB | 8a6136ead7b4 |
 | v44 | [paris_5_eras_roman_medieval_v44_temple_enclosure.blend](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v44_temple_enclosure.blend) | .blend | 561.9 MiB | 340e351a602e |
 
-## Notes
+## 说明
 
-- Filenames are preserved exactly so earlier references remain traceable.
-- .blend1 files are Blender automatic backups, not separate authored branches.
-- Some MP4 files are short timing, water, encoding or transition tests rather than complete renders.
-- No third-party license is granted by this archive. Reuse of external models or textures must follow their original license terms.
+- 所有文件名均保持原样，方便追溯早期对话与版本引用。
+- `.blend1` 是 Blender 自动生成的备份，并非单独维护的开发分支。
+- 部分 MP4 是节奏、水面、编码或转场测试，并不是完整成片。
+- `paris_five_eras_blender_2min_v2.partial.mp4` 是有意保留的不完整历史渲染，原文件缺少 MP4 索引，无法正常播放。
+- 本归档不会重新授予第三方资产的许可；外部模型、纹理等内容仍须遵循其原始授权条款。
+
