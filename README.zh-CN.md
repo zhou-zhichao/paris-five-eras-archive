@@ -22,6 +22,10 @@
 - SHA-256 校验值见 [`SHA256SUMS.txt`](SHA256SUMS.txt)
 - 可供程序读取的元数据见 [`manifest.json`](manifest.json)
 
+## 源模型、脚本与数据
+
+可移植的源文件包收录在 [source-assets-2026-08-08 Release](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/tag/source-assets-2026-08-08) 中，共 187 个源文件，包括 31 个 GLB 模型、参考图、Blender 与 Minerva 脚本、巴黎地理数据、项目配置、文件清单和校验值。渲染帧、日志及可重新安装的依赖均未收入该包。
+
 ## 渲染视频
 
 点击缩略图即可下载 Release 中对应的 MP4 文件。

@@ -22,6 +22,10 @@ Public archive of the Blender scene history and rendered previews for a stylized
 - SHA-256 checksums in [SHA256SUMS.txt](SHA256SUMS.txt)
 - Machine-readable metadata in [manifest.json](manifest.json)
 
+## Source assets
+
+The portable source bundle is available in the [source-assets-2026-08-08 release](https://github.com/zhou-zhichao/paris-five-eras-archive/releases/tag/source-assets-2026-08-08). It contains 187 source files: 31 GLB models, reference images, Blender and Minerva scripts, Paris geographic data, project configuration, manifests and checksums. Generated frames, logs and reinstallable dependencies are excluded.
+
 ## Rendered videos
 
 Each thumbnail opens the downloadable MP4 attached to the release.
