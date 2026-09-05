@@ -27,6 +27,23 @@ python scripts/overlay.py --frames renders/final --out renders/paris_replica.mp4
 `python scripts/compare.py renders/final out.png 10,22,46,61,85,111,141,166` builds a
 side-by-side sheet against the reference video for QA.
 
+## Final render on the cluster (minerva, L4 GPUs)
+
+```
+blender -b cache/paris_replica.blend --python scripts/pack_blend.py -- --out cache/paris_replica_packed.blend
+python scripts/make_masks.py server/masks_2560x1440 2560 1440
+# one-time: bash server/setup_runtime.sh on minerva (Blender 4.5.10 + static ffmpeg)
+# run dir: /data/users/zhichaoz/blender-render/runs/<run>/{input,scripts,cache,fonts,frames,syslibs,...}
+#   input/paris_replica_packed.blend, scripts/{overlay,timeline,render_blueprint,make_masks}.py,
+#   cache/{scene_meta.json,scene_data.npz}, fonts/bahnschrift.ttf, frames/mask_*.png, syslibs/libXi.so.6*
+export PARIS_RUN_DIR=... WORKERS_PER_GPU=5 ARRAY_TASKS=8
+jid=$(sbatch --parsable --export=ALL render_array.sbatch)
+sbatch --export=ALL --dependency=afterany:$jid post.sbatch      # blueprint still + ffmpeg post -> output/*.mp4
+```
+
+Measured: ~23 s per 2560x1440 frame per worker (Geometry Nodes evaluation dominates), so
+8 L4 tasks x 5 workers finish the 5400 frames in about an hour.
+
 ## How it works
 
 * `timeline.py` – year(t) curve sampled from the reference every 2 s, era labels, sprout timing.
