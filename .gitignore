@@ -1,4 +1,7 @@
-# Repository metadata and preview images only
-*.blend
+__pycache__/
+reference/source.mp4
+output/
+review/
+data/
 *.blend1
-*.mp4
+vendor/
