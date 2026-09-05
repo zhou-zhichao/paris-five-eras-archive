@@ -38,7 +38,7 @@ SPACING = {k: v * BUILD_SCALE * 0.85 for k, v in {"celtic": 11.0, "roman": 12.5,
 HALF_WIDTH = {"motorway": 20, "trunk": 14, "primary": 11, "secondary": 8.5, "tertiary": 6.5, "residential": 5.0,
               "unclassified": 5.0, "living_street": 4.0, "pedestrian": 3.5, "roman": 5.0, "path": 2.5, "route": 6.5}
 ROAD_WIDTH = {"motorway": 26, "trunk": 20, "primary": 15, "secondary": 11, "tertiary": 8.5, "residential": 6.5,
-              "unclassified": 6.0, "living_street": 5.5, "pedestrian": 5.0, "roman": 7.0, "path": 4.0, "route": 9.0}
+              "unclassified": 6.0, "living_street": 5.5, "pedestrian": 5.0, "roman": 11.0, "path": 4.0, "route": 9.0}
 CLASS_RANK = {"motorway": 0, "route": 1, "trunk": 1, "primary": 2, "secondary": 3, "tertiary": 4, "roman": 4, "residential": 5,
               "unclassified": 5, "living_street": 6, "pedestrian": 6, "path": 7}
 
@@ -459,11 +459,11 @@ def chain(era, year, r, c):
         nxt = None
         u = rand.random()
         if e == "celtic":
-            d = rand.uniform(-52, -25); nxt = "roman"
+            d = rand.uniform(30, 95); nxt = "roman"
         elif e == "roman":
             if cite_mask[r, c]:
                 d = rand.uniform(470, 720); nxt = "medieval"
-            elif u < 0.85:
+            elif u < 0.94:
                 d = float(np.clip(rand.normal(430, 40), 360, 520))
             else:
                 d = rand.uniform(600, 1000)
@@ -534,8 +534,8 @@ for rd in roads:
             era = kit_for(year, r, c)
             sp = SPACING[era]
             keep = density[r, c]
-            if cls in ("trunk", "primary", "secondary") and year < 1500 and not core_mask[r, c]:
-                keep *= 0.35   # scattered roadside hamlets only
+            if cls in ("trunk", "primary", "secondary", "route") and year < 1500 and not core_mask[r, c]:
+                keep *= 0.2 if year < 1100 else 0.35   # scattered roadside hamlets only
             for side in (-1, 1):
                 if rand.random() > keep:
                     continue
@@ -571,7 +571,7 @@ GX = GX.ravel() + rand.uniform(-step * 0.4, step * 0.4, GX.size)
 GY = GY.ravel() + rand.uniform(-step * 0.4, step * 0.4, GY.size)
 rr, cc = cells(GX, GY)
 early_core = core_mask | roman_mask | cite_mask
-ok = early_core[rr, cc] & (~water[rr, cc]) & (~park[rr, cc]) & (~blocked[rr, cc]) & (birth[rr, cc] < 1500) & (d_road[rr, cc] > 9)
+ok = early_core[rr, cc] & (~water[rr, cc]) & (~park[rr, cc]) & (~blocked[rr, cc]) & (birth[rr, cc] < 1500) & (d_road[rr, cc] > 15)
 idx = np.nonzero(ok)[0]
 rand.shuffle(idx)
 for i in idx:
@@ -580,6 +580,8 @@ for i in idx:
     year = float(birth[r, c]) + rand.uniform(0, 25)
     if occ_death[r, c] > year:
         continue
+    if year < -52 and rand.random() < 0.55:
+        continue   # the celtic oppidum is loose: huts on a green island
     era = kit_for(year, r, c)
     sp = SPACING[era]
     ang = CARDO if roman_mask[r, c] and year < 480 else rand.uniform(0, math.pi)

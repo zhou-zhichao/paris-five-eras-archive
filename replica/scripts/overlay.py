@@ -4,11 +4,17 @@ usage: python overlay.py --frames renders/final --out renders/paris_replica.mp4 
 Frames are named frame_%05d.png.  If frames were rendered with a step (preview),
 each frame is held for `step` frames so the preview plays at real speed.
 """
-import argparse, glob, os, re, subprocess, sys
-import numpy as np
-from PIL import Image
+import argparse, glob, os, re, struct, subprocess, sys, zlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import timeline
+
+
+def png_size(path):
+    """(width, height) of a PNG without PIL."""
+    with open(path, "rb") as fh:
+        head = fh.read(24)
+    w, h = struct.unpack(">II", head[16:24])
+    return w, h
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--frames", required=True)
@@ -27,19 +33,16 @@ frames = [int(re.search(r"frame_(\d+)", f).group(1)) for f in files]
 if not frames:
     raise SystemExit("no frames")
 step = (frames[1] - frames[0]) if len(frames) > 1 else 1
-with Image.open(files[0]) as im:
-    W, H = im.size
+W, H = png_size(files[0])
 print("frames", len(frames), "step", step, "size", W, H)
 
 # ---------------------------------------------------------------- masks (focus band + vignette)
-yy, xx = np.mgrid[0:H, 0:W]
-v = yy / (H - 1); u = xx / (W - 1)
-# focus: sharp band around 45% height, blur increasing to top and bottom (tilt-shift)
-focus = np.clip((np.abs(v - 0.47) - 0.16) / 0.30, 0, 1) ** 1.4
-Image.fromarray((focus * 255).astype(np.uint8)).save(os.path.join(a.frames, "mask_focus.png"))
-r = np.sqrt(((u - 0.5) * 1.15) ** 2 + ((v - 0.5) * 1.35) ** 2)
-vig = 1.0 - 0.42 * np.clip((r - 0.45) / 0.55, 0, 1) ** 1.5
-Image.fromarray((vig * 255).astype(np.uint8)).convert("RGB").save(os.path.join(a.frames, "mask_vignette.png"))
+# Pre-made masks of the right size are used if present (render servers without numpy/PIL);
+# otherwise they are generated here.
+mf, mv = os.path.join(a.frames, "mask_focus.png"), os.path.join(a.frames, "mask_vignette.png")
+if not (os.path.exists(mf) and os.path.exists(mv) and png_size(mf) == (W, H)):
+    from make_masks import write_masks
+    write_masks(a.frames, W, H)
 
 # ---------------------------------------------------------------- ASS subtitles
 scale = H / 1440.0
