@@ -1,5 +1,5 @@
 {
-  "status": "rendering_revision_2",
+  "status": "complete",
   "branch": "codex/blender-reference-rebuild",
   "remote_run_directory": "/data/users/zhichaoz/blender-render/runs/reference_rebuild_20260905_r2",
   "previous_run_directory": "/data/users/zhichaoz/blender-render/runs/reference_rebuild_20260905",
@@ -10,11 +10,12 @@
   "previous_render_job": "257514",
   "render_tasks": 16,
   "gpu_per_render_task": "L4:1",
-  "render_status": "RUNNING",
-  "rendered_frames": 0,
+  "render_status": "COMPLETED",
+  "rendered_frames": 5400,
   "encode_job": "257547",
   "previous_encode_job": "257527",
-  "encode_status": "PENDING_DEPENDENCY",
+  "encode_status": "COMPLETED",
+  "remote_complete_decode_passed": true,
   "previous_movie": "output/paris_reference_rebuild_v1_1440p.mp4",
   "previous_movie_sha256": "a71300d5ceb3957d1a9512139a4c5454798a99d072ea3e33799e4b55ff11fd32",
   "video": "output/paris_reference_rebuild_1440p.mp4",
@@ -25,5 +26,11 @@
   "full_render_host": "minerva",
   "local_rendering": "individual inspection frames only",
   "scene_validation_passed": true,
-  "download_verified": false
+  "download_verified": true,
+  "movie_sha256": "53d7619625689f8f3de68ce4f3177858bc21080b4fafd37d8dd93127ca0d8b03",
+  "movie_bytes": 393853968,
+  "decoded_frames": 5400,
+  "visual_review_times_seconds": [6, 24, 54, 80, 127, 165, 171, 173, 176],
+  "comparison": "review/final-comparison.jpg",
+  "fidelity": "Visual reconstruction with approximate parcels, landmark silhouettes and camera poses; not frame-perfect equivalence."
 }

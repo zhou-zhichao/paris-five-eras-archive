@@ -8,12 +8,16 @@ Only visual source: `reference/source.mp4` (copied from the original workspace's
 
 ## Editable deliverables
 
+- `output/paris_reference_rebuild_1440p.mp4`: the complete revision 2 movie, 180 seconds, 2560 x 1440, 30 fps, silent.
 - `output/paris_reference_rebuild.blend`: the complete 5,400-frame Blender scene, including geometry-node construction dates, animated camera, era labels, decimal year counter, ending grid and fades. Fonts and imported mesh data are packed.
 - `output/original_building_library.blend`: inspection scene for the six main newly modeled house families.
 - `review/original-building-library.png`: close inspection of modeled roofs, windows, cornices and chimneys.
 - `review/final-*.jpg`: inspection frames extracted from the delivered movie.
 - `review/rebuild-*.png`: earlier scene development frames; these are not the final color grade.
 - `review/scene-validation.json`: timeline, packing and render-contract checks.
+- `review/movie-validation.json`: downloaded movie hash, decoded frame count and format validation.
+- `review/final-comparison.jpg`: nine matched source/movie times, including the ending wipe.
+- `review/minerva-accounting.txt`: completed Slurm jobs and their actual resource allocations.
 - `data/city.json`: reproducibly generated street parcels, building records, forest, railways and landmarks. Regenerate from the script below; this is intentionally not inherited city data.
 - `data/water_surface.json`: river triangulation with shoreline distance attributes for the pale-shore-to-teal transition.
 
@@ -51,6 +55,8 @@ Full-movie review of the first render identified excessive white water, an overl
 All Blender GPU jobs in this project must request `gpu:L4:1`. Check **all** RUNNING and PENDING jobs owned by `zhichaoz` before any new GPU submission or resubmission. Do not change unrelated jobs. L40S is prohibited for this project's future jobs.
 
 The remote EEVEE support shim and shared libraries are existing render infrastructure, symlinked into this run. They contain no reference visuals or inherited city content.
+
+All 16 revision 2 render tasks completed with exit code zero in approximately 11 minutes each. The encoder completed with 5,400 frames and zero duplicated or dropped frames, followed by a complete decode check. The CPU encoder was scheduled on the Neptune node without any GPU allocation; every Blender render task used L4.
 
 ## Production verification and recovery
 
