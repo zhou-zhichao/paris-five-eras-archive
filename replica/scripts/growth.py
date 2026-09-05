@@ -561,7 +561,33 @@ for rd in roads:
             s += sp * rand.uniform(1.0, 1.18)
 log("street buildings", len(B["x"]), placed_by_class)
 
-# fill-mode: suburban interiors (no minor streets in OSM outside Paris), slabs, La Defense
+# fill-mode A: dense historic core (Cite, Roman town, medieval walls) - block interiors get houses too
+core_fill = 0
+step = 14
+gx = np.arange(-2600 + step / 2, 2600, step)
+gy = np.arange(-2600 + step / 2, 2600, step)
+GX, GY = np.meshgrid(gx, gy)
+GX = GX.ravel() + rand.uniform(-step * 0.4, step * 0.4, GX.size)
+GY = GY.ravel() + rand.uniform(-step * 0.4, step * 0.4, GY.size)
+rr, cc = cells(GX, GY)
+early_core = core_mask | roman_mask | cite_mask
+ok = early_core[rr, cc] & (~water[rr, cc]) & (~park[rr, cc]) & (~blocked[rr, cc]) & (birth[rr, cc] < 1500) & (d_road[rr, cc] > 9)
+idx = np.nonzero(ok)[0]
+rand.shuffle(idx)
+for i in idx:
+    x, y = float(GX[i]), float(GY[i])
+    r, c = rr[i], cc[i]
+    year = float(birth[r, c]) + rand.uniform(0, 25)
+    if occ_death[r, c] > year:
+        continue
+    era = kit_for(year, r, c)
+    sp = SPACING[era]
+    ang = CARDO if roman_mask[r, c] and year < 480 else rand.uniform(0, math.pi)
+    place(x, y, ang, era, year, r, c, sp * 0.9)
+    core_fill += 1
+log("core fill buildings", core_fill)
+
+# fill-mode B: suburban interiors (no minor streets in OSM outside Paris), slabs, La Defense
 major_segs = []
 for rd in roads:
     if CLASS_RANK.get(rd["cls"], 9) <= 4 and rd.get("pieces"):
@@ -632,14 +658,18 @@ log("built_year raster")
 Tr = {k: [] for k in ("x", "y", "rot", "s", "death", "kind")}
 
 
-def scatter(step, keep, mask_fn, kinds, death_fn, jitter=0.45):
+clump = np.clip(0.55 + 0.6 * smooth_noise(12, 5), 0.15, 1.0).astype(np.float32)   # tree clumps / open fields
+
+
+def scatter(step, keep, mask_fn, kinds, death_fn, jitter=0.45, clumpy=False):
     gx = np.arange(X0 + step / 2, X1, step)
     gy = np.arange(Y0 + step / 2, Y1, step)
     GX, GY = np.meshgrid(gx, gy)
     GX = GX.ravel() + rand.uniform(-step * jitter, step * jitter, GX.size)
     GY = GY.ravel() + rand.uniform(-step * jitter, step * jitter, GY.size)
     rr, cc = cells(GX, GY)
-    ok = mask_fn(rr, cc) & (rand.random(GX.size) < keep)
+    p = keep * (clump[rr, cc] if clumpy else 1.0)
+    ok = mask_fn(rr, cc) & (rand.random(GX.size) < p)
     GX, GY, rr, cc = GX[ok], GY[ok], rr[ok], cc[ok]
     n = len(GX)
     Tr["x"].append(GX.astype(np.float32)); Tr["y"].append(GY.astype(np.float32))
@@ -661,8 +691,8 @@ def death_city(rr, cc, n):
     return d
 
 
-n1 = scatter(34, 0.72, lambda rr, cc: (~water[rr, cc]) & (~forest[rr, cc]) & (~blocked[rr, cc]) & (d_water[rr, cc] * CELL > 12),
-             [0, 1, 3, 4, 0, 1, 3, 4, 2], death_city)
+n1 = scatter(30, 0.95, lambda rr, cc: (~water[rr, cc]) & (~forest[rr, cc]) & (~blocked[rr, cc]) & (d_water[rr, cc] * CELL > 12),
+             [0, 1, 3, 4, 0, 1, 3, 4, 2], death_city, clumpy=True)
 n2 = scatter(22, 0.9, lambda rr, cc: forest[rr, cc] & (~water[rr, cc]), [0, 1, 3, 4, 2, 5, 0, 1],
              lambda rr, cc, n: np.full(n, 9999.0))
 n3 = scatter(24, 0.55, lambda rr, cc: park[rr, cc] & (~water[rr, cc]) & (~forest[rr, cc]), [0, 1, 3, 4, 0, 1],

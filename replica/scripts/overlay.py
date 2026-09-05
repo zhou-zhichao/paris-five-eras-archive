@@ -107,10 +107,10 @@ WIPE = 4.0
 end_t = timeline.DURATION if use_outro else total
 
 
-def post(src, dst, text):
-    """tilt-shift + vignette (+ subtitles) chain for stream label src -> dst"""
-    s = (f"[{src}]format=gbrp,split[{dst}a][{dst}b];[{dst}b]gblur=sigma={sigma:.2f}:steps=2[{dst}bl];"
-         f"[{dst}a][{dst}bl][1:v]maskedmerge[{dst}ts];[{dst}ts][2:v]blend=all_mode=multiply:all_opacity=1[{dst}vg];"
+def post(src, dst, text, m1, m2):
+    """tilt-shift + vignette (+ subtitles) chain for stream label src -> dst (m1/m2: mask stream labels)"""
+    s = (f"[{src}]fps={a.fps},format=gbrp,split[{dst}a][{dst}b];[{dst}b]gblur=sigma={sigma:.2f}:steps=2[{dst}bl];"
+         f"[{dst}a][{dst}bl][{m1}]maskedmerge[{dst}ts];[{dst}ts][{m2}]blend=all_mode=multiply:all_opacity=1[{dst}vg];"
          f"[{dst}vg]format=yuv420p")
     if text and not a.no_text:
         s += f",subtitles='{ass_ff}':fontsdir='{fontsdir}'"
@@ -118,15 +118,17 @@ def post(src, dst, text):
 
 
 inputs = ["-f", "concat", "-safe", "0", "-i", lst,
-          "-loop", "1", "-i", os.path.join(a.frames, "mask_focus.png"),
-          "-loop", "1", "-i", os.path.join(a.frames, "mask_vignette.png")]
-fc = post("0:v", "va", True)
+          "-loop", "1", "-framerate", str(a.fps), "-i", os.path.join(a.frames, "mask_focus.png"),
+          "-loop", "1", "-framerate", str(a.fps), "-i", os.path.join(a.frames, "mask_vignette.png")]
 if use_outro:
+    fc = "[1:v]format=gbrp,split[m1a][m1b];[2:v]format=gbrp,split[m2a][m2b];"
+    fc += post("0:v", "va", True, "m1a", "m2a")
     inputs += ["-loop", "1", "-framerate", str(a.fps), "-t", f"{end_t - timeline.OUTRO_START + 1:.2f}", "-i", blueprint]
-    fc += ";" + post("3:v", "vb", False)
+    fc += ";" + post("3:v", "vb", False, "m1b", "m2b")
     fc += f";[va][vb]xfade=transition=smoothleft:duration={WIPE}:offset={timeline.OUTRO_START:.2f}[vx]"
     last = "vx"
 else:
+    fc = "[1:v]format=gbrp[m1a];[2:v]format=gbrp[m2a];" + post("0:v", "va", True, "m1a", "m2a")
     last = "va"
 fc += f";[{last}]fade=t=in:st=0:d={timeline.FADE_IN_END},fade=t=out:st={max(0.0, end_t-2.5):.2f}:d=2.5,trim=duration={end_t:.2f}[out]"
 cmd = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "warning"] + inputs + [

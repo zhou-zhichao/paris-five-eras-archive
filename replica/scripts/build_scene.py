@@ -23,9 +23,9 @@ def log(*a): print(f"[build {time.time()-T0:6.1f}s]", *a, flush=True)
 
 FPS = timeline.FPS
 FRAMES = int(arg("--frames", str(timeline.TOTAL_FRAMES)))
-ROAD_W = 0.8       # road strip width multiplier
+ROAD_W = 0.62      # road strip width multiplier
 WALL_SCALE = 2.0   # city walls exaggerated like the buildings
-TREE_SCALE = 3.4
+TREE_SCALE = 3.9
 LM_SCALE = 1.25    # landmark exaggeration
 
 # ------------------------------------------------------------------ scene reset
@@ -329,7 +329,7 @@ log("trees", len(idx))
 
 # ------------------------------------------------------------------ roads / rail / walls
 MAT_ROAD = kits.material("road", (0.62, 0.54, 0.38), rough=0.95)
-MAT_ASPHALT = kits.material("asphalt", (0.40, 0.40, 0.40), rough=0.95)
+MAT_ASPHALT = kits.material("asphalt", (0.60, 0.58, 0.52), rough=0.95)
 MAT_RAIL = kits.material("rail", (0.30, 0.28, 0.26), rough=0.95)
 MAT_BRIDGE = kits.material("bridge", (0.70, 0.64, 0.50), rough=0.9)
 MAT_WALL = kits.material("wall", (0.72, 0.68, 0.58), rough=0.9)
@@ -362,7 +362,9 @@ land = ~bridge
 # land roads
 rp = roads[land]
 zmid0 = sample_h(rp[:, 0], rp[:, 1]) + 0.45; zmid1 = sample_h(rp[:, 2], rp[:, 3]) + 0.45
-verts, faces = strips(rp[:, :4], rp[:, 4] * ROAD_W, np.stack([zmid0, zmid1], axis=1))
+rw = rp[:, 4] * ROAD_W
+rw = np.where(rp[:, 8] < 0.5, rw * 1.8, rw)     # motorways / peripherique read as a wide light band like the film
+verts, faces = strips(rp[:, :4], rw, np.stack([zmid0, zmid1], axis=1))
 mi = np.where(rp[:, 8] < 0.5, 1, 0)
 ob = mesh_from_faces("ROADS", verts, faces, {"birth": rp[:, 5], "death": rp[:, 6]}, [MAT_ROAD, MAT_ASPHALT], mi)
 link(ob, C_ROADS); add_gn(ob, NG_FACE)
@@ -619,9 +621,9 @@ for entry in history.LANDMARKS:
 log("landmarks placed")
 
 # ------------------------------------------------------------------ camera
-VIEW_W = [(0, 1450), (6, 1650), (12, 1950), (22, 2900), (34, 4000), (46, 5000), (60, 6200), (72, 7400), (84, 8600),
-          (98, 9800), (110, 11000), (124, 12200), (141, 13800), (155, 16000), (166, 18500), (180, 19500)]
-PITCH = [(0, 34), (30, 37), (60, 41), (100, 46), (140, 51), (180, 54)]
+VIEW_W = [(0, 1250), (6, 1400), (12, 1650), (22, 2450), (34, 3300), (46, 4000), (60, 5000), (72, 6000), (84, 7300),
+          (98, 8500), (110, 9800), (124, 11400), (141, 13200), (155, 15600), (166, 18300), (180, 19300)]
+PITCH = [(0, 31), (30, 34), (60, 39), (100, 45), (140, 50), (180, 53)]
 TARGET = [(0, -150, 150), (40, -150, 250), (90, -300, 500), (166, -500, 800), (180, -500, 800)]
 HEADING = math.radians(45)   # camera looks north-east
 LENS = 35.0
@@ -667,9 +669,9 @@ log("camera")
 
 # ------------------------------------------------------------------ light / world / render
 sun = bpy.data.objects.new("Sun", bpy.data.lights.new("Sun", 'SUN')); link(sun, C_ENV)
-sun.data.energy = 4.0; sun.data.angle = math.radians(1.5); sun.data.color = (1.0, 0.95, 0.85)
+sun.data.energy = 4.0; sun.data.angle = math.radians(1.5); sun.data.color = (1.0, 0.93, 0.80)
 sun.rotation_euler = (math.radians(55), 0, math.radians(205))
-bg.inputs[0].default_value = (0.64, 0.63, 0.58, 1); bg.inputs[1].default_value = 0.42
+bg.inputs[0].default_value = (0.66, 0.62, 0.54, 1); bg.inputs[1].default_value = 0.42
 bpy.context.view_layer.use_pass_mist = True
 
 scene.render.engine = 'BLENDER_EEVEE_NEXT'
