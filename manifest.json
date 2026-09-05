@@ -1,0 +1,821 @@
+[
+  {
+    "name": "encode_test_perceptual.mp4",
+    "kind": "mp4",
+    "version": "Unversioned",
+    "source_relative_path": "minerva_render/encode_test_perceptual.mp4",
+    "size_bytes": 1112271,
+    "sha256": "26c7fbed0ad832089cdf448cfeebefa6d7d33547221112d23abb3a1439ad0e86",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/encode_test_perceptual.mp4"
+  },
+  {
+    "name": "encode_test.mp4",
+    "kind": "mp4",
+    "version": "Unversioned",
+    "source_relative_path": "minerva_render/encode_test.mp4",
+    "size_bytes": 743488,
+    "sha256": "d775dfce38a6c66149581cc00d49441883d051c3886a05dd8ac89d6e5e228e92",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/encode_test.mp4"
+  },
+  {
+    "name": "medieval_transition_2min_timing.mp4",
+    "kind": "mp4",
+    "version": "Unversioned",
+    "source_relative_path": "previews/medieval_transition_2min_timing.mp4",
+    "size_bytes": 3949719,
+    "sha256": "6c58ad9d8db09cfeba9d60ab801f00cc8f292bd9e2b6379091d5857867250981",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/medieval_transition_2min_timing.mp4"
+  },
+  {
+    "name": "opening_motion.mp4",
+    "kind": "mp4",
+    "version": "Unversioned",
+    "source_relative_path": "previews/opening_motion.mp4",
+    "size_bytes": 3206668,
+    "sha256": "d29e55dccbc2f2f65f6b8a4d5f194c765b68be9d465c123c623128adc6f28f2d",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/opening_motion.mp4"
+  },
+  {
+    "name": "paris_5_eras_batched_sprouts_v5.blend",
+    "kind": "blend",
+    "version": "v5",
+    "source_relative_path": "blender/paris_5_eras_batched_sprouts_v5.blend",
+    "size_bytes": 114590218,
+    "sha256": "63a5c8c8d71cdae099bff72e3c26c69cbb1c7556f3cf192b74246f3f04b966c9",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_batched_sprouts_v5.blend"
+  },
+  {
+    "name": "paris_5_eras_batched_v4.blend",
+    "kind": "blend",
+    "version": "v4",
+    "source_relative_path": "blender/paris_5_eras_batched_v4.blend",
+    "size_bytes": 114543894,
+    "sha256": "7a4e07ce46d896c78dee73bcebf221822fce3fa467748f55ba31863eafd8ccef",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_batched_v4.blend"
+  },
+  {
+    "name": "paris_5_eras_before_batched_sprouts.blend",
+    "kind": "blend",
+    "version": "Unversioned",
+    "source_relative_path": "blender/paris_5_eras_before_batched_sprouts.blend",
+    "size_bytes": 114816684,
+    "sha256": "850c2b311616e40da6e63c42b61a313237317f5dcc2f03a198329b06e702dc19",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_before_batched_sprouts.blend"
+  },
+  {
+    "name": "paris_5_eras_final_v9.blend",
+    "kind": "blend",
+    "version": "v9",
+    "source_relative_path": "blender/paris_5_eras_final_v9.blend",
+    "size_bytes": 155434204,
+    "sha256": "c94c7d2662e85a18fd1d7227fac51e71fb98b98c639da9ff0062e7b9585114e8",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_final_v9.blend"
+  },
+  {
+    "name": "paris_5_eras_landmarks_bright_v7.blend",
+    "kind": "blend",
+    "version": "v7",
+    "source_relative_path": "blender/paris_5_eras_landmarks_bright_v7.blend",
+    "size_bytes": 156136624,
+    "sha256": "f9e566e9503eb695493eaa354fbb166b96d3afe78f384b715850c00d37a26c25",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_landmarks_bright_v7.blend"
+  },
+  {
+    "name": "paris_5_eras_landmarks_bright_v8.blend",
+    "kind": "blend",
+    "version": "v8",
+    "source_relative_path": "blender/paris_5_eras_landmarks_bright_v8.blend",
+    "size_bytes": 155417468,
+    "sha256": "22a7163352e83f2b159b5b220e94e9db191fd8a8cc8564095d8393330065dc31",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_landmarks_bright_v8.blend"
+  },
+  {
+    "name": "paris_5_eras_landmarks_v6.blend",
+    "kind": "blend",
+    "version": "v6",
+    "source_relative_path": "blender/paris_5_eras_landmarks_v6.blend",
+    "size_bytes": 156166076,
+    "sha256": "697cc2950b72a7a9858d097060a9459244fa3d6fd81e16a187feab5511843ce6",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_landmarks_v6.blend"
+  },
+  {
+    "name": "paris_5_eras_minerva_1080p.blend",
+    "kind": "blend",
+    "version": "Unversioned",
+    "source_relative_path": "minerva_render/paris_5_eras_minerva_1080p.blend",
+    "size_bytes": 114530134,
+    "sha256": "a6edf998b0b6fe2b03bcf4c04887d01651dca27dd16b26c8fd7995388cfd335f",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_minerva_1080p.blend"
+  },
+  {
+    "name": "paris_5_eras_pre_density_retime.blend",
+    "kind": "blend",
+    "version": "Unversioned",
+    "source_relative_path": "blender/paris_5_eras_pre_density_retime.blend",
+    "size_bytes": 524063808,
+    "sha256": "8f719aa09aba819a6bcf823bfa59a4afe02ecc691d4e95c56bc5094d19091247",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_pre_density_retime.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v16.blend",
+    "kind": "blend",
+    "version": "v16",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v16.blend",
+    "size_bytes": 157861464,
+    "sha256": "bf0300cc5584a1ccfab427054f72f665fc7a072cfd8a929128c0f5fc28ecf245",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v16.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v16.blend1",
+    "kind": "blend1",
+    "version": "v16",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v16.blend1",
+    "size_bytes": 157853311,
+    "sha256": "1829166a99f04c0b88e58ed04b8fb0b99c201ea9060a787233fdda8e71335d9e",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v16.blend1"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v17.blend",
+    "kind": "blend",
+    "version": "v17",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v17.blend",
+    "size_bytes": 157725578,
+    "sha256": "e4762b8f93d998d22202f9e665877a34f9ef85f8daef8e9a33574ac4b89630ae",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v17.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v17.blend1",
+    "kind": "blend1",
+    "version": "v17",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v17.blend1",
+    "size_bytes": 157733544,
+    "sha256": "907de42659f7d667d4979d967f132c621b936e82b5019235c9df5ef6e95af5a0",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v17.blend1"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v18.blend",
+    "kind": "blend",
+    "version": "v18",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v18.blend",
+    "size_bytes": 158040885,
+    "sha256": "478f21c0a830c32f9c35ac152c157967aa98a00e9daae3ba0b3ee5a4aa3fd1b4",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v18.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v18.blend1",
+    "kind": "blend1",
+    "version": "v18",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v18.blend1",
+    "size_bytes": 158052113,
+    "sha256": "283936d7973cf28d93db210dcf7495cb287fcf6af1f96bc2748ee361e62beebd",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v18.blend1"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v19.blend",
+    "kind": "blend",
+    "version": "v19",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v19.blend",
+    "size_bytes": 185698647,
+    "sha256": "f4e2a75f108fc3a2c9624fb2072d8521f0725e9f0734965c3b4f7fa493927976",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v19.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v20.blend",
+    "kind": "blend",
+    "version": "v20",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v20.blend",
+    "size_bytes": 185676741,
+    "sha256": "13c9657abe9a92a19a557c0c67624656c0d5ac1f30546c4288778d4d3098ed06",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v20.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v21.blend",
+    "kind": "blend",
+    "version": "v21",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v21.blend",
+    "size_bytes": 291770990,
+    "sha256": "b958d5b6db6e0f5c44cc2c65516beb2e0160769070cfe616581233e5c8f58ce4",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v21.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v22.blend",
+    "kind": "blend",
+    "version": "v22",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v22.blend",
+    "size_bytes": 311286884,
+    "sha256": "9deeba50b2a5ec9b38ddfbad4db953575a6f464d7278d96610ddd0e89e97b6ec",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v22.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v23.blend",
+    "kind": "blend",
+    "version": "v23",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v23.blend",
+    "size_bytes": 316460621,
+    "sha256": "51e1e5507b04a2423ad76de117d8f4505bd857a87135aa7a3f609e203f362d88",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v23.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v24.blend",
+    "kind": "blend",
+    "version": "v24",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v24.blend",
+    "size_bytes": 341988208,
+    "sha256": "2c3a89128142b3a8a423544e86c6f709d1c3e79fc350f108f0fa654c99c983ae",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v24.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v25.blend",
+    "kind": "blend",
+    "version": "v25",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v25.blend",
+    "size_bytes": 355120257,
+    "sha256": "66c22d1fed8b375b7260661c8508005fb76af9f9a2e2d208b67b3c1c00a0ecdd",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v25.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v26.blend",
+    "kind": "blend",
+    "version": "v26",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v26.blend",
+    "size_bytes": 355135357,
+    "sha256": "3f42de8db3e04b06e746b9a2187d0cd04c6473a22ff3ea7c04ed15bd01b53c59",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v26.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v27.blend",
+    "kind": "blend",
+    "version": "v27",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v27.blend",
+    "size_bytes": 355132020,
+    "sha256": "1b6757219967c92ed4715c36320b3aa6ac8fcad4cbc047da1fdc31662a760b14",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v27.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v28.blend",
+    "kind": "blend",
+    "version": "v28",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v28.blend",
+    "size_bytes": 355132668,
+    "sha256": "fc2a89c57c3018dac522886dcc7d34b7666f205a7a3c4c2eb6178648e92ba67c",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v28.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v29.blend",
+    "kind": "blend",
+    "version": "v29",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v29.blend",
+    "size_bytes": 355068282,
+    "sha256": "748a46c36a35284d37b5dc5ca0c540d086f492d4158bc1f9aa0035188f19a582",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v29.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v30.blend",
+    "kind": "blend",
+    "version": "v30",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v30.blend",
+    "size_bytes": 355328144,
+    "sha256": "89d677011842a6654575c4d17d0a320a523d07196e29f3558574f441dc28f572",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v30.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v31.blend",
+    "kind": "blend",
+    "version": "v31",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v31.blend",
+    "size_bytes": 400132395,
+    "sha256": "0096a28acd3b98e64ec7bec4762ca16515e1694f035ddd701c0aaa2671790134",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v31.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v32.blend",
+    "kind": "blend",
+    "version": "v32",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v32.blend",
+    "size_bytes": 457294639,
+    "sha256": "bbd2679fec86be702c1efddb6091725a1db1614d19dedb6d270ce9405b437463",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v32.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v33.blend",
+    "kind": "blend",
+    "version": "v33",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v33.blend",
+    "size_bytes": 520078678,
+    "sha256": "0c2808ced30e1b2f4fb48640135f83fdc0e6d5fc40758a847d5ea165c68fa348",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v33.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v34.blend",
+    "kind": "blend",
+    "version": "v34",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v34.blend",
+    "size_bytes": 551344991,
+    "sha256": "634cb445b40d5fc36e1d81192e7092f9f01a2677276cd95b9d614e2b23f138ad",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v34.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v35.blend",
+    "kind": "blend",
+    "version": "v35",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v35.blend",
+    "size_bytes": 557366085,
+    "sha256": "912fd3181e84d09770bdf78f96f891f5b302ceddb4ae34374f48db7e2fca303b",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v35.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v36.blend",
+    "kind": "blend",
+    "version": "v36",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v36.blend",
+    "size_bytes": 557331235,
+    "sha256": "385bad3ea4878817be1fa077e7fb1670cefe3417fa5af64bc118e37a291e7f24",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v36.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v37.blend",
+    "kind": "blend",
+    "version": "v37",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v37.blend",
+    "size_bytes": 556713388,
+    "sha256": "f2a041d65a793becb7849c5981ae06e4f28cd7b19c013b0ceaadf674195416a0",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v37.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v38_trellis_landmarks.blend",
+    "kind": "blend",
+    "version": "v38",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v38_trellis_landmarks.blend",
+    "size_bytes": 590936308,
+    "sha256": "94776ac1f748280b59e7e533ed769bd919ff86a22993270abd0a4dad3a67f9b1",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v38_trellis_landmarks.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v39_trellis_landmarks.blend",
+    "kind": "blend",
+    "version": "v39",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v39_trellis_landmarks.blend",
+    "size_bytes": 536259130,
+    "sha256": "ba845b1b1c7a309d62565dedbabd8b8224cd070ea6634a4f15d892f0b623a96d",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v39_trellis_landmarks.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v40_trellis_landmarks.blend",
+    "kind": "blend",
+    "version": "v40",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v40_trellis_landmarks.blend",
+    "size_bytes": 591154190,
+    "sha256": "c31daaa53029be800cfab330f18612c193e73c2a39caf903535a5ef8b91433b1",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v40_trellis_landmarks.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v41_trellis_landmarks.blend",
+    "kind": "blend",
+    "version": "v41",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v41_trellis_landmarks.blend",
+    "size_bytes": 591035343,
+    "sha256": "c31641baeefed814062c0690dd04a602da1741500eb3d274c60e38735c8d12a2",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v41_trellis_landmarks.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v42_trellis_bridge_fixed.blend",
+    "kind": "blend",
+    "version": "v42",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v42_trellis_bridge_fixed.blend",
+    "size_bytes": 591070167,
+    "sha256": "459d458f4144a595ee9549fecbd60b9f63ef229f96a8750a2e0f2862cc9bb643",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v42_trellis_bridge_fixed.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v43_landmark_clearance_fixed.blend",
+    "kind": "blend",
+    "version": "v43",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v43_landmark_clearance_fixed.blend",
+    "size_bytes": 590347879,
+    "sha256": "8a6136ead7b434119600776975fe77d60034cb9f29e3c7dc06f9bc9080723554",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v43_landmark_clearance_fixed.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_medieval_v44_temple_enclosure.blend",
+    "kind": "blend",
+    "version": "v44",
+    "source_relative_path": "blender/paris_5_eras_roman_medieval_v44_temple_enclosure.blend",
+    "size_bytes": 589154354,
+    "sha256": "340e351a602ed2a75eff9512676e9c2ce3ff0b53d9e6a59f74c5f7b862940981",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_medieval_v44_temple_enclosure.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_urbanism_v15.blend",
+    "kind": "blend",
+    "version": "v15",
+    "source_relative_path": "blender/paris_5_eras_roman_urbanism_v15.blend",
+    "size_bytes": 157051657,
+    "sha256": "9958c71fb231e662bee55ea463bc1983c0e31284a893258a950a8527a1077f61",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_urbanism_v15.blend"
+  },
+  {
+    "name": "paris_5_eras_roman_urbanism_v15.blend1",
+    "kind": "blend1",
+    "version": "v15",
+    "source_relative_path": "blender/paris_5_eras_roman_urbanism_v15.blend1",
+    "size_bytes": 156970176,
+    "sha256": "6b07dc11c7c473cd70de6ce0032c6482adf8bf2d574126ce36b0cf647984bd6d",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_roman_urbanism_v15.blend1"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3_bright_v10b.blend",
+    "kind": "blend",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3_bright_v10b.blend",
+    "size_bytes": 156259920,
+    "sha256": "763530e676abb19095e9a608231af811df53a2ccc10ff4faa3a0ec4007cebb93",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3_bright_v10b.blend"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3_bright_v10c.blend",
+    "kind": "blend",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3_bright_v10c.blend",
+    "size_bytes": 155530107,
+    "sha256": "d237f579364b457ca32546095ae44f87dd7032933b28d18a99cee413d75445ee",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3_bright_v10c.blend"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3_landmarks_v10a.blend",
+    "kind": "blend",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3_landmarks_v10a.blend",
+    "size_bytes": 156280687,
+    "sha256": "608ef9d74c5c341eb1da4d80360112c77bd8289aa95757f5ae054fc89c47dfb2",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3_landmarks_v10a.blend"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3_lit_v10d.blend",
+    "kind": "blend",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3_lit_v10d.blend",
+    "size_bytes": 155533147,
+    "sha256": "e8e61a0d8433f7068dde95aad76dd482f0dd8c002c6757a6734fb0c9ff2b3525",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3_lit_v10d.blend"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3_reflective_v10.blend",
+    "kind": "blend",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3_reflective_v10.blend",
+    "size_bytes": 155518749,
+    "sha256": "60337e67c406b70311e42e33a5f6ee23a609851583f246379bef7835da0183d3",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3_reflective_v10.blend"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3_reflective_v11.blend",
+    "kind": "blend",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3_reflective_v11.blend",
+    "size_bytes": 155531158,
+    "sha256": "3a3ebec15c9851443f81aa516431289ec2dc8927e66d3ac2dc2cfd17f9c53753",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3_reflective_v11.blend"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3_reflective_v12.blend",
+    "kind": "blend",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3_reflective_v12.blend",
+    "size_bytes": 155527774,
+    "sha256": "2674c8583b318b9c2c3cfcefc2a1ce83d46c910241bad92117739de8b76ba055",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3_reflective_v12.blend"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3_reflective_v13.blend",
+    "kind": "blend",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3_reflective_v13.blend",
+    "size_bytes": 155516429,
+    "sha256": "0912f4f6106760afb7eefad3a89072f1aac53a50eeb764e7b84bc3a77b0d6fb3",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3_reflective_v13.blend"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3_reflective_v14.blend",
+    "kind": "blend",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3_reflective_v14.blend",
+    "size_bytes": 155513093,
+    "sha256": "c56b6d42e6c4e393a99f499c52acdd1d95db32cc0d2573020946b866f6b637ed",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3_reflective_v14.blend"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3.blend",
+    "kind": "blend",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3.blend",
+    "size_bytes": 114816684,
+    "sha256": "850c2b311616e40da6e63c42b61a313237317f5dcc2f03a198329b06e702dc19",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3.blend"
+  },
+  {
+    "name": "paris_5_eras_sprout_v3.blend1",
+    "kind": "blend1",
+    "version": "v3",
+    "source_relative_path": "blender/paris_5_eras_sprout_v3.blend1",
+    "size_bytes": 114801549,
+    "sha256": "c4befebf9a4e9dd92982d851950a32cbc2b6b7086dfce037ec95f7059b74e6c3",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_sprout_v3.blend1"
+  },
+  {
+    "name": "paris_5_eras_v1_before_growth_rework.blend",
+    "kind": "blend",
+    "version": "v1",
+    "source_relative_path": "blender/paris_5_eras_v1_before_growth_rework.blend",
+    "size_bytes": 524063808,
+    "sha256": "6e31991ec07d69cb80d68077ca89bf73dee928e0ececc4ec390605ee2760a439",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_v1_before_growth_rework.blend"
+  },
+  {
+    "name": "paris_5_eras_v2_before_rail_land_fix.blend",
+    "kind": "blend",
+    "version": "v2",
+    "source_relative_path": "blender/paris_5_eras_v2_before_rail_land_fix.blend",
+    "size_bytes": 548004400,
+    "sha256": "b6bf251990a55ed189abe82b2e3920c46a1b5106e86a0d79ff7ce2893946b4a2",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_v2_before_rail_land_fix.blend"
+  },
+  {
+    "name": "paris_5_eras_v2_pre_tail_stretch.blend",
+    "kind": "blend",
+    "version": "v2",
+    "source_relative_path": "blender/paris_5_eras_v2_pre_tail_stretch.blend",
+    "size_bytes": 548004400,
+    "sha256": "e368f5a69a70b1a53439361c00e0462309952977f7c90b46d5496729a6bdf699",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_v2_pre_tail_stretch.blend"
+  },
+  {
+    "name": "paris_5_eras_v2_rail_land_fix_pre_retime.blend",
+    "kind": "blend",
+    "version": "v2",
+    "source_relative_path": "blender/paris_5_eras_v2_rail_land_fix_pre_retime.blend",
+    "size_bytes": 547889043,
+    "sha256": "23c0484bd35c45586e1c1ae5e447f6697ff315ca91e9533e555b6aed8c8b8c43",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_v2_rail_land_fix_pre_retime.blend"
+  },
+  {
+    "name": "paris_5_eras_v2_slow_growth_backup.blend",
+    "kind": "blend",
+    "version": "v2",
+    "source_relative_path": "blender/paris_5_eras_v2_slow_growth_backup.blend",
+    "size_bytes": 547889043,
+    "sha256": "f584ae47b192f57db1ae000316e59f2e52cf8915eb749a1fc81a6b8ed0714221",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras_v2_slow_growth_backup.blend"
+  },
+  {
+    "name": "paris_5_eras.blend",
+    "kind": "blend",
+    "version": "Unversioned",
+    "source_relative_path": "blender/paris_5_eras.blend",
+    "size_bytes": 554773731,
+    "sha256": "bd9d15e892fac70fd074593098c423ceb28998b5755683a0491129da853a97d8",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras.blend"
+  },
+  {
+    "name": "paris_5_eras.blend1",
+    "kind": "blend1",
+    "version": "Unversioned",
+    "source_relative_path": "blender/paris_5_eras.blend1",
+    "size_bytes": 114816684,
+    "sha256": "850c2b311616e40da6e63c42b61a313237317f5dcc2f03a198329b06e702dc19",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_5_eras.blend1"
+  },
+  {
+    "name": "paris_base_before_windows_eiffel.mp4",
+    "kind": "mp4",
+    "version": "Unversioned",
+    "source_relative_path": "assets/paris_base_before_windows_eiffel.mp4",
+    "size_bytes": 53975326,
+    "sha256": "973a880d8e2c6211b69040d583487b3f57da9dc7d7d4fe25cbe32b2729448c33",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_base_before_windows_eiffel.mp4"
+  },
+  {
+    "name": "paris_base.mp4",
+    "kind": "mp4",
+    "version": "Unversioned",
+    "source_relative_path": "assets/paris_base.mp4",
+    "size_bytes": 54885662,
+    "sha256": "fe3ae5eaef275162eeac33c7a2737aa100484f981c1f2fe5680401b826b032b2",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_base.mp4"
+  },
+  {
+    "name": "paris_five_eras_blender_2min_1080p_minerva.mp4",
+    "kind": "mp4",
+    "version": "Unversioned",
+    "source_relative_path": "renders/paris_five_eras_blender_2min_1080p_minerva.mp4",
+    "size_bytes": 566340016,
+    "sha256": "c5c7a914865e8044cdade43c883ddd97ec0c20debc075cb2f287f9d24f26f83a",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min_1080p_minerva.mp4"
+  },
+  {
+    "name": "paris_five_eras_blender_2min_v2.partial.mp4",
+    "kind": "mp4",
+    "version": "v2",
+    "source_relative_path": "renders/paris_five_eras_blender_2min_v2.partial.mp4",
+    "size_bytes": 82575408,
+    "sha256": "e1b8d30961b1943097d23942116897719c7380ea05e4f0d093ece0b2a56870bb",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min_v2.partial.mp4"
+  },
+  {
+    "name": "paris_five_eras_blender_2min.mp4",
+    "kind": "mp4",
+    "version": "Unversioned",
+    "source_relative_path": "renders/paris_five_eras_blender_2min.mp4",
+    "size_bytes": 217277522,
+    "sha256": "68e13e849833a45e7205891ba73d84c888690bb0c5009eb1fa8b7ae2f8499da9",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_2min.mp4"
+  },
+  {
+    "name": "paris_five_eras_blender_v4.mp4",
+    "kind": "mp4",
+    "version": "v4",
+    "source_relative_path": "renders/paris_five_eras_blender_v4.mp4",
+    "size_bytes": 54885662,
+    "sha256": "fe3ae5eaef275162eeac33c7a2737aa100484f981c1f2fe5680401b826b032b2",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_blender_v4.mp4"
+  },
+  {
+    "name": "paris_five_eras_sprout_v14_1080p_final.mp4",
+    "kind": "mp4",
+    "version": "v14",
+    "source_relative_path": "renders/paris_five_eras_sprout_v14_1080p_final.mp4",
+    "size_bytes": 310098955,
+    "sha256": "55b1f5a73f1e98a740660e3df3aeb0168759683a0cfb198815cd7c4b8009de16",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_sprout_v14_1080p_final.mp4"
+  },
+  {
+    "name": "paris_five_eras_sprout_v14_1080p_raw.mp4",
+    "kind": "mp4",
+    "version": "v14",
+    "source_relative_path": "renders/paris_five_eras_sprout_v14_1080p_raw.mp4",
+    "size_bytes": 497888503,
+    "sha256": "930e1e8762a32f642b5c9624c59c82b3afa173af9bbd80f3856048534f8104a5",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_sprout_v14_1080p_raw.mp4"
+  },
+  {
+    "name": "paris_five_eras_sprout_v3_720p.mp4",
+    "kind": "mp4",
+    "version": "v3",
+    "source_relative_path": "previews/paris_five_eras_sprout_v3_720p.mp4",
+    "size_bytes": 197502337,
+    "sha256": "00769b68228cc9047fa6962f4fd7e48778e4565918b55338706832b00aa29e80",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_sprout_v3_720p.mp4"
+  },
+  {
+    "name": "paris_five_eras_timing_v2.mp4",
+    "kind": "mp4",
+    "version": "v2",
+    "source_relative_path": "previews/paris_five_eras_timing_v2.mp4",
+    "size_bytes": 27848753,
+    "sha256": "ce5d2219f7b59203d415619fa3b023cb16fd533ecc1d61de64361da56751797a",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_timing_v2.mp4"
+  },
+  {
+    "name": "paris_five_eras_v3.mp4",
+    "kind": "mp4",
+    "version": "v3",
+    "source_relative_path": "renders/paris_five_eras_v3.mp4",
+    "size_bytes": 90670708,
+    "sha256": "9382dc337ae2e750ae7cbd40c422d107f6e773d13761acd39118e018dd58179f",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_v3.mp4"
+  },
+  {
+    "name": "paris_five_eras_v44_temple_enclosure_720p.mp4",
+    "kind": "mp4",
+    "version": "v44",
+    "source_relative_path": "previews/paris_five_eras_v44_temple_enclosure_720p.mp4",
+    "size_bytes": 173345453,
+    "sha256": "6959cc2911f4db066c725fbc9c500f4f8da321379e058602e3047852d5a156fc",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_v44_temple_enclosure_720p.mp4"
+  },
+  {
+    "name": "paris_five_eras_v9_1080p_final.mp4",
+    "kind": "mp4",
+    "version": "v9",
+    "source_relative_path": "renders/paris_five_eras_v9_1080p_final.mp4",
+    "size_bytes": 303237647,
+    "sha256": "37fd8c73bea61aefe71c962e1624ea9a7768a03841e00312eb4f018133cbc826",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_v9_1080p_final.mp4"
+  },
+  {
+    "name": "paris_five_eras_v9_1080p_raw.mp4",
+    "kind": "mp4",
+    "version": "v9",
+    "source_relative_path": "renders/paris_five_eras_v9_1080p_raw.mp4",
+    "size_bytes": 493642484,
+    "sha256": "b323feff89e769ee0cbba0dc4ef075a27ed917426b459e0e4d76e13372b136fa",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_v9_1080p_raw.mp4"
+  },
+  {
+    "name": "paris_five_eras_v9_preview_360p_raw.mp4",
+    "kind": "mp4",
+    "version": "v9",
+    "source_relative_path": "renders/paris_five_eras_v9_preview_360p_raw.mp4",
+    "size_bytes": 66979601,
+    "sha256": "1065f60a308b218d7839668408632568734aa43d1ece711f1285a600ee171f5c",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_v9_preview_360p_raw.mp4"
+  },
+  {
+    "name": "paris_five_eras_v9_preview_360p.mp4",
+    "kind": "mp4",
+    "version": "v9",
+    "source_relative_path": "renders/paris_five_eras_v9_preview_360p.mp4",
+    "size_bytes": 55896478,
+    "sha256": "349c5e5b24719a9535bbbe8975eafcd2bcb96ae3dd410bd89f9775a6effa32dc",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_five_eras_v9_preview_360p.mp4"
+  },
+  {
+    "name": "paris_roman_medieval_v16_720p.mp4",
+    "kind": "mp4",
+    "version": "v16",
+    "source_relative_path": "previews/paris_roman_medieval_v16_720p.mp4",
+    "size_bytes": 47559210,
+    "sha256": "ae957f2b567b91e87f7710b6c31c13209e89447d200dc4c1478c961cd1719f93",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_roman_medieval_v16_720p.mp4"
+  },
+  {
+    "name": "paris_roman_medieval_v17_720p.mp4",
+    "kind": "mp4",
+    "version": "v17",
+    "source_relative_path": "previews/paris_roman_medieval_v17_720p.mp4",
+    "size_bytes": 77373489,
+    "sha256": "1759ec447e07e25faa0e9926188db840d0f4bf2b9b5d74dfdf042b6c6fad6fab",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_roman_medieval_v17_720p.mp4"
+  },
+  {
+    "name": "paris_roman_medieval_v17_watercheck_f1430_1499.mp4",
+    "kind": "mp4",
+    "version": "v17",
+    "source_relative_path": "previews/paris_roman_medieval_v17_watercheck_f1430_1499.mp4",
+    "size_bytes": 2208462,
+    "sha256": "9e2b7d888d20a3adb845deb9ed45969119395bb5c55423ee4e646806fc6b8cbb",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_roman_medieval_v17_watercheck_f1430_1499.mp4"
+  },
+  {
+    "name": "paris_roman_medieval_v18_720p.mp4",
+    "kind": "mp4",
+    "version": "v18",
+    "source_relative_path": "previews/paris_roman_medieval_v18_720p.mp4",
+    "size_bytes": 55286429,
+    "sha256": "2365621a4099682266d2e9a4d5e75d25e460f76c7b6df53de06306d4e5c146a3",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_roman_medieval_v18_720p.mp4"
+  },
+  {
+    "name": "paris_roman_medieval_v20_1080p.mp4",
+    "kind": "mp4",
+    "version": "v20",
+    "source_relative_path": "renders/paris_roman_medieval_v20_1080p.mp4",
+    "size_bytes": 155596801,
+    "sha256": "a6b34d536e81659d95aee0291fce46f77262ad18a278f3ba5aa2cf61757443cf",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_roman_medieval_v20_1080p.mp4"
+  },
+  {
+    "name": "paris_roman_medieval_v30_720p.mp4",
+    "kind": "mp4",
+    "version": "v30",
+    "source_relative_path": "previews/paris_roman_medieval_v30_720p.mp4",
+    "size_bytes": 62465147,
+    "sha256": "09d5df4b9669f7f72313c2f0534fca222e66bd79ae772ea654547b6530c8b629",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_roman_medieval_v30_720p.mp4"
+  },
+  {
+    "name": "paris_roman_medieval_v37_720p.mp4",
+    "kind": "mp4",
+    "version": "v37",
+    "source_relative_path": "previews/paris_roman_medieval_v37_720p.mp4",
+    "size_bytes": 67475122,
+    "sha256": "d921e420a072bff371c9160e7a2136f7f2cc6f947a7c52210858f1dd3a11f02d",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/paris_roman_medieval_v37_720p.mp4"
+  },
+  {
+    "name": "sprout_v3_opening_segment.mp4",
+    "kind": "mp4",
+    "version": "v3",
+    "source_relative_path": "previews/sprout_v3_opening_segment.mp4",
+    "size_bytes": 2025380,
+    "sha256": "b2849113abc29c834e04759b88fe170295e2f341273708d14e64de127777487d",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/sprout_v3_opening_segment.mp4"
+  },
+  {
+    "name": "timing_30f.mp4",
+    "kind": "mp4",
+    "version": "Unversioned",
+    "source_relative_path": "previews/medieval_urbanism_v16/timing_30f.mp4",
+    "size_bytes": 1014375,
+    "sha256": "7cace30d9fd33353c0086577913e412238a9bdc1dfd334a6e1d78edd5a6a9c3a",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/timing_30f.mp4"
+  },
+  {
+    "name": "v18_water_motion_qa.mp4",
+    "kind": "mp4",
+    "version": "v18",
+    "source_relative_path": "previews/environment_v18_flicker_qa_760_789/v18_water_motion_qa.mp4",
+    "size_bytes": 256652,
+    "sha256": "85c5b4f6f68c2e5f8364bf2529a622189cdcc57ea1b198a7132f8147d2bd7f6e",
+    "release_url": "https://github.com/zhou-zhichao/paris-five-eras-archive/releases/download/archive-2026-08-08/v18_water_motion_qa.mp4"
+  }
+]

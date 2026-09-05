@@ -1,0 +1,6834 @@
+{
+  "objects": 9520,
+  "roots": [
+    {
+      "name": "Bridge_Approach_medieval_ile_de_la_cite_00_Island",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_medieval_ile_de_la_cite_00_Mainland",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_medieval_ile_de_la_cite_01_Island",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_medieval_ile_de_la_cite_01_Mainland",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_medieval_ile_de_la_cite_02_Island",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_medieval_ile_de_la_cite_02_Mainland",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_medieval_ile_de_la_cite_03_Island",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_medieval_ile_de_la_cite_03_Mainland",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_roman_ile_de_la_cite_00_Island",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_roman_ile_de_la_cite_00_Mainland",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_roman_ile_de_la_cite_01_Island",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridge_Approach_roman_ile_de_la_cite_01_Mainland",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Bridges",
+      "type": "EMPTY",
+      "children": 7,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Buildings_1700_State",
+      "type": "EMPTY",
+      "children": 1532,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Buildings_1850_State",
+      "type": "EMPTY",
+      "children": 1715,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Buildings_Medieval_State",
+      "type": "EMPTY",
+      "children": 1090,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Buildings_Modern_State",
+      "type": "EMPTY",
+      "children": 2079,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Buildings_Roman_State",
+      "type": "EMPTY",
+      "children": 572,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Cartographic_Camera",
+      "type": "CAMERA",
+      "children": 0,
+      "location": [
+        -52.57879638671875,
+        -73.47000885009766,
+        104.39321899414062
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_00",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_01",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_02",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_04",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_07",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_08",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_10",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_11",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_12",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_13",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_14",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_15",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_16",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_17",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_19",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_20",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_21",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_22",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_23",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_24",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_25",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_26",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_27",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_28",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_29",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_30",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_31",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_32",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_33",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_34",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_35",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_36",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_37",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_38",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_39",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_40",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_41",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_42",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_43",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_44",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_45",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_46",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_47",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_48",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_49",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_50",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_51",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_52",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_53",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_54",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_55",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_56",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_57",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_58",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_59",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_60",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_61",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_62",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_63",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_64",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_65",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_66",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_67",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_68",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_69",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_70",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_71",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_72",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_73",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_74",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_75",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_76",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_77",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_78",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_79",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_81",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_82",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_83",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_84",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_85",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_86",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_0_Chunk_91",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_17",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_19",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_20",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_21",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_22",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_23",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_24",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_25",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_26",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_27",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_28",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_29",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_30",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_31",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_32",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_33",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_34",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_35",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_36",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_37",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_38",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_39",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_40",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_41",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_42",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_43",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_44",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_45",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_46",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_47",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_48",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_49",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_50",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_51",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_52",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_53",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_54",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_55",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_56",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_57",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_58",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_59",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_60",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_61",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_62",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_63",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_64",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_65",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_66",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_67",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_68",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_69",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_70",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_71",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_72",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_73",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_74",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_75",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_76",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_77",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_78",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_79",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_80",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_81",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_82",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_83",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_84",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_85",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_86",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_87",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_88",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_89",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_90",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_91",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_92",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_93",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_1_Chunk_94",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_08",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_100",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_101",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_102",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_103",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_104",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_106",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_108",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_11",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_110",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_112",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_12",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_14",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_15",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_16",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_17",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_18",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_19",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_20",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_21",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_22",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_23",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_24",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_25",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_26",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_27",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_28",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_29",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_30",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_31",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_32",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_33",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_34",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_35",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_36",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_37",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_38",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_39",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_40",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_41",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_42",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_43",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_44",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_45",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_46",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_47",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_48",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_49",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_50",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_51",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_52",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_53",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_54",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_55",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_56",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_57",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_58",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_59",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_60",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_61",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_62",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_63",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_64",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_65",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_66",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_67",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_68",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_69",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_70",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_71",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_72",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_73",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_74",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_75",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_76",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_77",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_78",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_79",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_80",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_81",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_82",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_83",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_84",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_85",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_86",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_87",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_88",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_89",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_90",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_91",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_92",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_93",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_94",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_95",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_96",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_97",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_98",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_2_Chunk_99",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_100",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_101",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_102",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_103",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_104",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_105",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_106",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_107",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_108",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_109",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_110",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_111",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_113",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_114",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_28",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_29",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_30",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_31",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_32",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_33",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_34",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_35",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_36",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_37",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_38",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_39",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_40",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_41",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_42",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_43",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_44",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_45",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_46",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_47",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_48",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_49",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_50",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_51",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_52",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_53",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_54",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_55",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_56",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_57",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_58",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_59",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_60",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_61",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_62",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_63",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_64",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_65",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_66",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_67",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_68",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_69",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_70",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_71",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_72",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_73",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_74",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_75",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_76",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_77",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_78",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_79",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_80",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_81",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_82",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_83",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_84",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_85",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_86",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_87",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_88",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_89",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_90",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_91",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_92",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_93",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_94",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_95",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_96",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_97",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_98",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_3_Chunk_99",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_04",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_100",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_101",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_102",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_103",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_104",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_105",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_106",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_107",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_108",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_109",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_110",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_111",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_112",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_113",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_116",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_117",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_118",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_12",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_13",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_14",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_15",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_16",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_17",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_18",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_19",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_20",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_21",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_22",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_23",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_24",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_25",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_26",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_27",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_28",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_29",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_30",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_31",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_32",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_33",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_34",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_35",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_36",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_37",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_38",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_39",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_40",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_41",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_42",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_43",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_44",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_45",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_46",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_47",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_48",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_49",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_50",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_51",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_52",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_53",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_54",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_55",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_56",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_57",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_58",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_59",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_60",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_61",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_62",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_63",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_64",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_65",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_66",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_67",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_68",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_69",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_70",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_71",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_72",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_73",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_74",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_75",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_76",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_77",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_78",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_79",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_80",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_81",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_82",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_83",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_84",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_85",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_86",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_87",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_88",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_89",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_90",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_91",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_92",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_93",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_94",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_95",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_96",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_97",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_98",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_99",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Forest_Persistent",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Ile_de_la_Cite",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Ile_de_la_Cite_Margin",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Ile_Saint_Louis",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Ile_Saint_Louis_Margin",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Island_Cite_0_State",
+      "type": "EMPTY",
+      "children": 63,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Island_Cite_1_State",
+      "type": "EMPTY",
+      "children": 55,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Island_Cite_2_State",
+      "type": "EMPTY",
+      "children": 50,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Island_Cite_3_State",
+      "type": "EMPTY",
+      "children": 45,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Island_Cite_4_State",
+      "type": "EMPTY",
+      "children": 46,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Island_Saint_Louis_0_State",
+      "type": "EMPTY",
+      "children": 24,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Island_Saint_Louis_1_State",
+      "type": "EMPTY",
+      "children": 31,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Island_Saint_Louis_2_State",
+      "type": "EMPTY",
+      "children": 41,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Island_Saint_Louis_3_State",
+      "type": "EMPTY",
+      "children": 36,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Island_Saint_Louis_4_State",
+      "type": "EMPTY",
+      "children": 36,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Land",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Landmark_Arc_de_Triomphe_GLB",
+      "type": "EMPTY",
+      "children": 1,
+      "location": [
+        -40.20000076293945,
+        23.200000762939453,
+        -0.125
+      ]
+    },
+    {
+      "name": "Landmark_Champ_de_Mars",
+      "type": "EMPTY",
+      "children": 10,
+      "location": [
+        -40.599998474121094,
+        6.0,
+        -0.20000000298023224
+      ]
+    },
+    {
+      "name": "Landmark_Eiffel_Tower_GLB",
+      "type": "EMPTY",
+      "children": 1,
+      "location": [
+        -40.599998474121094,
+        6.0,
+        -0.125
+      ]
+    },
+    {
+      "name": "Landmark_Gare_du_Nord_GLB",
+      "type": "EMPTY",
+      "children": 1,
+      "location": [
+        6.5,
+        26.149999618530273,
+        -0.125
+      ]
+    },
+    {
+      "name": "Landmark_La_Defense",
+      "type": "EMPTY",
+      "children": 57,
+      "location": [
+        -45.0,
+        28.5,
+        -0.20000000298023224
+      ]
+    },
+    {
+      "name": "Landmark_Louvre_GLB",
+      "type": "EMPTY",
+      "children": 1,
+      "location": [
+        -10.800000190734863,
+        11.899999618530273,
+        -0.125
+      ]
+    },
+    {
+      "name": "Landmark_Medieval_Cite_Wall",
+      "type": "EMPTY",
+      "children": 113,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Landmark_Notre_Dame_GLB",
+      "type": "EMPTY",
+      "children": 1,
+      "location": [
+        0.15000000596046448,
+        0.25,
+        0.054999999701976776
+      ]
+    },
+    {
+      "name": "Landmark_Palais_Garnier_GLB",
+      "type": "EMPTY",
+      "children": 1,
+      "location": [
+        -13.600000381469727,
+        18.399999618530273,
+        -0.125
+      ]
+    },
+    {
+      "name": "Landmark_Petit_Pont_Chatelet_Trellis",
+      "type": "EMPTY",
+      "children": 1,
+      "location": [
+        -2.25600004196167,
+        0.11999999731779099,
+        -0.20000000298023224
+      ]
+    },
+    {
+      "name": "Landmark_Roman_Forum",
+      "type": "EMPTY",
+      "children": 66,
+      "location": [
+        1.399999976158142,
+        -8.5,
+        -0.20000000298023224
+      ]
+    },
+    {
+      "name": "Landmark_Roman_Theatre",
+      "type": "EMPTY",
+      "children": 29,
+      "location": [
+        0.0,
+        0.0,
+        -0.20000000298023224
+      ]
+    },
+    {
+      "name": "Landmark_Saint_Germain_des_Pres_Trellis",
+      "type": "EMPTY",
+      "children": 1,
+      "location": [
+        -12.149999618530273,
+        0.949999988079071,
+        0.054999999701976776
+      ]
+    },
+    {
+      "name": "Landmark_Sainte_Chapelle_Trellis",
+      "type": "EMPTY",
+      "children": 1,
+      "location": [
+        -3.5899999141693115,
+        2.700000047683716,
+        0.054999999701976776
+      ]
+    },
+    {
+      "name": "Landmark_Tour_du_Temple_Trellis",
+      "type": "EMPTY",
+      "children": 2,
+      "location": [
+        8.199999809265137,
+        12.449999809265137,
+        0.054999999701976776
+      ]
+    },
+    {
+      "name": "Modern_Railways",
+      "type": "EMPTY",
+      "children": 149,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Modern_Stations",
+      "type": "EMPTY",
+      "children": 4,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Roads_0",
+      "type": "EMPTY",
+      "children": 115,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Roads_1",
+      "type": "EMPTY",
+      "children": 107,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Roads_2",
+      "type": "EMPTY",
+      "children": 127,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Roads_3",
+      "type": "EMPTY",
+      "children": 136,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Roads_4",
+      "type": "EMPTY",
+      "children": 151,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Seine",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Seine_Planar_Reflection_Probe",
+      "type": "LIGHT_PROBE",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        -0.12999999523162842
+      ]
+    },
+    {
+      "name": "Seine_Riverbank",
+      "type": "MESH",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Sky_Fill",
+      "type": "LIGHT",
+      "children": 0,
+      "location": [
+        0.0,
+        -5.0,
+        45.0
+      ]
+    },
+    {
+      "name": "Sun",
+      "type": "LIGHT",
+      "children": 0,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "materials": [
+    "Bridge_Stone",
+    "Building_Door",
+    "Building_Trim",
+    "Building_Window_Dark",
+    "Building_Window_Warm",
+    "Cite_Tower_Stone_Matte_v36",
+    "Cite_Tower_Terracotta_Matte_v36",
+    "Dark_Timber_2",
+    "Dark_Timber_4",
+    "Door_Wood_1",
+    "Door_Wood_2",
+    "Door_Wood_3",
+    "Door_Wood_4",
+    "Forest_Dark",
+    "Forest_Deep",
+    "Forest_Light",
+    "Forest_Olive",
+    "Forest_Trunk",
+    "House_v37_Door",
+    "House_v37_Frame",
+    "House_v37_Iron",
+    "House_v37_Plaster_01",
+    "House_v37_Plaster_02",
+    "House_v37_Plaster_03",
+    "House_v37_Plaster_04",
+    "House_v37_Plaster_05",
+    "House_v37_Plaster_06",
+    "House_v37_Roof_Tile_01",
+    "House_v37_Roof_Tile_02",
+    "House_v37_Roof_Tile_03",
+    "House_v37_Roof_Tile_04",
+    "House_v37_Roof_Tile_05",
+    "House_v37_Roof_Tile_06",
+    "House_v37_Stone",
+    "House_v37_Timber",
+    "House_v37_Window_Dark",
+    "House_v37_Window_Warm",
+    "Iron_1",
+    "Iron_2",
+    "Iron_3",
+    "Iron_4",
+    "Land_Material",
+    "Landmark_Arc_de_Triomphe_GLB_Material_0",
+    "Landmark_Eiffel_Tower_GLB_Material_0",
+    "Landmark_Gare_du_Nord_GLB_Material_0",
+    "Landmark_Louvre_GLB_Material_0",
+    "Landmark_Notre_Dame_GLB_Material_0",
+    "Landmark_Palais_Garnier_GLB_Material_0",
+    "Landmark_Petit_Pont_Chatelet_Trellis_Material_00",
+    "Landmark_Saint_Germain_des_Pres_Trellis_Material_00",
+    "Landmark_Sainte_Chapelle_Trellis_Material_00",
+    "Landmark_Stone",
+    "Landmark_Tour_du_Temple_Trellis_Material_00",
+    "Landmark_Window",
+    "Medieval_Dark_Timber",
+    "Modern_Glass",
+    "Rail_Ballast",
+    "Rail_Sleeper",
+    "Rail_Steel",
+    "Riverbank_Sand",
+    "Riverbank_Silt",
+    "Riverbed_Silt",
+    "Road_Material",
+    "Roman_Arena_Sand",
+    "Roof_Slate",
+    "Roof_Terracotta",
+    "Roof_Tile_1",
+    "Roof_Tile_2",
+    "Roof_Tile_3",
+    "Roof_Tile_4",
+    "Roof_Weathered",
+    "Roof_Zinc",
+    "Shore_Gradient_Material",
+    "Stone_Trim_1",
+    "Stone_Trim_2",
+    "Stone_Trim_3",
+    "Stone_Trim_4",
+    "Temple_Enclos_Garden_v44",
+    "Temple_Enclos_Ground_v44",
+    "VICVS_Dark_Wood",
+    "VICVS_Dark_Wood.001",
+    "VICVS_Dark_Wood.002",
+    "VICVS_Dark_Wood.003",
+    "VICVS_Dark_Wood.004",
+    "VICVS_Dark_Wood.005",
+    "VICVS_Dark_Wood.006",
+    "VICVS_Dark_Wood.007",
+    "VICVS_Dark_Wood.008",
+    "VICVS_Dark_Wood.009",
+    "VICVS_Impluvium_Water",
+    "VICVS_Impluvium_Water.001",
+    "VICVS_Impluvium_Water.002",
+    "VICVS_Limestone",
+    "VICVS_Limestone.001",
+    "VICVS_Limestone.002",
+    "VICVS_Limestone.003",
+    "VICVS_Limestone.004",
+    "VICVS_Limestone.005",
+    "VICVS_Limestone.006",
+    "VICVS_Limestone.007",
+    "VICVS_Limestone.008",
+    "VICVS_Limestone.009",
+    "VICVS_Limestone_Dark",
+    "VICVS_Limestone_Dark.001",
+    "VICVS_Limestone_Dark.002",
+    "VICVS_Limestone_Dark.003",
+    "VICVS_Limestone_Dark.004",
+    "VICVS_Limestone_Dark.005",
+    "VICVS_Limestone_Dark.006",
+    "VICVS_Limestone_Dark.007",
+    "VICVS_Limestone_Dark.008",
+    "VICVS_Limestone_Dark.009",
+    "VICVS_Marble",
+    "VICVS_Marble.001",
+    "VICVS_Marble.002",
+    "VICVS_Marble.003",
+    "VICVS_Marble.004",
+    "VICVS_Marble.005",
+    "VICVS_Marble.006",
+    "VICVS_Marble.007",
+    "VICVS_Marble.008",
+    "VICVS_Marble.009",
+    "VICVS_Plaster_Ivory",
+    "VICVS_Plaster_Ivory.001",
+    "VICVS_Plaster_Ivory.002",
+    "VICVS_Plaster_Ochre",
+    "VICVS_Plaster_Ochre.001",
+    "VICVS_Plaster_Rose",
+    "VICVS_Plaster_Rose.001",
+    "VICVS_Plaster_Rose.002",
+    "VICVS_Plaster_Sand",
+    "VICVS_Plaster_Sand.001",
+    "VICVS_Terracotta_Ridge",
+    "VICVS_Terracotta_Ridge.001",
+    "VICVS_Terracotta_Ridge.002",
+    "VICVS_Terracotta_Ridge.003",
+    "VICVS_Terracotta_Ridge.004",
+    "VICVS_Terracotta_Ridge.005",
+    "VICVS_Terracotta_Ridge.006",
+    "VICVS_Terracotta_Ridge.007",
+    "VICVS_Terracotta_Ridge.008",
+    "VICVS_Terracotta_Ridge.009",
+    "VICVS_Terracotta_Tile",
+    "VICVS_Terracotta_Tile.001",
+    "VICVS_Terracotta_Tile.002",
+    "VICVS_Terracotta_Tile.003",
+    "VICVS_Terracotta_Tile.004",
+    "VICVS_Terracotta_Tile.005",
+    "VICVS_Terracotta_Tile.006",
+    "VICVS_Terracotta_Tile.007",
+    "VICVS_Terracotta_Tile.008",
+    "VICVS_Terracotta_Tile.009",
+    "VICVS_Window_Recess",
+    "VICVS_Window_Recess.001",
+    "VICVS_Window_Recess.002",
+    "VICVS_Window_Recess.003",
+    "VICVS_Window_Recess.004",
+    "VICVS_Window_Recess.005",
+    "VICVS_Window_Recess.006",
+    "VICVS_Window_Recess.007",
+    "VICVS_Window_Recess.008",
+    "VICVS_Window_Recess.009",
+    "Wall_1",
+    "Wall_2",
+    "Wall_3",
+    "Wall_4",
+    "Wall_Brick",
+    "Wall_Ochre",
+    "Wall_Pale",
+    "Wall_Stone",
+    "Wall_Warm",
+    "Water_Material",
+    "Window_Frame_1",
+    "Window_Frame_2",
+    "Window_Frame_3",
+    "Window_Frame_4",
+    "Window_Glass_1",
+    "Window_Glass_2",
+    "Window_Glass_3",
+    "Window_Glass_4"
+  ],
+  "frames": {
+    "1450": {
+      "camera_location": [
+        -52.57879638671875,
+        -73.47000885009766,
+        104.39321899414062
+      ],
+      "camera_rotation": [
+        0.7175660729408264,
+        -6.552049569563678e-08,
+        -0.5961183905601501
+      ],
+      "ortho_scale": 56.16267013549805,
+      "root_states": [
+        {
+          "name": "Bridges",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_1700_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_1850_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Medieval_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Modern_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Roman_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_0_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_1_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_2_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_3_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_4_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_0_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_1_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_2_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_3_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_4_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Arc_de_Triomphe_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Champ_de_Mars",
+          "scale": [
+            1.0,
+            1.0,
+            0.014999999664723873
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Eiffel_Tower_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Gare_du_Nord_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_La_Defense",
+          "scale": [
+            1.0,
+            1.0,
+            0.014999999664723873
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Louvre_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Medieval_Cite_Wall",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Notre_Dame_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Palais_Garnier_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Petit_Pont_Chatelet_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Roman_Forum",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Roman_Theatre",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Saint_Germain_des_Pres_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Sainte_Chapelle_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Tour_du_Temple_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Modern_Railways",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Modern_Stations",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_0",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_1",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_2",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_3",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_4",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        }
+      ]
+    },
+    "2100": {
+      "camera_location": [
+        -57.485294342041016,
+        -81.1543197631836,
+        112.97273254394531
+      ],
+      "camera_rotation": [
+        0.727353036403656,
+        -6.761410276112656e-08,
+        -0.5803837776184082
+      ],
+      "ortho_scale": 79.46768188476562,
+      "root_states": [
+        {
+          "name": "Bridges",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_1700_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_1850_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Medieval_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Modern_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Roman_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_0_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_1_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_2_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_3_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_4_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_0_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_1_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_2_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_3_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_4_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Arc_de_Triomphe_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Champ_de_Mars",
+          "scale": [
+            1.0,
+            1.0,
+            0.014999999664723873
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Eiffel_Tower_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Gare_du_Nord_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_La_Defense",
+          "scale": [
+            1.0,
+            1.0,
+            0.014999999664723873
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Louvre_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Medieval_Cite_Wall",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Notre_Dame_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Palais_Garnier_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Petit_Pont_Chatelet_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Roman_Forum",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Roman_Theatre",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Saint_Germain_des_Pres_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Sainte_Chapelle_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Tour_du_Temple_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Modern_Railways",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Modern_Stations",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_0",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_1",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_2",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_3",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_4",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        }
+      ]
+    },
+    "2800": {
+      "camera_location": [
+        -62.56853485107422,
+        -88.41688537597656,
+        123.1369400024414
+      ],
+      "camera_rotation": [
+        0.7274785041809082,
+        2.222691364295315e-09,
+        -0.5694963932037354
+      ],
+      "ortho_scale": 102.31356048583984,
+      "root_states": [
+        {
+          "name": "Bridges",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_1700_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_1850_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Medieval_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Modern_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Roman_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_0_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_1_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_2_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_3_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_4_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_0_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_1_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_2_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_3_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_4_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Arc_de_Triomphe_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Champ_de_Mars",
+          "scale": [
+            1.0,
+            1.0,
+            0.01804540492594242
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Eiffel_Tower_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Gare_du_Nord_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            0.012000000104308128
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_La_Defense",
+          "scale": [
+            1.0,
+            1.0,
+            0.014999999664723873
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Louvre_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Medieval_Cite_Wall",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Notre_Dame_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Palais_Garnier_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Petit_Pont_Chatelet_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            0.017999999225139618
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Roman_Forum",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Roman_Theatre",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Saint_Germain_des_Pres_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            0.017999999225139618
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Sainte_Chapelle_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Tour_du_Temple_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            0.017999999225139618
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Modern_Railways",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Modern_Stations",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_0",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_1",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_2",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_3",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_4",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        }
+      ]
+    },
+    "3550": {
+      "camera_location": [
+        -67.96363830566406,
+        -95.94792175292969,
+        133.92727661132812
+      ],
+      "camera_rotation": [
+        0.7268038392066956,
+        -8.020277775244722e-10,
+        -0.5670581459999084
+      ],
+      "ortho_scale": 121.87639617919922,
+      "root_states": [
+        {
+          "name": "Bridges",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_1700_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_1850_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Medieval_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Modern_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Buildings_Roman_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_0_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_1_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_2_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_3_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Cite_4_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_0_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_1_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_2_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_3_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Island_Saint_Louis_4_State",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Arc_de_Triomphe_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Champ_de_Mars",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Eiffel_Tower_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Gare_du_Nord_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_La_Defense",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Louvre_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Medieval_Cite_Wall",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Notre_Dame_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Palais_Garnier_GLB",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Petit_Pont_Chatelet_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            0.017999999225139618
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Roman_Forum",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Roman_Theatre",
+          "scale": [
+            1.0,
+            1.0,
+            0.019999999552965164
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Saint_Germain_des_Pres_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            0.017999999225139618
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Landmark_Sainte_Chapelle_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Landmark_Tour_du_Temple_Trellis",
+          "scale": [
+            1.0,
+            1.0,
+            0.017999999225139618
+          ],
+          "hidden": true
+        },
+        {
+          "name": "Modern_Railways",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Modern_Stations",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_0",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_1",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_2",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_3",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        },
+        {
+          "name": "Roads_4",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hidden": false
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "name": "Image_0",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_0.001",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_0.002",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_0.003",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_0.004",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_0.005",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_0.006",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_0.007",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_0.008",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_0.009",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_1",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_1.001",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_1.002",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_1.003",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_1.004",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_1.005",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_1.006",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_1.007",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_1.008",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Image_1.009",
+      "path": "",
+      "packed": true
+    },
+    {
+      "name": "Render Result",
+      "path": "",
+      "packed": false
+    }
+  ]
+}
