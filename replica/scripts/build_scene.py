@@ -23,9 +23,9 @@ def log(*a): print(f"[build {time.time()-T0:6.1f}s]", *a, flush=True)
 
 FPS = timeline.FPS
 FRAMES = int(arg("--frames", str(timeline.TOTAL_FRAMES)))
-ROAD_W = 0.95      # road strip width multiplier
+ROAD_W = 0.8       # road strip width multiplier
 WALL_SCALE = 2.0   # city walls exaggerated like the buildings
-TREE_SCALE = 2.4
+TREE_SCALE = 3.4
 LM_SCALE = 1.25    # landmark exaggeration
 
 # ------------------------------------------------------------------ scene reset
@@ -328,7 +328,7 @@ add_gn(ob, NG_TREE, bpy.data.collections["KIT_trees"])
 log("trees", len(idx))
 
 # ------------------------------------------------------------------ roads / rail / walls
-MAT_ROAD = kits.material("road", (0.70, 0.62, 0.46), rough=0.95)
+MAT_ROAD = kits.material("road", (0.62, 0.54, 0.38), rough=0.95)
 MAT_ASPHALT = kits.material("asphalt", (0.40, 0.40, 0.40), rough=0.95)
 MAT_RAIL = kits.material("rail", (0.30, 0.28, 0.26), rough=0.95)
 MAT_BRIDGE = kits.material("bridge", (0.70, 0.64, 0.50), rough=0.9)
@@ -403,11 +403,12 @@ for x0, y0, x1, y1, b, d, h, tower in walls:
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
     nf0 = len(bm.faces)
     h = h * WALL_SCALE
-    fs = kits._box(bm, 0, 0, 0, L + 1.0, 4.5 * WALL_SCALE, h, mat=0)
-    fs += kits._box(bm, 0, 0, h, L + 1.0, 5.5 * WALL_SCALE, 1.2 * WALL_SCALE, mat=1)
+    ww = 7.0 * WALL_SCALE
+    fs = kits._box(bm, 0, 0, 0, L + 1.0, ww, h, mat=0)
+    fs += kits._box(bm, 0, 0, h, L + 1.0, ww + 2, 1.2 * WALL_SCALE, mat=1)
     if tower > 0.5:
-        kits._cylinder(bm, -L / 2, 0, 0, 5.5 * WALL_SCALE, h * 1.5, n=8, mat=0)
-        kits._cone(bm, -L / 2, 0, h * 1.5, 6.2 * WALL_SCALE, 6 * WALL_SCALE, n=8, mat=1)
+        kits._cylinder(bm, -L / 2, 0, 0, 0.8 * ww, h * 1.5, n=8, mat=0)
+        kits._cone(bm, -L / 2, 0, h * 1.5, 0.9 * ww, 6 * WALL_SCALE, n=8, mat=1)
     M = Matrix.Translation((cx, cy, zg)) @ Matrix.Rotation(ang, 4, 'Z')
     new_faces = bm.faces[nf0:] if hasattr(bm.faces, "__getitem__") else None
     bm.faces.ensure_lookup_table()
@@ -489,7 +490,7 @@ nt.links.new(tc.outputs["Object"], noise.inputs["Vector"])
 noise2 = nt.nodes.new("ShaderNodeTexNoise"); noise2.inputs["Scale"].default_value = 0.06; noise2.inputs["Detail"].default_value = 2.0
 nt.links.new(tc.outputs["Object"], noise2.inputs["Vector"])
 g1 = nt.nodes.new("ShaderNodeMixRGB"); g1.blend_type = 'MIX'
-g1.inputs[1].default_value = (0.105, 0.155, 0.045, 1); g1.inputs[2].default_value = (0.165, 0.215, 0.072, 1)
+g1.inputs[1].default_value = (0.09, 0.135, 0.04, 1); g1.inputs[2].default_value = (0.15, 0.19, 0.065, 1)
 nt.links.new(noise.outputs["Fac"], g1.inputs[0])
 g2 = nt.nodes.new("ShaderNodeMixRGB"); g2.blend_type = 'MULTIPLY'; g2.inputs[0].default_value = 0.25
 nt.links.new(g1.outputs[0], g2.inputs[1]); nt.links.new(noise2.outputs["Fac"], g2.inputs[2])
@@ -524,7 +525,7 @@ for p in ob.data.polygons:
 link(ob, C_ENV)
 # far ground beyond the raster (same material, no bake there -> plain green)
 big = 300000.0
-ob = mesh_from_faces("GROUND_FAR", [(-big, -big, -0.5), (big, -big, -0.5), (big, big, -0.5), (-big, big, -0.5)], [(0, 1, 2, 3)], None, [MAT_GROUND])
+ob = mesh_from_faces("GROUND_FAR", [(-big, -big, -3.0), (big, -big, -3.0), (big, big, -3.0), (-big, big, -3.0)], [(0, 1, 2, 3)], None, [MAT_GROUND])
 link(ob, C_ENV)
 log("terrain", verts.shape)
 
@@ -618,9 +619,9 @@ for entry in history.LANDMARKS:
 log("landmarks placed")
 
 # ------------------------------------------------------------------ camera
-VIEW_W = [(0, 2000), (6, 2300), (12, 2800), (22, 4200), (34, 5600), (46, 7200), (60, 9200), (72, 11000), (84, 13000),
-          (98, 15200), (110, 17500), (124, 19500), (141, 22000), (155, 23800), (166, 25000), (180, 25800)]
-PITCH = [(0, 41), (30, 44), (60, 47), (100, 51), (140, 55), (180, 57)]
+VIEW_W = [(0, 1450), (6, 1650), (12, 1950), (22, 2900), (34, 4000), (46, 5000), (60, 6200), (72, 7400), (84, 8600),
+          (98, 9800), (110, 11000), (124, 12200), (141, 13800), (155, 16000), (166, 18500), (180, 19500)]
+PITCH = [(0, 34), (30, 37), (60, 41), (100, 46), (140, 51), (180, 54)]
 TARGET = [(0, -150, 150), (40, -150, 250), (90, -300, 500), (166, -500, 800), (180, -500, 800)]
 HEADING = math.radians(45)   # camera looks north-east
 LENS = 35.0
@@ -666,9 +667,9 @@ log("camera")
 
 # ------------------------------------------------------------------ light / world / render
 sun = bpy.data.objects.new("Sun", bpy.data.lights.new("Sun", 'SUN')); link(sun, C_ENV)
-sun.data.energy = 3.0; sun.data.angle = math.radians(2.5); sun.data.color = (1.0, 0.96, 0.88)
-sun.rotation_euler = (math.radians(48), 0, math.radians(205))
-bg.inputs[0].default_value = (0.55, 0.64, 0.72, 1); bg.inputs[1].default_value = 0.6
+sun.data.energy = 4.0; sun.data.angle = math.radians(1.5); sun.data.color = (1.0, 0.95, 0.85)
+sun.rotation_euler = (math.radians(55), 0, math.radians(205))
+bg.inputs[0].default_value = (0.64, 0.63, 0.58, 1); bg.inputs[1].default_value = 0.42
 bpy.context.view_layer.use_pass_mist = True
 
 scene.render.engine = 'BLENDER_EEVEE_NEXT'
@@ -681,7 +682,7 @@ scene.eevee.use_volumetric_shadows = False
 scene.render.resolution_x = 2560; scene.render.resolution_y = 1440; scene.render.resolution_percentage = 100
 scene.view_settings.view_transform = 'AgX'
 scene.view_settings.look = 'AgX - Medium High Contrast'
-scene.view_settings.exposure = -0.35
+scene.view_settings.exposure = -0.45
 scene.render.image_settings.file_format = 'PNG'; scene.render.image_settings.color_mode = 'RGB'
 scene.render.use_persistent_data = True
 
@@ -690,8 +691,8 @@ scene.use_nodes = True
 ct = scene.node_tree; ct.nodes.clear()
 rl = ct.nodes.new("CompositorNodeRLayers"); comp = ct.nodes.new("CompositorNodeComposite")
 haze = ct.nodes.new("CompositorNodeMixRGB"); haze.blend_type = 'MIX'
-haze.inputs[2].default_value = (0.36, 0.42, 0.34, 1.0)
-mfac = ct.nodes.new("CompositorNodeMath"); mfac.operation = 'MULTIPLY'; mfac.inputs[1].default_value = 0.32
+haze.inputs[2].default_value = (0.40, 0.43, 0.30, 1.0)
+mfac = ct.nodes.new("CompositorNodeMath"); mfac.operation = 'MULTIPLY'; mfac.inputs[1].default_value = 0.22
 ct.links.new(rl.outputs["Mist"], mfac.inputs[0])
 ct.links.new(mfac.outputs[0], haze.inputs[0]); ct.links.new(rl.outputs["Image"], haze.inputs[1])
 hs = ct.nodes.new("CompositorNodeHueSat"); hs.inputs["Saturation"].default_value = 0.92; hs.inputs["Value"].default_value = 1.0

@@ -231,7 +231,7 @@ log("villages applied")
 # density (probability that a candidate building is kept)
 paris_mask = np.array(draw_polys([paris]), dtype=bool)
 d_paris = ndimage.distance_transform_edt(~paris_mask).astype(np.float32) * CELL
-density = np.where(d_paris <= 0, 1.0, np.clip(1.05 - (d_paris - 2500) / 9000, 0.12, 1.0)).astype(np.float32)
+density = np.where(d_paris <= 0, 1.0, np.clip(1.1 - (d_paris - 3000) / 14000, 0.35, 1.0)).astype(np.float32)
 density *= (0.85 + 0.15 * np.clip(smooth_noise(30, 2), -1, 1))
 # village cores are dense
 for name, vx, vy, vr, ys, ye in history.VILLAGES:
@@ -271,7 +271,7 @@ def road_year_at(x, y, cls, radial, name, is_bridge, is_periph, field):
 
 # hand-defined long-distance routes (bearing deg clockwise from north, first year)
 ROUTES = [
-    (5, -45), (195, -48), (150, -40), (70, -5), (325, 15), (245, 30), (110, 60), (350, 200),
+    (5, -20), (195, -25), (150, 40), (70, 90), (325, 130), (245, 170), (110, 220), (350, 300),
     (30, 880), (90, 900), (170, 950), (215, 980), (280, 1000), (130, 1050), (265, 1100), (20, 1150),
     (50, 1250), (160, 1300), (230, 1350), (300, 1380), (335, 1400), (100, 1450), (180, 1500), (205, 1520),
     (60, 1560), (120, 1600), (255, 1620), (310, 1650), (40, 1680), (140, 1700), (225, 1720), (290, 1740),
@@ -377,7 +377,7 @@ for rd in roads:
         else:
             y = road_year_at(mx, my, rd["cls"], radial, rd["name"], rd["bridge"], rd["periph"], field)
         if rd["synthetic"]:
-            y = -45 + math.hypot(mx + 330, my + 300) / 45.0
+            y = 55 + math.hypot(mx + 330, my + 300) / 5.0
         elif in_roman and not grid_aligned and y < 480 and CLASS_RANK[rd["cls"]] >= 3:
             y = max(y, 1000.0 + RNG.uniform(0, 120))
         if y >= 9000:
@@ -464,7 +464,7 @@ def chain(era, year, r, c):
             if cite_mask[r, c]:
                 d = rand.uniform(470, 720); nxt = "medieval"
             elif u < 0.85:
-                d = float(np.clip(rand.normal(360, 50), 290, 480))
+                d = float(np.clip(rand.normal(430, 40), 360, 520))
             else:
                 d = rand.uniform(600, 1000)
         elif e == "medieval":
@@ -571,7 +571,7 @@ tree_idx = STRtree(major_segs)
 log("major segs", len(major_segs))
 
 fill_count = 0
-step = 46
+step = 40
 gx = np.arange(X0 + step / 2, X1, step)
 gy = np.arange(Y0 + step / 2, Y1, step)
 GX, GY = np.meshgrid(gx, gy)
@@ -661,7 +661,7 @@ def death_city(rr, cc, n):
     return d
 
 
-n1 = scatter(46, 0.62, lambda rr, cc: (~water[rr, cc]) & (~forest[rr, cc]) & (~blocked[rr, cc]) & (d_water[rr, cc] * CELL > 12),
+n1 = scatter(34, 0.72, lambda rr, cc: (~water[rr, cc]) & (~forest[rr, cc]) & (~blocked[rr, cc]) & (d_water[rr, cc] * CELL > 12),
              [0, 1, 3, 4, 0, 1, 3, 4, 2], death_city)
 n2 = scatter(22, 0.9, lambda rr, cc: forest[rr, cc] & (~water[rr, cc]), [0, 1, 3, 4, 2, 5, 0, 1],
              lambda rr, cc, n: np.full(n, 9999.0))

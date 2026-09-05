@@ -16,6 +16,8 @@ res = arg("--res", None)
 if res:
     w, h = res.split("x"); scene.render.resolution_x = int(w); scene.render.resolution_y = int(h)
 scene.eevee.taa_render_samples = int(arg("--samples", "24"))
+if arg("--lens", None):
+    scene.camera.data.lens = float(arg("--lens", "35"))   # zoom in for close-up QA
 frames = arg("--frames", None)
 if frames:
     frame_list = [int(f) for f in frames.split(",")]
