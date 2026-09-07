@@ -1,0 +1,60 @@
+[landmarks] core 200 + researched 90
+[   0.3s] geo loaded
+[   2.5s] water masks 511234 historic 40933
+[   2.9s] green masks 904111 2178607
+[   3.0s] inner area km2 313.4
+[   3.0s] blocked 185627
+[   4.0s] water edt
+[   5.2s] zone londinium_bridgehead cells 3201 years 47 60
+[   6.0s] zone londinium_peak cells 15732 years 62 160
+[   7.0s] zone southwark_roman cells 4131 years 55 160
+[   8.0s] zone roman_west_suburb cells 1446 years 120 220
+[   9.0s] zone lundenwic cells 8386 years 600 820
+[  10.1s] zone westminster_thorney cells 2166 years 960 1100
+[  11.2s] zone lundenburg cells 15732 years 886 1120
+[  12.2s] zone southwark_saxon cells 4131 years 900 1150
+[  13.1s] zone medieval_city cells 15732 years 1100 1260
+[  14.0s] zone medieval_suburbs cells 37785 years 1150 1340
+[  14.8s] zone southwark_medieval cells 14213 years 1100 1350
+[  15.7s] zone strand_ribbon cells 7476 years 1200 1420
+[  16.5s] zone westminster_medieval cells 9369 years 1250 1500
+[  17.3s] zone tudor cells 105542 years 1520 1610
+[  18.2s] zone stuart cells 203444 years 1600 1690
+[  19.0s] zone restoration cells 291158 years 1670 1720
+[  19.8s] zone georgian_early cells 424778 years 1710 1770
+[  20.7s] zone georgian_late cells 605530 years 1760 1815
+[  21.6s] zone regency cells 861511 years 1805 1850
+[  22.4s] zone victorian_a cells 1483215 years 1840 1875
+[  23.3s] zone victorian_b cells 2458418 years 1865 1905
+[  24.3s] zone croydon_town cells 13905 years 1840 1900
+[  25.4s] zone kingston_town cells 21925 years 1840 1900
+[  26.5s] zone richmond_town cells 19982 years 1840 1900
+[  27.6s] zone woolwich_town cells 24715 years 1830 1890
+[  28.6s] zone edwardian cells 3824659 years 1895 1920
+[  29.7s] zone interwar cells 9612511 years 1915 1942
+[  30.9s] zone postwar_fringe cells 10853682 years 1948 1975
+[  32.0s] zone docklands cells 127528 years 1985 2010
+[  33.1s] zone olympic_park cells 25191 years 2008 2014
+[  33.4s] villages applied 148
+[  34.6s] density
+[  34.7s] roman grid roads 29
+[  36.3s] roads 91409
+[  51.7s] road pieces 277722
+[  53.7s] road rasters
+[  54.1s] events [('boudica', 60), ('roman_abandonment', 420), ('lundenwic_abandoned', 880), ('dock_1660', 1660.0), ('great_fire', 1666), ('dock_1696', 1696.0), ('dock_1728', 1728.0), ('dock_1730', 1730.0), ('dock_1789', 1789.0), ('dock_1800', 1800.0), ('dock_1801', 1801.0), ('dock_1803', 1803.0), ('dock_1804', 1804.0), ('dock_1811', 1811.0), ('dock_1812', 1812.0), ('dock_1825', 1825.0), ('dock_1826', 1826.0), ('dock_1827', 1827.0), ('dock_1828', 1828.0), ('dock_1830', 1830.0), ('dock_1834', 1834.0), ('dock_1845', 1845.0), ('dock_1850', 1850.0), ('dock_1853', 1853.0), ('dock_1854', 1854.0), ('dock_1855', 1855.0), ('dock_1865', 1865.0), ('dock_1892', 1892.0), ('dock_1897', 1897.0), ('dock_1901', 1901.0), ('dock_1907', 1907.0), ('dock_1908', 1908.0), ('dock_1938', 1938.0), ('blitz_city', 1940), ('blitz_east_end', 1940), ('blitz_southwark', 1940), ('blitz_silvertown', 1940), ('blitz_deptford_woolwich', 1941), ('blitz_scatter', 1941), ('dock_1959', 1959.0), ('docklands_clearance', 1978)]
+[  57.3s] estate / tower masks 124338 79295
+[  76.7s] street buildings 607516 {'trunk': 38143, 'primary': 65539, 'secondary': 24611, 'tertiary': 68566, 'roman': 822, 'residential': 198751, 'unclassified': 20726, 'pedestrian': 6767, 'living_street': 624}
+[  78.1s] core fill buildings 19392
+[  80.7s] segs for orientation 268637
+[  80.8s] fill candidates 190455
+[  93.2s] fill buildings 190309
+[  93.2s] total buildings 868315
+[  94.5s] built_year raster
+[  96.0s] pre-urban forest trees 674757
+[  96.6s] trees 727504 165337 161583 1729181
+[  97.4s] heightmap (681, 921) 152.1043701171875
+[ 100.8s] rail pieces 41645
+[ 100.8s] wall pieces 876
+[ 103.9s] rasters saved
+[ 106.3s] saved {'buildings': 868315, 'trees': 1729181, 'road_pieces': 277722}
+[ 109.4s] done

@@ -1,0 +1,1989 @@
+{
+  "meta": {
+    "title": "London transport history: Roman and medieval roads, Georgian/Victorian new roads, arterial roads and motorways, railways, viaducts and airports",
+    "coordinate_system": "WGS84 lon,lat decimal degrees, 5 decimal places",
+    "coverage_years": [-50, 2025],
+    "sanity_check": "St Paul's Cathedral = -0.09840, 51.51380",
+    "accuracy_note": "Polylines are hand-authored generalisations of known alignments, digitised by eye from modern street geometry. They are correct in topology and approximately correct in position (typically within 100-300 m) but are NOT survey lines. Roman road alignments in particular are reconstructions, and the London ends of several of them are actively disputed. Items with weak evidence are flagged (?) in notes.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/History_of_London_Heathrow_Airport",
+      "https://en.wikipedia.org/wiki/M25_motorway",
+      "https://en.wikipedia.org/wiki/Western_Avenue,_London",
+      "https://en.wikipedia.org/wiki/Docklands_Light_Railway",
+      "https://en.wikipedia.org/wiki/Watling_Street",
+      "https://en.wikipedia.org/wiki/Ermine_Street",
+      "https://en.wikipedia.org/wiki/Stane_Street_(Chichester)",
+      "https://www.british-history.ac.uk/",
+      "https://historicengland.org.uk/"
+    ]
+  },
+
+  "roman_roads": [
+    {
+      "id": "watling_street_south",
+      "name": "Watling Street (south-east: Rutupiae/Dubris - Durovernum - Londinium)",
+      "built_year": 50,
+      "built_range": [43, 70],
+      "modern_route": "A2 Dover Road, Shooter's Hill Road, Blackheath, New Cross Road, Old Kent Road, Great Dover Street, Borough High Street",
+      "width_m": 8,
+      "polyline": [
+        [0.13500, 51.44700],
+        [0.11000, 51.45400],
+        [0.09000, 51.46000],
+        [0.07200, 51.46500],
+        [0.05500, 51.46900],
+        [0.03000, 51.46850],
+        [0.00800, 51.46800],
+        [-0.01000, 51.46980],
+        [-0.02500, 51.47280],
+        [-0.04000, 51.47700],
+        [-0.05600, 51.48300],
+        [-0.07000, 51.48800],
+        [-0.08000, 51.49300],
+        [-0.08700, 51.49850],
+        [-0.08950, 51.50300],
+        [-0.08800, 51.50750]
+      ],
+      "notes": "The main road from the Kentish Channel ports to London, running over Shooter's Hill and across Blackheath, then down the die-straight Old Kent Road to the Southwark bridgehead and the Roman London Bridge. Built within a generation of the AD 43 conquest. The Old Kent Road / Great Dover Street stretch is one of the best-preserved Roman alignments in Britain."
+    },
+    {
+      "id": "watling_street_northwest",
+      "name": "Watling Street (north-west: Londinium - Sulloniacae - Verulamium)",
+      "built_year": 60,
+      "built_range": [47, 80],
+      "modern_route": "Newgate, Holborn, High Holborn, St Giles, Oxford Street, Marble Arch, Edgware Road, Cricklewood, Edgware, Brockley Hill, Elstree",
+      "width_m": 8,
+      "polyline": [
+        [-0.10150, 51.51550],
+        [-0.10900, 51.51750],
+        [-0.12000, 51.51790],
+        [-0.12900, 51.51660],
+        [-0.14000, 51.51550],
+        [-0.14750, 51.51500],
+        [-0.15900, 51.51330],
+        [-0.16800, 51.51950],
+        [-0.17800, 51.52700],
+        [-0.18900, 51.53500],
+        [-0.20000, 51.54300],
+        [-0.21100, 51.55100],
+        [-0.22200, 51.55900],
+        [-0.23300, 51.56800],
+        [-0.24500, 51.57800],
+        [-0.25700, 51.58900],
+        [-0.26800, 51.60000],
+        [-0.27900, 51.61200],
+        [-0.29500, 51.62500],
+        [-0.30300, 51.64100],
+        [-0.31500, 51.66000],
+        [-0.33800, 51.70000]
+      ],
+      "notes": "Left the walled city by Newgate and ran north-west via the line of Oxford Street (the medieval Tyburn Road) and the Edgware Road, which is still absolutely straight for 16 km. Sulloniacae is generally identified with Brockley Hill, where large Roman pottery kilns were excavated. Continues to Verulamium (St Albans) and eventually Wroxeter. The stretch between Newgate and Marble Arch is disputed - the road may have used a slightly more northerly Holborn alignment (?)."
+    },
+    {
+      "id": "ermine_street",
+      "name": "Ermine Street (Londinium - Lindum, via Ware)",
+      "built_year": 50,
+      "built_range": [45, 75],
+      "modern_route": "Bishopsgate, Shoreditch High Street, Kingsland Road, Stoke Newington High Street, Stamford Hill, Tottenham High Road, Edmonton, Enfield, Waltham Cross",
+      "width_m": 8,
+      "polyline": [
+        [-0.08150, 51.51500],
+        [-0.08050, 51.51900],
+        [-0.07850, 51.52350],
+        [-0.07750, 51.52800],
+        [-0.07660, 51.53400],
+        [-0.07580, 51.54000],
+        [-0.07530, 51.54600],
+        [-0.07530, 51.55200],
+        [-0.07530, 51.55800],
+        [-0.07400, 51.56400],
+        [-0.07260, 51.57000],
+        [-0.07100, 51.57800],
+        [-0.06900, 51.58800],
+        [-0.06600, 51.59800],
+        [-0.06300, 51.60800],
+        [-0.05900, 51.61800],
+        [-0.05400, 51.63000],
+        [-0.04600, 51.64500],
+        [-0.03600, 51.66200],
+        [-0.02600, 51.68000],
+        [-0.01500, 51.70000]
+      ],
+      "notes": "The great north road of Roman Britain, running from Bishopsgate to Lincoln and York. Its London section is followed with remarkable fidelity by the modern A10 corridor. Bishopsgate was the gate through which it left the walled city (though the wall postdates the road by more than a century)."
+    },
+    {
+      "id": "stane_street",
+      "name": "Stane Street (Noviomagus Reginorum/Chichester - Londinium)",
+      "built_year": 70,
+      "built_range": [50, 90],
+      "modern_route": "Ewell, Morden, Merton, Tooting Bec Road/Balham High Road, Clapham Road, Kennington Park Road, Newington Causeway, Borough High Street",
+      "width_m": 8,
+      "polyline": [
+        [-0.25100, 51.34800],
+        [-0.24000, 51.36500],
+        [-0.22600, 51.38200],
+        [-0.21200, 51.39500],
+        [-0.20000, 51.40700],
+        [-0.18800, 51.42000],
+        [-0.17600, 51.43300],
+        [-0.16600, 51.44400],
+        [-0.15600, 51.45300],
+        [-0.14400, 51.46300],
+        [-0.13100, 51.47200],
+        [-0.12000, 51.47900],
+        [-0.11200, 51.48400],
+        [-0.10500, 51.49000],
+        [-0.09900, 51.49500],
+        [-0.09400, 51.50000],
+        [-0.09000, 51.50400],
+        [-0.08800, 51.50750]
+      ],
+      "notes": "Aligned from Chichester on London Bridge; the surveyors set out the whole 90 km line on a single sight-line before adjusting for the Downs. The Clapham Road / Kennington Park Road stretch is the classic surviving straight. Roman burials and a milestone are known along it at Kennington."
+    },
+    {
+      "id": "colchester_road",
+      "name": "Road to Camulodunum (Colchester) - the 'Great Road'",
+      "built_year": 50,
+      "built_range": [43, 60],
+      "modern_route": "Aldgate, Whitechapel Road, Mile End Road, Bow Road, Stratford High Street, Romford Road, Ilford, Romford, Brentwood, Chelmsford",
+      "width_m": 9,
+      "polyline": [
+        [-0.07600, 51.51420],
+        [-0.06800, 51.51600],
+        [-0.05700, 51.51850],
+        [-0.04500, 51.52150],
+        [-0.03300, 51.52400],
+        [-0.02200, 51.52700],
+        [-0.01100, 51.52900],
+        [0.00000, 51.53850],
+        [0.01500, 51.54500],
+        [0.03500, 51.54900],
+        [0.05500, 51.55400],
+        [0.07500, 51.55900],
+        [0.10000, 51.56200],
+        [0.13000, 51.56600],
+        [0.16000, 51.57100],
+        [0.18300, 51.57500],
+        [0.22000, 51.58500],
+        [0.29000, 51.61500]
+      ],
+      "notes": "The earliest Roman road out of London, linking the new port to the pre-existing colonia at Colchester; it must have carried Boudica's army in AD 60/61. Crossed the Lea by a ford or bridge at Old Ford, which the road is named for; the crossing moved to Bow Bridge in 1110. Followed by the modern A11/A118/A12 corridor."
+    },
+    {
+      "id": "silchester_road",
+      "name": "Road to Calleva Atrebatum (Silchester) via Pontes (Staines) - the 'Devil's Highway'",
+      "built_year": 60,
+      "built_range": [45, 80],
+      "modern_route": "west out of London roughly on the line of Knightsbridge, Kensington Road/High Street, Hammersmith Road, Chiswick High Road, Brentford High Street, Hounslow, Staines",
+      "width_m": 8,
+      "polyline": [
+        [-0.10150, 51.51550],
+        [-0.12000, 51.51400],
+        [-0.14000, 51.51150],
+        [-0.15200, 51.50650],
+        [-0.15900, 51.50300],
+        [-0.17200, 51.50100],
+        [-0.18800, 51.49950],
+        [-0.20500, 51.49900],
+        [-0.22000, 51.49850],
+        [-0.23500, 51.49500],
+        [-0.25500, 51.49300],
+        [-0.27500, 51.49000],
+        [-0.30800, 51.48800],
+        [-0.33500, 51.48300],
+        [-0.37000, 51.47600],
+        [-0.41000, 51.47000],
+        [-0.46000, 51.45000],
+        [-0.51000, 51.43400]
+      ],
+      "notes": "The route out of London to the crossing of the Thames at Staines (Pontes) and on to Silchester is well attested west of Staines but its London end is genuinely uncertain (?). Two main reconstructions exist: a Kensington/Knightsbridge line (used here) and a more northerly line diverging from Watling Street around Marble Arch. Some antiquarian accounts route it instead to a ford at Westminster."
+    },
+    {
+      "id": "roman_road_brockley_hill_verulamium",
+      "name": "Road to Lundenwic waterfront / Roman riverside road",
+      "built_year": 100,
+      "built_range": [70, 200],
+      "modern_route": "Upper and Lower Thames Street",
+      "width_m": 6,
+      "polyline": [
+        [-0.10200, 51.51000],
+        [-0.09800, 51.50990],
+        [-0.09400, 51.50980],
+        [-0.09000, 51.50975],
+        [-0.08600, 51.50970],
+        [-0.08200, 51.50955],
+        [-0.07800, 51.50935]
+      ],
+      "notes": "The riverside street serving the Roman quays and the bridgehead, on the line of modern Thames Street. Alignment inferred from excavated quay structures (?)."
+    }
+  ],
+
+  "medieval_roads": [
+    {
+      "id": "great_north_road_medieval",
+      "name": "Great North Road (via Highgate and Barnet)",
+      "established_by": 1300,
+      "diverted_year": 1386,
+      "polyline": [
+        [-0.10500, 51.53200],
+        [-0.10700, 51.54000],
+        [-0.11200, 51.54800],
+        [-0.12000, 51.55600],
+        [-0.12900, 51.56300],
+        [-0.13800, 51.57100],
+        [-0.14700, 51.58200],
+        [-0.15600, 51.59500],
+        [-0.16500, 51.61000],
+        [-0.17500, 51.62800],
+        [-0.19500, 51.64800],
+        [-0.20500, 51.66500]
+      ],
+      "notes": "In 1386 the Bishop of London licensed a new route over Highgate Hill (with a toll gate - the 'high gate') to replace the old low-lying Muswell Hill / Crouch End way through the Bishop's park. Route via Islington High Street, Holloway Road, Highgate Hill, Archway, Finchley, Whetstone, Barnet."
+    },
+    {
+      "id": "oxford_road_medieval",
+      "name": "Oxford Road (Uxbridge Road)",
+      "established_by": 1200,
+      "polyline": [
+        [-0.13000, 51.51600],
+        [-0.15900, 51.51330],
+        [-0.18800, 51.51100],
+        [-0.21500, 51.50900],
+        [-0.24000, 51.50800],
+        [-0.27000, 51.51000],
+        [-0.30500, 51.51200],
+        [-0.34500, 51.51400],
+        [-0.39000, 51.51600],
+        [-0.47800, 51.54600]
+      ],
+      "notes": "The medieval road to Oxford via Tyburn, Notting Hill, Shepherd's Bush, Acton, Ealing, Southall and Uxbridge; modern A4020. Superseded for through traffic by Western Avenue from the 1920s."
+    },
+    {
+      "id": "bath_road_medieval",
+      "name": "Bath Road / Great West Road (medieval)",
+      "established_by": 1200,
+      "polyline": [
+        [-0.13400, 51.50700],
+        [-0.15900, 51.50300],
+        [-0.19000, 51.49950],
+        [-0.22000, 51.49850],
+        [-0.25500, 51.49300],
+        [-0.30800, 51.48800],
+        [-0.35500, 51.48200],
+        [-0.42000, 51.47800],
+        [-0.48000, 51.47500]
+      ],
+      "notes": "Follows the Roman line to Brentford and Hounslow, then to Colnbrook, Slough, Maidenhead and Bath. Hounslow Heath on this road was Britain's most notorious highwayman country in the 17th-18th centuries."
+    },
+    {
+      "id": "dover_road_medieval",
+      "name": "Dover Road (Watling Street) and the pilgrim road to Canterbury",
+      "established_by": 1200,
+      "polyline": [
+        [-0.08800, 51.50750],
+        [-0.08950, 51.50300],
+        [-0.08000, 51.49300],
+        [-0.05600, 51.48300],
+        [-0.02500, 51.47280],
+        [0.00800, 51.46800],
+        [0.05500, 51.46900],
+        [0.09000, 51.46000],
+        [0.13500, 51.44700]
+      ],
+      "notes": "Chaucer's pilgrims set out from the Tabard Inn on Borough High Street. Effectively the Roman Watling Street reused."
+    },
+    {
+      "id": "strand_westminster",
+      "name": "The Strand and Whitehall (City to Westminster)",
+      "established_by": 1100,
+      "polyline": [
+        [-0.10400, 51.51350],
+        [-0.11100, 51.51380],
+        [-0.11500, 51.51340],
+        [-0.11900, 51.51280],
+        [-0.12200, 51.51100],
+        [-0.12400, 51.50900],
+        [-0.12600, 51.50700],
+        [-0.12700, 51.50450],
+        [-0.12600, 51.50200],
+        [-0.12500, 51.49960]
+      ],
+      "notes": "The riverside road linking the City to the royal seat at Westminster, lined by bishops' and nobles' inns (Savoy, Somerset, Durham, York, Northumberland) from the 13th century. Runs Fleet Street - Strand - Charing Cross - Whitehall - Westminster."
+    },
+    {
+      "id": "portsmouth_road_medieval",
+      "name": "Portsmouth Road (via Kingston)",
+      "established_by": 1250,
+      "polyline": [
+        [-0.09000, 51.50400],
+        [-0.10500, 51.49000],
+        [-0.12500, 51.47500],
+        [-0.15000, 51.46000],
+        [-0.17500, 51.45000],
+        [-0.20500, 51.44000],
+        [-0.23500, 51.43000],
+        [-0.26500, 51.41500],
+        [-0.30500, 51.40800],
+        [-0.34000, 51.39000],
+        [-0.37000, 51.37000]
+      ],
+      "notes": "Used the medieval bridge at Kingston upon Thames (documented 1193), the only Thames bridge above London Bridge until Putney Bridge opened in 1729. Route via Wandsworth, Putney/Wandsworth, Wimbledon, Kingston, Esher."
+    },
+    {
+      "id": "cambridge_road_medieval",
+      "name": "Cambridge Road (via Tottenham and Ware)",
+      "established_by": 1200,
+      "polyline": [
+        [-0.08150, 51.51500],
+        [-0.07600, 51.53500],
+        [-0.07530, 51.55500],
+        [-0.07000, 51.58000],
+        [-0.06300, 51.60800],
+        [-0.05400, 51.63000],
+        [-0.03600, 51.66200],
+        [-0.01500, 51.70000]
+      ],
+      "notes": "The Ermine Street line reused; the main road to Cambridge, Ware and Royston. The Lea valley crossings at Waltham and Enfield were bottlenecks."
+    },
+    {
+      "id": "essex_road_medieval",
+      "name": "Essex Road / Newington Green route to Hackney and Stamford Hill",
+      "established_by": 1300,
+      "polyline": [
+        [-0.10550, 51.53250],
+        [-0.09800, 51.53700],
+        [-0.09000, 51.54200],
+        [-0.08600, 51.54800],
+        [-0.07800, 51.55500],
+        [-0.07300, 51.56200]
+      ],
+      "notes": "A medieval field-lane route ('Lower Street') bypassing Ermine Street through the villages of Newington Green and Stoke Newington. Alignment approximate (?)."
+    }
+  ],
+
+  "new_roads": [
+    {
+      "id": "new_road_1756",
+      "name": "The New Road (Marylebone Road / Euston Road / Pentonville Road)",
+      "year": 1756,
+      "polyline": [
+        [-0.16900, 51.52080],
+        [-0.16100, 51.52200],
+        [-0.15300, 51.52250],
+        [-0.14500, 51.52290],
+        [-0.13700, 51.52360],
+        [-0.13000, 51.52620],
+        [-0.12300, 51.53000],
+        [-0.11500, 51.53200],
+        [-0.10600, 51.53300]
+      ],
+      "notes": "London's first bypass, authorised 1756 to move cattle drovers off Oxford Street on the way to Smithfield. Built across open fields north of the built-up area; a covenant kept buildings 50 feet back from it. It became the boundary of the Georgian city and, from 1836-1868, the site of Euston, King's Cross and St Pancras."
+    },
+    {
+      "id": "city_road_1761",
+      "name": "City Road",
+      "year": 1761,
+      "polyline": [
+        [-0.10550, 51.53250],
+        [-0.09900, 51.53000],
+        [-0.09400, 51.52700],
+        [-0.09000, 51.52400],
+        [-0.08750, 51.52150]
+      ],
+      "notes": "Eastern continuation of the New Road, opened 1761, from the Angel, Islington to Finsbury Square and Moorgate."
+    },
+    {
+      "id": "westminster_bridge_road_1750",
+      "name": "Westminster Bridge Road and the St George's Fields road system",
+      "year": 1750,
+      "year_range": [1750, 1770],
+      "polyline": [
+        [-0.12130, 51.50060],
+        [-0.11700, 51.50000],
+        [-0.11200, 51.49900],
+        [-0.10770, 51.49830]
+      ],
+      "notes": "Built with Westminster Bridge (opened 18 November 1750) across the marshy St George's Fields to a new junction, St George's Circus, marked by an obelisk of 1771. With Blackfriars Bridge Road (1769) and Borough Road it created the first planned road network in south London and triggered the urbanisation of Lambeth and Southwark."
+    },
+    {
+      "id": "blackfriars_bridge_road_1769",
+      "name": "Blackfriars Road",
+      "year": 1769,
+      "polyline": [
+        [-0.10450, 51.50830],
+        [-0.10500, 51.50500],
+        [-0.10600, 51.50200],
+        [-0.10770, 51.49830]
+      ],
+      "notes": "Opened with Blackfriars Bridge (1769) from the bridgehead to St George's Circus."
+    },
+    {
+      "id": "commercial_road_1804",
+      "name": "Commercial Road",
+      "year": 1804,
+      "year_range": [1802, 1806],
+      "polyline": [
+        [-0.06350, 51.51680],
+        [-0.05800, 51.51620],
+        [-0.05200, 51.51520],
+        [-0.04600, 51.51420],
+        [-0.04000, 51.51320],
+        [-0.03400, 51.51230]
+      ],
+      "notes": "Built by the West India Dock Company 1802-1806 as a private toll road to carry sugar and rum from the new docks to the City warehouses, avoiding the congested riverside lanes. Freed of tolls 1871."
+    },
+    {
+      "id": "east_india_dock_road_1810",
+      "name": "East India Dock Road",
+      "year": 1810,
+      "year_range": [1806, 1812],
+      "polyline": [
+        [-0.03400, 51.51230],
+        [-0.02700, 51.51230],
+        [-0.02000, 51.51180],
+        [-0.01300, 51.51130],
+        [-0.00600, 51.51050],
+        [0.00100, 51.50960]
+      ],
+      "notes": "Continuation of Commercial Road built by the East India Dock Company 1806-1812 to link the East India Docks at Blackwall to the City. Dates commonly given as 1806-10 or 1806-12 (?)."
+    },
+    {
+      "id": "vauxhall_bridge_road_1816",
+      "name": "Vauxhall Bridge Road",
+      "year": 1816,
+      "polyline": [
+        [-0.14350, 51.49550],
+        [-0.13900, 51.49380],
+        [-0.13400, 51.49200],
+        [-0.12900, 51.49020],
+        [-0.12750, 51.48900]
+      ],
+      "notes": "Cut across Tothill Fields and the Neat Houses market gardens with Vauxhall Bridge (opened 4 June 1816, the first iron bridge over the Thames in London), opening the Grosvenor Estate's Pimlico land for development."
+    },
+    {
+      "id": "camberwell_new_road_1818",
+      "name": "Camberwell New Road",
+      "year": 1818,
+      "polyline": [
+        [-0.10900, 51.48470],
+        [-0.10500, 51.48280],
+        [-0.10100, 51.48090],
+        [-0.09700, 51.47900],
+        [-0.09300, 51.47420]
+      ],
+      "notes": "Cut 1815-1818 straight across market gardens from Kennington to Camberwell Green, immediately lined with detached and semi-detached villas; one of the earliest London roads planned for suburban villa development."
+    },
+    {
+      "id": "regent_street_1825",
+      "name": "Regent Street, Portland Place and the Regent's Park approach",
+      "year": 1825,
+      "year_range": [1814, 1825],
+      "polyline": [
+        [-0.13270, 51.50630],
+        [-0.13400, 51.50880],
+        [-0.13450, 51.51000],
+        [-0.13750, 51.51150],
+        [-0.14100, 51.51380],
+        [-0.14200, 51.51530],
+        [-0.14350, 51.51780],
+        [-0.14480, 51.52050],
+        [-0.14550, 51.52330]
+      ],
+      "notes": "John Nash's great Metropolitan Improvement, authorised 1813, built 1814-1825, linking Carlton House to the new Regent's Park. Deliberately routed to separate the aristocratic West End from the trades of Soho. Rebuilt commercially 1904-1927."
+    },
+    {
+      "id": "caledonian_road_1826",
+      "name": "Caledonian Road",
+      "year": 1826,
+      "polyline": [
+        [-0.12100, 51.53150],
+        [-0.11950, 51.53600],
+        [-0.11800, 51.54100],
+        [-0.11650, 51.54600],
+        [-0.11550, 51.55100],
+        [-0.11500, 51.55600]
+      ],
+      "notes": "Opened 1826 as the Chalk Road, a turnpike from Battle Bridge (King's Cross) north to Holloway; named after the Royal Caledonian Asylum. Metropolitan Cattle Market 1855, Pentonville Prison 1842."
+    },
+    {
+      "id": "finchley_road_1835",
+      "name": "Finchley Road",
+      "year": 1835,
+      "year_range": [1826, 1835],
+      "polyline": [
+        [-0.17300, 51.53300],
+        [-0.17450, 51.53800],
+        [-0.17600, 51.54300],
+        [-0.17900, 51.54900],
+        [-0.18400, 51.55500],
+        [-0.19000, 51.56100],
+        [-0.19500, 51.56800],
+        [-0.19500, 51.57500],
+        [-0.19400, 51.58300],
+        [-0.19300, 51.59200],
+        [-0.19200, 51.60000]
+      ],
+      "notes": "A turnpike promoted from 1826 and completed in stages to 1835, avoiding the steep pull over Hampstead and Highgate hills on the Great North Road. Its cheap open land later drew the Midland Railway (1868), the Metropolitan (1879) and the suburbs of Golders Green (1907)."
+    },
+    {
+      "id": "victoria_street_1851",
+      "name": "Victoria Street, Westminster",
+      "year": 1851,
+      "polyline": [
+        [-0.12700, 51.49950],
+        [-0.13200, 51.49730],
+        [-0.13700, 51.49680],
+        [-0.14200, 51.49630]
+      ],
+      "notes": "Driven 1845-1851 through the Devil's Acre slum of Westminster; an early example of slum clearance as street improvement."
+    },
+    {
+      "id": "queen_victoria_street_1871",
+      "name": "Queen Victoria Street",
+      "year": 1871,
+      "polyline": [
+        [-0.10420, 51.51100],
+        [-0.10100, 51.51110],
+        [-0.09700, 51.51120],
+        [-0.09300, 51.51150],
+        [-0.08950, 51.51230]
+      ],
+      "notes": "Cut by the Metropolitan Board of Works 1867-1871 over the District Railway from Blackfriars to Mansion House."
+    },
+    {
+      "id": "shaftesbury_avenue_charing_cross_road_1887",
+      "name": "Shaftesbury Avenue and Charing Cross Road",
+      "year": 1887,
+      "year_range": [1877, 1887],
+      "polyline": [
+        [-0.13400, 51.51000],
+        [-0.13000, 51.51200],
+        [-0.12800, 51.51400],
+        [-0.12750, 51.51600],
+        [-0.12800, 51.51800]
+      ],
+      "polyline_shaftesbury": [
+        [-0.13450, 51.51050],
+        [-0.13100, 51.51230],
+        [-0.12750, 51.51400],
+        [-0.12300, 51.51550],
+        [-0.11950, 51.51700]
+      ],
+      "notes": "Two Metropolitan Board of Works improvements built 1877-1887 through the St Giles rookery. Charing Cross Road runs Trafalgar Square to Tottenham Court Road; Shaftesbury Avenue runs Piccadilly Circus to New Oxford Street/Bloomsbury."
+    },
+    {
+      "id": "kingsway_aldwych_1905",
+      "name": "Kingsway and Aldwych",
+      "year": 1905,
+      "year_range": [1900, 1905],
+      "polyline": [
+        [-0.11940, 51.51740],
+        [-0.11760, 51.51600],
+        [-0.11660, 51.51450],
+        [-0.11700, 51.51330],
+        [-0.11900, 51.51280],
+        [-0.12100, 51.51290]
+      ],
+      "notes": "Opened by Edward VII on 18 October 1905, cutting through the Clare Market and Holywell Street slums; 30 m wide, the widest new street in London, with a tram subway beneath (closed 1952, part now the Strand Underpass). About 3700 people displaced."
+    },
+    {
+      "id": "great_west_road_1925",
+      "name": "Great West Road (A4)",
+      "year": 1925,
+      "year_range": [1920, 1925],
+      "polyline": [
+        [-0.25000, 51.49150],
+        [-0.27500, 51.49000],
+        [-0.30000, 51.48850],
+        [-0.32500, 51.48700],
+        [-0.35500, 51.48350],
+        [-0.38500, 51.48200],
+        [-0.42000, 51.48000],
+        [-0.44500, 51.48000]
+      ],
+      "notes": "Opened by King George V on 30 May 1925 as a Chiswick-to-Cranford bypass of the congested Brentford High Street. Its western length became the 'Golden Mile' of Art Deco factories (Firestone 1928, demolished 1980; Coty; Gillette 1936; Pyrene 1930). Extended west in the 1930s; the Chiswick Flyover (1959) and the M4 elevated section (1965) later carried through traffic over it."
+    },
+    {
+      "id": "western_avenue_a40",
+      "name": "Western Avenue (A40)",
+      "year": 1943,
+      "year_range": [1921, 1943],
+      "stages": [
+        {"years": [1921, 1923], "segment": "Wood Lane / Savoy Circus (East Acton) to Greenford", "notes": "First contract, built as unemployment relief."},
+        {"years": [1930, 1934], "segment": "Greenford to Northolt and Ruislip"},
+        {"years": [1936, 1939], "segment": "Gypsy Corner and Perivale improvements; Hoover Building (1933) and Perivale factories line the road."},
+        {"years": [1940, 1943], "segment": "Denham completion; the road reaches Denham Roundabout in 1943."},
+        {"years": [1967, 1970], "segment": "Westway elevated extension from White City to Paddington (opened 28 July 1970)."}
+      ],
+      "polyline": [
+        [-0.22500, 51.51350],
+        [-0.24500, 51.51800],
+        [-0.26500, 51.52400],
+        [-0.28500, 51.52900],
+        [-0.30500, 51.53200],
+        [-0.32500, 51.53500],
+        [-0.34500, 51.54000],
+        [-0.36500, 51.54500],
+        [-0.39000, 51.55000],
+        [-0.41500, 51.55500],
+        [-0.44500, 51.56000],
+        [-0.48500, 51.56500],
+        [-0.50500, 51.57000]
+      ],
+      "notes": "Proposed 1912, built in stages 1921-1943 as a bypass of the Uxbridge Road. A three-lane single carriageway with cycle tracks and roundabouts at all junctions - a design that was congested within a decade."
+    },
+    {
+      "id": "north_circular_road",
+      "name": "North Circular Road (A406)",
+      "year": 1934,
+      "year_range": [1921, 1935],
+      "later_upgrades": [1970, 1993, 1999],
+      "polyline": [
+        [-0.30800, 51.48800],
+        [-0.30500, 51.50500],
+        [-0.30000, 51.52000],
+        [-0.29000, 51.53500],
+        [-0.27500, 51.55000],
+        [-0.25500, 51.56000],
+        [-0.23500, 51.57000],
+        [-0.21000, 51.58200],
+        [-0.18500, 51.59500],
+        [-0.15500, 51.60200],
+        [-0.12000, 51.60800],
+        [-0.08500, 51.61200],
+        [-0.05500, 51.61000],
+        [-0.03000, 51.60000],
+        [-0.01000, 51.59000],
+        [0.01000, 51.58500],
+        [0.03500, 51.58000],
+        [0.06000, 51.57000],
+        [0.07500, 51.55500],
+        [0.08500, 51.54000],
+        [0.09000, 51.52500]
+      ],
+      "notes": "Built in disconnected stages from 1921; the main east-west sections opened in the early 1930s, largely as unemployment relief. Never a designed high-capacity route; heavily rebuilt with grade separation at Brent Cross (1976), Bounds Green, Neasden and Hanger Lane. The Waltham Forest section was widened 1993-1999 after the M11 link road protests."
+    },
+    {
+      "id": "eastern_avenue_1925",
+      "name": "Eastern Avenue (A12)",
+      "year": 1925,
+      "year_range": [1921, 1928],
+      "polyline": [
+        [0.02500, 51.55500],
+        [0.04500, 51.56200],
+        [0.06600, 51.57600],
+        [0.08500, 51.58200],
+        [0.11000, 51.58500],
+        [0.13500, 51.58600],
+        [0.16000, 51.58700],
+        [0.18500, 51.58800],
+        [0.20500, 51.59000]
+      ],
+      "notes": "Built 1921-1928 (first section opened 1925) as a bypass of the congested Romford Road, running Wanstead - Gants Hill - Ilford - Romford - Gallows Corner. Triggered the interwar suburbs of Ilford, Gants Hill and Romford."
+    },
+    {
+      "id": "southend_arterial_1925",
+      "name": "Southend Arterial Road (A127)",
+      "year": 1925,
+      "polyline": [
+        [0.20500, 51.59000],
+        [0.24000, 51.58500],
+        [0.28000, 51.58000],
+        [0.33000, 51.57500],
+        [0.38000, 51.57000],
+        [0.44000, 51.56500],
+        [0.51000, 51.56000],
+        [0.58000, 51.55500],
+        [0.65000, 51.54500]
+      ],
+      "notes": "Opened by the Prince of Wales on 25 March 1925, running from Gallows Corner, Romford to Southend-on-Sea. Only the western end lies within Greater London."
+    },
+    {
+      "id": "kingston_bypass_1927",
+      "name": "Kingston Bypass (A3)",
+      "year": 1927,
+      "polyline": [
+        [-0.24000, 51.44300],
+        [-0.25500, 51.43500],
+        [-0.27000, 51.42500],
+        [-0.28500, 51.41500],
+        [-0.30500, 51.40500],
+        [-0.32500, 51.39500],
+        [-0.34500, 51.38500],
+        [-0.36500, 51.37500]
+      ],
+      "notes": "Opened 1927, Britain's first purpose-built bypass with dual carriageways over part of its length; became infamous for ribbon development along its frontage, which the Restriction of Ribbon Development Act 1935 was passed to prevent."
+    },
+    {
+      "id": "chiswick_flyover_1959",
+      "name": "Chiswick Flyover (A4)",
+      "year": 1959,
+      "polyline": [
+        [-0.25600, 51.49250],
+        [-0.24700, 51.49180]
+      ],
+      "notes": "Opened 30 September 1959; the first large flyover on a British urban road, built to carry the Great West Road over the Chiswick roundabout. Precursor to the M4 elevated section (1965)."
+    },
+    {
+      "id": "hammersmith_flyover_1961",
+      "name": "Hammersmith Flyover (A4)",
+      "year": 1961,
+      "polyline": [
+        [-0.23500, 51.49150],
+        [-0.22300, 51.49100],
+        [-0.21500, 51.49080]
+      ],
+      "notes": "Opened 1961; 620 m of prestressed post-tensioned concrete, the first major structure of its kind in Britain. Emergency strengthening in 2011-2012."
+    },
+    {
+      "id": "m4_elevated_1965",
+      "name": "M4 motorway (London section) and the Brentford elevated section",
+      "year": 1965,
+      "year_range": [1959, 1965],
+      "polyline": [
+        [-0.24700, 51.49180],
+        [-0.27500, 51.49100],
+        [-0.30500, 51.49000],
+        [-0.33500, 51.48800],
+        [-0.37500, 51.48700],
+        [-0.41500, 51.48800],
+        [-0.45500, 51.48900],
+        [-0.50000, 51.49000]
+      ],
+      "elevated": true,
+      "notes": "The M4 opened to Maidenhead in 1961-63 and the elevated London section (Chiswick to Brentford, over the Great West Road) in 1965, meeting the Chiswick Flyover of 1959. About 3 km on a continuous viaduct through Brentford."
+    },
+    {
+      "id": "westway_1970",
+      "name": "Westway (A40(M))",
+      "year": 1970,
+      "year_range": [1967, 1970],
+      "polyline": [
+        [-0.17400, 51.52050],
+        [-0.18400, 51.52000],
+        [-0.19500, 51.51900],
+        [-0.20500, 51.51750],
+        [-0.21400, 51.51600],
+        [-0.22400, 51.51420]
+      ],
+      "elevated": true,
+      "notes": "Opened 28 July 1970: 4 km of elevated dual three-lane road from Paddington to White City, the longest continuous elevated road in Europe at the time. Its opening was met by protests from residents in Acklam Road whose windows were 6 m from the carriageway; it became the emblem of the abandoned Ringway 1 motorway box, cancelled by the GLC in 1973."
+    },
+    {
+      "id": "bow_flyover_1967",
+      "name": "Bow Flyover (A11/A12)",
+      "year": 1967,
+      "polyline": [
+        [-0.02000, 51.52800],
+        [-0.01200, 51.52780]
+      ],
+      "elevated": true,
+      "notes": "Opened 1967 carrying the A11 over the Blackwall Tunnel Northern Approach roundabout at Bow. Part of the East Cross Route scheme."
+    },
+    {
+      "id": "a102m_east_cross_route_1967",
+      "name": "A102(M) East Cross Route and Blackwall Tunnel Northern Approach",
+      "year": 1967,
+      "year_range": [1967, 1973],
+      "polyline": [
+        [-0.01600, 51.53500],
+        [-0.01300, 51.52800],
+        [-0.00900, 51.52000],
+        [-0.00600, 51.51200],
+        [0.00100, 51.50600],
+        [0.00500, 51.50000],
+        [0.00800, 51.49200],
+        [0.01500, 51.48200],
+        [0.02500, 51.47200]
+      ],
+      "elevated": true,
+      "notes": "The only substantially built segment of the GLC's Ringway 1 motorway box, constructed 1967-1973 with the second Blackwall Tunnel bore (1967). Runs Hackney Wick - Bow - Blackwall Tunnel - Greenwich Peninsula - Sun in the Sands, Blackheath. Partly elevated over the Lea valley and Bow."
+    },
+    {
+      "id": "m1_london_end",
+      "name": "M1 motorway (London end)",
+      "year": 1959,
+      "extensions": [
+        {"year": 1959, "segment": "St Albans bypass to Crick (the original London-Birmingham motorway), opened 2 November 1959; the London end was at Berrygrove, near Watford."},
+        {"year": 1967, "segment": "Extended south to Scratchwood / Mill Hill (junction 1-4)."},
+        {"year": 1977, "segment": "Extended to Staples Corner and the A406 North Circular, junction 1."}
+      ],
+      "polyline": [
+        [-0.23000, 51.57500],
+        [-0.24500, 51.59500],
+        [-0.25500, 51.61500],
+        [-0.26500, 51.63500],
+        [-0.28500, 51.66000],
+        [-0.31500, 51.69000],
+        [-0.35000, 51.72000]
+      ],
+      "notes": "Britain's first full-length inter-urban motorway. Never reached its planned London terminus at Highgate; the Archway/Camden extension of the 1960s was abandoned."
+    },
+    {
+      "id": "m11_london_end",
+      "name": "M11 motorway (London end)",
+      "year": 1977,
+      "year_range": [1975, 1980],
+      "extensions": [
+        {"year": 1999, "segment": "M11 Link Road (A12) from Redbridge through Leytonstone and Leyton to Hackney Wick, opened 1999 after the long-running 1993-94 anti-road protest at Claremont Road and the felling of the George Green chestnut tree."}
+      ],
+      "polyline": [
+        [0.02900, 51.57500],
+        [0.03500, 51.59500],
+        [0.04500, 51.61500],
+        [0.06000, 51.64000],
+        [0.08000, 51.67000],
+        [0.10000, 51.70000]
+      ],
+      "notes": "The Woodford-to-Cambridge motorway; the section from the M25 at Loughton to Redbridge opened 1977, with earlier northern sections from 1975. Its southern extension became the A12 Hackney Wick to M11 Link Road."
+    },
+    {
+      "id": "m25_orbital",
+      "name": "M25 London Orbital Motorway",
+      "year": 1986,
+      "year_range": [1975, 1986],
+      "stages": [
+        {"year": 1975, "segment": "South Mimms (J23) to Potters Bar (J24), 4.3 km - the first section opened, September 1975."},
+        {"year": 1976, "segment": "Godstone-Reigate (J6-J8), Thorpe-Egham (J12-J13), Maple Cross-Hunton Bridge (J17-J19), 20.8 km total."},
+        {"year": 1982, "segment": "Potters Bar to the Dartford Tunnel (the north-east and east quadrant), built 1979-1982."},
+        {"year": 1985, "segment": "Most of the western and southern sections complete."},
+        {"year": 1986, "segment": "Final 21 km between J19 (Watford) and J23 (South Mimms); the whole 188 km motorway opened by Margaret Thatcher on 29 October 1986."}
+      ],
+      "polyline": [
+        [-0.02500, 51.46500],
+        [-0.11000, 51.42000],
+        [-0.20000, 51.34500],
+        [-0.30000, 51.30500],
+        [-0.42000, 51.30000],
+        [-0.50000, 51.34000],
+        [-0.53500, 51.40000],
+        [-0.52500, 51.47000],
+        [-0.50000, 51.55000],
+        [-0.47000, 51.62000],
+        [-0.39000, 51.68500],
+        [-0.28000, 51.71500],
+        [-0.16000, 51.71500],
+        [-0.05000, 51.70000],
+        [0.05000, 51.68500],
+        [0.13000, 51.66000],
+        [0.20000, 51.60000],
+        [0.24000, 51.53000],
+        [0.26000, 51.47500],
+        [0.24500, 51.46500],
+        [0.20000, 51.44500],
+        [0.14000, 51.41500],
+        [0.08000, 51.38500],
+        [0.02000, 51.37000],
+        [-0.02500, 51.36500]
+      ],
+      "notes": "188 km, incorporating fragments of the abandoned Ringways 3 and 4. The Dartford Crossing (a toll crossing, not motorway) closes the loop in the east. Polyline is a coarse 26-point generalisation of the full orbital (?)."
+    },
+    {
+      "id": "dartford_crossing",
+      "name": "Dartford Crossing",
+      "stages": [
+        {"year": 1963, "segment": "West tunnel opened 18 November 1963, two lanes, replacing the Dartford-Purfleet ferry."},
+        {"year": 1980, "segment": "East tunnel opened, doubling capacity to four lanes."},
+        {"year": 1991, "segment": "Queen Elizabeth II Bridge opened 30 October 1991, carrying southbound traffic; the tunnels became northbound only. 812 m cable-stayed main span, 65 m clearance."}
+      ],
+      "polyline": [
+        [0.25700, 51.46400],
+        [0.26000, 51.46900],
+        [0.26300, 51.47500]
+      ],
+      "notes": "Not motorway-classified (A282) so that non-motorway traffic can use it, which is why the M25 is technically discontinuous."
+    },
+    {
+      "id": "a2_rochester_way_relief_1988",
+      "name": "A2 Rochester Way Relief Road",
+      "year": 1988,
+      "polyline": [
+        [0.02500, 51.46800],
+        [0.05500, 51.46200],
+        [0.08500, 51.45700],
+        [0.11500, 51.45200],
+        [0.14500, 51.44700]
+      ],
+      "notes": "Opened 1988, a dual three-lane road in cutting from Kidbrooke to Falconwood and Bexley, replacing the 1920s Rochester Way. Runs partly in a cut-and-cover tunnel at Falconwood."
+    },
+    {
+      "id": "limehouse_link_1993",
+      "name": "Limehouse Link Tunnel",
+      "year": 1993,
+      "polyline": [
+        [-0.05100, 51.50900],
+        [-0.04400, 51.50880],
+        [-0.03700, 51.50920],
+        [-0.03100, 51.50960],
+        [-0.02600, 51.51000]
+      ],
+      "notes": "Opened 17 May 1993; 1.8 km of twin-bore cut-and-cover tunnel linking The Highway at Wapping to Canary Wharf. At about GBP 293 million (GBP 160,000 per metre) it was reputedly the most expensive stretch of road ever built in Britain. Required the demolition of 450 homes and the relocation of over 500 households."
+    },
+    {
+      "id": "a13_improvements",
+      "name": "A13 Commercial Road / East India Dock Road / Newham Way corridor upgrades",
+      "year": 1990,
+      "year_range": [1970, 2000],
+      "polyline": [
+        [-0.03400, 51.51230],
+        [-0.01500, 51.51150],
+        [0.00500, 51.51000],
+        [0.02500, 51.51500],
+        [0.05000, 51.52000],
+        [0.08000, 51.52200],
+        [0.11000, 51.52400],
+        [0.14000, 51.52400],
+        [0.18000, 51.51800]
+      ],
+      "elevated": true,
+      "notes": "Progressively upgraded from the 1960s to the 1990s, including the Canning Town flyover and the elevated section past Beckton and Barking. Part of the Thames Gateway corridor. Stage dates approximate (?)."
+    },
+    {
+      "id": "blackwall_tunnel",
+      "name": "Blackwall Tunnel",
+      "stages": [
+        {"year": 1897, "segment": "First (west) bore opened 22 May 1897 by the Prince of Wales; designed by Alexander Binnie for the London County Council. 1.35 km, with sharp bends deliberately built in so that horses could not see daylight and bolt."},
+        {"year": 1967, "segment": "Second (east) bore opened 2 August 1967 with the A102(M) approach roads; the tunnels became one-way each."},
+        {"year": 2025, "segment": "Silvertown Tunnel opened 7 April 2025 as a parallel tolled crossing."}
+      ],
+      "polyline": [
+        [0.00500, 51.50600],
+        [0.00700, 51.50000],
+        [0.00800, 51.49400]
+      ],
+      "notes": "London's first road tunnel under the Thames downstream of Tower Bridge (following the Thames Tunnel of 1843 and the Rotherhithe Tunnel of 1908)."
+    },
+    {
+      "id": "rotherhithe_tunnel_1908",
+      "name": "Rotherhithe Tunnel",
+      "year": 1908,
+      "polyline": [
+        [-0.04500, 51.51100],
+        [-0.04500, 51.50600],
+        [-0.04600, 51.50100]
+      ],
+      "notes": "Opened 12 June 1908 by the London County Council; 1.48 km."
+    },
+    {
+      "id": "thames_tunnel_1843",
+      "name": "Thames Tunnel (Rotherhithe - Wapping)",
+      "year": 1843,
+      "converted_to_railway": 1869,
+      "polyline": [
+        [-0.05600, 51.50450],
+        [-0.05600, 51.50600],
+        [-0.05600, 51.50750]
+      ],
+      "notes": "Marc and Isambard Kingdom Brunel's tunnel, begun 1825 and opened 25 March 1843 - the first tunnel under a navigable river anywhere. A pedestrian tourist attraction until bought by the East London Railway in 1865 and reopened for trains 7 December 1869; now carries the London Overground."
+    }
+  ],
+
+  "railways": [
+    {
+      "name": "London & Greenwich Railway",
+      "opened": 1836,
+      "opened_full": 1838,
+      "from": "London Bridge",
+      "to": "Greenwich",
+      "route": ["London Bridge", "Spa Road", "Bermondsey", "Deptford", "Greenwich"],
+      "polyline": [
+        [-0.08650, 51.50450],
+        [-0.07800, 51.50100],
+        [-0.06800, 51.49800],
+        [-0.05600, 51.49500],
+        [-0.04400, 51.49200],
+        [-0.03200, 51.48900],
+        [-0.02600, 51.48450],
+        [-0.01300, 51.47780],
+        [-0.00900, 51.47780]
+      ],
+      "elevated": true,
+      "notes": "London's first railway and the first steam railway built specifically to carry passengers into a capital. Spa Road to Deptford opened 8 February 1836; London Bridge 14 December 1836; Greenwich 24 December 1838. Carried on a continuous brick viaduct of 878 arches, 6 km long, the largest brickwork structure in Britain, built partly so the arches could be let as houses (they were unlettable and became workshops). The viaduct still carries the busiest railway approach in Britain."
+    },
+    {
+      "name": "London & Birmingham Railway (Euston)",
+      "opened": 1837,
+      "opened_full": 1838,
+      "from": "Euston",
+      "to": "Birmingham (Curzon Street)",
+      "route": ["Euston", "Camden Town", "Chalk Farm", "Kilburn", "Willesden", "Harrow", "Watford"],
+      "polyline": [
+        [-0.13350, 51.52820],
+        [-0.13800, 51.53400],
+        [-0.14300, 51.54000],
+        [-0.15400, 51.54200],
+        [-0.16800, 51.54200],
+        [-0.18500, 51.54100],
+        [-0.20500, 51.54000],
+        [-0.23000, 51.53800],
+        [-0.26500, 51.54500],
+        [-0.30500, 51.55500],
+        [-0.33500, 51.57500],
+        [-0.36000, 51.60000]
+      ],
+      "elevated": false,
+      "notes": "Robert Stephenson's line, Euston to Boxmoor opened 20 July 1837, complete to Birmingham 17 September 1838. Trains were rope-hauled up the 1-in-77 Camden bank by a stationary engine until 1844. Euston's Doric Arch (1837) was demolished in 1962; the great station rebuild opened 1968. Primrose Hill Tunnel (1837) was the first railway tunnel in London."
+    },
+    {
+      "name": "London & Southampton / London & South Western Railway (Nine Elms, then Waterloo)",
+      "opened": 1838,
+      "opened_full": 1848,
+      "from": "Nine Elms (1838), Waterloo (1848)",
+      "to": "Southampton",
+      "route": ["Waterloo", "Vauxhall", "Clapham Junction", "Wimbledon", "Surbiton", "Woking"],
+      "polyline": [
+        [-0.11300, 51.50330],
+        [-0.12300, 51.49900],
+        [-0.12300, 51.48600],
+        [-0.13500, 51.47600],
+        [-0.15200, 51.46600],
+        [-0.17000, 51.46400],
+        [-0.19500, 51.45900],
+        [-0.21500, 51.44500],
+        [-0.23000, 51.42200],
+        [-0.25000, 51.41200],
+        [-0.29500, 51.39200],
+        [-0.34500, 51.37800]
+      ],
+      "elevated": true,
+      "notes": "Nine Elms terminus opened 21 May 1838; extended on a 3 km brick viaduct across Lambeth marsh to a new terminus at Waterloo Bridge station, opened 11 July 1848. Waterloo was famously chaotic, rebuilt 1900-1922 (opened by Queen Mary 21 March 1922) with the Victory Arch war memorial. The Vauxhall-Waterloo approach is entirely on arches."
+    },
+    {
+      "name": "Great Western Railway (Paddington)",
+      "opened": 1838,
+      "opened_full": 1854,
+      "from": "Paddington (Bishop's Road 1838; permanent station 1854)",
+      "to": "Bristol",
+      "route": ["Paddington", "Westbourne Park", "Acton", "Ealing Broadway", "Southall", "Hayes", "West Drayton", "Slough"],
+      "polyline": [
+        [-0.17700, 51.51660],
+        [-0.19500, 51.52100],
+        [-0.21500, 51.52200],
+        [-0.24000, 51.52000],
+        [-0.26500, 51.51500],
+        [-0.29500, 51.51400],
+        [-0.33500, 51.51000],
+        [-0.37500, 51.50700],
+        [-0.41500, 51.50500],
+        [-0.46000, 51.50700],
+        [-0.51500, 51.51200]
+      ],
+      "elevated": false,
+      "notes": "Brunel's broad gauge (7 ft 0.25 in) line. Temporary Bishop's Road terminus opened 4 June 1838; Brunel and Digby Wyatt's great train shed at Paddington opened 29 May 1854. Wharncliffe Viaduct over the Brent at Hanwell (1838) was Brunel's first major structure. Broad gauge abolished 1892. The Hammersmith & City branch opened 1864, the Metropolitan connection at Bishop's Road 1863."
+    },
+    {
+      "name": "London & Blackwall Railway",
+      "opened": 1840,
+      "opened_full": 1841,
+      "from": "Minories (1840), Fenchurch Street (1841)",
+      "to": "Blackwall",
+      "route": ["Fenchurch Street", "Minories", "Shadwell", "Limehouse", "West India Docks", "Poplar", "Blackwall"],
+      "polyline": [
+        [-0.07850, 51.51150],
+        [-0.07200, 51.51120],
+        [-0.06000, 51.51150],
+        [-0.05000, 51.51150],
+        [-0.04000, 51.51230],
+        [-0.03000, 51.51150],
+        [-0.02000, 51.51050],
+        [-0.01000, 51.50950],
+        [-0.00300, 51.50850]
+      ],
+      "elevated": true,
+      "notes": "Opened 6 July 1840 from Minories to Blackwall; extended to Fenchurch Street 2 August 1841. Originally cable-hauled by stationary engines (the smoke risk to dock warehouses ruled out locomotives) until 1849. Entirely on a brick viaduct. Passenger service ended 1926; much of the alignment was reused for the Docklands Light Railway in 1987."
+    },
+    {
+      "name": "Eastern Counties Railway (Shoreditch/Bishopsgate, then Liverpool Street)",
+      "opened": 1840,
+      "opened_full": 1874,
+      "from": "Shoreditch (Bishopsgate) 1840; Liverpool Street 1874",
+      "to": "Colchester, Norwich, Cambridge",
+      "route": ["Liverpool Street", "Bethnal Green", "Stratford", "Ilford", "Romford", "Brentwood"],
+      "polyline": [
+        [-0.08150, 51.51800],
+        [-0.07600, 51.52200],
+        [-0.05600, 51.52700],
+        [-0.03500, 51.52900],
+        [-0.00400, 51.54150],
+        [0.02500, 51.55000],
+        [0.06800, 51.55900],
+        [0.10500, 51.56400],
+        [0.14500, 51.57200],
+        [0.18300, 51.57500],
+        [0.30000, 51.61500]
+      ],
+      "elevated": true,
+      "notes": "Shoreditch terminus opened 1 July 1840, renamed Bishopsgate 1846. The Great Eastern Railway (formed 1862) drove the line into the City: Liverpool Street opened for suburban trains 2 February 1874 and fully 1 November 1875. GER cheap workmen's fares (from 1864, made statutory 1883) created the dense working-class suburbs of Walthamstow, Leyton and Edmonton. Approach entirely on viaduct through Bethnal Green."
+    },
+    {
+      "name": "London & Croydon Railway",
+      "opened": 1839,
+      "from": "London Bridge",
+      "to": "West Croydon",
+      "route": ["London Bridge", "New Cross", "Forest Hill", "Sydenham", "Norwood Junction", "West Croydon"],
+      "polyline": [
+        [-0.08650, 51.50450],
+        [-0.06800, 51.49800],
+        [-0.04400, 51.49200],
+        [-0.03600, 51.47600],
+        [-0.05300, 51.45500],
+        [-0.05400, 51.43900],
+        [-0.06800, 51.42000],
+        [-0.07600, 51.40200],
+        [-0.08900, 51.37800]
+      ],
+      "elevated": true,
+      "notes": "Opened 5 June 1839, sharing the London & Greenwich viaduct into London Bridge. Built largely on the bed of the Croydon Canal, which it bought and closed in 1836. Experimented with atmospheric (vacuum-pipe) propulsion 1845-1847, which failed."
+    },
+    {
+      "name": "London & Brighton Railway",
+      "opened": 1841,
+      "from": "London Bridge",
+      "to": "Brighton",
+      "route": ["London Bridge", "Norwood Junction", "East Croydon", "Merstham", "Three Bridges", "Brighton"],
+      "polyline": [
+        [-0.08650, 51.50450],
+        [-0.04400, 51.49200],
+        [-0.05400, 51.43900],
+        [-0.07600, 51.40200],
+        [-0.09000, 51.37500],
+        [-0.13500, 51.30000],
+        [-0.16000, 51.24000]
+      ],
+      "elevated": true,
+      "notes": "Opened throughout 21 September 1841. Merged with the London & Croydon in 1846 to form the London Brighton & South Coast Railway. Its Victoria terminus opened 1 October 1860."
+    },
+    {
+      "name": "South Eastern Railway",
+      "opened": 1842,
+      "opened_full": 1844,
+      "from": "London Bridge (via Redhill)",
+      "to": "Dover",
+      "route": ["London Bridge", "New Cross", "Redhill", "Tonbridge", "Ashford", "Folkestone", "Dover"],
+      "polyline": [
+        [-0.08650, 51.50450],
+        [-0.04400, 51.49200],
+        [-0.05400, 51.43900],
+        [-0.08500, 51.37500],
+        [-0.16500, 51.24000],
+        [0.05000, 51.20000],
+        [0.30000, 51.15000],
+        [0.87000, 51.13000],
+        [1.31000, 51.12500]
+      ],
+      "elevated": true,
+      "notes": "Reached Tonbridge via the Brighton line and Redhill in 1842 and Dover 7 February 1844. Bricklayers Arms terminus opened 1844 as a bargaining counter against London Bridge tolls, closed to passengers 1852. The SER later drove into the West End (Charing Cross 1864) and City (Cannon Street 1866)."
+    },
+    {
+      "name": "Great Northern Railway (King's Cross)",
+      "opened": 1850,
+      "opened_full": 1852,
+      "from": "Maiden Lane (1850), King's Cross (1852)",
+      "to": "York, Edinburgh",
+      "route": ["King's Cross", "Finsbury Park", "Wood Green", "New Barnet", "Potters Bar", "Hatfield"],
+      "polyline": [
+        [-0.12300, 51.53100],
+        [-0.11700, 51.53800],
+        [-0.11000, 51.55000],
+        [-0.10600, 51.56400],
+        [-0.10900, 51.57800],
+        [-0.10900, 51.59700],
+        [-0.14500, 51.61500],
+        [-0.17500, 51.64500],
+        [-0.19500, 51.68500],
+        [-0.22500, 51.76000]
+      ],
+      "elevated": false,
+      "notes": "Temporary Maiden Lane terminus 7 August 1850; Lewis Cubitt's King's Cross opened 14 October 1852 - two great arched sheds behind a plain brick screen. Gasworks and Copenhagen tunnels immediately north. The GNR's City widened lines through Farringdon opened 1868."
+    },
+    {
+      "name": "North London Railway",
+      "opened": 1850,
+      "opened_full": 1851,
+      "from": "Camden / Bow (Broad Street from 1865)",
+      "to": "Poplar and Richmond",
+      "route": ["Richmond", "Kew", "Gunnersbury", "Willesden Junction", "Hampstead Heath", "Camden Road", "Highbury & Islington", "Dalston", "Hackney", "Bow", "Poplar", "Broad Street"],
+      "polyline": [
+        [-0.30100, 51.46300],
+        [-0.28500, 51.48800],
+        [-0.27500, 51.50700],
+        [-0.24500, 51.53200],
+        [-0.21500, 51.54100],
+        [-0.18000, 51.54500],
+        [-0.15500, 51.55100],
+        [-0.13800, 51.54900],
+        [-0.11500, 51.54600],
+        [-0.10300, 51.54600],
+        [-0.07500, 51.54600],
+        [-0.05500, 51.54700],
+        [-0.03000, 51.54200],
+        [-0.01900, 51.53100],
+        [-0.01300, 51.51000]
+      ],
+      "elevated": true,
+      "notes": "Opened as the East & West India Docks & Birmingham Junction Railway, 26 September 1850 (Islington-Bow) and 1851 throughout, to bring goods from the LNWR to the docks. The Broad Street City extension opened 1 November 1865 on a long viaduct and made it one of London's busiest commuter lines; Broad Street closed 1986 and its route through Dalston is now the London Overground East London / North London line."
+    },
+    {
+      "name": "West London Railway and West London Extension Railway",
+      "opened": 1844,
+      "opened_full": 1863,
+      "from": "Willesden Junction",
+      "to": "Clapham Junction",
+      "route": ["Willesden Junction", "Shepherd's Bush", "Kensington Olympia", "West Brompton", "Chelsea", "Clapham Junction"],
+      "polyline": [
+        [-0.24800, 51.53200],
+        [-0.23500, 51.52000],
+        [-0.22600, 51.50500],
+        [-0.21000, 51.49700],
+        [-0.19500, 51.48700],
+        [-0.18300, 51.47700],
+        [-0.17300, 51.46700]
+      ],
+      "elevated": false,
+      "notes": "The West London Railway opened 27 May 1844 and closed to passengers within six months for lack of custom (Punch called it 'Mr Punch's Railway ... the connecting link between Nowhere and Nothing'). Reopened 1862. The West London Extension Railway south of Kensington, opened 2 March 1863, was built on the bed of the Kensington Canal and crosses the Thames on Cremorne Bridge (1863)."
+    },
+    {
+      "name": "London Chatham & Dover Railway - Victoria and the City lines",
+      "opened": 1860,
+      "opened_full": 1864,
+      "from": "Victoria (1860/62), Blackfriars (1864), Holborn Viaduct (1874)",
+      "to": "Dover and Ramsgate",
+      "route": ["Victoria", "Brixton", "Herne Hill", "Loughborough Junction", "Elephant & Castle", "Blackfriars", "Ludgate Hill", "Holborn Viaduct"],
+      "polyline": [
+        [-0.14400, 51.49500],
+        [-0.13500, 51.48700],
+        [-0.11400, 51.46500],
+        [-0.10300, 51.45300],
+        [-0.10500, 51.46600],
+        [-0.10000, 51.48000],
+        [-0.09900, 51.49400],
+        [-0.10300, 51.50600],
+        [-0.10350, 51.51100],
+        [-0.10400, 51.51600]
+      ],
+      "elevated": true,
+      "notes": "The LBSCR opened Victoria 1 October 1860 and the LCDR its side 25 August 1862. Blackfriars Railway Bridge and the line across the river to Ludgate Hill opened 21 December 1864, cutting a famously hated viaduct across Ludgate Hill in front of St Paul's; Holborn Viaduct station opened 2 March 1874. The Ludgate Hill viaduct was demolished in 1990 and the line rebuilt underground as Thameslink."
+    },
+    {
+      "name": "South Eastern Railway - Charing Cross extension",
+      "opened": 1864,
+      "from": "London Bridge",
+      "to": "Charing Cross",
+      "route": ["London Bridge", "Waterloo East", "Hungerford Bridge", "Charing Cross"],
+      "polyline": [
+        [-0.08650, 51.50500],
+        [-0.09500, 51.50450],
+        [-0.10600, 51.50400],
+        [-0.11400, 51.50450],
+        [-0.12000, 51.50550],
+        [-0.12450, 51.50790]
+      ],
+      "elevated": true,
+      "notes": "Opened 11 January 1864 on a brick viaduct across Southwark, crossing the Thames on the Charing Cross (Hungerford) Bridge of 1864, which replaced Brunel's suspension footbridge of 1845 (whose chains went to the Clifton Suspension Bridge). The station's roof collapsed in 1905, killing six."
+    },
+    {
+      "name": "South Eastern Railway - Cannon Street extension",
+      "opened": 1866,
+      "from": "London Bridge",
+      "to": "Cannon Street",
+      "route": ["London Bridge", "Borough Market Junction", "Cannon Street Railway Bridge", "Cannon Street"],
+      "polyline": [
+        [-0.08800, 51.50500],
+        [-0.08950, 51.50600],
+        [-0.09050, 51.50780],
+        [-0.09050, 51.51050]
+      ],
+      "elevated": true,
+      "notes": "Opened 1 September 1866; John Hawkshaw's train shed and the twin towers still stand, though the roof was removed in 1958. Its river bridge is the widest railway bridge over the Thames."
+    },
+    {
+      "name": "Midland Railway (St Pancras)",
+      "opened": 1868,
+      "from": "St Pancras",
+      "to": "Bedford, Leicester, Sheffield",
+      "route": ["St Pancras", "Kentish Town", "West Hampstead", "Hendon", "Mill Hill", "Elstree", "St Albans"],
+      "polyline": [
+        [-0.12700, 51.53040],
+        [-0.13800, 51.54000],
+        [-0.15400, 51.54700],
+        [-0.19000, 51.55200],
+        [-0.21500, 51.57200],
+        [-0.23000, 51.59500],
+        [-0.24500, 51.62000],
+        [-0.26500, 51.65500],
+        [-0.33000, 51.75000]
+      ],
+      "elevated": true,
+      "notes": "Opened 1 October 1868. W.H. Barlow's single-span iron train shed (74 m, the widest in the world when built) sits on a deck 6 m above street level over an undercroft designed to a grid of Burton beer barrels. George Gilbert Scott's Midland Grand Hotel opened 1873, closed 1935, saved from demolition by John Betjeman's campaign in 1967, reopened 2011. The line's approach required the clearance of Agar Town and the disturbance of St Pancras Old Church burial ground (supervised by the young Thomas Hardy)."
+    },
+    {
+      "name": "Metropolitan Railway",
+      "opened": 1863,
+      "from": "Paddington (Bishop's Road)",
+      "to": "Farringdon Street",
+      "route": ["Paddington", "Edgware Road", "Baker Street", "Great Portland Street", "Euston Square", "King's Cross", "Farringdon"],
+      "polyline": [
+        [-0.17600, 51.51700],
+        [-0.16800, 51.52000],
+        [-0.15800, 51.52200],
+        [-0.14700, 51.52250],
+        [-0.13800, 51.52550],
+        [-0.12300, 51.53000],
+        [-0.10500, 51.52030]
+      ],
+      "elevated": false,
+      "notes": "The world's first underground railway, opened 10 January 1863; 6 km of cut-and-cover tunnel largely under the New Road, carrying 38,000 passengers on the first day. Extended to Moorgate 1865, Hammersmith 1864, Swiss Cottage 1868 and out to Harrow (1880), Rickmansworth (1887), Aylesbury (1892) and Verney Junction (1897), creating 'Metro-land'. The Inner Circle was completed with the District on 6 October 1884."
+    },
+    {
+      "name": "Metropolitan District Railway",
+      "opened": 1868,
+      "from": "South Kensington",
+      "to": "Westminster (later Whitechapel, Richmond, Ealing, Wimbledon)",
+      "route": ["South Kensington", "Sloane Square", "Victoria", "St James's Park", "Westminster", "Embankment", "Blackfriars", "Mansion House"],
+      "polyline": [
+        [-0.17400, 51.49400],
+        [-0.15650, 51.49240],
+        [-0.14400, 51.49500],
+        [-0.13400, 51.49960],
+        [-0.12500, 51.50100],
+        [-0.12200, 51.50700],
+        [-0.10400, 51.51100],
+        [-0.09400, 51.51230]
+      ],
+      "elevated": false,
+      "notes": "Opened 24 December 1868. Its Embankment section was built in the cofferdam of Bazalgette's Victoria Embankment (1864-70) in a single combined operation with the sewer and the new road - one of the great coordinated infrastructure projects of the century."
+    },
+    {
+      "name": "Hampstead Junction Railway",
+      "opened": 1860,
+      "from": "Willesden Junction",
+      "to": "Camden Road",
+      "route": ["Willesden Junction", "Brondesbury", "West Hampstead", "Finchley Road & Frognal", "Hampstead Heath", "Gospel Oak", "Kentish Town West", "Camden Road"],
+      "polyline": [
+        [-0.24500, 51.53200],
+        [-0.21500, 51.54100],
+        [-0.19100, 51.54700],
+        [-0.17300, 51.55200],
+        [-0.16500, 51.55500],
+        [-0.15100, 51.55550],
+        [-0.14500, 51.54600],
+        [-0.13800, 51.54180]
+      ],
+      "elevated": false,
+      "notes": "Opened 2 January 1860, giving the North London Railway a route round the north side of London avoiding the LNWR main line. Now part of the London Overground North London Line."
+    },
+    {
+      "name": "West End of London & Crystal Palace Railway",
+      "opened": 1856,
+      "opened_full": 1858,
+      "from": "Crystal Palace",
+      "to": "Wandsworth, then Pimlico/Battersea",
+      "route": ["Crystal Palace", "Sydenham Hill", "Herne Hill", "Balham", "Clapham Junction", "Battersea (Pimlico)"],
+      "polyline": [
+        [-0.07300, 51.41800],
+        [-0.09000, 51.43500],
+        [-0.11000, 51.45200],
+        [-0.13500, 51.44500],
+        [-0.15200, 51.45000],
+        [-0.17000, 51.46400],
+        [-0.14700, 51.47800]
+      ],
+      "elevated": false,
+      "notes": "Built to serve the relocated Crystal Palace (1854); Crystal Palace to Wandsworth opened 1 December 1856, extended to a Thames-side terminus at Pimlico (Battersea) 29 March 1858, and over Grosvenor Bridge into Victoria in 1860. Crystal Palace High Level station (1865, LCDR) closed 1954."
+    },
+    {
+      "name": "London Tilbury & Southend Railway",
+      "opened": 1854,
+      "opened_full": 1888,
+      "from": "Fenchurch Street (via Stratford, then Barking)",
+      "to": "Tilbury and Southend",
+      "route": ["Fenchurch Street", "Limehouse", "Bromley-by-Bow", "West Ham", "Barking", "Upminster", "Grays", "Tilbury", "Southend"],
+      "polyline": [
+        [-0.07850, 51.51150],
+        [-0.03900, 51.51230],
+        [-0.01500, 51.52300],
+        [0.00500, 51.53200],
+        [0.08100, 51.53900],
+        [0.15000, 51.55900],
+        [0.25000, 51.53000],
+        [0.35000, 51.48000],
+        [0.55000, 51.51500],
+        [0.71000, 51.53800]
+      ],
+      "elevated": true,
+      "notes": "Forest Gate Junction to Tilbury opened 13 April 1854, Tilbury to Southend 1 March 1856; the direct line Barking-Pitsea opened 1 June 1888. Nicknamed the 'Misery Line'. Its Fenchurch Street approach shares the Blackwall viaduct."
+    },
+    {
+      "name": "London & South Western Railway suburban network",
+      "opened": 1846,
+      "opened_full": 1885,
+      "from": "Waterloo",
+      "to": "Richmond, Kingston, Hounslow, Shepperton, Hampton Court, Guildford loops",
+      "route": ["Waterloo", "Clapham Junction", "Richmond (1846)", "Windsor (1849)", "Hounslow loop (1850)", "Kingston loop (1863-69)", "Shepperton (1864)", "New Guildford line (1885)"],
+      "polyline": [
+        [-0.11300, 51.50330],
+        [-0.17000, 51.46400],
+        [-0.22000, 51.46200],
+        [-0.30100, 51.46300],
+        [-0.33500, 51.46000],
+        [-0.40500, 51.45500],
+        [-0.47500, 51.44500]
+      ],
+      "elevated": false,
+      "notes": "Richmond 27 July 1846; Windsor 1849; Hounslow loop 1850; Kingston loop 1863-1869; Shepperton branch 1864; New Guildford line 1885. The LSWR suburban network was electrified early (1915-1916, 660 V DC third rail), which drove the interwar growth of south-west London."
+    },
+    {
+      "name": "Great Central Railway (Marylebone)",
+      "opened": 1899,
+      "from": "Marylebone",
+      "to": "Nottingham, Sheffield, Manchester",
+      "route": ["Marylebone", "Neasden", "Harrow-on-the-Hill", "Amersham", "Aylesbury", "Rugby"],
+      "polyline": [
+        [-0.16350, 51.52250],
+        [-0.19500, 51.53500],
+        [-0.22500, 51.55500],
+        [-0.25500, 51.57500],
+        [-0.33500, 51.57900],
+        [-0.40500, 51.59500],
+        [-0.60000, 51.66500],
+        [-0.81000, 51.81000]
+      ],
+      "elevated": false,
+      "notes": "Opened 15 March 1899, the last main line built into London until HS1. Its approach destroyed part of Lord's cricket ground and the St John's Wood chapel burial ground. The main line north of Aylesbury closed in 1966; Marylebone survived a 1984 closure proposal and now serves Chiltern Railways."
+    },
+    {
+      "name": "Great Eastern Railway suburban extensions",
+      "opened": 1870,
+      "opened_full": 1894,
+      "from": "Liverpool Street",
+      "to": "Enfield, Chingford, Walthamstow, Palace Gates, Ilford loop",
+      "route": ["Liverpool Street", "Hackney Downs", "Clapton", "Walthamstow (1870)", "Chingford (1873)", "Enfield Town (1872)", "Ilford loop (1903)"],
+      "polyline": [
+        [-0.08150, 51.51800],
+        [-0.06000, 51.54800],
+        [-0.05500, 51.56200],
+        [-0.02000, 51.58500],
+        [0.00000, 51.62800]
+      ],
+      "elevated": true,
+      "notes": "The GER built a dense suburban network in the 1870s to Edmonton, Enfield, Chingford and Walthamstow, funded by workmen's fares of 2d return imposed as a condition of the Liverpool Street extension. This produced the poorest, densest and fastest-growing suburbs in London. Individual branch dates approximate (?)."
+    },
+    {
+      "name": "East London Railway (Thames Tunnel)",
+      "opened": 1869,
+      "opened_full": 1876,
+      "from": "New Cross / New Cross Gate",
+      "to": "Shoreditch / Liverpool Street",
+      "route": ["New Cross", "Surrey Quays", "Rotherhithe", "Wapping", "Shadwell", "Whitechapel", "Shoreditch"],
+      "polyline": [
+        [-0.03250, 51.47600],
+        [-0.04750, 51.49300],
+        [-0.05200, 51.50100],
+        [-0.05600, 51.50450],
+        [-0.05600, 51.50750],
+        [-0.05650, 51.51150],
+        [-0.05970, 51.51950],
+        [-0.07600, 51.52300]
+      ],
+      "elevated": false,
+      "notes": "Opened 7 December 1869 using Brunel's Thames Tunnel of 1843. Part of the Underground 1913-2007; closed 2007 and reopened 27 April 2010 as the core of the London Overground East London Line, extended to Highbury & Islington (2011) and Clapham Junction (2012)."
+    },
+    {
+      "name": "City & South London Railway (first deep tube)",
+      "opened": 1890,
+      "from": "King William Street",
+      "to": "Stockwell",
+      "route": ["King William Street", "Borough", "Elephant & Castle", "Kennington", "Oval", "Stockwell"],
+      "polyline": [
+        [-0.08800, 51.51000],
+        [-0.09400, 51.50100],
+        [-0.09950, 51.49480],
+        [-0.10570, 51.48830],
+        [-0.11250, 51.48150],
+        [-0.12250, 51.47230]
+      ],
+      "elevated": false,
+      "notes": "Opened 18 December 1890; the world's first deep-level electric tube railway, using the Greathead shield and cable-free electric locomotives. Rebuilt and extended 1922-24 and absorbed into the Northern line."
+    },
+    {
+      "name": "Central London Railway ('Twopenny Tube')",
+      "opened": 1900,
+      "from": "Shepherd's Bush",
+      "to": "Bank",
+      "route": ["Shepherd's Bush", "Notting Hill Gate", "Marble Arch", "Oxford Circus", "Holborn", "Bank"],
+      "polyline": [
+        [-0.21700, 51.50500],
+        [-0.19600, 51.50900],
+        [-0.15900, 51.51330],
+        [-0.14200, 51.51530],
+        [-0.12000, 51.51740],
+        [-0.08900, 51.51340]
+      ],
+      "elevated": false,
+      "notes": "Opened 30 July 1900 with a flat 2d fare, following the line of Oxford Street and Holborn. Extended west to Ealing 1920 and, after the 1935-40 New Works Programme (delayed by the war), east to Stratford, Leytonstone, Epping (1949) and Hainault. Its unfinished tunnel extensions were used as aircraft factories and shelters in the war."
+    },
+    {
+      "name": "Yerkes tubes: Bakerloo, Piccadilly, Charing Cross Euston & Hampstead",
+      "opened": 1906,
+      "opened_full": 1907,
+      "from": "central London",
+      "to": "Baker Street/Waterloo, Hammersmith/Finsbury Park, Charing Cross/Golders Green & Highgate",
+      "route": ["Baker Street - Waterloo (Bakerloo, 10 March 1906)", "Hammersmith - Finsbury Park (Piccadilly, 15 December 1906)", "Charing Cross - Golders Green and Highgate (CCE&HR, 22 June 1907)"],
+      "polyline": [
+        [-0.19400, 51.53500],
+        [-0.15700, 51.52250],
+        [-0.13500, 51.50500],
+        [-0.11400, 51.50300]
+      ],
+      "elevated": false,
+      "notes": "Three tubes financed by Charles Tyson Yerkes's Underground Electric Railways Company of London. Golders Green (1907), then open farmland, was deliberately chosen as a terminus to generate suburban traffic; its population rose from about 300 to 10,000 within 15 years - the clearest case of a London suburb created by a railway."
+    },
+    {
+      "name": "Victoria line",
+      "opened": 1968,
+      "opened_full": 1971,
+      "from": "Walthamstow Central",
+      "to": "Brixton",
+      "route": ["Walthamstow Central", "Finsbury Park", "King's Cross", "Oxford Circus", "Victoria", "Vauxhall", "Stockwell", "Brixton"],
+      "polyline": [
+        [-0.01960, 51.58300],
+        [-0.10600, 51.56430],
+        [-0.12400, 51.53000],
+        [-0.14180, 51.51520],
+        [-0.14400, 51.49650],
+        [-0.12350, 51.48600],
+        [-0.12250, 51.47230],
+        [-0.11450, 51.46270]
+      ],
+      "elevated": false,
+      "notes": "First new tube line for 60 years: Walthamstow to Highbury 1 September 1968, to Warren Street 1 December 1968, to Victoria 7 March 1969, to Brixton 23 July 1971. The first line with automatic train operation."
+    },
+    {
+      "name": "Jubilee line and Jubilee Line Extension",
+      "opened": 1979,
+      "opened_full": 1999,
+      "from": "Stanmore",
+      "to": "Charing Cross (1979); Stratford (1999)",
+      "route": ["Stanmore", "Wembley Park", "Baker Street", "Bond Street", "Green Park", "Westminster", "Waterloo", "London Bridge", "Canada Water", "Canary Wharf", "North Greenwich", "Canning Town", "Stratford"],
+      "polyline": [
+        [-0.30300, 51.61930],
+        [-0.27950, 51.56320],
+        [-0.15700, 51.52250],
+        [-0.14300, 51.50900],
+        [-0.12500, 51.50100],
+        [-0.11400, 51.50300],
+        [-0.08750, 51.50500],
+        [-0.04980, 51.49820],
+        [-0.01950, 51.50350],
+        [0.00330, 51.50030],
+        [0.00830, 51.51430],
+        [-0.00400, 51.54150]
+      ],
+      "elevated": true,
+      "notes": "The Stanmore branch was transferred from the Bakerloo and the new Baker Street - Charing Cross tunnels opened 1 May 1979. The GBP 3.5 bn Jubilee Line Extension opened in stages between May and December 1999 (Stratford - North Greenwich 14 May; to Waterloo 24 September; Westminster 22 December), with monumental stations by Foster, Hopkins, MacCormac and Alsop. The Canning Town - Stratford section is elevated. It made Canary Wharf viable."
+    },
+    {
+      "name": "Docklands Light Railway",
+      "opened": 1987,
+      "opened_full": 2011,
+      "from": "Tower Gateway / Stratford",
+      "to": "Island Gardens (1987), then Bank, Beckton, Lewisham, Woolwich, Stratford International",
+      "route": ["Tower Gateway", "Shadwell", "Limehouse", "Westferry", "Canary Wharf", "Crossharbour", "Island Gardens", "Cutty Sark", "Lewisham", "Poplar", "Canning Town", "Beckton", "London City Airport", "Woolwich Arsenal", "Stratford"],
+      "polyline": [
+        [-0.07480, 51.51050],
+        [-0.05630, 51.51150],
+        [-0.03950, 51.51230],
+        [-0.02650, 51.50960],
+        [-0.02000, 51.50500],
+        [-0.01000, 51.48750],
+        [-0.01100, 51.48200],
+        [-0.01400, 51.46530],
+        [-0.00600, 51.50700],
+        [0.00830, 51.51430],
+        [0.03200, 51.51100],
+        [0.06200, 51.51470],
+        [0.05070, 51.50300],
+        [0.06900, 51.49000]
+      ],
+      "elevated": true,
+      "stages": [
+        {"year": 1987, "segment": "Tower Gateway and Stratford to Island Gardens, opened 31 August 1987 (official opening 30 July 1987 by the Queen). Largely on the reused London & Blackwall and Millwall Extension viaducts."},
+        {"year": 1991, "segment": "Bank extension (in tunnel) opened 29 July 1991; Canary Wharf station rebuilt."},
+        {"year": 1994, "segment": "Beckton branch opened 28 March 1994."},
+        {"year": 1999, "segment": "Lewisham extension opened 3 December 1999, under the Thames from Island Gardens to Cutty Sark and Greenwich."},
+        {"year": 2005, "segment": "King George V / London City Airport branch opened 2 December 2005."},
+        {"year": 2009, "segment": "Woolwich Arsenal extension (tunnel under the Thames) opened 10 January 2009."},
+        {"year": 2011, "segment": "Stratford International extension opened 31 August 2011, using the old North London Line alignment."}
+      ],
+      "notes": "Built cheaply on redundant Victorian dock railway viaducts. Almost entirely elevated except the Bank, Lewisham and Woolwich tunnels. Continuously extended and rebuilt as the Docklands grew far beyond the original forecasts."
+    },
+    {
+      "name": "High Speed 1 (Channel Tunnel Rail Link)",
+      "opened": 2003,
+      "opened_full": 2007,
+      "from": "Channel Tunnel / Folkestone",
+      "to": "St Pancras International",
+      "route": ["Folkestone", "Ashford International", "Ebbsfleet International", "Dartford tunnel under the Thames", "Stratford International", "Dagenham", "St Pancras International"],
+      "polyline": [
+        [1.15000, 51.10000],
+        [0.87000, 51.14000],
+        [0.55000, 51.32000],
+        [0.32000, 51.44300],
+        [0.25000, 51.48000],
+        [0.15000, 51.52500],
+        [0.05000, 51.53500],
+        [-0.00400, 51.54500],
+        [-0.06000, 51.54000],
+        [-0.10500, 51.53500],
+        [-0.12660, 51.53160]
+      ],
+      "elevated": true,
+      "notes": "Section 1 (Channel Tunnel to Fawkham Junction) opened 28 September 2003; Section 2 to St Pancras International opened 14 November 2007. In London it runs mostly in the 19 km Thames and London tunnels, surfacing at Stratford International (2009 for domestic services). Britain's first new main line since 1899 and its only high-speed line."
+    },
+    {
+      "name": "Elizabeth line (Crossrail)",
+      "opened": 2022,
+      "opened_full": 2023,
+      "from": "Reading / Heathrow",
+      "to": "Shenfield / Abbey Wood",
+      "route": ["Reading", "Heathrow", "Ealing Broadway", "Paddington", "Bond Street", "Tottenham Court Road", "Farringdon", "Liverpool Street", "Whitechapel", "Canary Wharf", "Custom House", "Woolwich", "Abbey Wood", "Stratford", "Shenfield"],
+      "polyline": [
+        [-0.46000, 51.45500],
+        [-0.33500, 51.51000],
+        [-0.24000, 51.51500],
+        [-0.17700, 51.51660],
+        [-0.14900, 51.51420],
+        [-0.13000, 51.51650],
+        [-0.10500, 51.52030],
+        [-0.08150, 51.51800],
+        [-0.06000, 51.51930],
+        [-0.02000, 51.50480],
+        [0.02700, 51.50950],
+        [0.07000, 51.49150],
+        [0.12000, 51.49080]
+      ],
+      "elevated": false,
+      "notes": "Authorised 2008, tunnelling 2012-2015, central section opened 24 May 2022; full through-running from 21 May 2023. 42 km of new 6.2 m twin-bore tunnels beneath central London; the largest archaeological programme ever run in Britain (over 10,000 finds, including the 1665 plague pit at Liverpool Street)."
+    },
+    {
+      "name": "London Overground orbital network",
+      "opened": 2007,
+      "opened_full": 2012,
+      "from": "various",
+      "to": "various",
+      "route": ["North London Line", "West London Line", "East London Line", "South London Line", "Gospel Oak to Barking"],
+      "polyline": [
+        [-0.30100, 51.46300],
+        [-0.24500, 51.53200],
+        [-0.15100, 51.55550],
+        [-0.10300, 51.54600],
+        [-0.07500, 51.54600],
+        [-0.05600, 51.50450],
+        [-0.03250, 51.47600],
+        [-0.13000, 51.46500],
+        [-0.17300, 51.46700],
+        [-0.22600, 51.50500]
+      ],
+      "elevated": true,
+      "notes": "Created 11 November 2007 by transferring Silverlink Metro to TfL; East London Line reopened 2010, the Surrey Canal Road/Clapham Junction link completed the orbital 'Ginger Line' on 9 December 2012. Lines renamed (Lioness, Mildmay, Windrush, Weaver, Suffragette, Liberty) in 2024."
+    }
+  ],
+
+  "viaducts_flyovers": [
+    {
+      "name": "London & Greenwich Railway viaduct",
+      "year": 1836,
+      "type": "railway_viaduct",
+      "length_m": 6000,
+      "arches": 878,
+      "polyline": [
+        [-0.08650, 51.50450],
+        [-0.06800, 51.49800],
+        [-0.04400, 51.49200],
+        [-0.02600, 51.48450]
+      ],
+      "notes": "60 million bricks; the largest brick structure in Britain. Built on 878 arches partly so they could be let as dwellings; the scheme failed and they became workshops and arches."
+    },
+    {
+      "name": "Holborn Viaduct",
+      "year": 1869,
+      "type": "road_viaduct",
+      "length_m": 430,
+      "polyline": [
+        [-0.10930, 51.51760],
+        [-0.10450, 51.51760],
+        [-0.10100, 51.51760]
+      ],
+      "notes": "Opened by Queen Victoria on 6 November 1869 (the same day as Blackfriars Bridge), carrying Holborn 430 m across the Fleet valley at Farringdon Street on a cast-iron bridge with bronze statues and stair-pavilions. Cost GBP 2 million and required the demolition of some 4000 houses. In 1882 Edison's Holborn Viaduct power station, the world's first coal-fired public electricity supply, opened beside it."
+    },
+    {
+      "name": "Ludgate Hill railway viaduct",
+      "year": 1864,
+      "removed": 1990,
+      "type": "railway_viaduct",
+      "polyline": [
+        [-0.10350, 51.51350],
+        [-0.10250, 51.51400]
+      ],
+      "notes": "The LCDR's iron bridge across Ludgate Hill, blocking the view of St Paul's; universally hated and demolished in 1990 when the Thameslink line was put in tunnel."
+    },
+    {
+      "name": "Wharncliffe Viaduct, Hanwell",
+      "year": 1838,
+      "type": "railway_viaduct",
+      "length_m": 270,
+      "polyline": [
+        [-0.33800, 51.50900],
+        [-0.33300, 51.50900]
+      ],
+      "notes": "Brunel's first major structural work, over the Brent valley; eight semi-elliptical brick arches, 270 m long, 20 m high. Grade I listed. Widened 1877."
+    },
+    {
+      "name": "Chiswick Flyover",
+      "year": 1959,
+      "type": "road_flyover",
+      "polyline": [
+        [-0.25600, 51.49250],
+        [-0.24700, 51.49180]
+      ],
+      "notes": "Opened 30 September 1959; the first big urban flyover in Britain, celebrated at the time as a symbol of modernity."
+    },
+    {
+      "name": "Hammersmith Flyover",
+      "year": 1961,
+      "type": "road_flyover",
+      "length_m": 620,
+      "polyline": [
+        [-0.23500, 51.49150],
+        [-0.21500, 51.49080]
+      ],
+      "notes": "Opened 1961; a pioneering prestressed post-tensioned concrete structure. Emergency closures and strengthening 2011-2015 after corrosion of the tendons."
+    },
+    {
+      "name": "Westway (A40(M)) elevated road",
+      "year": 1970,
+      "type": "road_viaduct",
+      "length_m": 4000,
+      "polyline": [
+        [-0.17400, 51.52050],
+        [-0.19500, 51.51900],
+        [-0.21400, 51.51600],
+        [-0.22400, 51.51420]
+      ],
+      "notes": "Opened 28 July 1970; 4 km, then the longest elevated road in Europe. J.G. Ballard's Concrete Island (1974) and the Notting Hill Carnival's sound systems both belong to its underside."
+    },
+    {
+      "name": "Bow Flyover",
+      "year": 1967,
+      "type": "road_flyover",
+      "polyline": [
+        [-0.02000, 51.52800],
+        [-0.01200, 51.52780]
+      ],
+      "notes": "Carries the A11 over the A12 Blackwall Tunnel Northern Approach."
+    },
+    {
+      "name": "Brent Cross Flyover / Staples Corner interchange",
+      "year": 1976,
+      "type": "road_interchange",
+      "polyline": [
+        [-0.22800, 51.57600],
+        [-0.22100, 51.57500],
+        [-0.21500, 51.57450]
+      ],
+      "notes": "Grade separation of the North Circular at Brent Cross completed 1976, alongside the Brent Cross Shopping Centre (opened 2 March 1976, Britain's first standalone regional out-of-town mall). Staples Corner (M1/A406) opened 1977; badly damaged by an IRA bomb on 11 April 1992."
+    },
+    {
+      "name": "A102(M) Blackwall Tunnel Northern Approach viaduct",
+      "year": 1967,
+      "type": "road_viaduct",
+      "polyline": [
+        [-0.01600, 51.53500],
+        [-0.01100, 51.52400],
+        [-0.00700, 51.51400],
+        [0.00300, 51.50700]
+      ],
+      "notes": "Elevated dual carriageway carrying the East Cross Route over the Lea valley industrial land and Bow. Built 1967-1973 as the only realised part of Ringway 1."
+    },
+    {
+      "name": "Kingsland Viaduct / Broad Street approach",
+      "year": 1865,
+      "removed_partly": 1986,
+      "type": "railway_viaduct",
+      "polyline": [
+        [-0.08150, 51.52200],
+        [-0.07700, 51.53000],
+        [-0.07550, 51.54600]
+      ],
+      "notes": "The North London Railway's Broad Street extension, 1865; the southern part was demolished for the Broadgate development after Broad Street closed in 1986, and the Dalston-Shoreditch section was reused for the East London Line extension in 2010."
+    }
+  ],
+
+  "airports": [
+    {
+      "name": "London Heathrow Airport",
+      "opened": 1946,
+      "closed": null,
+      "predecessor": "Great West Aerodrome (Fairey Aviation), 1929-1944",
+      "centroid": [-0.45430, 51.47060],
+      "polygon": [
+        [-0.48900, 51.48000],
+        [-0.41000, 51.48000],
+        [-0.40800, 51.45900],
+        [-0.44500, 51.45300],
+        [-0.48900, 51.45900],
+        [-0.48900, 51.48000]
+      ],
+      "runways": [
+        {"designation": "09L/27R (northern)", "opened": 1946, "polyline": [[-0.48200, 51.47790], [-0.43300, 51.47790]], "length_m": 3902},
+        {"designation": "09R/27L (southern)", "opened": 1946, "polyline": [[-0.48200, 51.46490], [-0.43400, 51.46490]], "length_m": 3660},
+        {"designation": "05/23 (closed)", "opened": 1946, "closed": 2005, "polyline": [[-0.46500, 51.46200], [-0.44200, 51.47400]], "notes": "A short cross-runway for strong south-westerlies, decommissioned in 2005; the alignment is now taxiways and the T5 site."},
+        {"designation": "hexagram runways 15/33 and others (closed)", "opened": 1953, "closed": 1970, "notes": "The 1950s 'star of David' six-runway layout - three runways in a triangle from 1947 (100/280, 156/336, 052/232), completed to a hexagram in the early 1950s so that two runways were always within 30 degrees of the wind. Progressively abandoned from the 1960s as aircraft grew and the Central Terminal Area expanded."}
+      ],
+      "terminals": [
+        {"name": "Terminal 2 (Europa Building)", "opened": 1955, "closed": 2009, "lon": -0.45050, "lat": 51.47070},
+        {"name": "Terminal 3 (Oceanic Terminal)", "opened": 1961, "lon": -0.45830, "lat": 51.47160},
+        {"name": "Terminal 1", "opened": 1968, "closed": 2015, "lon": -0.45320, "lat": 51.47150},
+        {"name": "Terminal 4", "opened": 1986, "lon": -0.44560, "lat": 51.45900},
+        {"name": "Terminal 5", "opened": 2008, "lon": -0.48800, "lat": 51.47200},
+        {"name": "Terminal 2 (Queen's Terminal, rebuild)", "opened": 2014, "lon": -0.45050, "lat": 51.47070}
+      ],
+      "notes": "Fairey Aviation's Great West Aerodrome on 148 acres bought in 1929, operational June 1930. Requisitioned by the Air Ministry in April 1944 nominally for RAF Transport Command; transferred to the Ministry of Civil Aviation 1 January 1946, opened ceremonially 25 March 1946 and fully for civil use 31 May 1946. The hamlet of Heath Row was demolished. Terminal opening dates: T2 (Europa) 1955, T3 (Oceanic) 13 November 1961, T1 6 November 1968, T4 1 April 1986, T5 14 March 2008, new T2 4 June 2014."
+    },
+    {
+      "name": "Croydon Airport (London Terminal Aerodrome)",
+      "opened": 1920,
+      "closed": 1959,
+      "centroid": [-0.11800, 51.35600],
+      "polygon": [
+        [-0.13500, 51.36400],
+        [-0.10200, 51.36400],
+        [-0.10200, 51.34700],
+        [-0.13500, 51.34700],
+        [-0.13500, 51.36400]
+      ],
+      "runways": [
+        {"designation": "grass field (no paved runways)", "opened": 1920, "closed": 1959, "notes": "Croydon never had hard runways; it operated from a grass surface throughout its life, which is why it could not take post-war airliners."}
+      ],
+      "terminals": [
+        {"name": "Airport House terminal and Aerodrome Hotel", "opened": 1928, "lon": -0.12100, "lat": 51.35640}
+      ],
+      "notes": "Opened 29 March 1920 by amalgamating the Beddington and Waddon wartime aerodromes; Britain's first international airport and the world's first with a purpose-built passenger terminal and air traffic control tower (1928). Origin of the 'Mayday' distress call (1923). Imperial Airways' base; scene of the first British civil air disaster (1924) and RAF Croydon's Battle of Britain fighter station 1940. Closed 30 September 1959; the site is now the Roundshaw estate and an industrial park, with the Grade II* terminal preserved as a museum."
+    },
+    {
+      "name": "Hendon Aerodrome (London Aerodrome)",
+      "opened": 1911,
+      "closed": 1968,
+      "centroid": [-0.23800, 51.59500],
+      "polygon": [
+        [-0.25400, 51.60300],
+        [-0.22300, 51.60300],
+        [-0.22300, 51.58700],
+        [-0.25400, 51.58700],
+        [-0.25400, 51.60300]
+      ],
+      "runways": [
+        {"designation": "grass field, later one paved runway", "opened": 1911, "closed": 1957, "notes": "Fixed-wing flying ended in 1957; the site was used for helicopters and stores until 1968."}
+      ],
+      "notes": "Claude Grahame-White's London Aerodrome from 1911, famous for pre-war aerial pageants and the RAF Display 1920-1937. RAF Hendon from 1914. Flying ceased in 1957/1968; the RAF Museum opened on part of the site in 1972 and the rest became the Grahame Park estate."
+    },
+    {
+      "name": "RAF Northolt",
+      "opened": 1915,
+      "closed": null,
+      "centroid": [-0.41800, 51.55300],
+      "polygon": [
+        [-0.44500, 51.56100],
+        [-0.39000, 51.56100],
+        [-0.39000, 51.54600],
+        [-0.44500, 51.54600],
+        [-0.44500, 51.56100]
+      ],
+      "runways": [
+        {"designation": "07/25", "opened": 1940, "polyline": [[-0.43300, 51.55000], [-0.40400, 51.55450]], "length_m": 1687}
+      ],
+      "notes": "Opened 3 March 1915, the oldest RAF station still in use. Fighter station in the Battle of Britain, base of No. 303 (Polish) Squadron. Handled most of London's civil traffic 1946-1954 while Heathrow was being built, briefly making it Europe's busiest airport. Still operational for military and VIP flights."
+    },
+    {
+      "name": "Biggin Hill Airport (RAF Biggin Hill)",
+      "opened": 1917,
+      "closed": null,
+      "centroid": [0.03250, 51.33080],
+      "polygon": [
+        [0.01800, 51.34200],
+        [0.04600, 51.34200],
+        [0.04600, 51.32000],
+        [0.01800, 51.32000],
+        [0.01800, 51.34200]
+      ],
+      "runways": [
+        {"designation": "03/21", "opened": 1957, "polyline": [[0.02700, 51.32300], [0.03700, 51.33800]], "length_m": 1820}
+      ],
+      "notes": "Opened February 1917 as a wireless testing park; the most famous Battle of Britain sector station ('the Bump'). RAF use ended 1958; civil airport from 1959, London Biggin Hill Airport since 1994, now a business-aviation airport."
+    },
+    {
+      "name": "Heston Aerodrome",
+      "opened": 1929,
+      "closed": 1947,
+      "centroid": [-0.37500, 51.48400],
+      "polygon": [
+        [-0.39000, 51.49100],
+        [-0.36000, 51.49100],
+        [-0.36000, 51.47700],
+        [-0.39000, 51.47700],
+        [-0.39000, 51.49100]
+      ],
+      "notes": "Opened 6 July 1929 by Airwork as a private aerodrome with a fine Art Deco terminal and Britain's first control tower with an all-round view. Neville Chamberlain landed here on 30 September 1938 waving the Munich Agreement. RAF station 1940-45; closed to flying 1947 and the site was largely taken by the M4 motorway (1965) and Heston Services."
+    },
+    {
+      "name": "London City Airport",
+      "opened": 1987,
+      "closed": null,
+      "centroid": [0.05500, 51.50500],
+      "polygon": [
+        [0.03900, 51.50700],
+        [0.07100, 51.50700],
+        [0.07100, 51.50200],
+        [0.03900, 51.50200],
+        [0.03900, 51.50700]
+      ],
+      "runways": [
+        {"designation": "09/27", "opened": 1987, "polyline": [[0.04100, 51.50480], [0.06600, 51.50480]], "length_m": 1508, "notes": "Extended from 1080 m to 1199 m in 1992 and to 1508 m; built on the quay between the Royal Albert Dock and King George V Dock."}
+      ],
+      "terminals": [
+        {"name": "Main terminal", "opened": 1987, "lon": 0.05000, "lat": 51.50450},
+        {"name": "Terminal extension", "opened": 2023, "lon": 0.05300, "lat": 51.50440}
+      ],
+      "notes": "Proposed 1981 after a demonstration STOL landing by a Dash 7 on Heron Quays; opened 5 November 1987 by the Queen. Steep 5.5-degree approach requiring specially certified aircraft and crews. DLR extension opened 2005."
+    },
+    {
+      "name": "London Gatwick Airport",
+      "opened": 1930,
+      "opened_as_major": 1958,
+      "closed": null,
+      "centroid": [-0.19030, 51.15370],
+      "polygon": [
+        [-0.21500, 51.16800],
+        [-0.15500, 51.16800],
+        [-0.15500, 51.14200],
+        [-0.21500, 51.14200],
+        [-0.21500, 51.16800]
+      ],
+      "notes": "Aerodrome licensed 1930; the circular 'Beehive' terminal, the world's first with a covered pier system, opened 1936. Rebuilt as London's second airport and reopened by the Queen on 9 June 1958. Well outside 25 km of St Paul's (44 km) but included for completeness."
+    },
+    {
+      "name": "London Stansted Airport",
+      "opened": 1943,
+      "opened_as_major": 1991,
+      "closed": null,
+      "centroid": [0.26100, 51.88500],
+      "notes": "USAAF bomber base from 1943; civil use from 1966 and the Norman Foster terminal opened 15 March 1991. About 55 km from St Paul's, outside the requested radius."
+    },
+    {
+      "name": "Fairlop / Hanworth / Brooklands and other minor aerodromes",
+      "opened": 1908,
+      "closed": 1946,
+      "notes": "Brooklands (1908, Weybridge, the birthplace of British aviation manufacture, closed to flying 1987), Hanworth Air Park (1917-1946), Fairlop (1941-1946), Stag Lane Edgware (1915-1933, de Havilland), Croydon's predecessors at Beddington and Waddon (1915-1920), and Hendon's Colindale works. Grouped here without geometry; add individually if needed (?)."
+    }
+  ]
+}

@@ -1,0 +1,480 @@
+{
+  "meta": {
+    "title": "Population of London by year, c. AD 50 - 2025",
+    "compiled": "2026-09-07",
+    "purpose": "Drive density / building-height ramps in a 3D growth timelapse of London.",
+    "area_definition_codes": {
+      "ROMAN_WALLED": "The Roman city on the north bank plus the Southwark bridgehead suburb; c. 1.3-1.6 km2 of occupied ground.",
+      "LUNDENWIC": "Middle Saxon trading settlement on the Strand/Aldwych/Covent Garden terrace, c. 0.55-0.6 km2.",
+      "CITY_AND_SUBURBS": "The walled City, Southwark and the extramural suburbs (Holborn, Fleet St, Smithfield, Whitechapel, Shoreditch) - i.e. the medieval built-up area.",
+      "BILLS_OF_MORTALITY": "The 'London Bills of Mortality' parishes: City within and without the walls, Westminster, Southwark and the out-parishes of Middlesex and Surrey. The standard 1600-1800 definition; roughly the contemporary continuous built-up area.",
+      "METROPOLIS": "The Registrar-General's 'London' 1801-1881: the Metropolitan Board of Works area from 1855, ~303 km2 (117 sq mi).",
+      "COUNTY_OF_LONDON": "Administrative County of London 1889-1965, 303 km2 - later called Inner London.",
+      "GREATER_LONDON_MODERN": "The 1965 Greater London boundary (32 boroughs + City), 1,572 km2. Pre-1965 census figures back-cast onto this boundary by the Great Britain Historical GIS / Vision of Britain.",
+      "GL_BUILT_UP_AREA": "ONS Greater London Built-up Area (the continuous conurbation, spilling past the GLA boundary): 1,737.9 km2 at the 2011 census."
+    },
+    "notes": "Pre-1801 figures are estimates and are given as ranges where the literature disagrees. The 1801-2021 Greater London series is back-cast onto the modern boundary, so it is directly comparable across the whole period - this is the series to drive a continuous timelapse. The contemporaneous 'London' (Bills of Mortality / County of London) series is given in parallel where it differs materially."
+  },
+  "series": [
+    {
+      "year": 43,
+      "population": 0,
+      "low": 0,
+      "high": 200,
+      "area_definition": "ROMAN_WALLED",
+      "confidence": "low",
+      "note": "No significant pre-Roman settlement is proven on the Londinium site. Late Iron Age occupation in the region is scattered farmsteads and small enclosures (e.g. Heathrow, Uphall Camp Ilford, Caesar's Camp Wimbledon); the two hills at the future City were open ground.",
+      "source": "MOLA / Museum of London: Londinium was a de-novo Roman foundation; Wikipedia 'Londinium'."
+    },
+    {
+      "year": 60,
+      "population": 10000,
+      "low": 5000,
+      "high": 30000,
+      "area_definition": "ROMAN_WALLED",
+      "confidence": "low",
+      "note": "Tacitus says Londinium was 'crowded with traders' before Boudica sacked it in 60/61; his figure of 70,000 killed at Camulodunum, Verulamium and Londinium combined is generally treated as rhetorical.",
+      "source": "Tacitus, Annals XIV; Museum of London."
+    },
+    {
+      "year": 100,
+      "population": 30000,
+      "low": 20000,
+      "high": 40000,
+      "area_definition": "ROMAN_WALLED",
+      "confidence": "medium",
+      "note": "Rebuilt after the revolt; forum-basilica complex, governor's palace and Cripplegate fort (c. 120) belong to this phase.",
+      "source": "Wikipedia 'Londinium'; MOLA."
+    },
+    {
+      "year": 140,
+      "population": 50000,
+      "low": 30000,
+      "high": 60000,
+      "area_definition": "ROMAN_WALLED",
+      "confidence": "medium",
+      "note": "Conventional 2nd-century peak; probably the largest London would be until the 17th century. Some scholars argue for as low as 30,000. The Hadrianic fire (c. 125) interrupted but did not end this phase.",
+      "source": "Wikipedia 'History of London' population table (45,000-60,000 at AD 140); Museum of London."
+    },
+    {
+      "year": 200,
+      "population": 30000,
+      "low": 20000,
+      "high": 45000,
+      "area_definition": "ROMAN_WALLED",
+      "confidence": "low",
+      "note": "The landward wall (c. AD 190-225) encloses 133 ha / 330 acres, but by then much of the enclosed area held gardens, dark earth and open ground rather than dense housing.",
+      "source": "MOLA; Wikipedia 'London Wall'."
+    },
+    {
+      "year": 300,
+      "population": 15000,
+      "low": 10000,
+      "high": 20000,
+      "area_definition": "ROMAN_WALLED",
+      "confidence": "low",
+      "note": "Marked contraction; large masonry town houses with mosaics on emptied plots. Riverside wall added c. AD 270s.",
+      "source": "Wikipedia 'History of London' (10,000-20,000 at AD 300)."
+    },
+    {
+      "year": 400,
+      "population": 5000,
+      "low": 1000,
+      "high": 10000,
+      "area_definition": "ROMAN_WALLED",
+      "confidence": "low",
+      "note": "Late Roman skeleton population. Coin supply ends c. 402-410; the town is effectively abandoned as an urban settlement between c. 410 and 450.",
+      "source": "MOLA; Wikipedia 'Sub-Roman Britain'."
+    },
+    {
+      "year": 500,
+      "population": 200,
+      "low": 0,
+      "high": 1000,
+      "area_definition": "ROMAN_WALLED",
+      "confidence": "low",
+      "note": "Walled area essentially deserted; only scattered squatter/farm use. Best estimate is 'functionally zero as a town'.",
+      "source": "MOLA."
+    },
+    {
+      "year": 700,
+      "population": 5000,
+      "low": 2000,
+      "high": 8000,
+      "area_definition": "LUNDENWIC",
+      "confidence": "low",
+      "note": "Lundenwic, the Middle Saxon emporium on the Strand terrace, described by Bede (731) as 'a mart of many peoples coming by land and sea'.",
+      "source": "MOLA excavations at Covent Garden / Royal Opera House; Bede, HE II.3."
+    },
+    {
+      "year": 800,
+      "population": 10000,
+      "low": 6000,
+      "high": 12000,
+      "area_definition": "LUNDENWIC",
+      "confidence": "low",
+      "note": "Peak of Lundenwic before the Viking raids of 842 and 851.",
+      "source": "Wikipedia 'History of London' (10,000-12,000 at AD 800)."
+    },
+    {
+      "year": 900,
+      "population": 6000,
+      "low": 4000,
+      "high": 10000,
+      "area_definition": "CITY_AND_SUBURBS",
+      "confidence": "low",
+      "note": "After Alfred's refoundation of Lundenburg inside the Roman walls in 886, the Strand settlement was abandoned and population moved behind the walls; refilling was slow and initially concentrated on the riverside strip (Queenhithe, Billingsgate) and Cheapside.",
+      "source": "MOLA; Wikipedia 'Lundenwic'."
+    },
+    {
+      "year": 1000,
+      "population": 20000,
+      "low": 12000,
+      "high": 25000,
+      "area_definition": "CITY_AND_SUBURBS",
+      "confidence": "low",
+      "note": "Late Saxon London is once again England's largest town; street grid of Cheapside/Eastcheap laid out.",
+      "source": "Wikipedia 'History of London' (20,000-25,000 at AD 1000)."
+    },
+    {
+      "year": 1100,
+      "population": 18000,
+      "low": 10000,
+      "high": 25000,
+      "area_definition": "CITY_AND_SUBURBS",
+      "confidence": "low",
+      "note": "Norman London: Tower begun 1078, Old St Paul's begun 1087, Westminster Hall 1097. Westminster is a separate settlement 3 km upstream.",
+      "source": "Wikipedia 'History of London'."
+    },
+    {
+      "year": 1200,
+      "population": 25000,
+      "low": 20000,
+      "high": 30000,
+      "area_definition": "CITY_AND_SUBURBS",
+      "confidence": "low",
+      "note": "London Bridge rebuilt in stone 1176-1209, fixing the Southwark suburb.",
+      "source": "Wikipedia 'History of London' (20,000-25,000)."
+    },
+    {
+      "year": 1300,
+      "population": 80000,
+      "low": 60000,
+      "high": 100000,
+      "area_definition": "CITY_AND_SUBURBS",
+      "confidence": "medium",
+      "note": "Medieval peak. Estimates range widely: Keene argues c. 80,000, some earlier work 100,000, more conservative modern work 60,000-70,000. Built-up area still barely 2.5-3 km2.",
+      "source": "Derek Keene; Wikipedia 'History of London' (80,000-100,000)."
+    },
+    {
+      "year": 1348,
+      "population": 75000,
+      "low": 50000,
+      "high": 100000,
+      "area_definition": "CITY_AND_SUBURBS",
+      "confidence": "low",
+      "note": "Immediately before the Black Death, which reached London in autumn 1348 and killed perhaps 40-50% of the population by spring 1350.",
+      "source": "Wikipedia 'Black Death in England'."
+    },
+    {
+      "year": 1350,
+      "population": 40000,
+      "low": 25000,
+      "high": 50000,
+      "area_definition": "CITY_AND_SUBURBS",
+      "confidence": "low",
+      "note": "Post-plague trough. Repeated epidemics (1361, 1369, 1375) held the population down for a century; the built-up area did not shrink much but density and infill did.",
+      "source": "Wikipedia 'History of London' (25,000-50,000 at 1350)."
+    },
+    {
+      "year": 1377,
+      "population": 40000,
+      "low": 35000,
+      "high": 50000,
+      "area_definition": "CITY_AND_SUBURBS",
+      "confidence": "medium",
+      "note": "The 1377 poll tax recorded c. 23,300 taxpayers aged 14+ in the City of London. Applying the standard multiplier for children, paupers and evaders gives c. 35,000-45,000 for the City alone, or c. 40,000-50,000 with Westminster and Southwark. London was ~3x the size of the next English town (York, c. 7,250 taxpayers).",
+      "source": "1377 Poll Tax returns; Vision of Britain; Wikipedia 'Poll tax (Great Britain)'."
+    },
+    {
+      "year": 1500,
+      "population": 55000,
+      "low": 50000,
+      "high": 75000,
+      "area_definition": "CITY_AND_SUBURBS",
+      "confidence": "medium",
+      "note": "Recovery under way. Still smaller than Paris, Naples, Venice, Milan or Constantinople.",
+      "source": "Wikipedia 'History of London' (50,000-100,000 at 1500)."
+    },
+    {
+      "year": 1550,
+      "population": 70000,
+      "low": 60000,
+      "high": 90000,
+      "area_definition": "CITY_AND_SUBURBS",
+      "confidence": "medium",
+      "note": "Post-Dissolution: monastic precincts (Blackfriars, Greyfriars, St Bartholomew's, Charterhouse, Holywell, St Mary Spital) released large blocks of land inside and around the walls for building. Corresponds roughly to the Agas map (c. 1561).",
+      "source": "Wikipedia 'History of London'; Survey of London."
+    },
+    {
+      "year": 1600,
+      "population": 200000,
+      "low": 180000,
+      "high": 225000,
+      "area_definition": "BILLS_OF_MORTALITY",
+      "confidence": "high",
+      "note": "Explosive Tudor growth: the suburbs outside the gates and along the river now hold as many people as the walled City. Stow's Survey of London (1598) complains of continuous ribbon building.",
+      "source": "Wikipedia 'History of London'; Finlay & Shearer."
+    },
+    {
+      "year": 1650,
+      "population": 375000,
+      "low": 350000,
+      "high": 400000,
+      "area_definition": "BILLS_OF_MORTALITY",
+      "confidence": "high",
+      "note": "London overtakes Paris around this date to become the largest city in western Europe.",
+      "source": "Wikipedia 'History of London' (350,000-400,000)."
+    },
+    {
+      "year": 1665,
+      "population": 460000,
+      "low": 400000,
+      "high": 500000,
+      "area_definition": "BILLS_OF_MORTALITY",
+      "confidence": "medium",
+      "note": "Immediately before the Great Plague, which killed c. 68,600 recorded (probably c. 100,000 actual, ~20-25% of the population) in 1665-66.",
+      "source": "Wikipedia 'Great Plague of London'."
+    },
+    {
+      "year": 1700,
+      "population": 550000,
+      "low": 490000,
+      "high": 600000,
+      "area_definition": "BILLS_OF_MORTALITY",
+      "confidence": "medium",
+      "note": "LIVE SCHOLARLY DISAGREEMENT, not a rounding difference: Wrigley's classic figure is c. 575,000-600,000; more conservative recent work argues c. 490,000. Gregory King's 1688 estimate was 527,000. Post-Fire rebuilding complete; the West End squares built; Wapping-Shadwell-Limehouse riverside continuous. Built-up area c. 15-20 km2. London overtakes Paris as Europe's largest city around this date and is ~11% of England's population.",
+      "source": "E. A. Wrigley 1967; Gregory King 1688; Wikipedia 'History of London'."
+    },
+    {
+      "year": 1750,
+      "population": 700000,
+      "low": 650000,
+      "high": 750000,
+      "area_definition": "BILLS_OF_MORTALITY",
+      "confidence": "high",
+      "note": "Corresponds to Rocque's map (1746). Growth in the first half of the 18th century was slow: appalling urban mortality (the 'gin craze') was barely offset by in-migration.",
+      "source": "Wikipedia 'History of London'; Wrigley 1967."
+    },
+    {
+      "year": 1801,
+      "population": 1011157,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "First census. Inner London 879,491 / Outer London 131,666. The contemporary 'Metropolis' figure usually quoted is 959,300 and the Bills of Mortality area 900,000. London becomes the first city since ancient Rome to pass one million.",
+      "source": "GB Historical GIS / Vision of Britain, via Wikipedia 'Demographics of London'."
+    },
+    {
+      "year": 1811,
+      "population": 1197673,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 1,040,033 / Outer 157,640.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1821,
+      "population": 1450122,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 1,263,975 / Outer 186,147.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1831,
+      "population": 1729949,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 1,515,557 / Outer 214,392. Corresponds to Greenwood's map (1827).",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1841,
+      "population": 1917013,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 1,661,346 / Outer 255,667. First railway termini open (London Bridge 1836, Euston 1837, Paddington 1838).",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1851,
+      "population": 2286609,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 1,995,846 / Outer 290,763. Great Exhibition year. Contemporary 'Metropolis' figure 2,362,236.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1861,
+      "population": 3094391,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 2,634,143 / Outer 460,248.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1871,
+      "population": 3902178,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 3,272,441 / Outer 629,737.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1881,
+      "population": 4709960,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 3,910,735 / Outer 799,225.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1891,
+      "population": 5565856,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 4,422,340 / Outer 1,143,516. Booth's poverty maps (1889-1903) are being surveyed. County of London alone: 4,231,431.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1901,
+      "population": 6226494,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 4,670,177 / Outer 1,556,317. County of London 4,536,267. Contemporary 'Greater London' registration area: 6,506,954.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1911,
+      "population": 7157875,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 4,997,741 / Outer 2,160,134. Inner London is at its all-time peak of density; suburban growth now dominates.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1921,
+      "population": 7553526,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 4,936,803 (first decline) / Outer 2,616,723.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1931,
+      "population": 8098942,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 4,887,932 / Outer 3,211,010. Mid-point of the interwar suburban explosion.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1939,
+      "population": 8615245,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "medium",
+      "note": "All-time peak of Greater London's population (a mid-year estimate, not a census - the 1941 census was cancelled). Not exceeded again until c. 2015.",
+      "source": "Registrar-General mid-year estimate; Wikipedia 'History of London'."
+    },
+    {
+      "year": 1941,
+      "population": 7987936,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "low",
+      "note": "Inner 4,224,135 / Outer 3,763,801. Interpolated/registration-based; there was no 1941 census. Wartime evacuation had removed well over a million people from inner London.",
+      "source": "Vision of Britain (estimate)."
+    },
+    {
+      "year": 1951,
+      "population": 8164416,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 3,680,821 / Outer 4,483,595. First census in which Outer London exceeds Inner London.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1961,
+      "population": 7781342,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 3,336,557 / Outer 4,444,785. New Towns (Stevenage 1946, Harlow 1947, Crawley 1947, Basildon 1949, Bracknell 1949, Hemel Hempstead 1947) and LCC out-county estates are exporting population.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1971,
+      "population": 7449184,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 3,030,490 / Outer 4,418,694.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1981,
+      "population": 6608513,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 2,425,534 / Outer 4,182,979. The nadir: London had lost 2.0 million people, 23%, from its 1939 peak. Docklands at their most derelict.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 1991,
+      "population": 6887280,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 2,625,245 / Outer 4,262,035. Growth resumes.",
+      "source": "Vision of Britain."
+    },
+    {
+      "year": 2001,
+      "population": 7172036,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 2,765,975 / Outer 4,406,061.",
+      "source": "ONS census 2001."
+    },
+    {
+      "year": 2011,
+      "population": 8173941,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 3,231,900 / Outer 4,942,100. The ONS Greater London Built-up Area (the wider continuous conurbation, 1,737.9 km2) held 9,787,426 at the same census.",
+      "source": "ONS census 2011; Wikipedia 'Greater London Built-up Area'."
+    },
+    {
+      "year": 2015,
+      "population": 8615246,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "medium",
+      "note": "Mid-year estimate: London finally regains its 1939 peak after 76 years.",
+      "source": "ONS mid-year estimate; GLA."
+    },
+    {
+      "year": 2021,
+      "population": 8799800,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "high",
+      "note": "Inner 3,404,300 / Outer 5,395,500. Census taken in March 2021 during a Covid lockdown; some analysts think it undercounts.",
+      "source": "ONS census 2021."
+    },
+    {
+      "year": 2025,
+      "population": 8950000,
+      "low": 8850000,
+      "high": 9100000,
+      "area_definition": "GREATER_LONDON_MODERN",
+      "confidence": "medium",
+      "note": "ONS mid-year estimates put Greater London at c. 8.95-9.0 million in 2024-25; the continuous built-up area is c. 10.0-10.3 million and the wider metropolitan/commuter region c. 14-15 million. Treat 8.95m as the best point estimate.",
+      "source": "ONS mid-year population estimates; GLA London Datastore."
+    }
+  ]
+}

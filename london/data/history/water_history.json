@@ -1,0 +1,1910 @@
+{
+  "meta": {
+    "title": "London water history: Thames shoreline change, lost rivers, docks, canals, lakes and reservoirs",
+    "coordinate_system": "WGS84 lon,lat decimal degrees, 5 decimal places",
+    "coverage_years": [-50, 2025],
+    "sanity_check": "St Paul's Cathedral = -0.09840, 51.51380",
+    "accuracy_note": "All polylines and polygons are hand-authored generalisations digitised by eye from modern street geometry, historic map knowledge and published descriptions. They are intended to be visually correct at 1:25000 or coarser, NOT survey-accurate. Every geometry should be treated as approximate; items with especially weak evidence are flagged in their notes with (?).",
+    "sources": [
+      "https://en.wikipedia.org/wiki/River_Fleet",
+      "https://en.wikipedia.org/wiki/Subterranean_rivers_of_London",
+      "https://en.wikipedia.org/wiki/Victoria_Embankment",
+      "https://en.wikipedia.org/wiki/London_Docklands",
+      "https://en.wikipedia.org/wiki/Chingford_Reservoirs",
+      "https://en.wikipedia.org/wiki/King_George_V_Reservoir",
+      "https://en.wikipedia.org/wiki/William_Girling_Reservoir",
+      "https://www.british-history.ac.uk/",
+      "https://www.pla.co.uk/About-Us/History",
+      "https://canalrivertrust.org.uk/"
+    ]
+  },
+
+  "thames_changes": [
+    {
+      "id": "roman_waterfront_c100",
+      "name": "Roman waterfront, Londinium",
+      "year": 100,
+      "type": "waterfront_line",
+      "stretch": {
+        "start": [-0.10250, 51.51020],
+        "end": [-0.07750, 51.50930]
+      },
+      "polyline": [
+        [-0.10250, 51.51020],
+        [-0.09900, 51.51000],
+        [-0.09550, 51.50990],
+        [-0.09200, 51.50980],
+        [-0.08900, 51.50975],
+        [-0.08600, 51.50970],
+        [-0.08300, 51.50960],
+        [-0.08000, 51.50945],
+        [-0.07750, 51.50930]
+      ],
+      "width_reclaimed_m": 0,
+      "notes": "Line of the timber-revetted Roman quays of the late 1st - early 3rd century, running roughly along and just north of the modern line of Upper and Lower Thames Street, from the Fleet mouth (Blackfriars) east to the Tower. Successive Roman quay stages (c.AD 63, c.AD 100, c.AD 150, c.AD 225) each advanced the line a few metres south. Digitised approximately (?)."
+    },
+    {
+      "id": "medieval_waterfront_1200",
+      "name": "City waterfront c.1200",
+      "year": 1200,
+      "type": "waterfront_line",
+      "stretch": {
+        "start": [-0.10300, 51.50970],
+        "end": [-0.07700, 51.50880]
+      },
+      "polyline": [
+        [-0.10300, 51.50970],
+        [-0.09900, 51.50950],
+        [-0.09550, 51.50940],
+        [-0.09200, 51.50930],
+        [-0.08900, 51.50925],
+        [-0.08600, 51.50920],
+        [-0.08300, 51.50910],
+        [-0.08000, 51.50895],
+        [-0.07700, 51.50880]
+      ],
+      "width_reclaimed_m": 55,
+      "notes": "Intermediate stage: after the Roman waterfront collapsed the foreshore silted and was progressively re-embanked from the 11th century by private tenement owners tipping rubbish behind timber revetments. Roughly 50-60 m of ground gained on the Roman line by 1200 (?)."
+    },
+    {
+      "id": "medieval_waterfront_1400",
+      "name": "City waterfront c.1400 (Thames Street reclamation complete)",
+      "year": 1400,
+      "type": "waterfront_line",
+      "stretch": {
+        "start": [-0.10350, 51.50930],
+        "end": [-0.07680, 51.50840]
+      },
+      "polyline": [
+        [-0.10350, 51.50930],
+        [-0.09950, 51.50910],
+        [-0.09600, 51.50900],
+        [-0.09250, 51.50890],
+        [-0.08950, 51.50885],
+        [-0.08650, 51.50880],
+        [-0.08350, 51.50870],
+        [-0.08000, 51.50855],
+        [-0.07680, 51.50840]
+      ],
+      "width_reclaimed_m": 100,
+      "notes": "By c.1400 the City waterfront had advanced roughly 100 m south of the Roman line, so that Thames Street - originally the riverside street - lay a full block inland. This is the single largest pre-modern shoreline change in central London. Archaeological consensus (Museum of London excavations at New Fresh Wharf, Billingsgate, Swan Lane, Trig Lane)."
+    },
+    {
+      "id": "victoria_embankment",
+      "name": "Victoria Embankment",
+      "year_start": 1864,
+      "year_opened": 1870,
+      "year": 1870,
+      "type": "embankment",
+      "bank": "north",
+      "stretch": {
+        "start": [-0.12290, 51.50110],
+        "end": [-0.10430, 51.51080]
+      },
+      "polyline": [
+        [-0.12290, 51.50110],
+        [-0.12140, 51.50280],
+        [-0.11960, 51.50410],
+        [-0.11700, 51.50560],
+        [-0.11380, 51.50690],
+        [-0.11000, 51.50810],
+        [-0.10740, 51.50920],
+        [-0.10560, 51.51010],
+        [-0.10430, 51.51080]
+      ],
+      "width_reclaimed_m": 100,
+      "width_reclaimed_range_m": [40, 140],
+      "area_reclaimed_acres": 37,
+      "length_m": 2000,
+      "notes": "Bazalgette. Construction 1864-1870 (commonly cited as 1865-70), opened 13 July 1870 by the Prince of Wales. Runs Westminster Bridge to Blackfriars Bridge. Carries the northern low-level interceptor sewer, the Metropolitan District Railway and a new roadway. About 37 acres (15 ha) reclaimed; the reclaimed strip is widest (about 140 m) off the Temple and Whitehall and narrowest at the bridges. Before 1864 the tide reached the water-gates of Somerset House, the Temple and Whitehall."
+    },
+    {
+      "id": "albert_embankment",
+      "name": "Albert Embankment",
+      "year_start": 1866,
+      "year_opened": 1869,
+      "year": 1869,
+      "type": "embankment",
+      "bank": "south",
+      "stretch": {
+        "start": [-0.12080, 51.50060],
+        "end": [-0.12420, 51.48830]
+      },
+      "polyline": [
+        [-0.12080, 51.50060],
+        [-0.11970, 51.49900],
+        [-0.11930, 51.49730],
+        [-0.11950, 51.49570],
+        [-0.12050, 51.49380],
+        [-0.12180, 51.49180],
+        [-0.12310, 51.49000],
+        [-0.12420, 51.48830]
+      ],
+      "width_reclaimed_m": 45,
+      "width_reclaimed_range_m": [20, 70],
+      "length_m": 1500,
+      "notes": "Built 1866-1869, opened 24 November 1869. Runs from the Lambeth (south) end of Westminster Bridge past Lambeth Palace and Lambeth Bridge to Vauxhall. Its primary purpose was flood protection for the low-lying Lambeth marsh and potteries. Less land reclaimed than the Victoria Embankment."
+    },
+    {
+      "id": "chelsea_embankment",
+      "name": "Chelsea Embankment",
+      "year_start": 1871,
+      "year_opened": 1874,
+      "year": 1874,
+      "type": "embankment",
+      "bank": "north",
+      "stretch": {
+        "start": [-0.14880, 51.48660],
+        "end": [-0.16950, 51.48170]
+      },
+      "polyline": [
+        [-0.14880, 51.48660],
+        [-0.15300, 51.48540],
+        [-0.15700, 51.48440],
+        [-0.16100, 51.48350],
+        [-0.16500, 51.48260],
+        [-0.16950, 51.48170]
+      ],
+      "width_reclaimed_m": 40,
+      "length_m": 1600,
+      "notes": "Built 1871-1874, opened 9 May 1874. Runs from the Chelsea Bridge / Grosvenor Road end westward past Chelsea Hospital and Cheyne Walk to Battersea Bridge. Destroyed the old Chelsea foreshore and Cremorne/Cheyne waterfront."
+    },
+    {
+      "id": "millbank_grosvenor_embankment",
+      "name": "Millbank / Grosvenor Road river wall",
+      "year": 1854,
+      "year_range": [1840, 1880],
+      "type": "embankment",
+      "bank": "north",
+      "stretch": {
+        "start": [-0.12420, 51.49430],
+        "end": [-0.14880, 51.48660]
+      },
+      "polyline": [
+        [-0.12420, 51.49430],
+        [-0.12800, 51.49230],
+        [-0.13200, 51.49080],
+        [-0.13700, 51.48950],
+        [-0.14200, 51.48830],
+        [-0.14880, 51.48660]
+      ],
+      "width_reclaimed_m": 35,
+      "notes": "The Pimlico/Millbank frontage was walled and made up piecemeal by the Grosvenor Estate and Thomas Cubitt from the 1820s to the 1870s, ahead of and alongside the formal Embankment schemes. Dates approximate (?)."
+    },
+    {
+      "id": "lambeth_southwark_marsh",
+      "name": "Lambeth Marsh and Southwark north bank marsh",
+      "year_reclaimed_start": 1100,
+      "year_reclaimed_effective": 1750,
+      "year_built_over": 1830,
+      "type": "marsh_reclamation",
+      "polygon": [
+        [-0.12500, 51.50450],
+        [-0.10200, 51.50600],
+        [-0.07200, 51.50450],
+        [-0.06800, 51.49700],
+        [-0.09000, 51.49300],
+        [-0.11600, 51.49100],
+        [-0.12700, 51.49400],
+        [-0.12500, 51.50450]
+      ],
+      "notes": "The whole south bank from Vauxhall to Rotherhithe was tidal marsh and eyots (Lambeth Marsh, St George's Fields, Horselydown) behind a river wall maintained from the 12th century by Commissioners of Sewers. Effective drainage and building followed Westminster Bridge (1750) and Blackfriars Bridge (1769) and the new approach roads; substantially built over by 1830. Polygon is a generalised envelope (?)."
+    },
+    {
+      "id": "isle_of_dogs_marsh",
+      "name": "Stepney Marsh / Isle of Dogs",
+      "year_embanked": 1250,
+      "year_flooded": 1448,
+      "year_redrained": 1660,
+      "year_built_over": 1806,
+      "type": "marsh_reclamation",
+      "polygon": [
+        [-0.03000, 51.50700],
+        [-0.00450, 51.50700],
+        [-0.00300, 51.49700],
+        [-0.00900, 51.48800],
+        [-0.01800, 51.48600],
+        [-0.02600, 51.48900],
+        [-0.02900, 51.49600],
+        [-0.03000, 51.50700]
+      ],
+      "notes": "Low-lying alluvial marsh inside the Thames meander, embanked by the 13th century as Stepney Marsh with a chapel; the wall was breached c.1448 and the marsh stayed largely under tidal water for over a century, being re-drained by the 17th century as grazing marsh (Poplar Marsh / Isle of Dogs). Transformed by the West India Docks (1802) and City Canal (1805). Breach date 1448 sometimes given as 1448 or 1488 (?)."
+    },
+    {
+      "id": "thorney_island",
+      "name": "Thorney Island, Westminster",
+      "year": -50,
+      "year_lost": 1750,
+      "type": "island",
+      "polygon": [
+        [-0.13100, 51.50130],
+        [-0.12420, 51.50230],
+        [-0.12250, 51.49980],
+        [-0.12500, 51.49760],
+        [-0.13000, 51.49810],
+        [-0.13200, 51.49980],
+        [-0.13100, 51.50130]
+      ],
+      "notes": "Gravel eyot at the mouth of the Tyburn between two of its distributary channels, roughly 470 x 350 m, the site of Westminster Abbey and the Palace of Westminster. The surrounding channels were culverted and the ground made up from the 16th century; the island was no longer legible on the ground by about 1750. Outline approximate (?)."
+    },
+    {
+      "id": "pimlico_marsh",
+      "name": "Pimlico / Neat Houses marsh and Tothill Fields",
+      "year": -50,
+      "year_drained": 1825,
+      "year_built_over": 1850,
+      "type": "marsh_reclamation",
+      "polygon": [
+        [-0.13400, 51.49700],
+        [-0.14900, 51.49100],
+        [-0.14900, 51.48700],
+        [-0.13500, 51.49000],
+        [-0.12900, 51.49400],
+        [-0.13400, 51.49700]
+      ],
+      "notes": "Low ground between the Tyburn mouth and the Westbourne, held as osier beds, market gardens (the Neat Houses) and Tothill Fields. Raised with spoil from St Katharine Docks (1827-28) by Thomas Cubitt and built as Belgravia and Pimlico c.1825-1855."
+    },
+    {
+      "id": "battersea_fields",
+      "name": "Battersea Fields",
+      "year": -50,
+      "year_enclosed": 1846,
+      "year_park": 1858,
+      "type": "marsh_reclamation",
+      "polygon": [
+        [-0.14900, 51.48450],
+        [-0.16800, 51.48100],
+        [-0.17200, 51.47400],
+        [-0.15600, 51.47300],
+        [-0.14700, 51.47800],
+        [-0.14900, 51.48450]
+      ],
+      "notes": "Damp riverside common and market gardens on the Surrey bank, notorious for fairs and duelling. Enclosed under an Act of 1846, raised about 1.5 m with spoil from the Surrey Commercial Docks excavation, and opened as Battersea Park in 1858."
+    },
+    {
+      "id": "bermondsey_rotherhithe_marsh",
+      "name": "Bermondsey and Rotherhithe marsh",
+      "year": -50,
+      "year_drained": 1300,
+      "year_built_over": 1810,
+      "type": "marsh_reclamation",
+      "polygon": [
+        [-0.07200, 51.50350],
+        [-0.02600, 51.50250],
+        [-0.02300, 51.49200],
+        [-0.04200, 51.48600],
+        [-0.06500, 51.48900],
+        [-0.07300, 51.49500],
+        [-0.07200, 51.50350]
+      ],
+      "notes": "Tidal marsh drained from the 12th century by Bermondsey Abbey and the Knights Templar with a network of ditches and tidal mills (the Neckinger, St Saviour's Dock, the Redriff wall). Ground remained below high-tide level; the peninsula was turned into the Surrey Commercial Docks between 1807 and 1876."
+    },
+    {
+      "id": "west_ham_plaistow_levels",
+      "name": "West Ham / Plaistow Levels",
+      "year": -50,
+      "year_drained": 1200,
+      "year_built_over": 1880,
+      "type": "marsh_reclamation",
+      "polygon": [
+        [0.00300, 51.52500],
+        [0.05500, 51.52000],
+        [0.06500, 51.50800],
+        [0.03000, 51.50400],
+        [0.00500, 51.50700],
+        [0.00300, 51.52500]
+      ],
+      "notes": "Alluvial levels between the Lea and Barking Creek, walled from the medieval period, used as grazing and later for the Royal Docks (1855-1921), Beckton gasworks (1870) and industry. Envelope approximate (?)."
+    },
+    {
+      "id": "erith_plumstead_marsh",
+      "name": "Erith, Plumstead and Woolwich marshes",
+      "year": -50,
+      "year_drained": 1300,
+      "year_built_over": 1900,
+      "type": "marsh_reclamation",
+      "polygon": [
+        [0.03000, 51.50300],
+        [0.09000, 51.50300],
+        [0.16000, 51.49500],
+        [0.16500, 51.48500],
+        [0.09000, 51.48800],
+        [0.03500, 51.49200],
+        [0.03000, 51.50300]
+      ],
+      "notes": "South-bank levels downstream of Woolwich, embanked from the medieval period and repeatedly breached (notably 1527 and the 1953 North Sea flood, which killed people at Erith). Later occupied by the Royal Arsenal ranges, Crossness sewage works (1865) and Thamesmead (1967-)."
+    }
+  ],
+
+  "lost_rivers": [
+    {
+      "id": "fleet",
+      "name": "River Fleet",
+      "status": "culverted",
+      "length_km": 10.0,
+      "width_m": 25,
+      "mouth_width_m": 90,
+      "mouth": [-0.10430, 51.51070],
+      "polyline": [
+        [-0.16560, 51.55950],
+        [-0.16200, 51.55600],
+        [-0.15800, 51.55250],
+        [-0.15300, 51.54950],
+        [-0.14800, 51.54700],
+        [-0.14400, 51.54350],
+        [-0.14150, 51.54050],
+        [-0.13850, 51.53800],
+        [-0.13400, 51.53600],
+        [-0.12900, 51.53430],
+        [-0.12500, 51.53200],
+        [-0.12200, 51.53000],
+        [-0.11900, 51.52800],
+        [-0.11600, 51.52550],
+        [-0.11300, 51.52300],
+        [-0.11050, 51.52050],
+        [-0.10850, 51.51800],
+        [-0.10700, 51.51600],
+        [-0.10550, 51.51420],
+        [-0.10430, 51.51250],
+        [-0.10430, 51.51070]
+      ],
+      "tributary_polyline_highgate": [
+        [-0.14900, 51.56200],
+        [-0.14700, 51.55800],
+        [-0.14500, 51.55400],
+        [-0.14400, 51.54900],
+        [-0.14400, 51.54350]
+      ],
+      "culverted": [
+        {"from_year": 1670, "to_year": 1680, "segment": "Holborn Bridge to the Thames rebuilt as the open, stone-walled New Canal (Robert Hooke / Christopher Wren) after the Great Fire; 4 m deep, navigable by barge as far as Holborn."},
+        {"from_year": 1733, "to_year": 1737, "segment": "Holborn Bridge to Fleet Bridge (Ludgate Circus) arched over to create the Fleet Market."},
+        {"from_year": 1765, "to_year": 1769, "segment": "Fleet Bridge (Ludgate Circus) to the Thames covered for the building of Blackfriars Bridge and New Bridge Street; commonly cited as 1766 or 1769."},
+        {"from_year": 1812, "to_year": 1830, "segment": "Kentish Town, Camden and King's Cross reaches culverted during Regent's Canal and Camden building; Battle Bridge basin filled."},
+        {"from_year": 1840, "to_year": 1846, "segment": "Farringdon reach: the remaining Fleet Market channel taken into a sewer for Farringdon Street / Farringdon Road."},
+        {"from_year": 1860, "to_year": 1870, "segment": "Taken into Bazalgette's Northern Low Level and Fleet sewers; Farringdon Road / Metropolitan Railway cut-and-cover works."},
+        {"from_year": 1870, "to_year": 1880, "segment": "Upper Hampstead and Highgate reaches piped as Hampstead was built over, except the Hampstead and Highgate Ponds, which remain open."}
+      ],
+      "notes": "Two headstreams: Hampstead Ponds (west) and Highgate Ponds (east), joining near Camden Town. In Roman times a navigable tidal creek over 90 m wide at the mouth, forming the western defence of Londinium. Course follows Fleet Road, Kentish Town Road, St Pancras Way, King's Cross Road, Farringdon Road, Farringdon Street, New Bridge Street. Mouth just east of Blackfriars Bridge, still visible as an outfall at low tide."
+    },
+    {
+      "id": "walbrook",
+      "name": "River Walbrook",
+      "status": "culverted",
+      "length_km": 3.2,
+      "width_m": 5,
+      "mouth": [-0.09030, 51.50990],
+      "polyline": [
+        [-0.08050, 51.52830],
+        [-0.08100, 51.52620],
+        [-0.08250, 51.52420],
+        [-0.08450, 51.52250],
+        [-0.08650, 51.52080],
+        [-0.08800, 51.51930],
+        [-0.08880, 51.51800],
+        [-0.08930, 51.51680],
+        [-0.08950, 51.51540],
+        [-0.08960, 51.51410],
+        [-0.08990, 51.51280],
+        [-0.09010, 51.51140],
+        [-0.09030, 51.50990]
+      ],
+      "culverted": [
+        {"from_year": 1440, "to_year": 1463, "segment": "Whole City reach vaulted over and built upon; John Stow records that by his day (1598) the Walbrook was 'hidden underground and thereby hardly known'."},
+        {"from_year": 1600, "to_year": 1700, "segment": "Upper (Moorfields / Shoreditch) reach ditched and piped as Moorfields was drained and laid out (1606-1607)."},
+        {"from_year": 1860, "to_year": 1870, "segment": "Taken into the City section of Bazalgette's Northern Low Level Sewer."}
+      ],
+      "notes": "Rose in the Shoreditch / Curtain Road area (some accounts place a second head in Hoxton), crossed the marshy Moorfields, entered the City through a culvert in the London Wall at Blomfield Street, and ran down through the middle of Roman Londinium past the Temple of Mithras (discovered 1954, Bloomberg site) to a mouth at Dowgate near Cannon Street station. The only stream inside the walled City; it divided the Roman city into two hills (Ludgate Hill and Cornhill)."
+    },
+    {
+      "id": "tyburn",
+      "name": "River Tyburn",
+      "status": "culverted",
+      "length_km": 7.0,
+      "width_m": 6,
+      "mouth": [-0.12570, 51.49180],
+      "polyline": [
+        [-0.18100, 51.54950],
+        [-0.17800, 51.54650],
+        [-0.17400, 51.54350],
+        [-0.17000, 51.54000],
+        [-0.16700, 51.53600],
+        [-0.16400, 51.53200],
+        [-0.16100, 51.52850],
+        [-0.15850, 51.52500],
+        [-0.15700, 51.52150],
+        [-0.15750, 51.51800],
+        [-0.15850, 51.51450],
+        [-0.15750, 51.51150],
+        [-0.15300, 51.50900],
+        [-0.14800, 51.50700],
+        [-0.14400, 51.50450],
+        [-0.14100, 51.50200],
+        [-0.13600, 51.50000],
+        [-0.13100, 51.49780],
+        [-0.12800, 51.49480],
+        [-0.12570, 51.49180]
+      ],
+      "culverted": [
+        {"from_year": 1500, "to_year": 1600, "segment": "Westminster / Thorney Island distributaries ditched, culverted and built over as the Palace of Westminster and Abbey precinct expanded."},
+        {"from_year": 1700, "to_year": 1760, "segment": "Marylebone, Mayfair and Green Park reaches bricked over as the Portman, Grosvenor and Berkeley estates were laid out; a conduit had already been carrying Tyburn water to the City since 1236."},
+        {"from_year": 1820, "to_year": 1840, "segment": "Upper Hampstead / Swiss Cottage reach piped as St John's Wood and Belsize were built."},
+        {"from_year": 1860, "to_year": 1875, "segment": "Absorbed into the King's Scholars' Pond Sewer within Bazalgette's system."}
+      ],
+      "notes": "Rose at the Shepherd's Well, Fitzjohn's Avenue, Hampstead. Ran south through Swiss Cottage, Regent's Park (fed the boating lake), Marylebone Lane (whose curve still follows it), across Oxford Street near Stratford Place, through Mayfair and Green Park, past Buckingham Palace, and split into distributaries around Thorney Island. Main modern outfall is at the King's Scholars' Pond Sewer outlet near Vauxhall Bridge. Historically also spelled Aye Brook / Eye Brook. Delta channel geometry is highly uncertain (?)."
+    },
+    {
+      "id": "westbourne",
+      "name": "River Westbourne",
+      "status": "culverted",
+      "length_km": 8.0,
+      "width_m": 7,
+      "mouth": [-0.16120, 51.48450],
+      "polyline": [
+        [-0.19000, 51.55700],
+        [-0.19200, 51.55350],
+        [-0.19400, 51.55000],
+        [-0.19500, 51.54650],
+        [-0.19450, 51.54250],
+        [-0.19300, 51.53850],
+        [-0.19100, 51.53450],
+        [-0.18900, 51.53050],
+        [-0.18800, 51.52650],
+        [-0.18750, 51.52250],
+        [-0.18650, 51.51850],
+        [-0.18300, 51.51450],
+        [-0.17800, 51.51100],
+        [-0.17200, 51.50800],
+        [-0.16600, 51.50550],
+        [-0.16150, 51.50300],
+        [-0.16000, 51.50000],
+        [-0.15850, 51.49700],
+        [-0.15800, 51.49380],
+        [-0.15900, 51.49000],
+        [-0.16020, 51.48720],
+        [-0.16120, 51.48450]
+      ],
+      "culverted": [
+        {"from_year": 1730, "to_year": 1731, "segment": "Hyde Park reach dammed by Queen Caroline to form the Serpentine and the Long Water (1730)."},
+        {"from_year": 1826, "to_year": 1834, "segment": "Bayswater and Paddington reaches piped as Tyburnia and Bayswater were built."},
+        {"from_year": 1834, "to_year": 1834, "segment": "Serpentine disconnected from the Westbourne and fed from the Chelsea Waterworks / later a borehole, because the river had become a sewer."},
+        {"from_year": 1850, "to_year": 1856, "segment": "Knightsbridge, Sloane Square and Chelsea reaches culverted as the Ranelagh Sewer. The iron conduit carrying it over the District Line platforms at Sloane Square station (1868) is still visible."},
+        {"from_year": 1860, "to_year": 1870, "segment": "Upper Kilburn and West Hampstead reaches enclosed with suburban building."}
+      ],
+      "notes": "Rose on Hampstead's western slopes (West End Green / Branch Hill springs). Flowed south through Kilburn (the Kil-bourne), West Hampstead, Bayswater and Hyde Park (where it was dammed to form the Serpentine in 1730), then under Knightsbridge and Sloane Square to a mouth at Chelsea near the Royal Hospital. Now the Ranelagh Sewer."
+    },
+    {
+      "id": "effra",
+      "name": "River Effra",
+      "status": "culverted",
+      "length_km": 10.0,
+      "width_m": 8,
+      "mouth": [-0.12500, 51.48800],
+      "polyline": [
+        [-0.08300, 51.41700],
+        [-0.08700, 51.42100],
+        [-0.09000, 51.42600],
+        [-0.09300, 51.43100],
+        [-0.09600, 51.43600],
+        [-0.09850, 51.44100],
+        [-0.09950, 51.44600],
+        [-0.10000, 51.45000],
+        [-0.10300, 51.45400],
+        [-0.10700, 51.45800],
+        [-0.10950, 51.46200],
+        [-0.11000, 51.46600],
+        [-0.10950, 51.47000],
+        [-0.10850, 51.47400],
+        [-0.10750, 51.47800],
+        [-0.10700, 51.48200],
+        [-0.10800, 51.48550],
+        [-0.11300, 51.48750],
+        [-0.11900, 51.48800],
+        [-0.12500, 51.48800]
+      ],
+      "culverted": [
+        {"from_year": 1840, "to_year": 1850, "segment": "Kennington and Brixton reaches enclosed as building spread out from the new bridges; Effra Road laid out over the channel."},
+        {"from_year": 1860, "to_year": 1865, "segment": "Lower reach taken into the Effra Branch of Bazalgette's Southern Outfall / Southern High Level Sewer; original mouth at Vauxhall closed."},
+        {"from_year": 1865, "to_year": 1880, "segment": "Herne Hill, Dulwich and Norwood reaches culverted as the Metropolitan Board of Works extended sewers into the suburbs; only short lengths in Belair Park and Dulwich Park remain open as ornamental water."}
+      ],
+      "notes": "Rose on the Norwood ridge above Crystal Palace, flowed north through West Norwood, Dulwich, Herne Hill, Brixton and Kennington to a mouth by Vauxhall. Effra Road, Brixton Water Lane and the curve of Dulwich Village follow it. Its 13th-century mouth was further east, and it once had a tidal creek at Vauxhall large enough for barges to reach Brixton. Course generalised (?)."
+    },
+    {
+      "id": "neckinger",
+      "name": "River Neckinger",
+      "status": "culverted",
+      "length_km": 4.0,
+      "width_m": 6,
+      "mouth": [-0.07160, 51.50130],
+      "polyline": [
+        [-0.09950, 51.49400],
+        [-0.09600, 51.49450],
+        [-0.09200, 51.49500],
+        [-0.08800, 51.49560],
+        [-0.08400, 51.49630],
+        [-0.08050, 51.49700],
+        [-0.07800, 51.49800],
+        [-0.07600, 51.49900],
+        [-0.07400, 51.50000],
+        [-0.07250, 51.50070],
+        [-0.07160, 51.50130]
+      ],
+      "culverted": [
+        {"from_year": 1800, "to_year": 1830, "segment": "Bermondsey reach progressively culverted and built over as tanneries and warehouses spread; the tidal mill ponds filled."},
+        {"from_year": 1860, "to_year": 1865, "segment": "Absorbed into Bazalgette's southern sewer network."},
+        {"from_year": 1860, "to_year": 1861, "segment": "The Jacob's Island ditches (Charles Dickens's 'Folly Ditch' in Oliver Twist) filled in after the 1849-1854 cholera outbreaks."}
+      ],
+      "notes": "Rose in the springs of St George's Fields / Newington and flowed east through Bermondsey Abbey's drained marsh, powering tidal mills, to a tidal inlet at St Saviour's Dock, which is still open water. The name is said to derive from 'the devil's neckcloth', the gallows for river pirates at its mouth. Source location uncertain (?)."
+    },
+    {
+      "id": "counters_creek",
+      "name": "Counter's Creek (Chelsea Creek / Billingwell Ditch)",
+      "status": "culverted",
+      "length_km": 6.5,
+      "width_m": 6,
+      "mouth": [-0.18280, 51.47790],
+      "polyline": [
+        [-0.22700, 51.53350],
+        [-0.22600, 51.53000],
+        [-0.22400, 51.52650],
+        [-0.22200, 51.52300],
+        [-0.21950, 51.51950],
+        [-0.21700, 51.51600],
+        [-0.21400, 51.51250],
+        [-0.21150, 51.50900],
+        [-0.21000, 51.50550],
+        [-0.20800, 51.50200],
+        [-0.20500, 51.49800],
+        [-0.20100, 51.49400],
+        [-0.19700, 51.49000],
+        [-0.19200, 51.48600],
+        [-0.18700, 51.48200],
+        [-0.18280, 51.47790]
+      ],
+      "culverted": [
+        {"from_year": 1828, "to_year": 1828, "segment": "Lower 3 km canalised as the Kensington Canal (opened 12 August 1828) from Chelsea Creek to a basin at Kensington (Warwick Road)."},
+        {"from_year": 1859, "to_year": 1863, "segment": "Canal above Chelsea Basin filled and used as the formation of the West London Extension Railway (opened 1863)."},
+        {"from_year": 1870, "to_year": 1880, "segment": "Upper reaches at Kensal Green, Wormwood Scrubs and Shepherd's Bush culverted as the Counter's Creek Sewer."}
+      ],
+      "notes": "Rose near Kensal Green, flowed south along the line of the modern West London Line railway, past Olympia and Earl's Court, to a tidal creek at Chelsea Creek (Sands End), which is still open water where it meets the Thames. Formed the historic Kensington/Fulham-Chelsea boundary. Also called Billingwell Ditch and Bull Creek."
+    },
+    {
+      "id": "stamford_brook",
+      "name": "Stamford Brook",
+      "status": "culverted",
+      "length_km": 5.0,
+      "width_m": 4,
+      "mouth": [-0.23200, 51.48800],
+      "polyline": [
+        [-0.24700, 51.52200],
+        [-0.24600, 51.51900],
+        [-0.24450, 51.51600],
+        [-0.24300, 51.51300],
+        [-0.24200, 51.51000],
+        [-0.24100, 51.50700],
+        [-0.24000, 51.50400],
+        [-0.23900, 51.50050],
+        [-0.23800, 51.49700],
+        [-0.23650, 51.49400],
+        [-0.23500, 51.49150],
+        [-0.23350, 51.48950],
+        [-0.23200, 51.48800]
+      ],
+      "culverted": [
+        {"from_year": 1850, "to_year": 1880, "segment": "Lower reach through Hammersmith and Ravenscourt Park culverted as the district was built up; the Ravenscourt Park lake is a surviving fragment of its old moat/mill pond."},
+        {"from_year": 1880, "to_year": 1900, "segment": "Upper (Acton, Wormwood Scrubs) reaches culverted; only the name survives at Stamford Brook Underground station (1912)."}
+      ],
+      "notes": "A group of three braided streams rising around East Acton and Wormwood Scrubs, uniting in Hammersmith and reaching the Thames near the west end of Chiswick Mall / Hammersmith. Its lower reach was tidal and once served a mill. Course particularly uncertain because the brook was braided (?)."
+    },
+    {
+      "id": "peck",
+      "name": "River Peck",
+      "status": "culverted",
+      "length_km": 5.0,
+      "width_m": 4,
+      "mouth": [-0.05450, 51.48950],
+      "polyline": [
+        [-0.05100, 51.44900],
+        [-0.05500, 51.45200],
+        [-0.05900, 51.45550],
+        [-0.06200, 51.45900],
+        [-0.06400, 51.46300],
+        [-0.06600, 51.46700],
+        [-0.06750, 51.47100],
+        [-0.06850, 51.47450],
+        [-0.06700, 51.47800],
+        [-0.06400, 51.48100],
+        [-0.06050, 51.48400],
+        [-0.05750, 51.48680],
+        [-0.05450, 51.48950]
+      ],
+      "culverted": [
+        {"from_year": 1820, "to_year": 1830, "segment": "Peckham reach culverted as Peckham was built over and the Grand Surrey Canal's Peckham branch (1826) took its valley."},
+        {"from_year": 1860, "to_year": 1870, "segment": "Absorbed into the Earl Main Sewer within Bazalgette's southern system; the ornamental stream in Peckham Rye Park was daylighted as an approximation of the Peck in 2005."}
+      ],
+      "notes": "Rose on the slopes of One Tree Hill / Honor Oak, flowed north through Peckham Rye and Peckham (which it named) and joined Earl's Sluice near Old Kent Road. Course generalised (?)."
+    },
+    {
+      "id": "earls_sluice",
+      "name": "Earl's Sluice",
+      "status": "culverted",
+      "length_km": 5.5,
+      "width_m": 5,
+      "mouth": [-0.02900, 51.48800],
+      "polyline": [
+        [-0.09300, 51.47200],
+        [-0.08800, 51.47500],
+        [-0.08300, 51.47800],
+        [-0.07800, 51.48100],
+        [-0.07200, 51.48400],
+        [-0.06600, 51.48650],
+        [-0.05900, 51.48850],
+        [-0.05200, 51.48950],
+        [-0.04500, 51.48950],
+        [-0.03800, 51.48880],
+        [-0.03300, 51.48830],
+        [-0.02900, 51.48800]
+      ],
+      "culverted": [
+        {"from_year": 1810, "to_year": 1860, "segment": "Progressively culverted through Camberwell, Peckham and Rotherhithe as the Grand Surrey Canal and railway building spread."},
+        {"from_year": 1860, "to_year": 1865, "segment": "Rebuilt as the Earl Main Sewer by the Metropolitan Board of Works; outfall now at Deptford."}
+      ],
+      "notes": "Rose in Denmark Hill / Camberwell, ran east along the historic Surrey-Kent (Camberwell-Deptford) boundary and reached the Thames at South Dock, Deptford. Named after the Earl of Gloucester, natural son of Henry I. Course approximate (?)."
+    },
+    {
+      "id": "falconbrook",
+      "name": "Falcon Brook",
+      "status": "culverted",
+      "length_km": 5.5,
+      "width_m": 4,
+      "mouth": [-0.17400, 51.47270],
+      "polyline": [
+        [-0.14100, 51.42900],
+        [-0.14400, 51.43400],
+        [-0.14800, 51.43900],
+        [-0.15200, 51.44400],
+        [-0.15600, 51.44900],
+        [-0.16000, 51.45400],
+        [-0.16400, 51.45900],
+        [-0.16700, 51.46400],
+        [-0.16950, 51.46800],
+        [-0.17200, 51.47050],
+        [-0.17400, 51.47270]
+      ],
+      "culverted": [
+        {"from_year": 1850, "to_year": 1880, "segment": "Culverted through Clapham Junction and Battersea as the railway and terraces were built; the Falcon public house at Clapham Junction preserves the name."}
+      ],
+      "notes": "Rose on Tooting Bec / Streatham commons, flowed north-west through Balham and Clapham Junction to a tidal mouth at Battersea. Not in the requested list but included because it is a significant south-bank lost river. Course approximate (?)."
+    },
+    {
+      "id": "hackney_brook",
+      "name": "Hackney Brook",
+      "status": "culverted",
+      "length_km": 9.0,
+      "width_m": 5,
+      "mouth": [-0.02400, 51.53800],
+      "polyline": [
+        [-0.12100, 51.56600],
+        [-0.11700, 51.56300],
+        [-0.11200, 51.56050],
+        [-0.10600, 51.55900],
+        [-0.10000, 51.55750],
+        [-0.09400, 51.55600],
+        [-0.08800, 51.55450],
+        [-0.08200, 51.55300],
+        [-0.07600, 51.55150],
+        [-0.07000, 51.55000],
+        [-0.06400, 51.54900],
+        [-0.05800, 51.54800],
+        [-0.05200, 51.54700],
+        [-0.04600, 51.54550],
+        [-0.04000, 51.54350],
+        [-0.03400, 51.54150],
+        [-0.02900, 51.53950],
+        [-0.02400, 51.53800]
+      ],
+      "culverted": [
+        {"from_year": 1850, "to_year": 1860, "segment": "Lower Hackney reach culverted as Hackney was built over."},
+        {"from_year": 1860, "to_year": 1876, "segment": "Whole course taken into Bazalgette's Northern High Level Sewer No.1; the last open stretch at Hackney Wick was culverted by about 1876."}
+      ],
+      "notes": "Rose at Holloway on the eastern flank of the Highgate ridge, flowed east through Finsbury Park, Stoke Newington, Dalston and Hackney (following roughly the line of Amhurst Road and Morning Lane), and joined the River Lea near Hackney Wick. Course approximate (?)."
+    },
+    {
+      "id": "moselle",
+      "name": "River Moselle (Muswell Stream)",
+      "status": "partly_open",
+      "length_km": 9.0,
+      "width_m": 4,
+      "mouth": [-0.03800, 51.58900],
+      "polyline": [
+        [-0.14400, 51.59200],
+        [-0.13800, 51.59100],
+        [-0.13200, 51.59000],
+        [-0.12600, 51.58900],
+        [-0.12000, 51.58850],
+        [-0.11300, 51.58850],
+        [-0.10600, 51.58900],
+        [-0.09900, 51.58950],
+        [-0.09200, 51.59000],
+        [-0.08500, 51.59000],
+        [-0.07800, 51.59000],
+        [-0.07100, 51.58980],
+        [-0.06400, 51.58960],
+        [-0.05700, 51.58940],
+        [-0.05000, 51.58920],
+        [-0.04400, 51.58910],
+        [-0.03800, 51.58900]
+      ],
+      "culverted": [
+        {"from_year": 1880, "to_year": 1910, "segment": "Hornsey, Wood Green and Tottenham reaches culverted as those suburbs were built after the Great Northern Railway arrived."},
+        {"from_year": 1930, "to_year": 1970, "segment": "Remaining open lengths in Lordship Recreation Ground and Tottenham piped or straightened; short open reaches survive in Tottenham Cemetery, Lordship Rec (partly daylighted 2012) and Bruce Castle Park."}
+      ],
+      "notes": "Rose at Muswell Hill (the 'mossy well'), flowed east through Hornsey, Wood Green and Tottenham to join the Lea near Tottenham Hale. Notoriously flood-prone; caused serious floods in 1970s Tottenham. Part-daylighted in Lordship Recreation Ground in 2012."
+    },
+    {
+      "id": "wandle",
+      "name": "River Wandle",
+      "status": "open",
+      "length_km": 14.0,
+      "width_m": 12,
+      "mouth": [-0.19300, 51.46700],
+      "polyline": [
+        [-0.09400, 51.36500],
+        [-0.10500, 51.36900],
+        [-0.11600, 51.37300],
+        [-0.12600, 51.37800],
+        [-0.13500, 51.38400],
+        [-0.14300, 51.39000],
+        [-0.15000, 51.39600],
+        [-0.15700, 51.40200],
+        [-0.16300, 51.40800],
+        [-0.16900, 51.41400],
+        [-0.17400, 51.42100],
+        [-0.17800, 51.42800],
+        [-0.18100, 51.43500],
+        [-0.18400, 51.44200],
+        [-0.18700, 51.44900],
+        [-0.18900, 51.45500],
+        [-0.19000, 51.46000],
+        [-0.19150, 51.46400],
+        [-0.19300, 51.46700]
+      ],
+      "culverted": [],
+      "notes": "Never culverted along its main course. Chalk springs at Carshalton and Croydon (Waddon Ponds); flows through Beddington, Mitcham, Colliers Wood, Earlsfield and Wandsworth to the Thames at Wandsworth. Once the most industrialised river of its size in the world, with roughly 40-90 mills (snuff, calico, copper, gunpowder) between 1600 and 1900. Bell Mouth / mouth widened for the Wandsworth Delta and gasworks 19th century."
+    },
+    {
+      "id": "lea",
+      "name": "River Lea / Lee Navigation and Bow Back Rivers",
+      "status": "open",
+      "length_km": 30.0,
+      "width_m": 25,
+      "mouth": [0.00900, 51.50700],
+      "polyline": [
+        [-0.02000, 51.69000],
+        [-0.01500, 51.67500],
+        [-0.01200, 51.66000],
+        [-0.01000, 51.64500],
+        [-0.00800, 51.63000],
+        [-0.00600, 51.61500],
+        [-0.02000, 51.60000],
+        [-0.03200, 51.58500],
+        [-0.03400, 51.57200],
+        [-0.02900, 51.56000],
+        [-0.02400, 51.55000],
+        [-0.02200, 51.54000],
+        [-0.02000, 51.53200],
+        [-0.01500, 51.52600],
+        [-0.01100, 51.52000],
+        [-0.00900, 51.51500],
+        [-0.00600, 51.51000],
+        [0.00200, 51.50800],
+        [0.00900, 51.50700]
+      ],
+      "culverted": [],
+      "key_events": [
+        {"year": 1424, "event": "First Act of Parliament to improve the Lea for navigation."},
+        {"year": 1571, "event": "Lea Navigation Act; the Bow Back Rivers and pound locks developed to serve Hertfordshire grain traffic."},
+        {"year": 1767, "event": "Lee Navigation improvement Act; new cuts including the Limehouse Cut (1770)."},
+        {"year": 1930, "event": "Prescott Channel, Three Mills Wall River works and flood relief channel improvements to the Bow Back Rivers."},
+        {"year": 1950, "event": "Bow Back Rivers largely derelict; several arms filled or blocked."},
+        {"year": 2008, "event": "Prescott Lock and Three Mills Lock built to restore navigation for the 2012 Olympic Park construction."},
+        {"year": 2012, "event": "Olympic Park works reprofile and clean the Lea/Bow Back Rivers channels through Stratford."}
+      ],
+      "notes": "Historic boundary between Middlesex/Essex and, in the 9th century, between English Wessex/Mercia and the Danelaw. The tidal reach below Bow Locks is Bow Creek, meeting the Thames at Leamouth. Simplified single-thread polyline; the real system between Hackney and Stratford is a braid of at least eight channels (Old River Lea, Waterworks River, City Mill River, Three Mills Wall River, Pudding Mill River, St Thomas' Creek, Channelsea River, Prescott Channel)."
+    },
+    {
+      "id": "bow_back_rivers",
+      "name": "Bow Back Rivers (Channelsea, Waterworks River, City Mill River, Three Mills Wall River, Pudding Mill River)",
+      "status": "open",
+      "length_km": 8.0,
+      "width_m": 15,
+      "mouth": [-0.00800, 51.52400],
+      "polyline": [
+        [-0.01300, 51.54600],
+        [-0.01200, 51.54100],
+        [-0.01000, 51.53700],
+        [-0.00900, 51.53300],
+        [-0.00850, 51.52900],
+        [-0.00900, 51.52600],
+        [-0.00950, 51.52300],
+        [-0.01050, 51.52000],
+        [-0.01100, 51.51700],
+        [-0.01050, 51.51400]
+      ],
+      "culverted": [
+        {"from_year": 1930, "to_year": 1935, "segment": "Several minor arms straightened or filled during 1930s flood-relief works."},
+        {"from_year": 1960, "to_year": 1990, "segment": "Pudding Mill River and other arms partly filled or derelict; Pudding Mill River filled 2009-2011 for the Olympic Park."}
+      ],
+      "notes": "Medieval mill-leats created by Stratford Langthorne Abbey and later the Three Mills tidal mills (documented in Domesday 1086; the surviving House Mill dates from 1776). Geometry heavily simplified (?)."
+    },
+    {
+      "id": "ravensbourne",
+      "name": "River Ravensbourne and Deptford Creek",
+      "status": "open",
+      "length_km": 17.0,
+      "width_m": 10,
+      "mouth": [-0.02300, 51.48200],
+      "polyline": [
+        [0.03300, 51.36100],
+        [0.02900, 51.36800],
+        [0.02500, 51.37600],
+        [0.02200, 51.38400],
+        [0.01900, 51.39200],
+        [0.01700, 51.40000],
+        [0.01500, 51.40800],
+        [0.01200, 51.41600],
+        [0.00700, 51.42400],
+        [0.00200, 51.43000],
+        [-0.00400, 51.43600],
+        [-0.01000, 51.44200],
+        [-0.01500, 51.44800],
+        [-0.01700, 51.45400],
+        [-0.01600, 51.46000],
+        [-0.01400, 51.46500],
+        [-0.01600, 51.47000],
+        [-0.01900, 51.47500],
+        [-0.02100, 51.47900],
+        [-0.02300, 51.48200]
+      ],
+      "culverted": [
+        {"from_year": 1960, "to_year": 1975, "segment": "Central Lewisham and Catford reaches channelised in concrete for flood control; partly re-naturalised at Ladywell Fields (2007) and Cornmill Gardens (2008)."}
+      ],
+      "notes": "Rises at Caesar's Well, Keston Common, flows through Bromley, Catford, Lewisham and Deptford; tidal below Deptford Bridge as Deptford Creek. Tributaries: the Quaggy (joins at Lewisham) and the Pool River."
+    },
+    {
+      "id": "brent",
+      "name": "River Brent (with Dollis Brook and Silk Stream)",
+      "status": "open",
+      "length_km": 28.0,
+      "width_m": 10,
+      "mouth": [-0.30800, 51.48800],
+      "polyline": [
+        [-0.19800, 51.65000],
+        [-0.20200, 51.64000],
+        [-0.20600, 51.63000],
+        [-0.21000, 51.62000],
+        [-0.21400, 51.61000],
+        [-0.21700, 51.60000],
+        [-0.22100, 51.59000],
+        [-0.23000, 51.58200],
+        [-0.24500, 51.57600],
+        [-0.26000, 51.57000],
+        [-0.27200, 51.56000],
+        [-0.28200, 51.55000],
+        [-0.29200, 51.54000],
+        [-0.30200, 51.53000],
+        [-0.31200, 51.52200],
+        [-0.32200, 51.51400],
+        [-0.33200, 51.50600],
+        [-0.33400, 51.49800],
+        [-0.32500, 51.49300],
+        [-0.31500, 51.49000],
+        [-0.30800, 51.48800]
+      ],
+      "culverted": [
+        {"from_year": 1835, "to_year": 1837, "segment": "Dammed at Kingsbury to form the Brent Reservoir (Welsh Harp) as a feeder for the Regent's Canal / Paddington arm."},
+        {"from_year": 1794, "to_year": 1805, "segment": "Lower 5 km canalised as part of the Grand Junction Canal between Brentford and Hanwell (Hanwell Flight of locks, 1794-1800)."}
+      ],
+      "notes": "Formed by the junction of Dollis Brook and Mutton Brook at Hendon; flows through Brent Reservoir, Wembley, Perivale, Hanwell (Wharncliffe Viaduct 1838) and Brentford, where it meets the Thames. Lower reach shared with the Grand Union Canal."
+    },
+    {
+      "id": "beverley_brook",
+      "name": "Beverley Brook",
+      "status": "open",
+      "length_km": 14.0,
+      "width_m": 5,
+      "mouth": [-0.22600, 51.47000],
+      "polyline": [
+        [-0.24500, 51.38000],
+        [-0.24800, 51.38700],
+        [-0.25100, 51.39400],
+        [-0.25400, 51.40100],
+        [-0.25700, 51.40800],
+        [-0.25900, 51.41500],
+        [-0.26100, 51.42200],
+        [-0.26200, 51.42900],
+        [-0.26100, 51.43600],
+        [-0.25800, 51.44300],
+        [-0.25300, 51.44900],
+        [-0.24700, 51.45400],
+        [-0.24100, 51.45900],
+        [-0.23600, 51.46300],
+        [-0.23100, 51.46650],
+        [-0.22600, 51.47000]
+      ],
+      "culverted": [
+        {"from_year": 1930, "to_year": 1935, "segment": "Lower reach through Barnes straightened and walled for flood control; partly re-naturalised in Richmond Park (2020-2022)."}
+      ],
+      "notes": "Rises at Worcester Park, flows through New Malden, Wimbledon Common, Richmond Park, Barnes Common and reaches the Thames at Barn Elms, Putney. Historic Surrey boundary marker."
+    }
+  ],
+
+  "docks": [
+    {
+      "id": "howland_greenland_dock",
+      "name": "Howland Great Wet Dock / Greenland Dock",
+      "dug": 1696,
+      "opened": 1699,
+      "renamed": {"year": 1763, "name": "Greenland Dock (whaling)"},
+      "enlarged": [1807, 1904],
+      "closed": 1970,
+      "filled": null,
+      "still_water": true,
+      "area_ha": 9.0,
+      "polygon": [
+        [-0.04150, 51.49220],
+        [-0.02950, 51.49080],
+        [-0.02930, 51.48950],
+        [-0.04150, 51.49080],
+        [-0.04150, 51.49220]
+      ],
+      "notes": "England's first large commercial wet dock, dug 1695-1699 on the Rotherhithe marsh; used for whaling from 1763 (hence Greenland). Rebuilt and hugely enlarged 1894-1904 to 22 acres and became the largest dock in the Surrey Commercial group. Closed with the Surrey Commercial Docks in 1970 but retained as water; now a residential basin and watersports centre. Polygon approximate rectangle following the modern water body (?)."
+    },
+    {
+      "id": "brunswick_dock",
+      "name": "Brunswick Dock, Blackwall",
+      "dug": 1789,
+      "opened": 1790,
+      "absorbed": {"year": 1806, "into": "east_india_docks (as the Export Dock)"},
+      "closed": 1967,
+      "filled": 1970,
+      "still_water": false,
+      "polygon": [
+        [-0.00750, 51.50820],
+        [-0.00300, 51.50820],
+        [-0.00300, 51.50680],
+        [-0.00750, 51.50680],
+        [-0.00750, 51.50820]
+      ],
+      "notes": "Built by John Perry at the Blackwall Yard, 1789-90, with the famous Mast House. Incorporated into the East India Docks in 1806 as the Export Dock. Filled in the 1970s; the site is now the Blackwall/Virginia Quay housing and the northern approach to the Blackwall Tunnel. Polygon approximate (?)."
+    },
+    {
+      "id": "west_india_import_dock",
+      "name": "West India Import Dock (North Dock)",
+      "dug": 1800,
+      "opened": 1802,
+      "closed": 1980,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.02550, 51.50880],
+        [-0.00700, 51.50880],
+        [-0.00700, 51.50740],
+        [-0.02550, 51.50740],
+        [-0.02550, 51.50880]
+      ],
+      "notes": "Opened 27 August 1802, the first of the great enclosed docks, built under an Act of 1799 with a 20-year monopoly on West Indian sugar and rum. Now the water in front of Canary Wharf; Import Dock No.1 warehouse survives as the Museum of London Docklands."
+    },
+    {
+      "id": "west_india_export_dock",
+      "name": "West India Export Dock (Middle Dock)",
+      "dug": 1803,
+      "opened": 1806,
+      "closed": 1980,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.02550, 51.50680],
+        [-0.00700, 51.50680],
+        [-0.00700, 51.50560],
+        [-0.02550, 51.50560],
+        [-0.02550, 51.50680]
+      ],
+      "notes": "Opened 1806. Partly infilled at the west end for the Canary Wharf estate in the late 1980s; the east portion remains as Middle Dock / West India Quay water."
+    },
+    {
+      "id": "west_india_south_dock",
+      "name": "West India South Dock (formerly the City Canal)",
+      "dug": 1803,
+      "opened": 1805,
+      "converted": {"year": 1829, "to": "West India South Dock"},
+      "enlarged": 1870,
+      "closed": 1980,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.02500, 51.50450],
+        [-0.00550, 51.50380],
+        [-0.00550, 51.50260],
+        [-0.02500, 51.50330],
+        [-0.02500, 51.50450]
+      ],
+      "notes": "Originally the City Canal, cut by the City of London 1803-1805 across the neck of the Isle of Dogs so ships could avoid the meander. Commercially a failure; sold to the West India Dock Company in 1829 and converted to the South Dock, then rebuilt and deepened in 1866-1870. Still water; South Dock is now a marina."
+    },
+    {
+      "id": "city_canal",
+      "name": "City Canal (Isle of Dogs cut)",
+      "dug": 1803,
+      "opened": 1805,
+      "closed": 1829,
+      "filled": null,
+      "still_water": true,
+      "superseded_by": "west_india_south_dock",
+      "polyline": [
+        [-0.02480, 51.50430],
+        [-0.01800, 51.50400],
+        [-0.01100, 51.50360],
+        [-0.00560, 51.50320]
+      ],
+      "notes": "A short-lived ship canal, 1805-1829, cut straight across the Isle of Dogs to save the 5 km meander. Ships preferred the river; sold in 1829 and rebuilt as the West India South Dock."
+    },
+    {
+      "id": "east_india_docks",
+      "name": "East India Docks (Import and Export Docks)",
+      "dug": 1803,
+      "opened": 1806,
+      "closed": 1967,
+      "filled": 1970,
+      "still_water": "partial",
+      "polygon": [
+        [-0.00900, 51.50920],
+        [0.00450, 51.50920],
+        [0.00450, 51.50650],
+        [-0.00900, 51.50650],
+        [-0.00900, 51.50920]
+      ],
+      "notes": "Opened 4 August 1806 for East Indiamen, incorporating the earlier Brunswick Dock (1789) as the Export Dock. Bombed heavily 1940-41; used as a Mulberry Harbour construction site 1943-44. Closed 1967. The Export Dock was filled in the 1980s (now the Financial Times print works site / Virginia Quay); a small part of the Import Dock survives as the East India Dock Basin nature reserve."
+    },
+    {
+      "id": "london_docks_western",
+      "name": "London Docks - Western Dock, Wapping",
+      "dug": 1801,
+      "opened": 1805,
+      "closed": 1969,
+      "filled": 1983,
+      "still_water": false,
+      "polygon": [
+        [-0.06700, 51.50950],
+        [-0.06000, 51.50950],
+        [-0.06000, 51.50650],
+        [-0.06700, 51.50650],
+        [-0.06700, 51.50950]
+      ],
+      "notes": "Opened 31 January 1805 with a 21-year monopoly on wine, brandy, tobacco, rice. Designed by Daniel Alexander and John Rennie. Closed 1969; the Western Dock was filled 1979-1983 and is now News International's former Wapping plant and housing."
+    },
+    {
+      "id": "london_docks_eastern",
+      "name": "London Docks - Eastern Dock, Wapping",
+      "dug": 1825,
+      "opened": 1828,
+      "closed": 1969,
+      "filled": 1980,
+      "still_water": false,
+      "polygon": [
+        [-0.05900, 51.50920],
+        [-0.05350, 51.50920],
+        [-0.05350, 51.50680],
+        [-0.05900, 51.50680],
+        [-0.05900, 51.50920]
+      ],
+      "notes": "Filled c.1979-1980; site now Wapping Woods and housing."
+    },
+    {
+      "id": "shadwell_basin",
+      "name": "Shadwell New Basin (London Docks)",
+      "dug": 1854,
+      "opened": 1858,
+      "closed": 1969,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.05400, 51.50820],
+        [-0.04950, 51.50820],
+        [-0.04950, 51.50620],
+        [-0.05400, 51.50620],
+        [-0.05400, 51.50820]
+      ],
+      "notes": "The eastern entrance basin of the London Docks, enlarged 1854-58. Retained as water when the rest was filled; surrounded by 1980s housing with red steel bridges."
+    },
+    {
+      "id": "tobacco_dock",
+      "name": "Tobacco Dock / Western Dock quay",
+      "dug": 1811,
+      "opened": 1814,
+      "closed": 1969,
+      "filled": 1980,
+      "still_water": false,
+      "polygon": [
+        [-0.06050, 51.50830],
+        [-0.05820, 51.50830],
+        [-0.05820, 51.50740],
+        [-0.06050, 51.50740],
+        [-0.06050, 51.50830]
+      ],
+      "notes": "The Skin Floor / Tobacco Warehouse of 1811-14 by Daniel Alexander survives (Grade I listed) and was converted to a shopping centre in 1990; the associated dock water was filled."
+    },
+    {
+      "id": "st_katharine_docks",
+      "name": "St Katharine Docks",
+      "dug": 1827,
+      "opened": 1828,
+      "closed": 1968,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.07450, 51.50780],
+        [-0.06900, 51.50780],
+        [-0.06900, 51.50480],
+        [-0.07450, 51.50480],
+        [-0.07450, 51.50780]
+      ],
+      "notes": "Designed by Thomas Telford, opened 25 October 1828 after the clearance of the medieval Hospital of St Katharine and about 1250 houses; 11,300 people displaced with no compensation. Two basins plus an entrance basin. Bombed 1940. Closed 1968 and redeveloped from 1973 as London's first Docklands regeneration; the water survives as a yacht marina."
+    },
+    {
+      "id": "surrey_commercial_docks",
+      "name": "Surrey Commercial Docks (whole group)",
+      "dug": 1801,
+      "opened": 1807,
+      "expanded_range": [1807, 1876],
+      "closed": 1970,
+      "filled": 1985,
+      "still_water": "partial",
+      "polygon": [
+        [-0.05650, 51.50250],
+        [-0.02850, 51.49900],
+        [-0.02800, 51.48800],
+        [-0.04600, 51.48700],
+        [-0.05700, 51.49300],
+        [-0.05650, 51.50250]
+      ],
+      "component_docks": [
+        {"name": "Greenland Dock", "opened": 1699, "still_water": true},
+        {"name": "Surrey Basin / Surrey Water", "opened": 1807, "still_water": true},
+        {"name": "Russia Dock", "opened": 1811, "filled": 1980, "still_water": false},
+        {"name": "Albion Dock", "opened": 1860, "filled": 1982, "still_water": false},
+        {"name": "Canada Dock", "opened": 1876, "filled": 1982, "still_water": "partial (Canada Water)"},
+        {"name": "Lavender Dock", "opened": 1862, "filled": 1980, "still_water": false},
+        {"name": "Quebec Dock", "opened": 1926, "filled": 1980, "still_water": false},
+        {"name": "South Dock", "opened": 1811, "still_water": true},
+        {"name": "Norway Dock", "opened": 1860, "filled": 1985, "still_water": "partial (The Lakes)"},
+        {"name": "Stave Dock", "opened": 1860, "filled": 1980, "still_water": false}
+      ],
+      "notes": "A group of nine or ten docks and ponds handling Baltic and Canadian softwood timber and grain, developed 1807-1926 out of the Grand Surrey Canal Company's basin and the Commercial Dock Company's ponds; amalgamated 1864. Closed 1970 (the first of the big groups to go) and mostly filled 1977-1985 for the Surrey Quays / Rotherhithe housing. Surviving water: Greenland Dock, South Dock (marina), Canada Water, Surrey Water, and the ornamental Lakes at Norway Dock. Russia Dock is now Russia Dock Woodland; Stave Hill is a spoil mound made from the fill."
+    },
+    {
+      "id": "canada_water",
+      "name": "Canada Water",
+      "dug": 1874,
+      "opened": 1876,
+      "closed": 1970,
+      "filled": "partial",
+      "still_water": true,
+      "polygon": [
+        [-0.05100, 51.49890],
+        [-0.04820, 51.49890],
+        [-0.04820, 51.49700],
+        [-0.05100, 51.49700],
+        [-0.05100, 51.49890]
+      ],
+      "notes": "The surviving western end of Canada Dock, retained as a freshwater lake and bird sanctuary when the rest was filled c.1982."
+    },
+    {
+      "id": "surrey_water",
+      "name": "Surrey Water (Surrey Basin)",
+      "dug": 1804,
+      "opened": 1807,
+      "closed": 1970,
+      "filled": "partial",
+      "still_water": true,
+      "polygon": [
+        [-0.05400, 51.50230],
+        [-0.05130, 51.50230],
+        [-0.05130, 51.50080],
+        [-0.05400, 51.50080],
+        [-0.05400, 51.50230]
+      ],
+      "notes": "The original entrance basin of the Grand Surrey Canal (1807), retained as ornamental water."
+    },
+    {
+      "id": "limehouse_basin",
+      "name": "Limehouse Basin (Regent's Canal Dock)",
+      "dug": 1812,
+      "opened": 1820,
+      "enlarged": [1852, 1869],
+      "closed": 1969,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.04100, 51.51260],
+        [-0.03600, 51.51260],
+        [-0.03600, 51.51010],
+        [-0.04100, 51.51010],
+        [-0.04100, 51.51260]
+      ],
+      "notes": "The Thames entrance and ship dock of the Regent's Canal, opened with the canal in 1820, greatly enlarged in the 1850s and 1860s for the coal trade. Commercial traffic ended 1969; converted to a marina in the 1980s. The Limehouse Cut was diverted into the basin in 1968."
+    },
+    {
+      "id": "millwall_dock",
+      "name": "Millwall Dock (Inner and Outer Docks)",
+      "dug": 1865,
+      "opened": 1868,
+      "closed": 1980,
+      "filled": "partial",
+      "still_water": true,
+      "polygon": [
+        [-0.02650, 51.49900],
+        [-0.02180, 51.49900],
+        [-0.02180, 51.50060],
+        [-0.01650, 51.50060],
+        [-0.01650, 51.49780],
+        [-0.02650, 51.49780],
+        [-0.02650, 51.49900]
+      ],
+      "notes": "L-shaped dock opened 14 March 1868 on the Isle of Dogs for grain and timber, with a large granary. Merged with the West India Docks 1909 under the Port of London Authority. Closed 1980; the western arm was partly filled for the Millwall Inner Dock housing but most survives as water and hosts the Docklands Sailing Centre. Polygon is an L-shaped approximation (?)."
+    },
+    {
+      "id": "poplar_dock",
+      "name": "Poplar Dock",
+      "dug": 1828,
+      "opened": 1851,
+      "closed": 1980,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.01300, 51.51000],
+        [-0.00950, 51.51000],
+        [-0.00950, 51.50800],
+        [-0.01300, 51.50800],
+        [-0.01300, 51.51000]
+      ],
+      "notes": "Originally dug 1828 as a reservoir for the East India Docks; converted 1850-51 into London's first railway-owned dock (North London Railway) for coal and later rail-borne goods. Closed 1980; now Poplar Dock Marina."
+    },
+    {
+      "id": "royal_victoria_dock",
+      "name": "Royal Victoria Dock",
+      "dug": 1850,
+      "opened": 1855,
+      "closed": 1981,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [0.01100, 51.50920],
+        [0.03450, 51.50920],
+        [0.03450, 51.50660],
+        [0.01100, 51.50660],
+        [0.01100, 51.50920]
+      ],
+      "notes": "Opened 26 June 1855; the first dock designed for steamships and the first with hydraulic machinery and a direct rail connection, built on the cheap Plaistow marshes. 1.6 km long. Closed 1981; retained as water, now fronted by ExCeL London (2000), the Royal Victoria Dock Bridge (1998) and the IFS Cloud Cable Car (2012)."
+    },
+    {
+      "id": "royal_albert_dock",
+      "name": "Royal Albert Dock",
+      "dug": 1875,
+      "opened": 1880,
+      "closed": 1981,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [0.03800, 51.51050],
+        [0.07200, 51.51050],
+        [0.07200, 51.50820],
+        [0.03800, 51.50820],
+        [0.03800, 51.51050]
+      ],
+      "notes": "Opened 24 June 1880; 2.7 km long, the largest volume of enclosed dock water in the world at the time and the first lit by electricity. Closed 1981. London City Airport's runway (1987) was built along its southern quay between it and King George V Dock."
+    },
+    {
+      "id": "king_george_v_dock",
+      "name": "King George V Dock",
+      "dug": 1912,
+      "opened": 1921,
+      "closed": 1981,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [0.03700, 51.50450],
+        [0.06500, 51.50450],
+        [0.06500, 51.50250],
+        [0.03700, 51.50250],
+        [0.03700, 51.50450]
+      ],
+      "notes": "Begun 1912, delayed by the First World War, opened 8 July 1921 by King George V. The last major dock built in London and the deepest, able to take the Mauretania. Closed 1981; still water, forming the south side of London City Airport."
+    },
+    {
+      "id": "royal_docks_group",
+      "name": "Royal Docks group (Victoria, Albert, King George V)",
+      "opened": 1855,
+      "closed": 1981,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [0.01000, 51.51100],
+        [0.07300, 51.51100],
+        [0.07300, 51.50150],
+        [0.01000, 51.50250],
+        [0.01000, 51.51100]
+      ],
+      "notes": "Combined envelope for the three Royal Docks, together the largest enclosed dock system in the world (about 100 ha of water). All closed in 1981; all still water."
+    },
+    {
+      "id": "thames_barrier",
+      "name": "Thames Barrier",
+      "dug": 1974,
+      "opened": 1982,
+      "official_opening": 1984,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polyline": [
+        [0.03530, 51.49830],
+        [0.03700, 51.49670]
+      ],
+      "notes": "Built 1974-1982 at Woolwich Reach after the 1953 North Sea flood and the 1972 Thames Barrier and Flood Prevention Act; became operational 8 October 1982 and was formally opened by the Queen on 8 May 1984. Ten steel gates on nine concrete piers, 520 m across. Associated Barking, Dartford and Fobbing barriers and 300 km of raised river walls completed 1983."
+    },
+    {
+      "id": "regents_canal",
+      "name": "Regent's Canal",
+      "dug": 1812,
+      "opened": 1820,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "length_km": 13.8,
+      "polyline": [
+        [-0.18300, 51.52130],
+        [-0.17600, 51.52680],
+        [-0.16800, 51.53200],
+        [-0.15900, 51.53550],
+        [-0.14900, 51.53950],
+        [-0.14300, 51.54100],
+        [-0.13500, 51.54050],
+        [-0.12500, 51.53750],
+        [-0.11500, 51.53550],
+        [-0.10600, 51.53350],
+        [-0.09600, 51.53350],
+        [-0.08700, 51.53450],
+        [-0.07800, 51.53580],
+        [-0.06800, 51.53680],
+        [-0.05800, 51.53720],
+        [-0.05000, 51.53650],
+        [-0.04400, 51.53450],
+        [-0.04000, 51.53100],
+        [-0.03500, 51.52700],
+        [-0.03300, 51.52300],
+        [-0.03350, 51.51900],
+        [-0.03600, 51.51500],
+        [-0.03850, 51.51200]
+      ],
+      "notes": "Authorised 1812 (John Nash, James Morgan). Paddington to Camden opened 1816; the whole line to Limehouse opened 1 August 1820. 13.8 km, 12 locks, two tunnels (Maida Hill 249 m and Islington 878 m). Commercial traffic effectively ended in the 1960s. The 1874 Regent's Park gunpowder-barge explosion destroyed Macclesfield Bridge ('Blow-Up Bridge')."
+    },
+    {
+      "id": "grand_junction_paddington_arm",
+      "name": "Grand Junction Canal, Paddington Arm",
+      "dug": 1795,
+      "opened": 1801,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "length_km": 21.5,
+      "polyline": [
+        [-0.38100, 51.50900],
+        [-0.36500, 51.51900],
+        [-0.34800, 51.52700],
+        [-0.33000, 51.53200],
+        [-0.31200, 51.53600],
+        [-0.29500, 51.53900],
+        [-0.27800, 51.53700],
+        [-0.26200, 51.53400],
+        [-0.24600, 51.53200],
+        [-0.23000, 51.53100],
+        [-0.21400, 51.52900],
+        [-0.20000, 51.52600],
+        [-0.18800, 51.52300],
+        [-0.17600, 51.51950]
+      ],
+      "notes": "Opened 10 July 1801 from Bull's Bridge (Hayes) on the Grand Junction main line to Paddington Basin, on the level with no locks. Transformed Paddington into a transhipment point; superseded for through traffic by the Regent's Canal (1820). Now part of the Grand Union Canal."
+    },
+    {
+      "id": "hertford_union_canal",
+      "name": "Hertford Union Canal (Duckett's Canal)",
+      "dug": 1824,
+      "opened": 1830,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "length_km": 2.2,
+      "polyline": [
+        [-0.04250, 51.53550],
+        [-0.03700, 51.53500],
+        [-0.03100, 51.53480],
+        [-0.02650, 51.53440]
+      ],
+      "notes": "Opened 1830, linking the Regent's Canal at Old Ford to the Lee Navigation, cutting out the Limehouse Cut route. A commercial failure; closed 1853-1857, reopened, and bought by the Regent's Canal Company in 1857. Runs along the south edge of Victoria Park."
+    },
+    {
+      "id": "limehouse_cut",
+      "name": "Limehouse Cut",
+      "dug": 1766,
+      "opened": 1770,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "length_km": 3.7,
+      "polyline": [
+        [-0.01050, 51.52630],
+        [-0.01600, 51.52400],
+        [-0.02200, 51.52130],
+        [-0.02800, 51.51830],
+        [-0.03350, 51.51550],
+        [-0.03750, 51.51300]
+      ],
+      "notes": "London's oldest canal, opened 1770 under the 1767 Lee Navigation Act, cutting off the tortuous Bow Creek meanders between Bromley-by-Bow and the Thames at Limehouse. Its own Thames lock was closed in 1968 and traffic diverted into Limehouse Basin; the original lock was briefly reinstated 1968-1970 (?)."
+    },
+    {
+      "id": "grand_surrey_canal",
+      "name": "Grand Surrey Canal",
+      "dug": 1801,
+      "opened": 1807,
+      "extended": [{"year": 1811, "to": "Camberwell"}, {"year": 1826, "to": "Peckham branch"}],
+      "closed": 1971,
+      "filled": 1975,
+      "still_water": false,
+      "length_km": 6.0,
+      "polyline": [
+        [-0.05250, 51.50100],
+        [-0.05500, 51.49700],
+        [-0.05800, 51.49300],
+        [-0.06200, 51.48900],
+        [-0.06700, 51.48500],
+        [-0.07200, 51.48100],
+        [-0.07700, 51.47800],
+        [-0.08200, 51.47600],
+        [-0.08700, 51.47500]
+      ],
+      "branch_polyline_peckham": [
+        [-0.06900, 51.48000],
+        [-0.06900, 51.47500],
+        [-0.06850, 51.47100]
+      ],
+      "notes": "Opened 1807 from the Surrey Basin at Rotherhithe; reached Camberwell 1811 and Peckham 1826. Originally intended to reach Mitcham and Epsom but never did. Abandoned 1971 and filled 1972-1975; the line is now Surrey Canal Road, Burgess Park (where a short water feature and the Bridge to Nowhere survive) and the Peckham branch is Peckham Canal Walk / Canal Head."
+    },
+    {
+      "id": "croydon_canal",
+      "name": "Croydon Canal",
+      "dug": 1801,
+      "opened": 1809,
+      "closed": 1836,
+      "filled": 1839,
+      "still_water": false,
+      "length_km": 15.0,
+      "polyline": [
+        [-0.04250, 51.47800],
+        [-0.04600, 51.47200],
+        [-0.04900, 51.46600],
+        [-0.05100, 51.46000],
+        [-0.05300, 51.45400],
+        [-0.05400, 51.44800],
+        [-0.05500, 51.44200],
+        [-0.05800, 51.43600],
+        [-0.06200, 51.43000],
+        [-0.06700, 51.42400],
+        [-0.07300, 51.41800],
+        [-0.07900, 51.41200],
+        [-0.08300, 51.40400],
+        [-0.08600, 51.39400],
+        [-0.08800, 51.38500],
+        [-0.08900, 51.37800]
+      ],
+      "notes": "Opened 22 October 1809 from the Grand Surrey Canal at New Cross to West Croydon, with 28 locks. A commercial failure; sold in 1836 to the London & Croydon Railway, which opened over most of the bed on 5 June 1839 - the first canal in Britain bought out by a railway. Surviving fragments: Betts Park (Anerley) and Dacres Wood. Course follows the modern London Overground / Southern route through Forest Hill and Sydenham."
+    },
+    {
+      "id": "kensington_canal",
+      "name": "Kensington Canal",
+      "dug": 1826,
+      "opened": 1828,
+      "closed": 1859,
+      "filled": 1863,
+      "still_water": "partial",
+      "length_km": 3.2,
+      "polyline": [
+        [-0.18280, 51.47790],
+        [-0.18700, 51.48200],
+        [-0.19200, 51.48600],
+        [-0.19700, 51.49000],
+        [-0.20200, 51.48950]
+      ],
+      "notes": "Opened 12 August 1828, canalising the lower Counter's Creek from the Thames at Chelsea Creek to a basin at Kensington (near the modern Sainsbury's on Warwick Road). Never profitable; bought by railway interests 1839, closed above Chelsea Basin 1859, and the bed used for the West London Extension Railway, opened 2 March 1863. The tidal Chelsea Creek section remains water."
+    },
+    {
+      "id": "serpentine",
+      "name": "The Serpentine and the Long Water, Hyde Park / Kensington Gardens",
+      "dug": 1730,
+      "opened": 1731,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "area_ha": 16.0,
+      "polygon": [
+        [-0.18100, 51.50750],
+        [-0.17600, 51.50630],
+        [-0.17200, 51.50560],
+        [-0.16800, 51.50480],
+        [-0.16400, 51.50400],
+        [-0.16050, 51.50320],
+        [-0.16000, 51.50420],
+        [-0.16400, 51.50500],
+        [-0.16850, 51.50580],
+        [-0.17300, 51.50660],
+        [-0.17750, 51.50790],
+        [-0.18100, 51.50880],
+        [-0.18100, 51.50750]
+      ],
+      "notes": "Created 1730 for Queen Caroline by damming the Westbourne and merging a chain of medieval fish ponds; one of the first artificial lakes in England designed to look natural. Divided by the West Carriage Drive bridge (1826) into the Serpentine (Hyde Park) and the Long Water (Kensington Gardens). Disconnected from the polluted Westbourne in 1834 and fed thereafter from the Chelsea Waterworks and, since 2011-12, from boreholes."
+    },
+    {
+      "id": "round_pond",
+      "name": "Round Pond, Kensington Gardens",
+      "dug": 1728,
+      "opened": 1730,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.18100, 51.50580],
+        [-0.17900, 51.50580],
+        [-0.17900, 51.50450],
+        [-0.18100, 51.50450],
+        [-0.18100, 51.50580]
+      ],
+      "notes": "Formal basin created c.1728-1730 in front of Kensington Palace as part of Charles Bridgeman's remodelling for Queen Caroline. Not actually round; a rounded rectangle about 200 x 140 m."
+    },
+    {
+      "id": "st_jamess_park_lake",
+      "name": "St James's Park lake",
+      "dug": 1660,
+      "opened": 1662,
+      "remodelled": 1828,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.13700, 51.50350],
+        [-0.13300, 51.50290],
+        [-0.12900, 51.50250],
+        [-0.12600, 51.50230],
+        [-0.12600, 51.50290],
+        [-0.12950, 51.50320],
+        [-0.13350, 51.50360],
+        [-0.13700, 51.50410],
+        [-0.13700, 51.50350]
+      ],
+      "notes": "Charles II had the marshy ground laid out from 1660-1662 with a formal straight canal, 850 x 38 m, by Andre Mollet. John Nash reshaped it into the present irregular naturalistic lake in 1827-1828, with Duck Island and West Island."
+    },
+    {
+      "id": "regents_park_lake",
+      "name": "Regent's Park Boating Lake",
+      "dug": 1826,
+      "opened": 1828,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.16000, 51.52600],
+        [-0.15600, 51.52680],
+        [-0.15300, 51.52620],
+        [-0.15200, 51.52480],
+        [-0.15400, 51.52380],
+        [-0.15800, 51.52400],
+        [-0.16050, 51.52480],
+        [-0.16000, 51.52600]
+      ],
+      "notes": "Ornamental lake designed by John Nash and Decimus Burton, dug 1826-1828 and fed originally by the Tyburn. Site of the 1867 skating disaster when the ice gave way and 40 people drowned; the lake was afterwards reduced to about 1.2 m deep."
+    },
+    {
+      "id": "victoria_park_lakes",
+      "name": "Victoria Park lakes",
+      "dug": 1845,
+      "opened": 1846,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.04200, 51.53780],
+        [-0.03800, 51.53820],
+        [-0.03600, 51.53750],
+        [-0.03800, 51.53660],
+        [-0.04150, 51.53680],
+        [-0.04200, 51.53780]
+      ],
+      "notes": "West Lake (boating) and East Lake, created with the park 1842-1846; the West Lake has a Chinese pagoda island. The Grand Union / Hertford Union canal runs along the south side."
+    },
+    {
+      "id": "stoke_newington_reservoirs",
+      "name": "Stoke Newington East and West Reservoirs",
+      "dug": 1830,
+      "opened": 1833,
+      "closed": 1990,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.09000, 51.56600],
+        [-0.08400, 51.56600],
+        [-0.08400, 51.56250],
+        [-0.09000, 51.56250],
+        [-0.09000, 51.56600]
+      ],
+      "notes": "Built 1830-1833 by the East London Waterworks Company on the New River. The Castle pumping station (1854-56, in the form of a Scottish castle) is now the Castle Climbing Centre. West Reservoir is now a watersports centre (1990s) and East Reservoir the Woodberry Wetlands nature reserve (opened 2016)."
+    },
+    {
+      "id": "brent_reservoir",
+      "name": "Brent Reservoir (Welsh Harp)",
+      "dug": 1834,
+      "opened": 1835,
+      "enlarged": [1837, 1854],
+      "closed": null,
+      "filled": "partial",
+      "still_water": true,
+      "area_ha": 68.0,
+      "polygon": [
+        [-0.25800, 51.57900],
+        [-0.24400, 51.57900],
+        [-0.23300, 51.57500],
+        [-0.23600, 51.56900],
+        [-0.24800, 51.56800],
+        [-0.25800, 51.57200],
+        [-0.25800, 51.57900]
+      ],
+      "notes": "Built 1834-1835 by the Regent's Canal Company by damming the Brent and Silk Stream at Kingsbury, to feed the Paddington Arm and Regent's Canal. Enlarged 1837 and again in 1853-54; the dam burst in 1841, flooding downstream. Reduced from about 160 ha to 68 ha in the 20th century as the margins silted and were built over. SSSI since 1950."
+    },
+    {
+      "id": "walthamstow_reservoirs",
+      "name": "Walthamstow Reservoirs (Lockwood, High and Low Maynard, East and West Warwick, Nos 1-5)",
+      "dug": 1853,
+      "opened": 1863,
+      "expanded_range": [1863, 1904],
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.06200, 51.60200],
+        [-0.04600, 51.60200],
+        [-0.04400, 51.58200],
+        [-0.05500, 51.57800],
+        [-0.06400, 51.58500],
+        [-0.06200, 51.60200]
+      ],
+      "notes": "Built for the East London Waterworks Company in stages: Nos 1-5 from 1863, High and Low Maynard 1870, East Warwick 1897, Lockwood 1902, Banbury 1903. Opened to the public as Walthamstow Wetlands, Europe's largest urban wetland nature reserve, in October 2017. Individual dates approximate (?)."
+    },
+    {
+      "id": "king_george_v_reservoir",
+      "name": "King George V Reservoir, Chingford",
+      "dug": 1908,
+      "opened": 1913,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.03800, 51.65500],
+        [-0.02400, 51.65500],
+        [-0.02400, 51.62700],
+        [-0.03800, 51.62700],
+        [-0.03800, 51.65500]
+      ],
+      "notes": "Construction started 1908, completed 1912; inaugurated by King George V on 15 March 1913. Divided into north and south basins by a central causeway."
+    },
+    {
+      "id": "william_girling_reservoir",
+      "name": "William Girling Reservoir, Chingford",
+      "dug": 1938,
+      "opened": 1951,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.03900, 51.62500],
+        [-0.02500, 51.62500],
+        [-0.02500, 51.60300],
+        [-0.03900, 51.60300],
+        [-0.03900, 51.62500]
+      ],
+      "notes": "Started 1938 by John Mowlem & Co; delayed by technical problems and the Second World War and not completed until 1951. Named after the chairman of the Metropolitan Water Board."
+    },
+    {
+      "id": "banbury_reservoir",
+      "name": "Banbury Reservoir",
+      "dug": 1901,
+      "opened": 1903,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.03900, 51.60000],
+        [-0.02700, 51.60000],
+        [-0.02700, 51.59200],
+        [-0.03900, 51.59200],
+        [-0.03900, 51.60000]
+      ],
+      "notes": "Northernmost of the Walthamstow group. Date approximate (?)."
+    },
+    {
+      "id": "barn_elms_reservoirs",
+      "name": "Barn Elms Reservoirs / WWT London Wetland Centre",
+      "dug": 1892,
+      "opened": 1897,
+      "closed": 1990,
+      "filled": "partial",
+      "still_water": true,
+      "reopened_as_wetland": 2000,
+      "polygon": [
+        [-0.24000, 51.48000],
+        [-0.22600, 51.48000],
+        [-0.22400, 51.47300],
+        [-0.23600, 51.47200],
+        [-0.24200, 51.47500],
+        [-0.24000, 51.48000]
+      ],
+      "notes": "Four large filter reservoirs built 1892-1897 for the Grand Junction Waterworks Company on the Barn Elms meadows. Made redundant by the London Ring Main (1994); decommissioned 1990s and reconstructed by the Wildfowl & Wetlands Trust as the London Wetland Centre, opened 26 May 2000."
+    },
+    {
+      "id": "queen_mary_reservoir",
+      "name": "Queen Mary Reservoir, Littleton",
+      "dug": 1915,
+      "opened": 1925,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "area_ha": 288.0,
+      "polygon": [
+        [-0.46200, 51.42400],
+        [-0.42800, 51.42400],
+        [-0.42800, 51.40200],
+        [-0.46200, 51.40200],
+        [-0.46200, 51.42400]
+      ],
+      "notes": "Built 1915-1925 (work suspended during the First World War), opened by King George V and Queen Mary in 1925. About 288 ha, the largest reservoir by area in the London area. Now also a sailing club."
+    },
+    {
+      "id": "staines_reservoirs",
+      "name": "Staines Reservoirs (North and South)",
+      "dug": 1898,
+      "opened": 1902,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.49500, 51.45300],
+        [-0.46800, 51.45300],
+        [-0.46800, 51.43900],
+        [-0.49500, 51.43900],
+        [-0.49500, 51.45300]
+      ],
+      "notes": "Two basins divided by a causeway, built 1898-1902 for the Staines Reservoirs Joint Committee; opened 1902. Immediately north of Heathrow's northern runway."
+    },
+    {
+      "id": "king_george_vi_reservoir",
+      "name": "King George VI Reservoir, Staines",
+      "dug": 1939,
+      "opened": 1947,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.50400, 51.45800],
+        [-0.48200, 51.45800],
+        [-0.48200, 51.44700],
+        [-0.50400, 51.44700],
+        [-0.50400, 51.45800]
+      ],
+      "notes": "Begun 1939, delayed by the Second World War, completed 1947. Dates approximate (?)."
+    },
+    {
+      "id": "kempton_park_reservoirs",
+      "name": "Kempton Park Reservoirs",
+      "dug": 1897,
+      "opened": 1906,
+      "closed": null,
+      "filled": "partial",
+      "still_water": true,
+      "polygon": [
+        [-0.40500, 51.42400],
+        [-0.38700, 51.42400],
+        [-0.38700, 51.41400],
+        [-0.40500, 51.41400],
+        [-0.40500, 51.42400]
+      ],
+      "notes": "Built for the New River Company from 1897; the Kempton Park Water Treatment Works and its great triple-expansion engines date from 1929. Nature reserve since 1995. Dates approximate (?)."
+    },
+    {
+      "id": "island_barn_reservoir",
+      "name": "Island Barn Reservoir, West Molesey",
+      "dug": 1907,
+      "opened": 1911,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.36400, 51.39400],
+        [-0.34700, 51.39400],
+        [-0.34700, 51.38500],
+        [-0.36400, 51.38500],
+        [-0.36400, 51.39400]
+      ],
+      "notes": "Built 1907-1911 for the Metropolitan Water Board on the site of former gravel workings on Molesey Hurst. Now also a sailing club."
+    },
+    {
+      "id": "queen_elizabeth_ii_reservoir",
+      "name": "Queen Elizabeth II Reservoir, Walton-on-Thames",
+      "dug": 1959,
+      "opened": 1962,
+      "closed": null,
+      "filled": null,
+      "still_water": true,
+      "polygon": [
+        [-0.39200, 51.39900],
+        [-0.37200, 51.39900],
+        [-0.37200, 51.38800],
+        [-0.39200, 51.38800],
+        [-0.39200, 51.39900]
+      ],
+      "notes": "Opened 1962; the last of the great Thames-side pumped storage reservoirs before the London Ring Main. Also known as Walton Reservoir."
+    },
+    {
+      "id": "new_river",
+      "name": "The New River",
+      "dug": 1609,
+      "opened": 1613,
+      "shortened": [1946],
+      "closed": null,
+      "filled": "partial",
+      "still_water": true,
+      "length_km": 45.0,
+      "polyline": [
+        [-0.05500, 51.79000],
+        [-0.07000, 51.75000],
+        [-0.07500, 51.71000],
+        [-0.06500, 51.68000],
+        [-0.07500, 51.65000],
+        [-0.08500, 51.62500],
+        [-0.09500, 51.60500],
+        [-0.10000, 51.58800],
+        [-0.09500, 51.57200],
+        [-0.09000, 51.56400],
+        [-0.10300, 51.55700],
+        [-0.10600, 51.54800],
+        [-0.10400, 51.53800],
+        [-0.10500, 51.53000],
+        [-0.10600, 51.52700]
+      ],
+      "notes": "An artificial aqueduct, not a river: cut 1609-1613 by Hugh Myddelton to bring spring water from Chadwell and Amwell in Hertfordshire to the New River Head at Clerkenwell. Opened 29 September 1613. Originally 60 km following the 30 m contour; shortened by loops being cut off in the 19th century and terminated at Stoke Newington in 1946 (the Clerkenwell section is now the New River Walk and Myddelton Passage). Course generalised (?)."
+    }
+  ]
+}
