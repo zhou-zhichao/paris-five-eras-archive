@@ -1,0 +1,658 @@
+{
+  "objects": [
+    {
+      "name": "Forest_Cleared_4_Chunk_04",
+      "vertices": 27,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_100",
+      "vertices": 300,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_101",
+      "vertices": 312,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_102",
+      "vertices": 216,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_103",
+      "vertices": 336,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_104",
+      "vertices": 222,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_105",
+      "vertices": 114,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_106",
+      "vertices": 192,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_107",
+      "vertices": 54,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_108",
+      "vertices": 114,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_109",
+      "vertices": 48,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_110",
+      "vertices": 183,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_111",
+      "vertices": 54,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_112",
+      "vertices": 75,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_113",
+      "vertices": 93,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_116",
+      "vertices": 60,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_117",
+      "vertices": 27,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_118",
+      "vertices": 54,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_12",
+      "vertices": 60,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_13",
+      "vertices": 60,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_14",
+      "vertices": 54,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_15",
+      "vertices": 60,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_16",
+      "vertices": 81,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_17",
+      "vertices": 108,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_18",
+      "vertices": 93,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_19",
+      "vertices": 75,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_20",
+      "vertices": 27,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_21",
+      "vertices": 141,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_22",
+      "vertices": 147,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_23",
+      "vertices": 351,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_24",
+      "vertices": 309,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_25",
+      "vertices": 318,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_26",
+      "vertices": 357,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_27",
+      "vertices": 255,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_28",
+      "vertices": 363,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_29",
+      "vertices": 459,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_30",
+      "vertices": 387,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_31",
+      "vertices": 474,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_32",
+      "vertices": 495,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_33",
+      "vertices": 594,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_34",
+      "vertices": 483,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_35",
+      "vertices": 660,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_36",
+      "vertices": 741,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_37",
+      "vertices": 552,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_38",
+      "vertices": 594,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_39",
+      "vertices": 696,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_40",
+      "vertices": 672,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_41",
+      "vertices": 651,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_42",
+      "vertices": 699,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_43",
+      "vertices": 1029,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_44",
+      "vertices": 585,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_45",
+      "vertices": 912,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_46",
+      "vertices": 606,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_47",
+      "vertices": 1026,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_48",
+      "vertices": 885,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_49",
+      "vertices": 921,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_50",
+      "vertices": 915,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_51",
+      "vertices": 747,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_52",
+      "vertices": 1014,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_53",
+      "vertices": 774,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_54",
+      "vertices": 828,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_55",
+      "vertices": 1212,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_56",
+      "vertices": 1320,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_57",
+      "vertices": 1401,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_58",
+      "vertices": 1026,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_59",
+      "vertices": 1386,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_60",
+      "vertices": 1152,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_61",
+      "vertices": 1275,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_62",
+      "vertices": 864,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_63",
+      "vertices": 1257,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_64",
+      "vertices": 1620,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_65",
+      "vertices": 1662,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_66",
+      "vertices": 1299,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_67",
+      "vertices": 1341,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_68",
+      "vertices": 1281,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_69",
+      "vertices": 1494,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_70",
+      "vertices": 1680,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_71",
+      "vertices": 1467,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_72",
+      "vertices": 1530,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_73",
+      "vertices": 1347,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_74",
+      "vertices": 1431,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_75",
+      "vertices": 1638,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_76",
+      "vertices": 1746,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_77",
+      "vertices": 1353,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_78",
+      "vertices": 1575,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_79",
+      "vertices": 1590,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_80",
+      "vertices": 1431,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_81",
+      "vertices": 1068,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_82",
+      "vertices": 1140,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_83",
+      "vertices": 948,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_84",
+      "vertices": 870,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_85",
+      "vertices": 945,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_86",
+      "vertices": 963,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_87",
+      "vertices": 912,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_88",
+      "vertices": 813,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_89",
+      "vertices": 963,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_90",
+      "vertices": 552,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_91",
+      "vertices": 492,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_92",
+      "vertices": 771,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_93",
+      "vertices": 450,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_94",
+      "vertices": 540,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_95",
+      "vertices": 570,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_96",
+      "vertices": 615,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_97",
+      "vertices": 360,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_98",
+      "vertices": 258,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Cleared_4_Chunk_99",
+      "vertices": 561,
+      "has_clearance": true
+    },
+    {
+      "name": "Forest_Persistent",
+      "vertices": 124438,
+      "has_clearance": false
+    }
+  ],
+  "early_max_coordinate_difference": {
+    "750": 0.0,
+    "1450": 0.0,
+    "2100": 0.0,
+    "2174": 0.0
+  },
+  "scale": [
+    0.32,
+    0.32,
+    0.3
+  ],
+  "crown_only_components": {
+    "Forest_Persistent": [
+      {
+        "vertices": 1,
+        "center": [
+          -38.87030029296875,
+          6.184663772583008
+        ],
+        "nearest_trunk_distance": 1.9309738874435425
+      },
+      {
+        "vertices": 6,
+        "center": [
+          -8.27203623453776,
+          11.859934171040853
+        ],
+        "nearest_trunk_distance": 0.4034420847892761
+      },
+      {
+        "vertices": 1,
+        "center": [
+          -8.252994537353516,
+          11.859933853149414
+        ],
+        "nearest_trunk_distance": 0.3907771110534668
+      },
+      {
+        "vertices": 4,
+        "center": [
+          -41.781171798706055,
+          7.7571632862091064
+        ],
+        "nearest_trunk_distance": 1.377061367034912
+      },
+      {
+        "vertices": 6,
+        "center": [
+          -41.24040985107422,
+          4.196445306142171
+        ],
+        "nearest_trunk_distance": 0.3281921446323395
+      },
+      {
+        "vertices": 13,
+        "center": [
+          -8.12120610017043,
+          12.56424698462853
+        ],
+        "nearest_trunk_distance": 0.10745048522949219
+      },
+      {
+        "vertices": 13,
+        "center": [
+          -8.52826742025522,
+          9.515994952275204
+        ],
+        "nearest_trunk_distance": 0.08184146881103516
+      },
+      {
+        "vertices": 9,
+        "center": [
+          -8.304384443495008,
+          12.764253616333008
+        ],
+        "nearest_trunk_distance": 0.21386267244815826
+      },
+      {
+        "vertices": 11,
+        "center": [
+          -8.337432427839799,
+          14.11466832594438
+        ],
+        "nearest_trunk_distance": 0.10092966258525848
+      },
+      {
+        "vertices": 1,
+        "center": [
+          -38.8327751159668,
+          4.548200607299805
+        ],
+        "nearest_trunk_distance": 0.5483227968215942
+      },
+      {
+        "vertices": 1,
+        "center": [
+          -38.862491607666016,
+          4.548200607299805
+        ],
+        "nearest_trunk_distance": 0.5649340152740479
+      },
+      {
+        "vertices": 1,
+        "center": [
+          -38.88472366333008,
+          6.902831077575684
+        ],
+        "nearest_trunk_distance": 1.3166896104812622
+      },
+      {
+        "vertices": 6,
+        "center": [
+          -41.73627471923828,
+          4.207754294077556
+        ],
+        "nearest_trunk_distance": 0.18290935456752777
+      }
+    ]
+  }
+}

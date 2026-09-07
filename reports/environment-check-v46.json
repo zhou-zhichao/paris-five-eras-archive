@@ -1,0 +1,18 @@
+{
+  "v45": {
+    "blocks": 5818,
+    "invalid": 0,
+    "water_overlap": 40.63109942966188
+  },
+  "v46": {
+    "blocks": 6131,
+    "invalid": 0,
+    "water_overlap": 0.0
+  },
+  "new_roads": {
+    "water_overlap": 0.0,
+    "park_overlap": 4.6805205940241606e-15,
+    "triangles": 129081
+  },
+  "scope": "Geometric plan overlap against the current exported Seine surface and configured park masks. Excludes bridge objects, legacy meshes, historical validity and animation appearance."
+}

@@ -1,0 +1,33 @@
+{
+  "before": {
+    "750": {
+      "count": 1432,
+      "sha256": "cb578de0d5702714d633f878f58d370935ae20e2d03eab618bdf55000694a184"
+    },
+    "1450": {
+      "count": 1813,
+      "sha256": "c2976ee93f1a6de44900dc33788c7c7db5fab434964dc6116baff23579b80ee1"
+    },
+    "2100": {
+      "count": 2311,
+      "sha256": "a18035277609e3eba2dbf0df6a4058fce7cd928889dda2570e586529269903f9"
+    }
+  },
+  "after": {
+    "750": {
+      "count": 1432,
+      "sha256": "cb578de0d5702714d633f878f58d370935ae20e2d03eab618bdf55000694a184"
+    },
+    "1450": {
+      "count": 1813,
+      "sha256": "c2976ee93f1a6de44900dc33788c7c7db5fab434964dc6116baff23579b80ee1"
+    },
+    "2100": {
+      "count": 2311,
+      "sha256": "a18035277609e3eba2dbf0df6a4058fce7cd928889dda2570e586529269903f9"
+    }
+  },
+  "matches": true,
+  "scope": "Visible mesh names, topology counts, world transforms and assigned material names at frames 750, 1450, 2100. Not a pixel-equivalence test.",
+  "modern_matches_v46": true
+}

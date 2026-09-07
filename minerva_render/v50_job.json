@@ -1,0 +1,20 @@
+{
+  "host": "minerva",
+  "status": "completed_and_downloaded",
+  "local_output": "renders/paris_v50_720p.mp4",
+  "output_sha256": "1d79f460df78145f0c88c047fcecb76e663b15dbe8be2936e653e112136bedea",
+  "verification": "All Slurm tasks completed 0:0; 3600 frames, 120 seconds, local SHA256 matches remote, full ffmpeg decode passes.",
+  "run_dir": "/data/users/zhichaoz/blender-render/runs/paris_v50_20260905",
+  "render_job": "257406",
+  "encode_job": "257410",
+  "superseded_jobs": ["257401", "257405"],
+  "restart_reason": "EGL ignored CUDA_VISIBLE_DEVICES; validated process-scoped EGL binding, preserved 1145 PNGs for CRC-checked resume.",
+  "source": "blender/paris_v50_woodland.blend",
+  "sha256": "7e190a63c2e2e88dc97998d12311da7c51fae514af5bf543c8e2afcb0807e45e",
+  "frames": 3600,
+  "fps": 30,
+  "resolution": [1280, 720],
+  "gpu": "L4",
+  "concurrent_gpus": 4,
+  "remote_output": "/data/users/zhichaoz/blender-render/runs/paris_v50_20260905/output/paris_v50_720p.mp4"
+}

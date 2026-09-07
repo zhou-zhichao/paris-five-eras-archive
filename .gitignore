@@ -2,3 +2,5 @@
 *.blend
 *.blend1
 *.mp4
+tools/python_vendor/
+**/__pycache__/

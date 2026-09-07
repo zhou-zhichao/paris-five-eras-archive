@@ -1,0 +1,95 @@
+{
+  "objects": 1532,
+  "faces": 584378,
+  "wide_chunks": 1259,
+  "largest": [
+    {
+      "name": "Buildings_1700_State_Chunk_01675",
+      "vertices": 1327,
+      "faces": 372,
+      "span": [
+        55.83382606506348,
+        26.17954111099243
+      ],
+      "hidden": false,
+      "uv": 0,
+      "attributes": [
+        "position",
+        ".select_vert",
+        ".edge_verts",
+        ".select_edge",
+        "material_index",
+        ".select_poly",
+        "sharp_face",
+        ".corner_vert",
+        ".corner_edge"
+      ]
+    },
+    {
+      "name": "Buildings_1700_State_Chunk_01541",
+      "vertices": 685,
+      "faces": 189,
+      "span": [
+        54.74703598022461,
+        18.85950255393982
+      ],
+      "hidden": false,
+      "uv": 0,
+      "attributes": [
+        "position",
+        ".select_vert",
+        ".edge_verts",
+        ".select_edge",
+        "material_index",
+        ".select_poly",
+        "sharp_face",
+        ".corner_vert",
+        ".corner_edge"
+      ]
+    },
+    {
+      "name": "Buildings_1700_State_Chunk_01464",
+      "vertices": 960,
+      "faces": 278,
+      "span": [
+        54.54207992553711,
+        14.583102941513062
+      ],
+      "hidden": false,
+      "uv": 0,
+      "attributes": [
+        "position",
+        ".select_vert",
+        ".edge_verts",
+        ".select_edge",
+        "material_index",
+        ".select_poly",
+        "sharp_face",
+        ".corner_vert",
+        ".corner_edge"
+      ]
+    },
+    {
+      "name": "Buildings_1700_State_Chunk_01487",
+      "vertices": 1095,
+      "faces": 308,
+      "span": [
+        54.263248443603516,
+        23.80743646621704
+      ],
+      "hidden": false,
+      "uv": 0,
+      "attributes": [
+        "position",
+        ".select_vert",
+        ".edge_verts",
+        ".select_edge",
+        "material_index",
+        ".select_poly",
+        "sharp_face",
+        ".corner_vert",
+        ".corner_edge"
+      ]
+    }
+  ]
+}

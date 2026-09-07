@@ -1,0 +1,11 @@
+{
+  "source_faces": 584378,
+  "cloned_faces": 584378,
+  "spatial_groups": 7515,
+  "max_group_span": 0.7401390075683594,
+  "retirement_meshes": 248,
+  "first_retirement": 2205,
+  "last_retirement": 2490,
+  "method": "Connected geometry and touching XY bounds group facade pieces. Conservative block bounding boxes trigger retirement before new block growth; distant legacy chunk membership is ignored.",
+  "outer_surface_patches_delayed_until_modern": 279
+}

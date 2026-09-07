@@ -1,0 +1,28 @@
+{
+  "added_trees": 67835,
+  "meshes": 316,
+  "anchors": 4468,
+  "samples": [
+    {
+      "frame": 2100,
+      "trees": 0
+    },
+    {
+      "frame": 2174,
+      "trees": 0
+    },
+    {
+      "frame": 2800,
+      "trees": 67835
+    },
+    {
+      "frame": 3000,
+      "trees": 67764
+    },
+    {
+      "frame": 3550,
+      "trees": 64766
+    }
+  ],
+  "mask_scope": "Conservative block/water/landmark bounding boxes and center-to-road distance with crown setback. No new trees within radius 28. Existing trees are unchanged."
+}

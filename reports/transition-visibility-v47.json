@@ -1,0 +1,79 @@
+[
+  {
+    "frame": 2100,
+    "original_old_meshes": 1453,
+    "retirement_meshes": 0,
+    "old_faces": 576280,
+    "new_blocks": 0
+  },
+  {
+    "frame": 2174,
+    "original_old_meshes": 1532,
+    "retirement_meshes": 0,
+    "old_faces": 584378,
+    "new_blocks": 0
+  },
+  {
+    "frame": 2175,
+    "original_old_meshes": 0,
+    "retirement_meshes": 248,
+    "old_faces": 584378,
+    "new_blocks": 0
+  },
+  {
+    "frame": 2200,
+    "original_old_meshes": 0,
+    "retirement_meshes": 248,
+    "old_faces": 584378,
+    "new_blocks": 7
+  },
+  {
+    "frame": 2250,
+    "original_old_meshes": 0,
+    "retirement_meshes": 219,
+    "old_faces": 564617,
+    "new_blocks": 103
+  },
+  {
+    "frame": 2350,
+    "original_old_meshes": 0,
+    "retirement_meshes": 119,
+    "old_faces": 351682,
+    "new_blocks": 641
+  },
+  {
+    "frame": 2450,
+    "original_old_meshes": 0,
+    "retirement_meshes": 20,
+    "old_faces": 11279,
+    "new_blocks": 1659
+  },
+  {
+    "frame": 2500,
+    "original_old_meshes": 0,
+    "retirement_meshes": 0,
+    "old_faces": 0,
+    "new_blocks": 2407
+  },
+  {
+    "frame": 2800,
+    "original_old_meshes": 0,
+    "retirement_meshes": 0,
+    "old_faces": 0,
+    "new_blocks": 3260
+  },
+  {
+    "frame": 2850,
+    "original_old_meshes": 0,
+    "retirement_meshes": 0,
+    "old_faces": 0,
+    "new_blocks": 3260
+  },
+  {
+    "frame": 3550,
+    "original_old_meshes": 0,
+    "retirement_meshes": 0,
+    "old_faces": 0,
+    "new_blocks": 6131
+  }
+]
