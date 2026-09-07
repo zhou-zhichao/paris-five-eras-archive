@@ -444,7 +444,9 @@ GX, GY = np.meshgrid(gx, gy)
 GZ = sample_h(GX.ravel(), GY.ravel()).reshape(GX.shape)
 ci = np.clip(((GX - RX0) / CELL).astype(int), 0, NX - 1); ri = np.clip(((RY1 - GY) / CELL).astype(int), 0, NY - 1)
 wet = WATER_R[ri, ci]
-GZ = np.where(wet, -6.0, GZ)
+late = R["water_late"][ri, ci] if "water_late" in R.files else np.zeros_like(wet)
+GZ = np.where(wet & ~late, -6.0, GZ)
+GZ = np.where(late, np.minimum(GZ, WATER_Z - 1.1), GZ)     # shallow: invisible until the dock / lake appears
 nyv, nxv = GX.shape
 verts = np.stack([GX.ravel(), GY.ravel(), GZ.ravel()], axis=1)
 ii, jj = np.meshgrid(np.arange(nxv - 1), np.arange(nyv - 1))

@@ -7,8 +7,8 @@ const g = new THREE.Group();
 const iron = M(P.iron), ironl = M(0x585c60), gran = M(0x8d8378), pale = M(P.pale),
   dk = M(P.dstone), rail = M(0x4a4a4a), lead = M(P.lead);
 
-const L = 400, DECK = 8.0, GD = 5.0;      // girder depth
-const PIERS = [-150, -90, -30, 30, 90, 150];
+const L = 372, DECK = 8.0, GD = 5.0;      // girder depth
+const PIERS = [-140, -84, -28, 28, 84, 140];
 const DW = 26;                            // deck width (nine tracks + footway)
 
 // ---------------------------------------------------------------- paired cylinder piers
@@ -51,8 +51,8 @@ for (const zs of [-1, 1]) g.add(box(L, 1.4, 0.5, ironl, 0, DECK + 0.4, zs * (DW 
 
 // ---------------------------------------------------------------- masonry abutments
 for (const sx of [-1, 1]) {
-  g.add(box(24, DECK + 2.5, DW + 10, gran, sx * (L / 2 + 10), 0, 0));
-  g.add(box(26, 1.4, DW + 12, pale, sx * (L / 2 + 10), DECK + 2.5, 0));
+  g.add(box(22, DECK + 2.5, DW + 10, gran, sx * (L / 2 + 7), 0, 0));
+  g.add(box(24, 1.4, DW + 12, pale, sx * (L / 2 + 7), DECK + 2.5, 0));
   for (const zs of [-1, 1]) g.add(cyl(3.0, 3.4, DECK + 6, gran, sx * (L / 2 + 2), 0, zs * (DW / 2 + 3), 12));
 }
 

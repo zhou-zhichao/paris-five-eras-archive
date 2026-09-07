@@ -10,7 +10,7 @@ const bk = M(0x9e5a45), bkd = M(0x86493a), pale = M(P.pale), st = M(P.stone),
   slate = M(P.slate), glass = M(P.glassroof), iron = M(P.iron), dark = M(0x3a3330), lead = M(P.lead);
 
 const SPAN = 74, SHEDL = 213, DECK = 5.5, RISE = 30;
-const Z0 = 6;                       // south (front) end of the shed
+const Z0 = 99;                      // south (front) end of the shed (model centred on z)
 const ZC = Z0 - SHEDL / 2;          // shed centre in z
 
 // ---------------------------------------------------------------- undercroft / platform deck

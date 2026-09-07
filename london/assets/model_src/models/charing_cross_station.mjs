@@ -9,7 +9,7 @@ const st = M(P.stone), pale = M(P.pale), dk = M(P.dstone), bk = M(P.stock),
   gl = M(P.glassroof), iron = M(P.iron), dark = M(0x3a3630), lead = M(P.lead), slate = M(P.slate);
 
 const SPAN = 50, SHEDL = 155, SPRING = 8, RISE = 20;
-const Z0 = 20;                                   // shed south end (behind the hotel)
+const Z0 = 58;                                   // shed south end (model centred on z)
 const ZC = Z0 - SHEDL / 2;
 const W = SPAN + 8;
 

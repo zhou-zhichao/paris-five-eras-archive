@@ -11,7 +11,7 @@ const gl = M(P.glassroof), iron = M(P.iron), ironl = M(0x6d7276), bk = M(P.stock
 const SHEDL = 210, SPRING = 7.5;
 const SPANS = [[-31, 26, 13.5], [0, 36, 18.5], [31, 26, 13.5]];   // [centre x, span, rise]
 const W = 96;
-const Z0 = 4, ZC = Z0 - SHEDL / 2;
+const Z0 = 90, ZC = Z0 - SHEDL / 2;   // Z0 chosen so the whole model is centred on z
 
 // platforms
 g.add(box(W, 1.0, SHEDL, M(0x6b6660), 0, 0, ZC));

@@ -9,7 +9,7 @@ const bk = M(0x9a5a48), bkd = M(0x86493a), pale = M(P.pale), st = M(P.stone),
   gl = M(P.glassroof), iron = M(P.iron), dark = M(0x33302b), lead = M(P.lead), slate = M(P.slate);
 
 const SPAN = 58, SHEDL = 200, SPRING = 9, RISE = 23;
-const Z0 = 96;                        // river end of the shed
+const Z0 = 110;                       // river end of the shed (model centred on z)
 const ZC = Z0 - SHEDL / 2;
 const W = SPAN + 10;
 
@@ -52,7 +52,10 @@ for (const sx of [-1, 1]) {
   const sg = new THREE.Mesh(new THREE.ExtrudeGeometry(s, { depth: 1.4, bevelEnabled: false }), gl);
   sg.position.set(0, 8.0 + SPRING, Z0);
   g.add(sg);
-  for (let i = 1; i < 9; i++) g.add(box(0.6, 2 * RISE, 1.6, iron, -SPAN / 2 + i * SPAN / 9, 8.0 + SPRING, Z0 + 0.9));
+  for (let i = 1; i < 9; i++) {
+    const t = -1 + 2 * i / 9, mh = RISE * Math.sqrt(Math.max(0, 1 - t * t));
+    g.add(box(0.6, mh, 1.6, iron, t * SPAN / 2, 8.0 + SPRING, Z0 + 0.9));
+  }
   // the northern gable
   const ng = new THREE.Mesh(new THREE.ExtrudeGeometry(s, { depth: 1.2, bevelEnabled: false }), dark);
   ng.position.set(0, 8.0 + SPRING, ZC - SHEDL / 2 - 1.2);

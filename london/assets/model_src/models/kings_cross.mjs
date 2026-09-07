@@ -11,7 +11,7 @@ const bk = M(P.stock), bkd = M(0xa08e6f), pale = M(P.pale), st = M(P.stone),
   slate = M(P.slate), glass = M(P.glassroof), iron = M(P.iron), dark = M(0x33302b), lead = M(P.lead);
 
 const SPAN = 32.5, SHEDL = 250, RISE = 20, SPRING = 9;
-const Z0 = 5;                       // south face of the sheds (behind the facade)
+const Z0 = 122;                     // south face of the sheds (model centred on z)
 const ZC = Z0 - SHEDL / 2;
 const CX = 17.5;                    // centres of the two vaults
 const W = 2 * CX + SPAN + 4;        // overall width ~ 71 m

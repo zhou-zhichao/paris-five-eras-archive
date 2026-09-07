@@ -1,8 +1,8 @@
 """Render the outro 'blueprint' still from the built scene: the final camera pose,
-the landscape reset to the pre-urban state (year -300: fields, trees, river),
-a survey grid drawn on the ground and the Paris boundary as a white outline.
+the landscape reset to the pre-urban state (year -60: fields, trees, river),
+a survey grid drawn on the ground and the Greater London boundary as a white outline.
 
-usage: blender -b cache/paris_replica.blend --python render_blueprint.py -- --out renders/blueprint.png [--res 2560x1440] [--frame 5150]
+usage: blender -b cache/london.blend --python render_blueprint.py -- --out renders/blueprint.png [--res 2560x1440] [--frame 5150]
 """
 import bpy, os, sys, json
 import numpy as np
@@ -20,9 +20,9 @@ if res:
     w, h = res.split("x"); scene.render.resolution_x = int(w); scene.render.resolution_y = int(h)
 scene.frame_set(frame)
 
-YEAR = -300.0
+YEAR = -60.0
 for ob in scene.objects:
-    if ob.name.startswith("LMH_") or ob.name.startswith("LM_"):
+    if ob.name.startswith(("LMH_", "LM_", "BRH_", "BR_")):
         if ob.animation_data:
             ob.animation_data_clear()
         ob.hide_render = True
@@ -79,7 +79,7 @@ def sample_h(xs, ys):
     return ((1 - u) * (1 - v) * HM[j, i] + u * (1 - v) * HM[j, i + 1] + (1 - u) * v * HM[j + 1, i] + u * v * HM[j + 1, i + 1])
 
 
-pts = np.array(META["paris"], dtype=np.float32)
+pts = np.array(META["london"], dtype=np.float32)
 # densify so the strip follows hills
 dense = []
 for a_, b_ in zip(pts[:-1], pts[1:]):
@@ -95,7 +95,7 @@ verts = np.concatenate([p0 - nrm * wdt, p1 - nrm * wdt, p1 + nrm * wdt, p0 + nrm
 zs = sample_h(verts[:, 0], verts[:, 1]).astype(np.float32) + 4.0
 n = len(p0)
 faces = np.stack([np.arange(n), np.arange(n) + n, np.arange(n) + 2 * n, np.arange(n) + 3 * n], axis=1)
-me = bpy.data.meshes.new("PARIS_OUTLINE")
+me = bpy.data.meshes.new("LONDON_OUTLINE")
 me.vertices.add(4 * n); me.vertices.foreach_set("co", np.column_stack([verts, zs]).ravel())
 me.loops.add(4 * n); me.loops.foreach_set("vertex_index", faces.ravel().astype(np.int32))
 me.polygons.add(n); me.polygons.foreach_set("loop_start", np.arange(0, 4 * n, 4, dtype=np.int32)); me.polygons.foreach_set("loop_total", np.full(n, 4, dtype=np.int32))
@@ -106,7 +106,7 @@ if b is None:
     wm.node_tree.nodes.clear(); b = wm.node_tree.nodes.new("ShaderNodeBsdfPrincipled"); o = wm.node_tree.nodes.new("ShaderNodeOutputMaterial"); wm.node_tree.links.new(b.outputs[0], o.inputs[0])
 b.inputs["Base Color"].default_value = (0.9, 0.95, 0.9, 1); b.inputs["Emission Color"].default_value = (0.9, 0.95, 0.9, 1); b.inputs["Emission Strength"].default_value = 1.0
 me.materials.append(wm)
-ob = bpy.data.objects.new("PARIS_OUTLINE", me); scene.collection.objects.link(ob)
+ob = bpy.data.objects.new("LONDON_OUTLINE", me); scene.collection.objects.link(ob)
 
 scene.eevee.taa_render_samples = 24
 scene.render.filepath = out

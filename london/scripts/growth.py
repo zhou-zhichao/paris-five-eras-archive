@@ -181,6 +181,7 @@ log("blocked", int(blocked.sum()))
 d_water = ndimage.distance_transform_edt(~water_perm).astype(np.float32)
 # shore band (sand) only around water bodies that are actually drawn (matches build_scene's 15000 m2 filter)
 big_water = mask_of(river_polys + [p for p, w in water_items if w["kind"] != "river" and w["area"] >= 15000] + canal_polys)
+big_water &= ~(water_from < 9000)          # no shore band around docks / reservoirs / later lakes
 d_water_draw = ndimage.distance_transform_edt(~big_water).astype(np.float32)
 log("water edt")
 
@@ -977,8 +978,11 @@ if marsh.any():
     park_year_r[sel] = enc[sel]
     kind_r[sel] = 30
 water_dil = ndimage.binary_dilation(water_perm, iterations=1)
+# water bodies that are dug / created later (docks, reservoirs, park lakes): the terrain under them stays
+# almost level until they appear, and they get no sandy shore band
+water_late = ndimage.binary_dilation(water_perm & (water_from < 9000), iterations=1)
 np.savez_compressed(os.path.join(CACHE, "rasters.npz"), shore_land=shore_land, water_depth=water_depth,
-                    park_year=park_year_r, kind=kind_r, water=water_dil, birth=birth.astype(np.float16))
+                    park_year=park_year_r, kind=kind_r, water=water_dil, water_late=water_late, birth=birth.astype(np.float16))
 log("rasters saved")
 
 np.savez_compressed(os.path.join(CACHE, "scene_data.npz"),
