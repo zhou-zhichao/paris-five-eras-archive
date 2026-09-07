@@ -516,8 +516,16 @@ ob = mesh_from_faces("TERRAIN", verts, faces, None, [MAT_GROUND])
 for p in ob.data.polygons:
     p.use_smooth = True
 link(ob, C_ENV)
-big = 300000.0
-ob = mesh_from_faces("GROUND_FAR", [(-big, -big, -3.0), (big, -big, -3.0), (big, big, -3.0), (-big, big, -3.0)], [(0, 1, 2, 3)], None, [MAT_GROUND])
+# far ground beyond the raster: a subdivided grid well below the water plane.  A single 600 km quad at
+# z=-3 lost depth precision against the river surface (-0.4) at some camera distances and painted over it.
+big = 300000.0; nfar = 60
+fx = np.linspace(-big, big, nfar + 1); fy = np.linspace(-big, big, nfar + 1)
+FX, FY = np.meshgrid(fx, fy)
+fverts = np.stack([FX.ravel(), FY.ravel(), np.full(FX.size, -8.0)], axis=1)
+ii, jj = np.meshgrid(np.arange(nfar), np.arange(nfar))
+i0 = (jj * (nfar + 1) + ii).ravel()
+ffaces = np.stack([i0, i0 + 1, i0 + nfar + 2, i0 + nfar + 1], axis=1)
+ob = mesh_from_faces("GROUND_FAR", fverts, ffaces, None, [MAT_GROUND])
 link(ob, C_ENV)
 log("terrain", verts.shape)
 
@@ -528,14 +536,12 @@ MAT_WATER = bpy.data.materials.new("water"); MAT_WATER.use_nodes = True
 nt = MAT_WATER.node_tree; nt.nodes.clear()
 bsdf = nt.nodes.new("ShaderNodeBsdfPrincipled"); outn = nt.nodes.new("ShaderNodeOutputMaterial")
 nt.links.new(bsdf.outputs[0], outn.inputs[0])
-bsdf.inputs["Roughness"].default_value = 0.45; bsdf.inputs["Specular IOR Level"].default_value = 0.35
+# matte water: the sun glint sweeping over a glossy river as the camera moves is what read as "flicker"
+bsdf.inputs["Roughness"].default_value = 0.85; bsdf.inputs["Specular IOR Level"].default_value = 0.04
 tex = add_map_nodes(nt, IMG_WATER)
-wc = nt.nodes.new("ShaderNodeMixRGB"); wc.inputs[1].default_value = (0.24, 0.42, 0.40, 1); wc.inputs[2].default_value = (0.07, 0.21, 0.25, 1)
+wc = nt.nodes.new("ShaderNodeMixRGB"); wc.inputs[1].default_value = (0.26, 0.46, 0.44, 1); wc.inputs[2].default_value = (0.08, 0.24, 0.28, 1)
 nt.links.new(tex.outputs["Color"], wc.inputs[0])
 nt.links.new(wc.outputs[0], bsdf.inputs["Base Color"])
-rip = nt.nodes.new("ShaderNodeTexNoise"); rip.inputs["Scale"].default_value = 0.004; rip.inputs["Detail"].default_value = 2.0
-bump = nt.nodes.new("ShaderNodeBump"); bump.inputs["Strength"].default_value = 0.025
-nt.links.new(rip.outputs["Fac"], bump.inputs["Height"]); nt.links.new(bump.outputs["Normal"], bsdf.inputs["Normal"])
 
 
 def fill_polygon_mesh(bm, outer, holes, z=0.0, zfn=None):
@@ -576,29 +582,36 @@ def dock_birth(outer):
     return best if best is not None else 1830
 
 
-bm = bmesh.new()
-fb, fd = [], []
-nwater = 0
-for w in META["water"]:
-    if w["kind"] != "river" and w["area"] < 15000:
-        continue
+def tri_mesh(name, items, zfn=None, z=0.0):
+    """items: list of (tris [[x,y]x3], birth, death) -> mesh object with per-face birth/death."""
+    verts, faces, fb, fd = [], [], [], []
+    for tris, b, d in items:
+        for t in tris:
+            i0 = len(verts)
+            for x, y in t:
+                verts.append((x, y, zfn(x, y) if zfn else z))
+            faces.append((i0, i0 + 1, i0 + 2)); fb.append(b); fd.append(d)
+    if not faces:
+        return None
+    ob = mesh_from_faces(name, np.array(verts, dtype=np.float32), np.array(faces, dtype=np.int32),
+                         {"birth": np.array(fb, dtype=np.float32), "death": np.array(fd, dtype=np.float32)}, [MAT_WATER])
+    return ob
+
+
+items = []
+for w in META["water_tris"]:
     if w["kind"] == "river":
         b, d = -9999.0, 9999.0
     elif w["kind"] == "dock":
         b, d = float(dock_birth(w["outer"])), 9999.0
     elif w["kind"] == "reservoir":
-        b, d = 1860.0, 9999.0
+        b, d = float(dock_birth(w["outer"])) if dock_birth(w["outer"]) != 1830 else 1860.0, 9999.0
     else:
         b, d = -9999.0, 9999.0
-    n = fill_polygon_mesh(bm, w["outer"], w["holes"])
-    fb += [b] * n; fd += [d] * n
-    nwater += 1
-me = bpy.data.meshes.new("WATER"); bm.to_mesh(me); bm.free()
-a = me.attributes.new("birth", 'FLOAT', 'FACE'); a.data.foreach_set("value", np.array(fb, dtype=np.float32))
-a = me.attributes.new("death", 'FLOAT', 'FACE'); a.data.foreach_set("value", np.array(fd, dtype=np.float32))
-me.materials.append(MAT_WATER)
-ob = bpy.data.objects.new("WATER", me); ob.location.z = WATER_Z; link(ob, C_ENV); add_gn(ob, NG_FACE)
-log("water polys", nwater, "faces", len(me.polygons))
+    items.append((w["tris"], b, d))
+ob = tri_mesh("WATER", items)
+ob.location.z = WATER_Z; link(ob, C_ENV); add_gn(ob, NG_FACE)
+log("water polys", len(items), "faces", len(ob.data.polygons))
 
 # canals as strips following the terrain
 cpieces, cbirth = [], []
@@ -625,19 +638,11 @@ if cpieces:
     link(ob, C_ENV); add_gn(ob, NG_FACE)
 
 # historic water (lost rivers, pre-embankment foreshore, filled docks): terrain-following surfaces with a lifetime
-bm = bmesh.new(); fb, fd = [], []
-for w in META["water_events"]:
-    if w["death"] >= 9000:
-        continue          # docks that still exist are in WATER
-    n = fill_polygon_mesh(bm, w["outer"], w["holes"], zfn=lambda x, y: max(h_at(x, y) + 0.3, WATER_Z + 0.05))
-    fb += [w["birth"]] * n; fd += [w["death"]] * n
-me = bpy.data.meshes.new("WATER_HIST"); bm.to_mesh(me); bm.free()
-if len(fb):
-    a = me.attributes.new("birth", 'FLOAT', 'FACE'); a.data.foreach_set("value", np.array(fb, dtype=np.float32))
-    a = me.attributes.new("death", 'FLOAT', 'FACE'); a.data.foreach_set("value", np.array(fd, dtype=np.float32))
-    me.materials.append(MAT_WATER)
-    ob = bpy.data.objects.new("WATER_HIST", me); link(ob, C_ENV); add_gn(ob, NG_FACE)
-log("historic water faces", len(fb))
+items = [(w["tris"], w["birth"], w["death"]) for w in META["water_event_tris"] if w["death"] < 9000]
+ob = tri_mesh("WATER_HIST", items, zfn=lambda x, y: max(h_at(x, y) + 0.3, WATER_Z + 0.05))
+if ob is not None:
+    link(ob, C_ENV); add_gn(ob, NG_FACE)
+    log("historic water faces", len(ob.data.polygons))
 
 
 # ------------------------------------------------------------------ animated holders (landmarks, bridges)
@@ -710,7 +715,7 @@ for b in META["bridges"]:
     if not is_water(x, y):
         # nudge onto the water if the mid-span coordinate is slightly off
         found = False
-        for r_ in (20, 40, 60, 90, 120):
+        for r_ in (20, 40, 60, 90, 120, 160, 200, 250):
             for deg in range(0, 360, 30):
                 xx, yy = x + r_ * math.cos(math.radians(deg)), y + r_ * math.sin(math.radians(deg))
                 if is_water(xx, yy):

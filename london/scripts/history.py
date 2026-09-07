@@ -359,6 +359,9 @@ if _ev:
                            "resettle": None, "researched": True})
         except Exception as ex:  # noqa
             print("[history] bad event", e.get("name"), ex)
+if any(e.get("researched") for e in EVENTS):
+    # the researched event table supersedes the hand-authored fire / Blitz / Docklands entries
+    EVENTS = [e for e in EVENTS if e.get("researched") or e["name"] in ("roman_abandonment", "lundenwic_abandoned")]
 EVENTS.sort(key=lambda e: e["year"])
 
 _gz = load("growth_zones.json")
@@ -376,10 +379,21 @@ if _gz:
         except Exception:
             pass
 RESEARCH_ZONES = []
-if _gz:
+if _gz and HAVE_SHAPELY:
+    # district-level polygons only: the huge policy envelopes (Green Belt, "infill", "densification") would
+    # otherwise stamp a single birth year over hundreds of km2
     for z in _gz.get("zones", []):
         try:
-            RESEARCH_ZONES.append((z["name"], Polygon(P(z["polygon"])), int(z["year_start"]), int(z["year_end"]), z.get("kit", "victorian")))
+            poly = Polygon(P(z["polygon"]))
+            if not poly.is_valid:
+                poly = poly.buffer(0)
+            kit = z.get("kit", "victorian")
+            if poly.area > 100e6 or kit not in ("celtic", "roman", "saxon", "medieval", "tudor", "georgian", "victorian", "interwar", "postwar", "modern", "estate", "tower"):
+                continue
+            nm = z["name"].lower()
+            if any(k in nm for k in ("dereliction", "green belt", "growth stops", "contraction", "abandon")):
+                continue
+            RESEARCH_ZONES.append((z["name"], poly, int(z["year_start"]), int(z["year_end"]), kit))
         except Exception as ex:  # noqa
             print("[history] bad zone", z.get("name"), ex)
 

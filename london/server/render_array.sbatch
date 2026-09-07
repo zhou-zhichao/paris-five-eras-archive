@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#SBATCH --job-name=paris-replica
+#SBATCH --job-name=london-timelapse
 #SBATCH --partition=long
 #SBATCH --array=0-7%8
 #SBATCH --gres=gpu:L4:1
@@ -17,7 +17,7 @@ umask 002
 
 RUN_DIR=${PARIS_RUN_DIR:?PARIS_RUN_DIR is required}
 BLENDER_ROOT=${BLENDER_ROOT:-/data/users/zhichaoz/blender-render/runtime/blender-4.5.10-linux-x64}
-BLEND_FILE="$RUN_DIR/input/paris_replica_packed.blend"
+BLEND_FILE="$RUN_DIR/input/${BLEND_NAME:-london_packed.blend}"
 CONFIG_SCRIPT="$RUN_DIR/configure_final.py"
 FRAMES_DIR="$RUN_DIR/frames"
 TASK_LOG_DIR="$RUN_DIR/logs/task-${SLURM_ARRAY_JOB_ID}-${SLURM_ARRAY_TASK_ID}"

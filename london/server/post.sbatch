@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#SBATCH --job-name=paris-post
+#SBATCH --job-name=london-post
 #SBATCH --partition=long
 #SBATCH --gres=gpu:L4:1
 #SBATCH --nodes=1
@@ -28,12 +28,12 @@ echo "FRAME_COUNT=$n"
 if [[ "$n" -lt ${EXPECTED_FRAMES:-5400} ]]; then echo "not all frames rendered" >&2; exit 1; fi
 
 if [[ ! -s "$FRAMES_DIR/blueprint.png" ]]; then
-    "$BLENDER_ROOT/blender" --background "$RUN_DIR/input/paris_replica_packed.blend" -noaudio \
+    "$BLENDER_ROOT/blender" --background "$RUN_DIR/input/${BLEND_NAME:-london_packed.blend}" -noaudio \
         --python "$RUN_DIR/scripts/render_blueprint.py" -- --out "$FRAMES_DIR/blueprint.png" --res "${PARIS_RES_X}x${PARIS_RES_Y}"
 fi
 mkdir -p "$RUN_DIR/output"
 cd "$RUN_DIR/scripts"
-python3 overlay.py --frames "$FRAMES_DIR" --out "$RUN_DIR/output/paris_replica_${PARIS_RES_Y}p.mp4" \
+python3 overlay.py --frames "$FRAMES_DIR" --out "$RUN_DIR/output/london_${PARIS_RES_Y}p.mp4" \
     --font "$RUN_DIR/fonts/bahnschrift.ttf" --preset slow --crf 17
 ls -la "$RUN_DIR/output"
 sha256sum "$RUN_DIR/output/"*.mp4

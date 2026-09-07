@@ -16,6 +16,7 @@ from scipy import ndimage
 from shapely.geometry import Polygon, LineString, Point, MultiPolygon, box
 from shapely.ops import unary_union
 from shapely.strtree import STRtree
+from shapely import constrained_delaunay_triangles
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -178,6 +179,9 @@ blocked = mask_of(blocked_polys)
 log("blocked", int(blocked.sum()))
 
 d_water = ndimage.distance_transform_edt(~water_perm).astype(np.float32)
+# shore band (sand) only around water bodies that are actually drawn (matches build_scene's 15000 m2 filter)
+big_water = mask_of(river_polys + [p for p, w in water_items if w["kind"] != "river" and w["area"] >= 15000] + canal_polys)
+d_water_draw = ndimage.distance_transform_edt(~big_water).astype(np.float32)
 log("water edt")
 
 # ------------------------------------------------------------------ growth field
@@ -188,8 +192,10 @@ prev = np.zeros((NY, NX), dtype=bool)
 zone_index = {}
 ZONES = list(history.ZONES)
 if history.RESEARCH_ZONES:
-    # researched polygons refine the hand-authored rings: apply them as additional zones (earlier year wins)
-    ZONES += history.RESEARCH_ZONES
+    # researched district polygons refine the hand-authored rings; everything is applied in start-year order
+    # so the "distance from what is already built" gradient stays meaningful (earlier year wins per cell)
+    ZONES = sorted(ZONES + history.RESEARCH_ZONES, key=lambda z: z[2])
+    log("zones: hand", len(history.ZONES), "researched", len(history.RESEARCH_ZONES))
 interwar_mask = None
 for zi, (name, poly, ys, ye, kit) in enumerate(ZONES):
     if isinstance(poly, tuple):
@@ -719,7 +725,7 @@ log("fill buildings", fill_count)
 
 # tower clusters: explicit big towers (City, Canary Wharf, Vauxhall, ...)
 for tx, ty, tr, ys, ye, th in history.TOWERS:
-    n = int(np.clip(tr * tr / 9000, 6, 40))
+    n = int(np.clip(tr * tr / 14000, 5, 26))
     for _ in range(n):
         a = rand.uniform(0, 2 * math.pi); rr_ = tr * math.sqrt(rand.uniform(0.05, 1))
         x, y = tx + rr_ * math.cos(a), ty + rr_ * math.sin(a)
@@ -896,8 +902,42 @@ for p, kind, name in green:
                            "outer": [[round(x, 1), round(y, 1)] for x, y in g.exterior.coords],
                            "holes": [[[round(x, 1), round(y, 1)] for x, y in h.coords] for h in g.interiors]})
 
+def tri_json(poly):
+    out = []
+    try:
+        tris = constrained_delaunay_triangles(poly)
+        for t in tris.geoms:
+            c = list(t.exterior.coords)[:3]
+            out.append([[round(x, 1), round(y, 1)] for x, y in c])
+    except Exception as ex:  # noqa
+        print("[growth] triangulation failed", ex)
+    return out
+
+
+water_tris = []
+for p, w in water_items:
+    if w["kind"] != "river" and w["area"] < 15000:
+        continue
+    water_tris.append({"kind": w["kind"], "name": w.get("name", ""), "outer": w["outer"], "tris": tri_json(p)})
+water_event_tris = []
+for we in water_events_json:
+    try:
+        pg = Polygon(we["outer"], we.get("holes", []))
+        if not pg.is_valid:
+            pg = pg.buffer(0)
+        parts = list(pg.geoms) if isinstance(pg, MultiPolygon) else [pg]
+        tris = []
+        for part in parts:
+            tris += tri_json(part)
+        water_event_tris.append({"name": we["name"], "birth": we["birth"], "death": we["death"], "tris": tris})
+    except Exception as ex:  # noqa
+        print("[growth] water event tri failed", we["name"], ex)
+log("water triangulated", sum(len(w["tris"]) for w in water_tris), sum(len(w["tris"]) for w in water_event_tris))
+
 meta = {
     "raster": {"x0": X0, "x1": X1, "y0": Y0, "y1": Y1, "cell": CELL},
+    "water_tris": water_tris,
+    "water_event_tris": water_event_tris,
     "terrain": {"x0": X0, "y0": Y0, "step": TSTEP, "nx": hmap.shape[1], "ny": hmap.shape[0]},
     "parks": parks_json,
     "water": geo["water"],
@@ -914,7 +954,7 @@ meta = {
 json.dump(meta, open(os.path.join(CACHE, "scene_meta.json"), "w"))
 
 # ------------------------------------------------------------------ baked rasters for shaders (10 m)
-shore_land = (255 * np.clip(1.0 - (d_water * CELL - 2.0) / 16.0, 0, 1)).astype(np.uint8)
+shore_land = (255 * np.clip(1.0 - (d_water_draw * CELL - 2.0) / 16.0, 0, 1)).astype(np.uint8)
 d_land = ndimage.distance_transform_edt(water_perm).astype(np.float32) * CELL
 water_depth = (255 * np.clip(d_land / 60.0, 0, 1)).astype(np.uint8)
 park_year_img = Image.new("L", (NX, NY), 0)

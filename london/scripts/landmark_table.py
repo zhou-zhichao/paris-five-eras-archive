@@ -359,10 +359,21 @@ def build_landmark_list(research):
             out.append(e); taken.append((e[1], e[2], birth, death))
     if research:
         items = research.get("landmarks", research) if isinstance(research, dict) else research
+        core_ids = {c[0] for c in CORE}
+        AREA_WORDS = ("park", "square", "gardens", "terrace", "estate", "docks", "dock", "common", "fields", "cemetery", "heath", "market_area", "reservoir")
         n_add = 0
         for r in items:
             try:
                 if r.get("importance", 3) > 2 or r.get("type") in ("bridge", "wall_gate", "roman", "wheel", "airport"):
+                    continue
+                if r["id"] in core_ids:
+                    continue                      # hand-authored entry (with its model) wins
+                fw_ = float(r.get("footprint_w_m") or 0); fd_ = float(r.get("footprint_d_m") or 0)
+                if float(r.get("height_m") or 0) <= 0.5:
+                    continue                      # open spaces, docks, sites
+                if fw_ * fd_ > 60000 and r.get("type") in ("other", "industrial", "hall"):
+                    continue                      # parks / squares / dock basins described as landmarks
+                if any(w in r["id"] for w in AREA_WORDS) and r.get("type") in ("other", "industrial"):
                     continue
                 x, y = ll(r["lon"], r["lat"])
                 if abs(x) > 26000 or abs(y) > 20000:
