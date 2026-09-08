@@ -282,7 +282,7 @@ for name, x, y, rot, b, d, builder, prm in history.LANDMARKS:
     elif builder == "stadium":
         w, dd = prm.get("a", 60) * 2.3 + 12, prm.get("b", 60) * 2.3 + 12
     else:
-        w, dd = prm.get("w", 60) * 1.25 + 12, prm.get("d", 60) * 1.25 + 12
+        w, dd = prm.get("w", 60) + 16, prm.get("d", 60) + 16          # true footprint plus a 8 m margin (landmarks are not widened)
     a = math.radians(rot)
     ca, sa = math.cos(a), math.sin(a)
     pts = [(x + dx * ca - dy * sa, y + dx * sa + dy * ca) for dx, dy in ((-w / 2, -dd / 2), (w / 2, -dd / 2), (w / 2, dd / 2), (-w / 2, dd / 2))]
@@ -701,10 +701,10 @@ log("events", [(e["name"], e["year"]) for e in EVENTS])
 # ------------------------------------------------------------------ building placement
 occ_death = np.full((NY, NX), -1e9, dtype=np.float32)
 inner_buf = mask_of([inner.buffer(2500)])
-core_mask = np.zeros((NY, NX), dtype=bool)
-for zn in ("londinium_peak", "medieval_city", "medieval_suburbs", "southwark_medieval", "strand_ribbon", "westminster_medieval", "tudor", "stuart"):
-    if zn in zone_index:
-        core_mask |= mask_of([ZONES[zone_index[zn]][1]])
+# the dense historic core = everything inside the County of London (+2.5 km) that was built before 1850.
+# (It used to be the union of a few hand-drawn envelopes; after those were shrunk to the historical extents,
+# districts such as Southwark east of the bridge fell outside and got no block-interior houses at all.)
+core_mask = inner_buf & (birth < 1850)
 estate_mask = np.zeros((NY, NX), dtype=np.float32)
 estate_year = np.zeros((NY, NX, 2), dtype=np.float32)
 for ex, ey, er, ys, ye in history.ESTATES:
@@ -828,6 +828,14 @@ def chain(era, year, r, c, cap=9999.0):
                 d = ev["year"] + rand.uniform(0, ev.get("duration", 10.0))
                 nxt = None
             break
+        if nxt is None and d < 9000 and e in ("celtic", "roman", "saxon"):
+            # the site is not abandoned for good: when the district is settled again (birth2 = first zone
+            # from 500 on) a new house takes the place.  Roman Southwark and the Roman west suburb stayed
+            # empty until 2025 because the fill passes only ever look at a cell's first birth year.
+            b2 = float(birth2[r, c])
+            if b2 < 9000:
+                ny = max(b2, d + 1.0) + rand.uniform(0, 25.0)
+                nxt = kit_for(ny, r, c)
         gens.append((e, y, d))
         if nxt is None or d >= 9000:
             break
@@ -940,7 +948,7 @@ GX, GY = np.meshgrid(gx, gy)
 GX = GX.ravel() + rand.uniform(-step * 0.4, step * 0.4, GX.size)
 GY = GY.ravel() + rand.uniform(-step * 0.4, step * 0.4, GY.size)
 rr, cc = cells(GX, GY)
-ok = core_mask[rr, cc] & (~water_any[rr, cc]) & (~park[rr, cc]) & (birth[rr, cc] < 1700) & (d_road[rr, cc] > 11)
+ok = core_mask[rr, cc] & (~water_any[rr, cc]) & (~park[rr, cc]) & (birth[rr, cc] < 1850) & (d_road[rr, cc] > 11)
 idx = np.nonzero(ok)[0]
 rand.shuffle(idx)
 for i in idx:
@@ -960,6 +968,15 @@ for i in idx:
     place(x, y, ang, era, year, r, c, sp * 0.9, cap=cap)
     core_fill += 1
 log("core fill buildings", core_fill)
+for _spec in [t for t in os.environ.get("DEBUG_CELLS", "").split(";") if t]:
+    _x, _y = map(float, _spec.split(","))
+    _r, _c = cell(_x, _y)
+    _msg = dict(birth=float(birth[_r, _c]), core=bool(core_mask[_r, _c]), inner_buf=bool(inner_buf[_r, _c]), water_any=bool(water_any[_r, _c]),
+                park=bool(park[_r, _c]), forest=bool(forest[_r, _c]), d_road=float(d_road[_r, _c]), blocked=bool(blocked[_r, _c]),
+                blocked_birth=float(blocked_birth[_r, _c]), blocked_death=float(blocked_death[_r, _c]), rail=bool(rail_corridor[_r, _c]),
+                rail_year=float(rail_year[_r, _c]), occ_death=float(occ_death[_r, _c]), water_until=float(water_until[_r, _c]),
+                marsh=bool(marsh[_r, _c]) if "marsh" in dir() else None, road_year=float(road_year[_r, _c]))
+    log("DEBUG_CELL", (_x, _y), _msg)
 
 # fill-mode B: suburban interiors where OSM minor streets are missing
 major_segs = []
@@ -978,7 +995,7 @@ GX, GY = np.meshgrid(gx, gy)
 GX = GX.ravel() + rand.uniform(-step * 0.35, step * 0.35, GX.size)
 GY = GY.ravel() + rand.uniform(-step * 0.35, step * 0.35, GY.size)
 rr, cc = cells(GX, GY)
-ok = (~water_any[rr, cc]) & (~park[rr, cc]) & (~forest[rr, cc]) & (d_road[rr, cc] > 40) & (birth[rr, cc] >= 1800) & (birth[rr, cc] < 9000)
+ok = (~water_any[rr, cc]) & (~park[rr, cc]) & (~forest[rr, cc]) & (d_road[rr, cc] > 40) & (birth[rr, cc] >= 1700) & (birth[rr, cc] < 9000)
 ok &= rand.random(GX.size) < density[rr, cc] * 0.8
 idx = np.nonzero(ok)[0]
 log("fill candidates", len(idx))

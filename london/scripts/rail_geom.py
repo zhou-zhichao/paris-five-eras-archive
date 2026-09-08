@@ -40,6 +40,7 @@ def _box_along(p0, p1, w, zb, zt, mat, birth):
     d = p1 - p0
     L = np.linalg.norm(d, axis=1, keepdims=True) + 1e-6
     t = d / L; nrm = np.stack([-t[:, 1], t[:, 0]], axis=1)
+    p0 = p0 - t * 0.9; p1 = p1 + t * 0.9          # pieces overlap a little so the joints on curves do not show
     a = p0 - nrm * w / 2; b = p1 - nrm * w / 2; c = p1 + nrm * w / 2; dd = p0 + nrm * w / 2
     lo = [np.column_stack([q, zb]) for q in (a, b, c, dd)]
     hi = [np.column_stack([q, zt]) for q in (a, b, c, dd)]

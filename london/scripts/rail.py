@@ -10,7 +10,7 @@ from shapely.geometry import LineString, Point, Polygon
 from shapely.strtree import STRtree
 
 
-def build_rail(geo, history, cell, river, water_perm, CENTER, rand, log, PIECE=60.0):
+def build_rail(geo, history, cell, river, water_perm, CENTER, rand, log, PIECE=30.0):
     rail2 = geo.get("rail2") or {}
     tracks = rail2.get("tracks") or []
     legacy = not tracks
