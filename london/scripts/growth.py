@@ -162,11 +162,23 @@ def landmark_probes(x, y, rot, builder, prm):
     a = math.radians(rot if isinstance(rot, (int, float)) else 0.0)
     ca, sa = math.cos(a), math.sin(a)
     out = []
-    for u in (-0.4, 0.0, 0.4):
-        for v in (-0.4, 0.0, 0.4):
-            dx, dy = u * w, v * dd
+    for u in (-0.5, -0.25, 0.0, 0.25, 0.5):
+        for v in (-0.5, -0.25, 0.0, 0.25, 0.5):
+            dx, dy = u * w * 1.05, v * dd * 1.05          # the whole footprint (base slabs, moats) plus a little margin
             out.append((x + dx * ca - dy * sa, y + dx * sa + dy * ca))
     return out
+
+
+_d_anywater = ndimage.distance_transform_edt(~water_any).astype(np.float32) * CELL
+
+
+def dry_margin(pts):
+    """Distance from the nearest water that ever existed, for the wettest probe point."""
+    m = 1e9
+    for px, py in pts:
+        r, c = cell(px, py)
+        m = min(m, float(_d_anywater[r, c]))
+    return m
 
 
 def dry_at(pts, year):
@@ -186,14 +198,17 @@ for i, e in enumerate(history.LANDMARKS):
     if not pts or dry_at(pts, b):
         continue
     found = None
-    for rad in range(10, 301, 10):
-        for k in range(16):
-            ang = 2 * math.pi * k / 16
+    for rad in range(10, 401, 10):
+        cands = []
+        for k in range(24):
+            ang = 2 * math.pi * k / 24
             dx, dy = rad * math.cos(ang), rad * math.sin(ang)
-            if dry_at([(px + dx, py + dy) for px, py in pts], b):
-                found = (dx, dy); break
-        if found:
-            break
+            moved = [(px + dx, py + dy) for px, py in pts]
+            if dry_at(moved, b):
+                cands.append((dry_margin(moved), dx, dy))
+        if cands:
+            cands.sort(reverse=True)                 # the smallest move, and among those the one farthest from water
+            found = (cands[0][1], cands[0][2]); break
     if found:
         LANDMARK_SHIFT[name] = [round(found[0], 1), round(found[1], 1)]
         history.LANDMARKS[i] = (name, x + found[0], y + found[1], rot, b, d, builder, prm)
