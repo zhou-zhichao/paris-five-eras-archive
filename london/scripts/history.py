@@ -397,6 +397,14 @@ if _gz and HAVE_SHAPELY:
         except Exception as ex:  # noqa
             print("[history] bad zone", z.get("name"), ex)
 
+# the hand-authored growth envelopes were 2-3x the historical built-up area (London c.1600 ~5 km2, 1700 ~13 km2,
+# 1750 ~20 km2, 1800 ~30 km2): shrink them about their centroid; the researched district polygons stay as they are
+ZONE_SHRINK = {"medieval_suburbs": 0.62, "tudor": 0.65, "stuart": 0.65, "restoration": 0.62, "georgian_early": 0.66, "georgian_late": 0.80}
+if HAVE_SHAPELY:
+    from shapely import affinity as _aff
+    ZONES = [(n, (_aff.scale(p, ZONE_SHRINK[n], ZONE_SHRINK[n], origin="centroid") if (n in ZONE_SHRINK and hasattr(p, "centroid")) else p), a, b, k)
+             for n, p, a, b, k in ZONES]
+
 WALLS = [(n, [ll(lon, lat) for lon, lat in pl], b, d, h) for n, pl, b, d, h in WALLS_LL]
 PRE_FORESTS, PRE_MARSHES = [], []
 _L = load("landscape_history.json")
@@ -464,6 +472,8 @@ if _w and HAVE_SHAPELY:
         try:
             if not d.get("polygon"):
                 continue
+            if "group" in d["name"].lower() or "whole" in d["name"].lower():
+                continue          # crude envelopes around whole dock systems: the individual docks are listed anyway
             birth = _int(d.get("dug")) or _int(d.get("opened"))
             if birth is None:
                 continue

@@ -28,7 +28,7 @@ WALL_SCALE = 2.0   # city walls exaggerated like the buildings
 TREE_SCALE = 3.9
 LM_SCALE_XY = 1.25   # landmark footprint exaggeration (buildings are drawn 2x)
 LM_SCALE_Z = 1.5     # landmarks are raised 1.5x so they read on the map
-WATER_Z = -0.4
+WATER_Z = 0.5      # water surfaces sit just above the (flat, 0 m) ground of the water cells: no pit, so the shoreline is the polygon edge
 
 # ------------------------------------------------------------------ scene reset
 scene = bpy.context.scene
@@ -50,6 +50,11 @@ RX0, RX1, RY0, RY1, CELL = (META["raster"][k] for k in ("x0", "x1", "y0", "y1", 
 NX, NY = (RX1 - RX0) // CELL, (RY1 - RY0) // CELL
 TER = META["terrain"]
 HMAP = D["hmap"]
+# landmarks that growth.py moved off the water (same shift here so sites, plateaus and models agree)
+for _i, _e in enumerate(history.LANDMARKS):
+    _sh = META.get("landmark_shift", {}).get(_e[0])
+    if _sh:
+        history.LANDMARKS[_i] = (_e[0], _e[1] + _sh[0], _e[2] + _sh[1]) + tuple(_e[3:])
 WATER_R = R["water"]
 log("data loaded", META["counts"])
 
@@ -179,9 +184,10 @@ def make_growth_group():
     living = cmp('LESS_THAN', year, death.outputs["Attribute"])
     alive = n.new("FunctionNodeBooleanMath"); alive.operation = 'AND'
     l.new(born.outputs["Result"], alive.inputs[0]); l.new(living.outputs["Result"], alive.inputs[1])
-    dead = n.new("FunctionNodeBooleanMath"); dead.operation = 'NOT'; l.new(alive.outputs[0], dead.inputs[0])
-    dele = n.new("GeometryNodeDeleteGeometry"); dele.domain = 'POINT'; dele.mode = 'ALL'
-    l.new(gi.outputs["Geometry"], dele.inputs["Geometry"]); l.new(dead.outputs[0], dele.inputs["Selection"])
+    # NOTE: points are never deleted.  Deleting a point shifts the instance index of every later point, and
+    # EEVEE's motion blur then pairs the wrong instances between shutter samples: every tree / house after the
+    # deleted one smears for that frame ("everything flickers").  Unborn / dead instances get scale 0 instead.
+    alive_f = math('MULTIPLY', None, None); l.new(alive.outputs[0], alive_f.inputs[0]); alive_f.inputs[1].default_value = 1.0
     age = math('SUBTRACT', year, birth.outputs["Attribute"])
     s = math('DIVIDE', age.outputs[0], dur.outputs["Attribute"]); s.use_clamp = True
     oms = math('SUBTRACT', None, s.outputs[0]); oms.inputs[0].default_value = 1.0
@@ -196,7 +202,9 @@ def make_growth_group():
     so2 = math('SQRT', so.outputs[0])
     s2m = math('MINIMUM', s2.outputs[0], so2.outputs[0])
     sz = math('MULTIPLY', s2m.outputs[0], onep.outputs[0])
+    sz = math('MULTIPLY', sz.outputs[0], alive_f.outputs[0])
     sxy = math('MULTIPLY_ADD', s2m.outputs[0], None, default=0.55); sxy.inputs[2].default_value = 0.45
+    sxy = math('MULTIPLY', sxy.outputs[0], alive_f.outputs[0])
     comb = n.new("ShaderNodeCombineXYZ"); l.new(sxy.outputs[0], comb.inputs[0]); l.new(sxy.outputs[0], comb.inputs[1]); l.new(sz.outputs[0], comb.inputs[2])
     vmul = n.new("ShaderNodeVectorMath"); vmul.operation = 'MULTIPLY'
     l.new(scale.outputs["Attribute"], vmul.inputs[0]); l.new(comb.outputs[0], vmul.inputs[1])
@@ -205,7 +213,7 @@ def make_growth_group():
     ci.inputs["Separate Children"].default_value = True; ci.inputs["Reset Children"].default_value = True
     l.new(gi.outputs["Collection"], ci.inputs["Collection"])
     iop = n.new("GeometryNodeInstanceOnPoints")
-    l.new(dele.outputs["Geometry"], iop.inputs["Points"]); l.new(ci.outputs["Instances"], iop.inputs["Instance"])
+    l.new(gi.outputs["Geometry"], iop.inputs["Points"]); l.new(ci.outputs["Instances"], iop.inputs["Instance"])
     iop.inputs["Pick Instance"].default_value = True
     l.new(kit.outputs["Attribute"], iop.inputs["Instance Index"])
     l.new(rotv.outputs[0], iop.inputs["Rotation"]); l.new(vmul.outputs[0], iop.inputs["Scale"])
@@ -228,10 +236,6 @@ def make_tree_group():
     year = gi.outputs["Year"]
     rem = n.new("ShaderNodeMath"); rem.operation = 'SUBTRACT'; l.new(death.outputs["Attribute"], rem.inputs[0]); l.new(year, rem.inputs[1])
     fade = n.new("ShaderNodeMath"); fade.operation = 'DIVIDE'; fade.use_clamp = True; l.new(rem.outputs[0], fade.inputs[0]); fade.inputs[1].default_value = 6.0
-    gone = n.new("FunctionNodeCompare"); gone.data_type = 'FLOAT'; gone.operation = 'LESS_EQUAL'
-    l.new(fade.outputs[0], gone.inputs[0]); gone.inputs[1].default_value = 0.0
-    dele = n.new("GeometryNodeDeleteGeometry"); dele.domain = 'POINT'; dele.mode = 'ALL'
-    l.new(gi.outputs["Geometry"], dele.inputs["Geometry"]); l.new(gone.outputs["Result"], dele.inputs["Selection"])
     smul = n.new("ShaderNodeMath"); smul.operation = 'MULTIPLY'; l.new(sc.outputs["Attribute"], smul.inputs[0]); l.new(fade.outputs[0], smul.inputs[1])
     comb = n.new("ShaderNodeCombineXYZ")
     for i in range(3):
@@ -241,7 +245,7 @@ def make_tree_group():
     ci.inputs["Separate Children"].default_value = True; ci.inputs["Reset Children"].default_value = True
     l.new(gi.outputs["Collection"], ci.inputs["Collection"])
     iop = n.new("GeometryNodeInstanceOnPoints")
-    l.new(dele.outputs["Geometry"], iop.inputs["Points"]); l.new(ci.outputs["Instances"], iop.inputs["Instance"])
+    l.new(gi.outputs["Geometry"], iop.inputs["Points"]); l.new(ci.outputs["Instances"], iop.inputs["Instance"])
     iop.inputs["Pick Instance"].default_value = True
     l.new(kind.outputs["Attribute"], iop.inputs["Instance Index"])
     l.new(rotv.outputs[0], iop.inputs["Rotation"]); l.new(comb.outputs[0], iop.inputs["Scale"])
@@ -486,8 +490,10 @@ GZ = sample_h(GX.ravel(), GY.ravel()).reshape(GX.shape)
 ci = np.clip(((GX - RX0) / CELL).astype(int), 0, NX - 1); ri = np.clip(((RY1 - GY) / CELL).astype(int), 0, NY - 1)
 wet = WATER_R[ri, ci]
 late = R["water_late"][ri, ci] if "water_late" in R.files else np.zeros_like(wet)
-GZ = np.where(wet & ~late, -6.0, GZ)
-GZ = np.where(late, np.minimum(GZ, WATER_Z - 1.1), GZ)     # shallow: invisible until the dock / lake appears
+# no river pit: a pit cut on the 25 m terrain grid made every shoreline a 25 m staircase.  The ground of water
+# cells is already ~0 m (heightmap damped to 0 at the water); the opaque water surface floats 0.5 m above it and
+# its outline is the smooth OSM polygon.
+GZ = np.where(wet, np.minimum(GZ, 0.0), GZ)
 # level the terrain under large landmarks (stadium pitches, site decks, platforms would otherwise z-fight
 # with a sloping ground); the landmark itself is placed a little above the plateau
 LM_PLATEAU = {}
@@ -574,9 +580,10 @@ sand = nt.nodes.new("ShaderNodeMixRGB"); sand.inputs[2].default_value = (0.28, 0
 nt.links.new(sep_lin.outputs[0], sand.inputs[0]); nt.links.new(marshmix.outputs[0], sand.inputs[1])
 # the terrain pit under the river / lakes takes the water colour, so the water-plane / bank intersection line
 # has no contrast and cannot crawl or flicker as the camera moves
-under = nt.nodes.new("ShaderNodeMixRGB"); under.inputs[2].default_value = (0.08, 0.24, 0.28, 1)
-nt.links.new(tex.outputs["Alpha"], under.inputs[0]); nt.links.new(sand.outputs[0], under.inputs[1])
-nt.links.new(under.outputs[0], bsdf.inputs["Base Color"])
+# (the old water-coloured "pit" paint used the 10 m raster mask, which stuck out one cell beyond the smooth water
+# polygon and drew a stair-stepped rim along every bank; the water surface is opaque, so the ground under it needs
+# no paint)
+nt.links.new(sand.outputs[0], bsdf.inputs["Base Color"])
 keyframe_year(year_node.outputs[0], ".default_value")
 
 ob = mesh_from_faces("TERRAIN", verts, faces, None, [MAT_GROUND])
@@ -709,7 +716,16 @@ if cpieces:
 
 # historic water (lost rivers, pre-embankment foreshore, filled docks): terrain-following surfaces with a lifetime
 items = [(w["tris"], w["birth"], w["death"]) for w in META["water_event_tris"] if w["death"] < 9000]
-ob = tri_mesh("WATER_HIST", items, zfn=lambda x, y: max(h_at(x, y) + 0.3, WATER_Z + 0.05))
+
+
+def _hist_z(x, y):
+    h = h_at(x, y)
+    if h < 0.6:
+        return WATER_Z + 0.02          # tidal: on the river plane (ground kept at <= 0 in growth.py)
+    return h + 0.3                     # streams on the slopes follow the terrain
+
+
+ob = tri_mesh("WATER_HIST", items, zfn=_hist_z)
 if ob is not None:
     link(ob, C_ENV); add_gn(ob, NG_FACE)
     log("historic water faces", len(ob.data.polygons))

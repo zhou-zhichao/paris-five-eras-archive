@@ -139,6 +139,67 @@ for w in history.WATER_EVENTS:
 water_hist = (water_until > 0) & ~water_perm            # historic water that is land today
 water_any = water_perm | water_hist
 log("water masks", int(water_perm.sum()), "historic", int(water_hist.sum()))
+late_mask = water_perm & (water_from < 9000)
+
+
+def water_at(r, c, year):
+    """Is cell (r, c) under water in `year` (permanent river/lakes, docks once dug, historic water until reclaimed)?"""
+    if water_perm[r, c]:
+        return (not late_mask[r, c]) or water_from[r, c] <= year
+    return water_hist[r, c] and water_until[r, c] > year
+
+
+ON_WATER_OK = ("bridge", "barrier", "london_eye", "blackfriars_station", "nonsuch", "st_thomas_chapel", "pier", "hms_")
+
+
+def landmark_probes(x, y, rot, builder, prm):
+    if builder == "airport":
+        return []
+    if builder == "stadium":
+        w, dd = prm.get("a", 60) * 2, prm.get("b", 60) * 2
+    else:
+        w, dd = prm.get("w", 2 * prm.get("a", 15)), prm.get("d", 2 * prm.get("b", 15))
+    a = math.radians(rot if isinstance(rot, (int, float)) else 0.0)
+    ca, sa = math.cos(a), math.sin(a)
+    out = []
+    for u in (-0.4, 0.0, 0.4):
+        for v in (-0.4, 0.0, 0.4):
+            dx, dy = u * w, v * dd
+            out.append((x + dx * ca - dy * sa, y + dx * sa + dy * ca))
+    return out
+
+
+def dry_at(pts, year):
+    for px, py in pts:
+        r, c = cell(px, py)
+        if water_at(r, c, year):
+            return False
+    return True
+
+
+LANDMARK_SHIFT = {}
+for i, e in enumerate(history.LANDMARKS):
+    name, x, y, rot, b, d, builder, prm = e
+    if builder is None or any(k in name for k in ON_WATER_OK):
+        continue
+    pts = landmark_probes(x, y, rot, builder, prm or {})
+    if not pts or dry_at(pts, b):
+        continue
+    found = None
+    for rad in range(10, 301, 10):
+        for k in range(16):
+            ang = 2 * math.pi * k / 16
+            dx, dy = rad * math.cos(ang), rad * math.sin(ang)
+            if dry_at([(px + dx, py + dy) for px, py in pts], b):
+                found = (dx, dy); break
+        if found:
+            break
+    if found:
+        LANDMARK_SHIFT[name] = [round(found[0], 1), round(found[1], 1)]
+        history.LANDMARKS[i] = (name, x + found[0], y + found[1], rot, b, d, builder, prm)
+    else:
+        log("landmark stays in water (no dry site within 300 m):", name)
+log("landmarks moved off the water", len(LANDMARK_SHIFT), LANDMARK_SHIFT)
 
 green = []
 for g in geo["green"]:
@@ -801,8 +862,12 @@ for rd in roads:
                     ok1, cap1 = site_free(r1, c1, b_year); ok2, cap2 = site_free(r2, c2, b_year)
                     if not (ok1 and ok2):
                         break
-                    if water_hist[r1, c1] and b_year < water_until[r1, c1]:
-                        b_year = water_until[r1, c1] + rand.uniform(1, 15)
+                    rc_, cc_ = cell(cx + nx_ * dep / 4 * side, cy + ny_ * dep / 4 * side)   # house centre
+                    wu_ = max(float(water_until[r1, c1]) if water_hist[r1, c1] else 0.0,
+                              float(water_until[r2, c2]) if water_hist[r2, c2] else 0.0,
+                              float(water_until[rc_, cc_]) if water_hist[rc_, cc_] else 0.0)
+                    if b_year < wu_:
+                        b_year = wu_ + rand.uniform(1, 15)      # the whole house waits for the foreshore to be reclaimed
                     if occ_death[r1, c1] > b_year or occ_death[r2, c2] > b_year:
                         break
                     if road_mask[r2, c2] and road_year[r2, c2] < b_year:
@@ -987,7 +1052,18 @@ rt, ct = cells(TX.ravel(), TY.ravel())
 dw = (d_water[rt, ct] * CELL).reshape(TX.shape)
 damp = np.clip(dw / 500.0, 0, 1) ** 1.5
 hmap = np.maximum((raw + 5.0) * damp, 0.0).astype(np.float32)
-log("heightmap", hmap.shape, float(hmap.max()))
+# tidal historic water (pre-embankment foreshore, filled docks, marsh creeks on the flood plain): the ground
+# under it is lowered so the historic water surface lies on the river plane instead of on a terrace
+hr_, hc_ = np.nonzero(water_hist)
+_ti = np.clip(((X0 + (hc_ + 0.5) * CELL) - X0) / TSTEP, 0, hmap.shape[1] - 1).astype(int)
+_tj = np.clip(((Y1 - (hr_ + 0.5) * CELL) - Y0) / TSTEP, 0, hmap.shape[0] - 1).astype(int)
+water_tidal = np.zeros_like(water_hist)
+_low = hmap[_tj, _ti] < 2.5
+water_tidal[hr_[_low], hc_[_low]] = True
+_tid = np.zeros(hmap.shape, dtype=bool); _tid[_tj[_low], _ti[_low]] = True
+_tid = ndimage.binary_dilation(_tid, iterations=1) & (hmap < 2.5)
+hmap[_tid] = np.minimum(hmap[_tid], 0.0)       # level with the river bed (water cells are 0 m; the surface sits at +0.5)
+log("heightmap", hmap.shape, float(hmap.max()), "tidal historic cells", int(water_tidal.sum()))
 
 
 def sample_h(xs, ys):
@@ -1080,6 +1156,7 @@ meta = {
     "water_tris": water_tris,
     "water_event_tris": water_event_tris,
     "terrain": {"x0": X0, "y0": Y0, "step": TSTEP, "nx": hmap.shape[1], "ny": hmap.shape[0]},
+    "landmark_shift": LANDMARK_SHIFT,
     "parks": parks_json,
     "water": geo["water"],
     "canals": geo["canals"],
@@ -1096,9 +1173,13 @@ meta = {
 json.dump(meta, open(os.path.join(CACHE, "scene_meta.json"), "w"))
 
 # ------------------------------------------------------------------ baked rasters for shaders (10 m)
-shore_land = (255 * np.clip(1.0 - (d_water_draw * CELL - 2.0) / 9.0, 0, 1)).astype(np.uint8)   # narrower rim
-d_land = ndimage.distance_transform_edt(water_perm).astype(np.float32) * CELL
-water_depth = (255 * np.clip(d_land / 60.0, 0, 1)).astype(np.uint8)
+# the shore rim and the water depth ramp are blurred by ~1 cell: a distance field of a 10 m mask is quantised to
+# the cell grid and drew every bank as a 10 m staircase
+shore_land = (255 * ndimage.gaussian_filter(np.clip(1.0 - (d_water_draw * CELL - 2.0) / 12.0, 0, 1).astype(np.float32), 1.2)).astype(np.uint8)
+# depth shading from the distance to land over ALL water that ever existed, so the pre-embankment river
+# and the filled docks take the same deep colour as the river instead of the pale bank tint
+d_land = ndimage.distance_transform_edt(water_perm | water_hist).astype(np.float32) * CELL
+water_depth = (255 * ndimage.gaussian_filter(np.clip((d_land + 6.0) / 66.0, 0, 1).astype(np.float32), 1.2)).astype(np.uint8)
 park_year_img = Image.new("L", (NX, NY), 0)
 kind_img = Image.new("L", (NX, NY), 0)
 dp = ImageDraw.Draw(park_year_img); dk = ImageDraw.Draw(kind_img)
@@ -1124,7 +1205,7 @@ water_dil = ndimage.binary_dilation(water_perm, iterations=1)
 water_late = ndimage.binary_dilation(water_perm & (water_from < 9000), iterations=1)
 np.savez_compressed(os.path.join(CACHE, "rasters.npz"), shore_land=shore_land, water_depth=water_depth,
                     park_year=park_year_r, kind=kind_r, water=water_dil, water_late=water_late, birth=birth.astype(np.float16),
-                    water_until=water_until.astype(np.float16))
+                    water_until=water_until.astype(np.float16), water_tidal=water_tidal)
 log("rasters saved")
 
 np.savez_compressed(os.path.join(CACHE, "scene_data.npz"),
