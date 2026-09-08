@@ -328,7 +328,7 @@ for era_i, era in enumerate(kits.ERA_NAMES):
     idx = sel_all[b_era[sel_all] == era_i]
     if len(idx) == 0:
         continue
-    xyz = np.stack([D["b_x"][idx], D["b_y"][idx], D["b_z"][idx]], axis=1)
+    xyz = np.stack([D["b_x"][idx], D["b_y"][idx], np.maximum(D["b_z"][idx], WATER_Z + 0.25)], axis=1)   # never below the water surface
     scale = np.stack([D["b_sx"][idx], D["b_sy"][idx], D["b_sz"][idx]], axis=1)
     ob = point_cloud(f"CITY_{era}", xyz, {
         "birth": ('FLOAT', D["b_birth"][idx]), "death": ('FLOAT', D["b_death"][idx]), "dur": ('FLOAT', D["b_dur"][idx]),
@@ -338,7 +338,7 @@ for era_i, era in enumerate(kits.ERA_NAMES):
     log("city", era, len(idx))
 
 idx = np.arange(len(D["t_x"]))[::SUB]
-xyz = np.stack([D["t_x"][idx], D["t_y"][idx], D["t_z"][idx]], axis=1)
+xyz = np.stack([D["t_x"][idx], D["t_y"][idx], np.maximum(D["t_z"][idx], WATER_Z + 0.25)], axis=1)
 ob = point_cloud("TREES", xyz, {"death": ('FLOAT', D["t_death"][idx]), "rot": ('FLOAT', D["t_rot"][idx]),
                                 "s": ('FLOAT', D["t_s"][idx] * TREE_SCALE), "kind": ('INT', D["t_kind"][idx])})
 link(ob, C_TREES)
@@ -513,7 +513,7 @@ for entry in history.LANDMARKS:
         continue
     if max(w, d) < 60:
         continue
-    hc = h_at(lx, ly)
+    hc = max(h_at(lx, ly), WATER_Z + 0.55)
     LM_PLATEAU[name] = hc
     a = math.radians(rot); ca, sa = math.cos(a), math.sin(a)
     sxy_ = lm_scale(builder, name, prm)[0]
@@ -753,7 +753,7 @@ def view_width(frame):
 def lm_zoom(frame):
     """Landmarks grow as the camera pulls back so they stay readable on the wide map (like the reference film)."""
     W = view_width(frame)
-    fxy = float(np.clip((W / 9000.0) ** 0.7, 1.0, 2.2))
+    fxy = 1.0                                  # never in plan: at 36 km the O2 had grown to 810 m and swallowed the peninsula
     fz = float(np.clip((W / 9000.0) ** 0.35, 1.0, 1.5))
     return fxy, fz
 
@@ -798,7 +798,7 @@ for entry in history.LANDMARKS:
         ob, base = landmarks.build_landmark(entry, C_LM)
     except Exception as e:  # noqa
         log("landmark failed", name, builder, e); continue
-    z = LM_PLATEAU.get(name, h_at(x, y)) + 0.35
+    z = max(LM_PLATEAU.get(name, h_at(x, y)), WATER_Z + 0.55) + 0.35
     holder = bpy.data.objects.new("LMH_" + name, None)
     link(holder, C_LM)
     holder.location = (x, y, z)

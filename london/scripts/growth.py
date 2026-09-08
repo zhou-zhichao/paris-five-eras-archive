@@ -191,13 +191,44 @@ def dry_at(pts, year):
     return True
 
 
+from shapely import affinity as _affinity
+_perm_geoms = river_polys + other_polys + canal_polys
+_perm_tree = STRtree(_perm_geoms)
+_hist_geoms = [((w["line"].buffer(w["width"] / 2) if "line" in w else w["poly"]), w["death"]) for w in history.WATER_EVENTS if w["birth"] <= -9000]
+_all_water = unary_union(_perm_geoms + [g for g, _ in _hist_geoms])
+
+
+def landmark_rect(x, y, rot, builder, prm):
+    if builder == "airport":
+        return None
+    if builder == "stadium":
+        w, dd = prm.get("a", 60) * 2, prm.get("b", 60) * 2
+    else:
+        w, dd = prm.get("w", 2 * prm.get("a", 15)), prm.get("d", 2 * prm.get("b", 15))
+    w, dd = w * 1.05 + 6, dd * 1.05 + 6
+    r = Polygon([(-w / 2, -dd / 2), (w / 2, -dd / 2), (w / 2, dd / 2), (-w / 2, dd / 2)])
+    r = _affinity.rotate(r, rot if isinstance(rot, (int, float)) else 0.0, origin=(0, 0))
+    return _affinity.translate(r, x, y)
+
+
+def rect_wet(rect, year):
+    """Does the footprint touch water that exists in `year` (exact polygons, not the 10 m raster)?"""
+    for i in _perm_tree.query(rect):
+        if _perm_geoms[int(i)].intersects(rect):
+            return True
+    for g, dth in _hist_geoms:
+        if dth > year and g.intersects(rect):
+            return True
+    return False
+
+
 LANDMARK_SHIFT = {}
 for i, e in enumerate(history.LANDMARKS):
     name, x, y, rot, b, d, builder, prm = e
     if builder is None or any(k in name for k in ON_WATER_OK):
         continue
-    pts = landmark_probes(x, y, rot, builder, prm or {})
-    if not pts or dry_at(pts, b):
+    rect = landmark_rect(x, y, rot, builder, prm or {})
+    if rect is None or not rect_wet(rect, b):
         continue
     found = None
     for rad in range(10, 401, 10):
@@ -205,9 +236,9 @@ for i, e in enumerate(history.LANDMARKS):
         for k in range(24):
             ang = 2 * math.pi * k / 24
             dx, dy = rad * math.cos(ang), rad * math.sin(ang)
-            moved = [(px + dx, py + dy) for px, py in pts]
-            if dry_at(moved, b):
-                cands.append((dry_margin(moved), dx, dy))
+            moved = _affinity.translate(rect, dx, dy)
+            if not rect_wet(moved, b):
+                cands.append((moved.distance(_all_water), dx, dy))
         if cands:
             cands.sort(reverse=True)                 # the smallest move, and among those the one farthest from water
             found = (cands[0][1], cands[0][2]); break
