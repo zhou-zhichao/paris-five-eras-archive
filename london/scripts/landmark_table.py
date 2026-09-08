@@ -167,14 +167,20 @@ CORE = [
     ("paddington_station", -0.1774, 51.5166, 200, 1854, 9999, "glb:paddington_station", {"w": 210, "d": 100, "h": 30}),
     ("cannon_street_station", -0.0905, 51.5110, 180, 1866, 9999, "glb:cannon_street_station", {"w": 200, "d": 60, "h": 40}),
     ("charing_cross_station", -0.1246, 51.5076, 0, 1864, 9999, "glb:charing_cross_station", {"w": 150, "d": 60, "h": 30}),
-    ("euston_station", -0.1330, 51.5281, 180, 1968, 9999, "box", {"w": 200, "d": 120, "h": 16}),
-    ("euston_station_old", -0.1325, 51.5283, 180, 1838, 1963, "station", {"w": 120, "d": 200, "h": 20}),
-    ("liverpool_street_station", -0.0817, 51.5179, 180, 1874, 9999, "station", {"w": 180, "d": 200, "h": 24}),
-    ("victoria_station", -0.1440, 51.4952, 180, 1862, 9999, "station", {"w": 200, "d": 220, "h": 24}),
-    ("waterloo_station", -0.1132, 51.5031, 180, 1848, 9999, "station", {"w": 220, "d": 240, "h": 24}),
-    ("london_bridge_station", -0.0864, 51.5050, 0, 1836, 9999, "station", {"w": 180, "d": 180, "h": 20}),
-    ("fenchurch_street_station", -0.0788, 51.5117, 180, 1841, 9999, "station", {"w": 90, "d": 120, "h": 18}),
-    ("marylebone_station", -0.1631, 51.5225, 180, 1899, 9999, "station", {"w": 120, "d": 160, "h": 20}),
+    ("euston_station", -0.1330, 51.5281, ("axis_out", 350), 1968, 9999, "glb:euston_station_1968", {"w": 240, "d": 212, "h": 47}),
+    ("euston_station_old", -0.1325, 51.5283, ("axis_out", 350), 1838, 1963, "glb:euston_station_1838", {"w": 150, "d": 127, "h": 27}),
+    ("liverpool_street_station", -0.0817, 51.5179, ("axis_out", 30), 1874, 9999, "glb:liverpool_street_station", {"w": 195, "d": 183, "h": 51}),
+    ("victoria_station", -0.1440, 51.4952, ("axis_out", 180), 1862, 9999, "glb:victoria_station", {"w": 215, "d": 199, "h": 50}),
+    ("waterloo_station_old", -0.1132, 51.5031, ("axis_out", 225), 1848, 1921, "station", {"w": 160, "d": 200, "h": 22}),
+    ("waterloo_station", -0.1132, 51.5031, ("axis_out", 225), 1922, 9999, "glb:waterloo_station", {"w": 253, "d": 228, "h": 32}),
+    ("london_bridge_station_old", -0.0864, 51.5050, ("axis_out", 120), 1836, 2017, "station", {"w": 180, "d": 160, "h": 20}),
+    ("london_bridge_station", -0.0864, 51.5050, ("axis_out", 120), 2018, 9999, "glb:london_bridge_station", {"w": 303, "d": 173, "h": 25}),
+    ("fenchurch_street_station", -0.0788, 51.5117, ("axis_out", 90), 1854, 9999, "glb:fenchurch_street_station", {"w": 126, "d": 58, "h": 24}),
+    ("marylebone_station", -0.1631, 51.5225, ("axis_out", 320), 1899, 9999, "glb:marylebone_station", {"w": 185, "d": 155, "h": 60}),
+    ("blackfriars_station", -0.1035, 51.5105, ("axis_out", 180), 2012, 9999, "glb:blackfriars_station", {"w": 312, "d": 61, "h": 19}),
+    ("broad_street_station", -0.0835, 51.5190, ("axis_out", 0), 1865, 1986, "glb:broad_street_station", {"w": 203, "d": 112, "h": 58}),
+    ("holborn_viaduct_station", -0.1040, 51.5165, ("axis_out", 180), 1874, 1990, "glb:holborn_viaduct_station", {"w": 110, "d": 76, "h": 36}),
+    ("camden_roundhouse", -0.1530, 51.5432, 180, 1847, 9999, "glb:engine_shed_roundhouse", {"w": 79, "d": 54, "h": 22}),
     ("royal_albert_hall", -0.1774, 51.5009, 180, 1871, 9999, "glb:royal_albert_hall", {"w": 83, "d": 72, "h": 41}),
     ("albert_memorial", -0.1776, 51.5024, 180, 1872, 9999, "glb:albert_memorial", {"w": 20, "d": 20, "h": 54}),
     ("natural_history_museum", -0.1763, 51.4967, 180, 1881, 9999, "glb:natural_history_museum", {"w": 200, "d": 90, "h": 60}),
@@ -332,7 +338,9 @@ TYPE_BUILDER = {
 
 def _entry(name, lon, lat, front, birth, death, model, prm):
     x, y = ll(lon, lat)
-    if isinstance(front, tuple):
+    if isinstance(front, tuple) and front[0] == "axis_out":
+        rot = (90.0 - (front[1] + 180.0)) % 360        # model -x points along the bearing trains leave
+    elif isinstance(front, tuple):
         rot = rot_from(axis_bearing=front[1])
     else:
         rot = rot_from(front_bearing=front if front is not None else 180)

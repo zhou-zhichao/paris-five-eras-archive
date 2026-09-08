@@ -187,15 +187,22 @@ log("blocked", int(blocked.sum()))
 
 
 def site_free(r, c, year):
-    """Can a house be born at cell (r, c) in `year`?  Returns (ok, cap): cap = year the site is cleared for a landmark."""
+    """Can a house be born at cell (r, c) in `year`?  Returns (ok, cap): cap = year the site is cleared
+    for a landmark or a railway."""
+    cap = 9999.0
+    if rail_corridor[r, c]:
+        ry = float(rail_year[r, c])
+        if year >= ry - 1:
+            return False, cap
+        cap = ry
     if not blocked[r, c]:
-        return True, 9999.0
+        return True, cap
     b, d = blocked_birth[r, c], blocked_death[r, c]
     if year < b - 1:
-        return True, b
+        return True, min(cap, b)
     if year > d:
-        return True, 9999.0
-    return False, 9999.0
+        return True, cap
+    return False, cap
 
 d_water = ndimage.distance_transform_edt(~water_perm).astype(np.float32)
 # shore band (sand) only around water bodies that are actually drawn (matches build_scene's 15000 m2 filter)
@@ -448,6 +455,23 @@ road_year = np.array(road_year_img, dtype=np.float32)
 road_mask = road_year < 9000
 d_road = ndimage.distance_transform_edt(~road_mask).astype(np.float32) * CELL
 log("road rasters")
+
+# ------------------------------------------------------------------ rail (before the houses: railway corridors are cleared)
+import rail as railmod
+rail_pieces, platform_pieces, station_list = railmod.build_rail(geo, history, cell, river, water_perm, CENTER, RNG, log)
+rail_year_img = Image.new("F", (NX, NY), 9999.0)
+dr_ = ImageDraw.Draw(rail_year_img)
+if len(rail_pieces):
+    order = np.argsort(-rail_pieces[:, 4])
+    for i in order:
+        x0, y0, x1, y1, yr, elev, kind, ntr = rail_pieces[i]
+        wpx = max(2, int((ntr * 4.4 + 12.0) / CELL) + 1)
+        dr_.line([to_px(x0, y0), to_px(x1, y1)], fill=float(yr), width=wpx)
+    for x0, y0, x1, y1, yr, w in platform_pieces:
+        dr_.line([to_px(x0, y0), to_px(x1, y1)], fill=float(yr), width=3)
+rail_year = np.array(rail_year_img, dtype=np.float32)
+rail_corridor = rail_year < 9000
+log("rail corridor cells", int(rail_corridor.sum()))
 
 # ------------------------------------------------------------------ events (destruction / rebuild)
 def event_duration(ev):
@@ -731,14 +755,14 @@ log("street buildings", len(B["x"]), placed_by_class)
 
 # fill-mode A: dense historic core - block interiors get houses too
 core_fill = 0
-step = 11
+step = 13
 gx = np.arange(-4000 + step / 2, 4000, step)
 gy = np.arange(-3000 + step / 2, 3000, step)
 GX, GY = np.meshgrid(gx, gy)
 GX = GX.ravel() + rand.uniform(-step * 0.4, step * 0.4, GX.size)
 GY = GY.ravel() + rand.uniform(-step * 0.4, step * 0.4, GY.size)
 rr, cc = cells(GX, GY)
-ok = core_mask[rr, cc] & (~water_any[rr, cc]) & (~park[rr, cc]) & (birth[rr, cc] < 1700) & (d_road[rr, cc] > 9)
+ok = core_mask[rr, cc] & (~water_any[rr, cc]) & (~park[rr, cc]) & (birth[rr, cc] < 1700) & (d_road[rr, cc] > 11)
 idx = np.nonzero(ok)[0]
 rand.shuffle(idx)
 for i in idx:
@@ -855,6 +879,7 @@ def scatter(step, keep, mask_fn, kinds, death_fn, jitter=0.45, clumpy=False):
 
 def death_city(rr, cc, n):
     d = built_year[rr, cc] - rand.uniform(0, 18, n)
+    d = np.minimum(d, np.where(rail_corridor[rr, cc], rail_year[rr, cc] - 1.0, 9999.0))
     d = np.minimum(d, np.where(marsh[rr, cc], marsh_year[rr, cc] - rand.uniform(0, 30, n), 9999.0))
     d = np.minimum(d, np.where(road_mask[rr, cc], road_year[rr, cc] - 3, 9999.0))
     survive = (built_year[rr, cc] >= 1880) & (rand.random(n) < 0.30) & ~inner_mask[rr, cc]
@@ -909,10 +934,6 @@ def sample_h(xs, ys):
 
 B["z"] = sample_h(B["x"], B["y"])
 Tr["z"] = sample_h(Tr["x"], Tr["y"])
-
-# ------------------------------------------------------------------ rail
-import rail as railmod
-rail_pieces, platform_pieces, station_list = railmod.build_rail(geo, history, cell, river, water_perm, CENTER, rand, log)
 
 # ------------------------------------------------------------------ walls
 wall_pieces = []
