@@ -35,33 +35,27 @@ const bk = M(P.stock), bkd = M(0xa08e6f), rbd = M(0x8f7a5c), st = M(P.dstone),
 }
 
 // ---------------------------------------------------------------- platforms and tracks on the deck
-g.add(platformsX(L, VW - 12, 8, 0, DECK, VZ, { pw: 9.5 }));
+// Fifteen tracks fan across the viaduct; nine island platforms between them.
+g.add(tracksX(L, VW - 12, 15, 0, DECK, VZ));
+g.add(platformsX(L - 30, VW - 16, 9, -8, DECK, VZ, { pw: 7.0, plen: 0.92 }));
 g.add(bufferStops(VW - 40, 6, X1 - 14, DECK, VZ + 8));
 
-// ---------------------------------------------------------------- the undulating 2018 roof
+// ---------------------------------------------------------------- the 2018 roof: one low wave canopy per platform
+// (from above the station reads as nine silver ripples with the tracks visible in the gaps between them,
+//  not as one solid shed)
 {
-  const RW = VW - 26, n = 8, sw = RW / n, EAVES = DECK + 11.5;
-  // supporting tree columns
-  for (let c = 0; c < n + 1; c++) {
-    const cz = VZ - RW / 2 + sw * c;
-    for (let i = 0; i < 11; i++) {
-      const x = -L / 2 + 12 + i * (L - 24) / 10;
-      g.add(cyl(0.5, 0.7, EAVES - DECK - 1.5, alu, x, DECK + 1.0, cz, 8));
-    }
-  }
-  // shallow curved bays whose ridge height rises and falls across the station
+  const RW = VW - 16, n = 9, pitch = RW / n, cw = 7.6, EAVES = DECK + 4.2;
   for (let i = 0; i < n; i++) {
-    const cz = VZ - RW / 2 + sw * (i + 0.5);
-    const rise = 3.0 + 2.6 * Math.sin(Math.PI * (i + 0.5) / n) + 1.1 * Math.sin(2.4 * i);
-    const ey = EAVES + 0.9 * Math.sin(1.7 * i);
-    g.add(shedX(L - 12, sw + 0.6, rise, 0, ey, cz, {
-      segs: 8, ribs: 14, glass: (i % 2 === 1) ? P.glassroof : P.steelwhite,
-      iron: 0xcfd2d4, gableA: false, gableB: false, ridge: false,
+    const cz = VZ - RW / 2 + pitch * (i + 0.5);
+    const rise = 1.6 + 0.5 * Math.sin(Math.PI * (i + 0.5) / n);
+    const clen = L - 46;
+    g.add(shedX(clen, cw, rise, -8, EAVES, cz, {
+      segs: 8, ribs: 10, glass: P.steelwhite, iron: 0xcfd2d4, gableA: false, gableB: false, ridge: false,
     }));
-    g.add(box(L - 12, ey - (EAVES - 2.4), sw + 0.6, alu, 0, EAVES - 2.4, cz));   // fascia / soffit
-    g.add(box(L - 12, 0.5, 0.7, M(0xcfd2d4), 0, ey - 0.3, cz - sw / 2));         // valley
+    g.add(box(clen, 0.35, cw + 0.4, alu, -8, EAVES - 0.35, cz));                      // fascia
+    for (let k = 0; k < 9; k++)                                                        // slim columns
+      g.add(cyl(0.35, 0.4, EAVES - DECK - 0.35, alu, -8 - clen / 2 + 8 + k * (clen - 16) / 8, DECK + 1.0, cz, 8));
   }
-  g.add(box(L - 12, 0.6, RW + 1.5, alu, 0, EAVES - 2.9, VZ));                    // roof soffit
 }
 
 // ---------------------------------------------------------------- street-level concourse front (+z)
@@ -75,9 +69,9 @@ g.add(bufferStops(VW - 40, 6, X1 - 14, DECK, VZ + 8));
   g.add(box(150, DECK - 2.2, 4.0, dgl, -20, 0, CZ + 2.0));
   for (let i = 0; i < 26; i++) g.add(box(0.6, DECK - 2.2, 4.4, alu, -95 + i * 6.0, 0, CZ + 2.0));
   // the big western entrance hall (glazed, rises past the deck)
-  g.add(box(46, DECK + 9.0, 26, gl, 92, 0, CZ + 10));
-  for (let i = 0; i < 9; i++) g.add(box(0.8, DECK + 9.0, 27, alu, 70 + i * 5.6, 0, CZ + 10));
-  g.add(box(48, 1.2, 28, alu, 92, DECK + 9.0, CZ + 10));
+  g.add(box(46, DECK + 5.0, 26, gl, 92, 0, CZ + 10));
+  for (let i = 0; i < 9; i++) g.add(box(0.8, DECK + 5.0, 27, alu, 70 + i * 5.6, 0, CZ + 10));
+  g.add(box(48, 1.2, 28, alu, 92, DECK + 5.0, CZ + 10));
   g.add(box(46, 4.0, 26, dconc, 92, 0, CZ + 10));
   // bus / taxi forecourt kerbs
   g.add(box(240, 0.4, 1.0, conc, -10, 0, CZ + 40));

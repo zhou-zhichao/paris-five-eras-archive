@@ -174,7 +174,7 @@ CORE = [
     ("waterloo_station_old", -0.1132, 51.5031, ("axis_out", 225), 1848, 1921, "station", {"w": 160, "d": 200, "h": 22}),
     ("waterloo_station", -0.1132, 51.5031, ("axis_out", 225), 1922, 9999, "glb:waterloo_station", {"w": 253, "d": 228, "h": 32}),
     ("london_bridge_station_old", -0.0864, 51.5050, ("axis_out", 120), 1836, 2017, "station", {"w": 180, "d": 160, "h": 20}),
-    ("london_bridge_station", -0.0864, 51.5050, ("axis_out", 120), 2018, 9999, "glb:london_bridge_station", {"w": 303, "d": 173, "h": 25}),
+    ("london_bridge_station", -0.0864, 51.5050, ("axis_out", 120), 2018, 9999, "glb:london_bridge_station", {"w": 303, "d": 173, "h": 14}),
     ("fenchurch_street_station", -0.0788, 51.5117, ("axis_out", 90), 1854, 9999, "glb:fenchurch_street_station", {"w": 126, "d": 58, "h": 24}),
     ("marylebone_station", -0.1631, 51.5225, ("axis_out", 320), 1899, 9999, "glb:marylebone_station", {"w": 185, "d": 155, "h": 60}),
     ("blackfriars_station", -0.1035, 51.5105, ("axis_out", 180), 2012, 9999, "glb:blackfriars_station", {"w": 312, "d": 61, "h": 19}),

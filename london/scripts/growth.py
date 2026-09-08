@@ -847,12 +847,17 @@ def chain(era, year, r, c, cap=9999.0):
     return gens
 
 
-def place(x, y, rot, era, year, r, c, target_w, cap=9999.0, depth_scale=1.0):
+def place(x, y, rot, era, year, r, c, target_w, cap=9999.0, depth_scale=1.0, claim=0):
     gens = chain(era, year, r, c, cap)
     if not gens:
         return
     final_death = gens[-1][2]
-    occ_death[r, c] = max(occ_death[r, c], final_death)
+    # fill houses claim a block of cells (claim = radius in cells) so the fill passes cannot drop another house on
+    # top of them (block interiors were a pile of overlapping roofs); street houses are spaced along the street
+    # already and keep the centre-cell claim, or half the city would disappear
+    rad_ = claim
+    occ_death[max(r - rad_, 0):r + rad_ + 1, max(c - rad_, 0):c + rad_ + 1] = np.maximum(
+        occ_death[max(r - rad_, 0):r + rad_ + 1, max(c - rad_, 0):c + rad_ + 1], final_death)
     for e, b, d in gens:
         k = int(rand.integers(0, 10))
         fw, fd, fh = FOOT[e][k]
@@ -955,7 +960,7 @@ for i in idx:
     x, y = float(GX[i]), float(GY[i])
     r, c = rr[i], cc[i]
     year = float(birth[r, c]) + rand.uniform(0, 25)
-    if occ_death[r, c] > year:
+    if occ_death[max(r - 1, 0):r + 2, max(c - 1, 0):c + 2].max() > year:
         continue
     okb, cap = site_free(r, c, year)
     if not okb:
@@ -965,7 +970,7 @@ for i in idx:
     era = kit_for(year, r, c)
     sp = SPACING[era]
     ang = CARDO if roman_mask[r, c] and year < 450 else rand.uniform(0, math.pi)
-    place(x, y, ang, era, year, r, c, sp * 0.9, cap=cap)
+    place(x, y, ang, era, year, r, c, sp * 0.9, cap=cap, claim=1)
     core_fill += 1
 log("core fill buildings", core_fill)
 for _spec in [t for t in os.environ.get("DEBUG_CELLS", "").split(";") if t]:
@@ -1004,7 +1009,7 @@ for j, i in enumerate(idx):
     x, y = float(GX[i]), float(GY[i])
     r, c = rr[i], cc[i]
     year = float(birth[r, c]) + rand.uniform(0, 30)
-    if occ_death[r, c] > year:
+    if occ_death[max(r - 1, 0):r + 2, max(c - 1, 0):c + 2].max() > year:
         continue
     okb, cap = site_free(r, c, year)
     if not okb:
@@ -1015,7 +1020,7 @@ for j, i in enumerate(idx):
     era = kit_for(year, r, c)
     if era in ("georgian", "medieval", "tudor"):
         era = "victorian"
-    place(x, y, ang, era, year, r, c, SPACING[era] * 0.9, cap=cap)
+    place(x, y, ang, era, year, r, c, SPACING[era] * 0.9, cap=cap, claim=1)
     fill_count += 1
 log("fill buildings", fill_count)
 
@@ -1224,6 +1229,35 @@ for we in water_events_json:
         print("[growth] water event tri failed", we["name"], ex)
 log("water triangulated", sum(len(w["tris"]) for w in water_tris), sum(len(w["tris"]) for w in water_event_tris))
 
+# bridge bearings from the OSM ways tagged bridge=yes that cross the water near the documented centre: the
+# shortest land-to-land line is not the bridge axis where the river bends (Blackfriars road and rail bridges
+# opened into a V)
+_bridge_ways = []
+for r in geo["roads"]:
+    if r.get("bridge") and len(r["pts"]) >= 2:
+        _bridge_ways.append(LineString(r["pts"]))
+for r in (geo.get("rail2") or {}).get("tracks", []) or []:
+    if r.get("bridge") and len(r.get("pts", [])) >= 2:
+        _bridge_ways.append(LineString(r["pts"]))
+_bw_tree = STRtree(_bridge_ways) if _bridge_ways else None
+bridges_with_bearing = []
+for b in history.BRIDGES:
+    bb = dict(b)
+    if _bw_tree is not None:
+        pt = Point(b["x"], b["y"])
+        best = None
+        for i in _bw_tree.query(pt.buffer(70)):
+            ln = _bridge_ways[int(i)]
+            dd = ln.distance(pt)
+            if dd <= 70 and ln.length >= 60 and (best is None or dd < best[0]):
+                d0 = max(0.0, ln.project(pt) - 30); d1 = min(ln.length, ln.project(pt) + 30)
+                p0, p1 = ln.interpolate(d0), ln.interpolate(d1)
+                best = (dd, math.atan2(p1.y - p0.y, p1.x - p0.x))
+        if best is not None:
+            bb["bearing"] = round(best[1], 4)
+    bridges_with_bearing.append(bb)
+log("bridge bearings from OSM", sum(1 for b in bridges_with_bearing if "bearing" in b), "of", len(bridges_with_bearing))
+
 meta = {
     "raster": {"x0": X0, "x1": X1, "y0": Y0, "y1": Y1, "cell": CELL},
     "water_tris": water_tris,
@@ -1234,7 +1268,7 @@ meta = {
     "water": geo["water"],
     "canals": geo["canals"],
     "water_events": water_events_json,
-    "bridges": history.BRIDGES,
+    "bridges": bridges_with_bearing,
     "stations": station_list,
     "airports": geo.get("airports", {}),
     "city": [[round(x, 1), round(y, 1)] for x, y in history.CITY.exterior.coords],
