@@ -140,6 +140,8 @@ water_hist = (water_until > 0) & ~water_perm            # historic water that is
 water_any = water_perm | water_hist
 log("water masks", int(water_perm.sum()), "historic", int(water_hist.sum()))
 late_mask = water_perm & (water_from < 9000)
+# distance from land (metres) inside all water that ever existed: water colour ramp and the river-bed profile
+d_land = ndimage.distance_transform_edt(water_perm | water_hist).astype(np.float32) * CELL
 
 
 def water_at(r, c, year):
@@ -1052,8 +1054,13 @@ if pre_forest.any():
     log("pre-urban forest trees", n0)
 n1 = scatter(32, 0.95, lambda rr, cc: (~water_any[rr, cc]) & (~forest[rr, cc]) & (~blocked[rr, cc]) & (d_water[rr, cc] * CELL > 12),
              [0, 1, 3, 4, 0, 1, 3, 4, 2], death_city, clumpy=True)
-n2 = scatter(22, 0.9, lambda rr, cc: forest[rr, cc] & (~water_any[rr, cc]), [0, 1, 3, 4, 2, 5, 0, 1], lambda rr, cc, n: np.full(n, 9999.0))
-n3 = scatter(24, 0.5, lambda rr, cc: park[rr, cc] & (~water_any[rr, cc]) & (~forest[rr, cc]), [0, 1, 3, 4, 0, 1], lambda rr, cc, n: np.full(n, 9999.0))
+def death_landmark(rr, cc, n):
+    """trees on a landmark site are felled when it is built (stadium pitches and site decks were full of trees)"""
+    return np.where(blocked[rr, cc], blocked_birth[rr, cc] - rand.uniform(0, 3, n), 9999.0).astype(np.float32)
+
+
+n2 = scatter(22, 0.9, lambda rr, cc: forest[rr, cc] & (~water_any[rr, cc]), [0, 1, 3, 4, 2, 5, 0, 1], death_landmark)
+n3 = scatter(24, 0.5, lambda rr, cc: park[rr, cc] & (~water_any[rr, cc]) & (~forest[rr, cc]), [0, 1, 3, 4, 0, 1], death_landmark)
 for k in Tr:
     Tr[k] = np.concatenate(Tr[k])
 log("trees", n1, n2, n3, len(Tr["x"]))
@@ -1075,10 +1082,13 @@ _tj = np.clip(((Y1 - (hr_ + 0.5) * CELL) - Y0) / TSTEP, 0, hmap.shape[0] - 1).as
 water_tidal = np.zeros_like(water_hist)
 _low = hmap[_tj, _ti] < 2.5
 water_tidal[hr_[_low], hc_[_low]] = True
-_tid = np.zeros(hmap.shape, dtype=bool); _tid[_tj[_low], _ti[_low]] = True
-_tid = ndimage.binary_dilation(_tid, iterations=1) & (hmap < 2.5)
-hmap[_tid] = np.minimum(hmap[_tid], 0.0)       # level with the river bed (water cells are 0 m; the surface sits at +0.5)
-log("heightmap", hmap.shape, float(hmap.max()), "tidal historic cells", int(water_tidal.sum()))
+# river / lake / dock / tidal-foreshore bed: a smooth profile from 0 m at the shoreline down to -4.3 m where the
+# water is 60 m or more from land.  A flat bed 0.5 m under the surface z-fought with it in the wide views, and a
+# stepped pit on the 25 m grid drew saw-tooth banks; the ramp has neither problem.
+_wa = (water_perm | water_tidal)[rt, ct].reshape(TX.shape)
+_ramp = -0.3 - 4.0 * np.clip((d_land[rt, ct].reshape(TX.shape) + 6.0) / 66.0, 0, 1)
+hmap = np.where(_wa, np.minimum(hmap, _ramp), hmap).astype(np.float32)
+log("heightmap", hmap.shape, float(hmap.max()), float(hmap.min()), "tidal historic cells", int(water_tidal.sum()))
 
 
 def sample_h(xs, ys):
@@ -1193,7 +1203,6 @@ json.dump(meta, open(os.path.join(CACHE, "scene_meta.json"), "w"))
 shore_land = (255 * ndimage.gaussian_filter(np.clip(1.0 - (d_water_draw * CELL - 2.0) / 12.0, 0, 1).astype(np.float32), 1.2)).astype(np.uint8)
 # depth shading from the distance to land over ALL water that ever existed, so the pre-embankment river
 # and the filled docks take the same deep colour as the river instead of the pale bank tint
-d_land = ndimage.distance_transform_edt(water_perm | water_hist).astype(np.float32) * CELL
 water_depth = (255 * ndimage.gaussian_filter(np.clip((d_land + 6.0) / 66.0, 0, 1).astype(np.float32), 1.2)).astype(np.uint8)
 park_year_img = Image.new("L", (NX, NY), 0)
 kind_img = Image.new("L", (NX, NY), 0)
