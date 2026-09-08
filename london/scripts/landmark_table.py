@@ -381,6 +381,8 @@ def build_landmark_list(research):
                     continue                      # open spaces, docks, sites
                 if fw_ * fd_ > 60000 and r.get("type") in ("other", "industrial", "hall"):
                     continue                      # parks / squares / dock basins described as landmarks
+                if max(fw_, fd_) >= 300 and min(fw_, fd_) <= 60:
+                    continue                      # streets, terraces and viaducts described as one building (Regent Street was a 1.2 km bar)
                 if any(w in r["id"] for w in AREA_WORDS) and r.get("type") in ("other", "industrial"):
                     continue
                 x, y = ll(r["lon"], r["lat"])
