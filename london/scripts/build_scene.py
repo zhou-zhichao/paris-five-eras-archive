@@ -866,11 +866,12 @@ log("stations placed", n_st)
 
 
 # ------------------------------------------------------------------ bridges: one clean deck per historical bridge
-def crossing(x, y, year=None):
-    """(angle, span) of the shortest land-to-land line through the water at (x, y) in `year`."""
+def crossing(x, y, year=None, bearing=None):
+    """(angle, span) of the land-to-land line through the water at (x, y) in `year`: along `bearing` (the OSM
+    bridge way) when known, else the shortest crossing."""
     best = None
-    for deg in range(0, 180, 4):
-        a = math.radians(deg)
+    angles = [bearing] if bearing is not None else [math.radians(d) for d in range(0, 180, 4)]
+    for a in angles:
         dx, dy = math.cos(a), math.sin(a)
         ends = []
         for s in (1, -1):
@@ -910,7 +911,7 @@ for b in META["bridges"]:
                 break
         if not found:
             log("bridge not on water", b["id"]); continue
-    ang, span, ends = crossing(x, y, byear)
+    ang, span, ends = crossing(x, y, byear, b.get("bearing"))
     if span < 0.6 * b["length"]:
         log("bridge span suspicious", b["id"], round(span), "documented", b["length"])
         span = b["length"]; ends = [span / 2, span / 2]

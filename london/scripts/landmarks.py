@@ -275,18 +275,38 @@ def versailles(p):
 
 
 def station(p):
+    """Victorian terminus: a stone head house with a mansard on the front (+y), one or two glazed train sheds
+    behind it over the first half of the platforms, then open platforms with slim canopies between the tracks
+    (the old one-block striped shed read as a warehouse from above)."""
     bm = _new_bm(); w, d, h = p["w"], p["d"], p["h"]
     B(bm, 0, d / 2 - 15, 0, w, 30, h, mat=0)
     kits._mansard(bm, 0, d / 2 - 15, h, w, 30, 6, 2, 3, mat=1)
-    n = max(2, int(w // 45))
+    back = d - 30                                  # depth behind the head house
+    shed_d = back * 0.5
+    y_shed = d / 2 - 30 - shed_d / 2
+    n = max(1, int(w // 60))
     for i in range(n):
         x = -w / 2 + (i + 0.5) * w / n
-        B(bm, x, -15, 0, w / n - 2, d - 30, h * 0.5, mat=0)
-        GABLE(bm, x, -15, h * 0.5, w / n - 2, d - 30, h * 0.45, along_x=False, mat=2)
+        sw = w / n - 6
+        B(bm, x, y_shed, 0, sw, shed_d, h * 0.45, mat=0)           # shed side walls / gable ends
+        GABLE(bm, x, y_shed, h * 0.45, sw, shed_d, h * 0.30, along_x=False, mat=2)
+    # ballast deck under everything behind the head house
+    B(bm, 0, d / 2 - 30 - back / 2, 0, w - 2, back, 0.4, mat=3)
+    # platforms + canopies on the open half
+    y_open = d / 2 - 30 - shed_d - (back - shed_d) / 2
+    npl = max(2, int(w // 16))
+    pitch = w / npl
+    for k in range(npl):
+        x = -w / 2 + (k + 0.5) * pitch
+        B(bm, x, y_open, 0.4, pitch * 0.45, back - shed_d - 4, 1.0, mat=0)          # platform
+        B(bm, x, y_open, 4.5, pitch * 0.5, back - shed_d - 8, 0.4, mat=1)           # canopy
+        for sx in (-1, 1):                                                          # rails beside it
+            B(bm, x + sx * pitch * 0.36, y_open, 0.4, 0.5, back - shed_d - 2, 0.3, mat=4)
     if p.get("tower"):
         B(bm, w / 2 - 12, d / 2 - 12, 0, 16, 16, p["tower"], mat=0)
         kits._mansard(bm, w / 2 - 12, d / 2 - 12, p["tower"], 16, 16, 5, 2, 3, mat=1)
-    return _finish(bm, "lm_station", [_mat("stone", STONE), _mat("slate", ROOF_SLATE), _mat("glassroof", GLASS)])
+    return _finish(bm, "lm_station", [_mat("stone", STONE), _mat("slate", ROOF_SLATE), _mat("glassroof", GLASS),
+                                      _mat("ballast", (0.45, 0.42, 0.38)), _mat("rail", (0.62, 0.60, 0.56))])
 
 
 def grand_palais(p):
