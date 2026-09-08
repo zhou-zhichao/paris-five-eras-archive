@@ -213,6 +213,7 @@ log("water edt")
 
 # ------------------------------------------------------------------ growth field
 birth = np.full((NY, NX), 9999.0, dtype=np.float32)
+birth2 = np.full((NY, NX), 9999.0, dtype=np.float32)   # first settlement after the sub-Roman gap (zones from 500 on)
 zone_kit = np.full((NY, NX), -1, dtype=np.int8)
 noise = smooth_noise(20, 1)
 prev = np.zeros((NY, NX), dtype=bool)
@@ -252,6 +253,9 @@ for zi, (name, poly, ys, ye, kit) in enumerate(ZONES):
     sel = mask & (y < birth)
     birth[sel] = y[sel]
     zone_kit[sel] = ERA_ID.get(kit, ERA_ID["victorian"])
+    if ys >= 500:
+        sel2 = mask & (y < birth2)
+        birth2[sel2] = y[sel2]
     prev |= mask
     if name == "interwar":
         interwar_mask = mask.copy()
@@ -273,6 +277,10 @@ for name, vx, vy, vr, ys, ye in history.VILLAGES:
     sub = birth[rs:re, cs:ce]
     sel = (dd <= 1.0) & (y < sub) & ~water_any[rs:re, cs:ce]
     sub[sel] = y[sel]
+    if ys >= 500:
+        sub2 = birth2[rs:re, cs:ce]
+        sel2 = (dd <= 1.0) & (y < sub2) & ~water_any[rs:re, cs:ce]
+        sub2[sel2] = y[sel2]
     zone_kit[rs:re, cs:ce][sel] = -1
     village_core[rs:re, cs:ce] |= dd <= 0.6
 log("villages applied", len(history.VILLAGES))
@@ -397,6 +405,60 @@ def researched_rail_year(x, y):
 
 
 roman_mask = mask_of([ROMAN_POLY])
+city_buf_mask = mask_of([history.CITY.buffer(120)])   # the roman_abandonment event polygon
+ABANDON_YEAR = 420.0
+RESETTLE = (886.0, 1050.0)
+# later abandonments with a re-foundation (Lundenwic -> Ealdwic, resettled from the 12th c.): streets go with the houses
+LATER_ABANDON = [(ev["name"], mask_of([ev["poly"]]), float(ev["year"]), ev["resettle"])
+                 for ev in history.EVENTS if ev.get("resettle") and ev["year"] > ABANDON_YEAR]
+
+
+def roman_road_fate(mx, my, r, c, rd, rank):
+    """For a street already there before the Roman withdrawal: (death year, rebirth year or None).
+    The long-distance Roman roads outside the walls survive as trackways; every other Roman-era street
+    is lost during the sub-Roman abandonment (major ones last) and re-laid when the area is resettled."""
+    if not city_buf_mask[r, c] and not rd["synthetic"]:
+        if rd["named"] is not None and rd["named"] <= 100 and rank <= 3:
+            return None, None
+        ry_ = researched_road_year(mx, my)
+        if ry_ is not None and ry_ <= 120:
+            return None, None
+    death = ABANDON_YEAR + RNG.uniform(5, 60) + max(0, 4 - rank) * 12
+    if rd["synthetic"]:
+        return death, None
+    if city_buf_mask[r, c]:
+        rebirth = RESETTLE[0] + (RNG.uniform(0, 30) if rank <= 3 else RNG.uniform(0, 150))
+    else:
+        b2 = float(birth2[r, c])
+        if b2 >= 9000:
+            return death, None
+        rebirth = b2 + RNG.uniform(0, 20)
+    return death, max(rebirth, death + 1.0)
+
+
+def road_generations(mx, my, r, c, rd, rank, y):
+    """[(birth, death)] life spans of one street piece first laid in year `y`: the sub-Roman abandonment and the
+    later abandon/resettle events each cut a span out (named through-routes such as the Strand survive)."""
+    gens = []
+    cur = y
+    if cur < ABANDON_YEAR:
+        death, rebirth = roman_road_fate(mx, my, r, c, rd, rank)
+        if death is not None:
+            gens.append((cur, death))
+            if rebirth is None:
+                return gens
+            cur = rebirth
+    for name, mask, ev_year, (rs, re) in LATER_ABANDON:
+        if cur >= ev_year or not mask[r, c] or rd["synthetic"]:
+            continue
+        if rank <= 3 and rd["named"] is not None:
+            continue                       # the Strand etc.: the road between the City and Westminster stays in use
+        death = ev_year + RNG.uniform(5, 60) + max(0, 4 - rank) * 12
+        gens.append((cur, death))
+        cur = max(RNG.uniform(rs, re), death + 1.0)
+    gens.append((cur, rd["death"]))
+    return gens
+
 
 PIECE = 40.0
 road_pieces = []   # x0,y0,x1,y1,width,birth,death,over_water,cls_rank
@@ -441,7 +503,10 @@ for rd in roads:
             continue
         y -= 12.0   # streets slightly precede their houses
         rd["pieces"].append((a.x, a.y, b.x, b.y, y))
-        road_pieces.append((a.x, a.y, b.x, b.y, ROAD_WIDTH.get(rd["cls"], 6), y, rd["death"], over_water, CLASS_RANK.get(rd["cls"], 9)))
+        rank = CLASS_RANK.get(rd["cls"], 9)
+        w_ = ROAD_WIDTH.get(rd["cls"], 6)
+        for gi_, (gb, gd) in enumerate(road_generations(mx, my, r, c, rd, rank, y)):
+            road_pieces.append((a.x, a.y, b.x, b.y, w_, gb - (12.0 if gi_ else 0.0), gd, over_water, rank))
 road_pieces = np.array(road_pieces, dtype=np.float32)
 log("road pieces", len(road_pieces))
 
