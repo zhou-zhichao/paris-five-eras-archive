@@ -911,30 +911,8 @@ B["z"] = sample_h(B["x"], B["y"])
 Tr["z"] = sample_h(Tr["x"], Tr["y"])
 
 # ------------------------------------------------------------------ rail
-rail_pieces = []
-for r in geo["rail"]:
-    ln = LineString(r["pts"])
-    if ln.length < 10:
-        continue
-    n = max(1, int(math.ceil(ln.length / 60)))
-    pts = [ln.interpolate(i / n, normalized=True) for i in range(n + 1)]
-    for i in range(n):
-        a, b = pts[i], pts[i + 1]
-        mx, my = (a.x + b.x) / 2, (a.y + b.y) / 2
-        rr_, cc_ = cell(mx, my)
-        if river[rr_, cc_]:
-            continue
-        d = math.hypot(mx - CENTER[0], my - CENTER[1])
-        if r.get("light"):
-            yr = 1987 + max(0.0, d - 5000) / 1000 * 1.5 + rand.uniform(0, 4)
-        else:
-            yr = min(1836 + d / 1000 * 2.2, 1905) + rand.uniform(0, 8)
-            ry_ = researched_rail_year(mx, my)
-            if ry_ is not None:
-                yr = min(yr, ry_ + rand.uniform(0, 3))
-        rail_pieces.append((a.x, a.y, b.x, b.y, yr, 1.0 if (r.get("bridge") or water_perm[rr_, cc_]) else 0.0))
-rail_pieces = np.array(rail_pieces, dtype=np.float32)
-log("rail pieces", len(rail_pieces))
+import rail as railmod
+rail_pieces, platform_pieces, station_list = railmod.build_rail(geo, history, cell, river, water_perm, CENTER, rand, log)
 
 # ------------------------------------------------------------------ walls
 wall_pieces = []
@@ -1021,6 +999,7 @@ meta = {
     "canals": geo["canals"],
     "water_events": water_events_json,
     "bridges": history.BRIDGES,
+    "stations": station_list,
     "airports": geo.get("airports", {}),
     "city": [[round(x, 1), round(y, 1)] for x, y in history.CITY.exterior.coords],
     "inner": [[round(x, 1), round(y, 1)] for x, y in inner.exterior.coords],
@@ -1066,7 +1045,7 @@ np.savez_compressed(os.path.join(CACHE, "scene_data.npz"),
                     b_x=B["x"], b_y=B["y"], b_z=B["z"], b_rot=B["rot"], b_sx=B["sx"], b_sy=B["sy"], b_sz=B["sz"],
                     b_birth=B["birth"], b_death=B["death"], b_dur=B["dur"], b_era=B["era"], b_kit=B["kit"],
                     t_x=Tr["x"], t_y=Tr["y"], t_z=Tr["z"], t_rot=Tr["rot"], t_s=Tr["s"], t_death=Tr["death"], t_kind=Tr["kind"],
-                    roads=road_pieces, rail=rail_pieces, walls=wall_pieces, hmap=hmap)
+                    roads=road_pieces, rail=rail_pieces, platforms=platform_pieces, walls=wall_pieces, hmap=hmap)
 log("saved", meta["counts"])
 
 # QA maps

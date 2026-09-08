@@ -225,6 +225,67 @@ def main():
     out["rail"] = rail
     print("rail", len(rail))
 
+    # ---- detailed railways: every track with its attributes, platforms, stations
+    tracks, platforms, stations = [], [], []
+    seen_ids = set()
+    for el in raw.get("rail_detail", []):
+        if el.get("id") in seen_ids:
+            continue
+        seen_ids.add(el.get("id"))
+        tags = el.get("tags", {})
+        rw = tags.get("railway", "")
+        if el["type"] == "node":
+            if rw in ("station", "halt") and tags.get("subway") != "yes" and tags.get("station") not in ("subway", "light_rail"):
+                x, y = proj(el["lon"], el["lat"])
+                stations.append({"name": tags.get("name", ""), "x": round(x, 1), "y": round(y, 1), "area": 0})
+            continue
+        if el["type"] != "way":
+            continue
+        c = way_coords(el)
+        if len(c) < 2:
+            continue
+        if rw in ("rail", "light_rail", "narrow_gauge"):
+            if tags.get("tunnel") in ("yes", "building_passage") or tags.get("railway:preserved") == "yes":
+                continue
+            if tags.get("service") in ("crossover",) or tags.get("disused") == "yes" or tags.get("abandoned") == "yes":
+                continue
+            ln = shp_simplify(LineString(c), 2.0)
+            try:
+                ntr = int(str(tags.get("tracks", "1")).split(";")[0])
+            except Exception:
+                ntr = 1
+            tracks.append({"pts": [[round(x, 1), round(y, 1)] for x, y in ln.coords],
+                           "bridge": tags.get("bridge") in ("yes", "viaduct"), "embankment": tags.get("embankment") == "yes",
+                           "cutting": tags.get("cutting") == "yes", "light": rw == "light_rail", "service": tags.get("service", ""),
+                           "tracks": ntr, "name": tags.get("name", ""), "usage": tags.get("usage", "")})
+        elif rw == "platform":
+            closed = len(c) >= 4 and math.dist(c[0], c[-1]) < 1.0
+            if closed:
+                pg = Polygon(c)
+                if pg.is_valid and pg.area > 0:
+                    rect = pg.minimum_rotated_rectangle; rc = list(rect.exterior.coords)
+                    e1 = math.dist(rc[0], rc[1]); e2 = math.dist(rc[1], rc[2])
+                    if e1 >= e2:
+                        a, b = rc[0], rc[1]; mid = ((rc[1][0] + rc[2][0]) / 2 - (rc[1][0] - rc[0][0]) / 2, 0)
+                        p0 = ((rc[0][0] + rc[3][0]) / 2, (rc[0][1] + rc[3][1]) / 2); p1 = ((rc[1][0] + rc[2][0]) / 2, (rc[1][1] + rc[2][1]) / 2)
+                    else:
+                        p0 = ((rc[0][0] + rc[1][0]) / 2, (rc[0][1] + rc[1][1]) / 2); p1 = ((rc[2][0] + rc[3][0]) / 2, (rc[2][1] + rc[3][1]) / 2)
+                    platforms.append({"pts": [[round(p0[0], 1), round(p0[1], 1)], [round(p1[0], 1), round(p1[1], 1)]], "closed": True})
+            else:
+                platforms.append({"pts": [[round(x, 1), round(y, 1)] for x, y in shp_simplify(LineString(c), 2.0).coords], "closed": False})
+        elif rw == "station" or tags.get("building") == "train_station":
+            polys = element_polygons(el)
+            if polys:
+                pg = max(polys, key=lambda q: q.area)
+                cpt = pg.centroid
+                rect = pg.minimum_rotated_rectangle; rc = list(rect.exterior.coords)
+                e1 = math.dist(rc[0], rc[1]); e2 = math.dist(rc[1], rc[2])
+                ang = math.atan2(rc[1][1] - rc[0][1], rc[1][0] - rc[0][0]) if e1 >= e2 else math.atan2(rc[2][1] - rc[1][1], rc[2][0] - rc[1][0])
+                stations.append({"name": tags.get("name", ""), "x": round(cpt.x, 1), "y": round(cpt.y, 1), "area": round(pg.area),
+                                 "w": round(max(e1, e2), 1), "d": round(min(e1, e2), 1), "angle": round(ang, 4)})
+    out["rail2"] = {"tracks": tracks, "platforms": platforms, "stations": stations}
+    print("rail2 tracks", len(tracks), "platforms", len(platforms), "stations", len(stations))
+
     # ---- green
     green = []
     for el in raw["green"]:

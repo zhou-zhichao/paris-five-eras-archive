@@ -372,13 +372,40 @@ ob = mesh_from_faces("ROADS", verts, faces, {"birth": roads[:, 5], "death": road
 link(ob, C_ROADS); add_gn(ob, NG_FACE)
 log("roads", len(roads))
 
+import rail_geom
 rail = D["rail"]
-z0 = sample_h(rail[:, 0], rail[:, 1]) + 0.6; z1 = sample_h(rail[:, 2], rail[:, 3]) + 0.6
-z0 = np.where(rail[:, 5] > 0.5, 6.0, z0); z1 = np.where(rail[:, 5] > 0.5, 6.0, z1)
-verts, faces = strips(rail[:, :4], np.full(len(rail), 7.0), np.stack([z0, z1], axis=1))
-ob = mesh_from_faces("RAIL", verts, faces, {"birth": rail[:, 4], "death": np.full(len(rail), 9999.0)}, [MAT_RAIL])
-link(ob, C_ROADS); add_gn(ob, NG_FACE)
-log("rail", len(rail))
+MAT_BALLAST = kits.material("ballast", (0.40, 0.36, 0.31), rough=0.95)
+MAT_RAILS = kits.material("rails", (0.20, 0.20, 0.21), rough=0.6, spec=0.4)
+MAT_VIADUCT = kits.material("viaduct_brick", (0.50, 0.34, 0.26), rough=0.9)
+MAT_EMBANK = kits.material("embankment", (0.30, 0.34, 0.18), rough=0.95)
+MAT_PLATFORM = kits.material("platform", (0.62, 0.60, 0.56), rough=0.9)
+MAT_DECK = kits.material("deck", (0.45, 0.45, 0.45), rough=0.9)
+if rail.shape[1] >= 8:
+    zg0 = sample_h(rail[:, 0], rail[:, 1]).astype(np.float32); zg1 = sample_h(rail[:, 2], rail[:, 3]).astype(np.float32)
+    res = rail_geom.build_tracks(rail, zg0, zg1)
+    if res:
+        verts, faces, mats, births = res
+        ob = mesh_from_faces("RAIL", verts, faces, {"birth": births, "death": np.full(len(faces), 9999.0)},
+                             [MAT_BALLAST, MAT_RAILS, MAT_VIADUCT, MAT_EMBANK, MAT_PLATFORM, MAT_DECK], mats)
+        link(ob, C_ROADS); add_gn(ob, NG_FACE)
+        log("rail", len(rail), "faces", len(faces))
+    if "platforms" in D.files and len(D["platforms"]):
+        pl = D["platforms"]
+        pz0 = sample_h(pl[:, 0], pl[:, 1]).astype(np.float32); pz1 = sample_h(pl[:, 2], pl[:, 3]).astype(np.float32)
+        res = rail_geom.build_platforms(pl, pz0, pz1)
+        if res:
+            verts, faces, mats, births = res
+            ob = mesh_from_faces("PLATFORMS", verts, faces, {"birth": births, "death": np.full(len(faces), 9999.0)},
+                                 [MAT_BALLAST, MAT_RAILS, MAT_VIADUCT, MAT_EMBANK, MAT_PLATFORM, MAT_DECK], mats)
+            link(ob, C_ROADS); add_gn(ob, NG_FACE)
+            log("platforms", len(pl))
+else:
+    z0 = sample_h(rail[:, 0], rail[:, 1]) + 0.6; z1 = sample_h(rail[:, 2], rail[:, 3]) + 0.6
+    z0 = np.where(rail[:, 5] > 0.5, 6.0, z0); z1 = np.where(rail[:, 5] > 0.5, 6.0, z1)
+    verts, faces = strips(rail[:, :4], np.full(len(rail), 7.0), np.stack([z0, z1], axis=1))
+    ob = mesh_from_faces("RAIL", verts, faces, {"birth": rail[:, 4], "death": np.full(len(rail), 9999.0)}, [MAT_RAIL])
+    link(ob, C_ROADS); add_gn(ob, NG_FACE)
+    log("rail (legacy)", len(rail))
 
 walls = D["walls"]
 bm = bmesh.new(); fb, fd = [], []

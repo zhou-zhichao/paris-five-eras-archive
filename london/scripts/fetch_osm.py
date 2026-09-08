@@ -170,6 +170,18 @@ for i, t in enumerate(tiles(OUTER, 6, 4)):
 );
 out geom;
 """
+for i, t in enumerate(tiles(BIG, 3, 2)):
+    QUERIES[f"rail_detail_{i}"] = f"""
+[out:json][timeout:600];
+(
+  way["railway"~"^(rail|light_rail|narrow_gauge)$"]{bbox(t)};
+  way["railway"="platform"]{bbox(t)};
+  node["railway"~"^(station|halt)$"]{bbox(t)};
+  way["railway"="station"]{bbox(t)};
+  way["building"="train_station"]{bbox(t)};
+);
+out geom;
+"""
 for i, t in enumerate(tiles(INNER, 4, 3)):
     QUERIES[f"roads_minor_{i}"] = f"""
 [out:json][timeout:600];
@@ -212,14 +224,17 @@ def main():
         result[name] = fetch(name, q)
         json.dump(result, open(OUT, "w", encoding="utf-8"))
     # merge minor road tiles
-    minor, outer = [], []
+    minor, outer, rail2 = [], [], []
     for k in list(result):
         if k.startswith("roads_minor_"):
             minor.extend(result[k])
         if k.startswith("roads_outer_"):
             outer.extend(result[k])
+        if k.startswith("rail_detail_"):
+            rail2.extend(result[k])
     result["roads_minor"] = minor
     result["roads_outer"] = outer
+    result["rail_detail"] = rail2
     json.dump(result, open(OUT, "w", encoding="utf-8"))
     print("layers:", {k: len(v) for k, v in result.items()})
 
