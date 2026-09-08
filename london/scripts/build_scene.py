@@ -26,16 +26,15 @@ FRAMES = int(arg("--frames", str(timeline.TOTAL_FRAMES)))
 ROAD_W = 0.62      # road strip width multiplier
 WALL_SCALE = 2.0   # city walls exaggerated like the buildings
 TREE_SCALE = 3.9
-LM_SCALE_XY = 1.25   # landmark footprint exaggeration (buildings are drawn 2x)
+LM_SCALE_XY = 1.0    # landmark footprints at true size (the user wants landmarks taller, never wider)
 LM_SCALE_Z = 1.5     # landmarks are raised 1.5x so they read on the map
 
 
-def lm_scale(builder, name):
-    """Per-landmark exaggeration: airports and stadiums are already 300-400 m wide and turned into bright discs
-    when enlarged (Wembley became a 460 m x 212 m saucer in the wide views), so they stay at true size."""
-    if builder == "airport" or builder == "stadium" or "stadium" in name or builder in ("glb:wembley_stadium", "glb:emirates_stadium", "glb:london_stadium"):
+def lm_scale(builder, name, prm=None):
+    """Landmarks keep their true footprint and are raised 1.5x so they read on the map; airports stay flat."""
+    if builder == "airport":
         return (1.0, 1.0, 1.0)
-    return (LM_SCALE_XY, LM_SCALE_XY, LM_SCALE_Z)
+    return (1.0, 1.0, LM_SCALE_Z)
 WATER_Z = 0.5      # water surfaces sit just above the (flat, 0 m) ground of the water cells: no pit, so the shoreline is the polygon edge
 
 # ------------------------------------------------------------------ scene reset
@@ -517,7 +516,7 @@ for entry in history.LANDMARKS:
     hc = h_at(lx, ly)
     LM_PLATEAU[name] = hc
     a = math.radians(rot); ca, sa = math.cos(a), math.sin(a)
-    sxy_ = lm_scale(builder, name)[0]
+    sxy_ = lm_scale(builder, name, prm)[0]
     hw, hd = w * sxy_ / 2 + 14, d * sxy_ / 2 + 14
     dx, dy = GX - lx, GY - ly
     u = dx * ca + dy * sa; v = -dx * sa + dy * ca
@@ -807,7 +806,7 @@ for entry in history.LANDMARKS:
     ob.parent = holder
     ob.matrix_parent_inverse = Matrix.Identity(4)
     ob.matrix_basis = base
-    S = lm_scale(builder, name)
+    S = lm_scale(builder, name, prm)
     animate_holder(holder, birth, death, S)
     n_lm += 1
 log("landmarks placed", n_lm)
