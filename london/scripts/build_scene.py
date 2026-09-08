@@ -190,8 +190,13 @@ def make_growth_group():
     pis = math('MULTIPLY', s.outputs[0], None, default=3.14159265); sn = math('SINE', pis.outputs[0])
     bump = math('MULTIPLY', sn.outputs[0], None, default=0.18)
     onep = math('ADD', bump.outputs[0], None, default=1.0)
-    sz = math('MULTIPLY', s2.outputs[0], onep.outputs[0])
-    sxy = math('MULTIPLY_ADD', s2.outputs[0], None, default=0.55); sxy.inputs[2].default_value = 0.45
+    # shrink-out over the last `dur` years before death (fires, clearances and demolitions no longer pop)
+    rem = math('SUBTRACT', death.outputs["Attribute"], year)
+    so = math('DIVIDE', rem.outputs[0], dur.outputs["Attribute"]); so.use_clamp = True
+    so2 = math('SQRT', so.outputs[0])
+    s2m = math('MINIMUM', s2.outputs[0], so2.outputs[0])
+    sz = math('MULTIPLY', s2m.outputs[0], onep.outputs[0])
+    sxy = math('MULTIPLY_ADD', s2m.outputs[0], None, default=0.55); sxy.inputs[2].default_value = 0.45
     comb = n.new("ShaderNodeCombineXYZ"); l.new(sxy.outputs[0], comb.inputs[0]); l.new(sxy.outputs[0], comb.inputs[1]); l.new(sz.outputs[0], comb.inputs[2])
     vmul = n.new("ShaderNodeVectorMath"); vmul.operation = 'MULTIPLY'
     l.new(scale.outputs["Attribute"], vmul.inputs[0]); l.new(comb.outputs[0], vmul.inputs[1])
@@ -715,10 +720,18 @@ def crossing(x, y, year=None):
         dx, dy = math.cos(a), math.sin(a)
         ends = []
         for s in (1, -1):
-            k = 0
-            while k < 160 and is_water(x + s * dx * k * 5, y + s * dy * k * 5, year):
+            # walk outwards; the bank is the first run of >= 50 m of land (piers, eyots and quays in the water are skipped)
+            k, bank, run = 0, None, 0
+            while k < 200:
+                if is_water(x + s * dx * k * 5, y + s * dy * k * 5, year):
+                    run = 0
+                else:
+                    run += 1
+                    if run >= 10:
+                        bank = k - run + 1
+                        break
                 k += 1
-            ends.append(k * 5)
+            ends.append((bank if bank is not None else k) * 5)
         span = ends[0] + ends[1]
         if best is None or span < best[1]:
             best = (a, span, ends)
@@ -744,6 +757,9 @@ for b in META["bridges"]:
         if not found:
             log("bridge not on water", b["id"]); continue
     ang, span, ends = crossing(x, y, byear)
+    if span < 0.6 * b["length"]:
+        log("bridge span suspicious", b["id"], round(span), "documented", b["length"])
+        span = b["length"]; ends = [span / 2, span / 2]
     # recentre on the span
     cx = x + math.cos(ang) * (ends[0] - ends[1]) / 2; cy = y + math.sin(ang) * (ends[0] - ends[1]) / 2
     variants = [(b["id"], b["birth"], b["death"], None)]

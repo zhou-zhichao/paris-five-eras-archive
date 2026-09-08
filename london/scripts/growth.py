@@ -36,7 +36,7 @@ ERA_NAMES = ["celtic", "roman", "saxon", "medieval", "tudor", "georgian", "victo
 ERA_ID = {n: i for i, n in enumerate(ERA_NAMES)}
 # the reference film exaggerates building size ~2x relative to the map; we do the same
 BUILD_SCALE = 2.0
-SPACING = {k: v * BUILD_SCALE * 0.85 for k, v in {"celtic": 11.0, "roman": 12.0, "saxon": 12.0, "medieval": 7.5, "tudor": 8.0, "georgian": 9.5,
+SPACING = {k: v * BUILD_SCALE * 0.85 for k, v in {"celtic": 11.0, "roman": 12.0, "saxon": 12.0, "medieval": 6.0, "tudor": 6.5, "georgian": 9.5,
            "victorian": 9.5, "interwar": 14.0, "postwar": 20.0, "modern": 22.0, "estate": 60.0, "tower": 70.0}.items()}
 HALF_WIDTH = {"motorway": 20, "trunk": 14, "primary": 11, "secondary": 8.5, "tertiary": 6.5, "residential": 5.0,
               "unclassified": 5.0, "living_street": 4.0, "pedestrian": 3.5, "roman": 5.0, "path": 2.5, "route": 6.5}
@@ -162,8 +162,11 @@ london_mask = mask_of([london_full])
 city_mask = mask_of([history.CITY])
 log("inner area km2", round(inner.area / 1e6, 1))
 
-# landmark footprints -> blocked
+# landmark footprints -> blocked while the landmark stands (houses may exist before it is built and are
+# cleared for it; the site is free again after its demolition)
 blocked_polys = []
+blocked_birth = np.full((NY, NX), 9999.0, dtype=np.float32)
+blocked_death = np.full((NY, NX), -9999.0, dtype=np.float32)
 for name, x, y, rot, b, d, builder, prm in history.LANDMARKS:
     if builder == "airport":
         w, dd = 4200, 1400
@@ -174,9 +177,25 @@ for name, x, y, rot, b, d, builder, prm in history.LANDMARKS:
     a = math.radians(rot)
     ca, sa = math.cos(a), math.sin(a)
     pts = [(x + dx * ca - dy * sa, y + dx * sa + dy * ca) for dx, dy in ((-w / 2, -dd / 2), (w / 2, -dd / 2), (w / 2, dd / 2), (-w / 2, dd / 2))]
-    blocked_polys.append(Polygon(pts))
+    pg = Polygon(pts)
+    blocked_polys.append(pg)
+    m = mask_of([pg])
+    blocked_birth[m] = np.minimum(blocked_birth[m], b)
+    blocked_death[m] = np.maximum(blocked_death[m], d if d < 9000 else 9999.0)
 blocked = mask_of(blocked_polys)
 log("blocked", int(blocked.sum()))
+
+
+def site_free(r, c, year):
+    """Can a house be born at cell (r, c) in `year`?  Returns (ok, cap): cap = year the site is cleared for a landmark."""
+    if not blocked[r, c]:
+        return True, 9999.0
+    b, d = blocked_birth[r, c], blocked_death[r, c]
+    if year < b - 1:
+        return True, b
+    if year > d:
+        return True, 9999.0
+    return False, 9999.0
 
 d_water = ndimage.distance_transform_edt(~water_perm).astype(np.float32)
 # shore band (sand) only around water bodies that are actually drawn (matches build_scene's 15000 m2 filter)
@@ -431,11 +450,44 @@ d_road = ndimage.distance_transform_edt(~road_mask).astype(np.float32) * CELL
 log("road rasters")
 
 # ------------------------------------------------------------------ events (destruction / rebuild)
+def event_duration(ev):
+    """Years over which an event's destruction is spread (instant catastrophes vs slow decline)."""
+    n = ev["name"].lower()
+    if any(k in n for k in ("fire", "burn", "blitz", "bomb", "explosion", "revolt", "ira", "boudica", "boudican", "tooley")):
+        return 0.9
+    if "black death" in n or "contraction" in n:
+        return 60.0
+    if "dissolution" in n:
+        return 12.0
+    if "v-1" in n or "v-2" in n or "flying" in n:
+        return 1.5
+    if ev.get("rebuild"):
+        return max(1.0, float(ev["rebuild"][0]) - float(ev["year"]))      # clearances: spread until rebuilding starts
+    return 10.0
+
+
+def event_wave(ev):
+    """(origin x, origin y, max distance) for fires that spread across their zone; None otherwise."""
+    n = ev["name"].lower()
+    if "fire" not in n and "burn" not in n and "boudica" not in n:
+        return None
+    try:
+        b = ev["poly"].bounds
+    except Exception:
+        return None
+    if "great fire of london" in n:
+        ox, oy = history.ll(-0.0855, 51.5095)          # Pudding Lane
+    else:
+        cpt = ev["poly"].centroid; ox, oy = cpt.x, cpt.y
+    dmax = max(math.hypot(b[0] - ox, b[1] - oy), math.hypot(b[2] - ox, b[1] - oy), math.hypot(b[0] - ox, b[3] - oy), math.hypot(b[2] - ox, b[3] - oy))
+    return (ox, oy, max(dmax, 50.0))
+
+
 EVENTS = []
 for ev in history.EVENTS:
     if ev["fraction"] <= 0:
         continue
-    EVENTS.append({"mask": mask_of([ev["poly"]]), **ev})
+    EVENTS.append({"mask": mask_of([ev["poly"]]), "duration": event_duration(ev), "wave": event_wave(ev), **ev})
 # docks: cells flooded at `water_from` -> buildings die, land returns when filled
 dock_cells = water_from < 9000
 if dock_cells.any():
@@ -547,22 +599,31 @@ def natural_death(e, year, r, c):
     return 9999.0, None
 
 
-def chain(era, year, r, c):
-    """[(era, birth, death)] generations for a building first built in `year` at cell (r, c)."""
+def chain(era, year, r, c, cap=9999.0):
+    """[(era, birth, death)] generations for a building first built in `year` at cell (r, c).
+    `cap`: the site is cleared for a landmark in that year (no later generations)."""
     gens = []
     e, y = era, year
     for _ in range(8):
-        if e is None or y >= 9000:
+        if e is None or y >= 9000 or y >= cap:
             break
         d, nxt = natural_death(e, y, r, c)
         ny = d
+        if d > cap:
+            d = cap + rand.uniform(-1.0, 0.5); nxt = None
         # dated events between y and d
         for ev in EVENTS:
             if ev["year"] <= y + 0.5 or ev["year"] >= d:
                 continue
             if not ev["mask"][r, c] or rand.random() > ev["fraction"]:
                 continue
-            d = ev["year"] + rand.uniform(0, 0.9)
+            if ev.get("wave") is not None:
+                # a fire sweeps across its zone from the point of origin (Pudding Lane for 1666)
+                ox, oy, dmax = ev["wave"]
+                frac = min(1.0, math.hypot(X0 + (c + 0.5) * CELL - ox, Y1 - (r + 0.5) * CELL - oy) / dmax)
+                d = ev["year"] + 0.05 + 0.85 * frac + rand.uniform(0, 0.05)
+            else:
+                d = ev["year"] + rand.uniform(0, ev.get("duration", 0.9))
             if ev["rebuild"]:
                 rs, re, k = ev["rebuild"]
                 ny = rand.uniform(rs, re); nxt = k
@@ -583,8 +644,10 @@ def chain(era, year, r, c):
     return gens
 
 
-def place(x, y, rot, era, year, r, c, target_w):
-    gens = chain(era, year, r, c)
+def place(x, y, rot, era, year, r, c, target_w, cap=9999.0, depth_scale=1.0):
+    gens = chain(era, year, r, c, cap)
+    if not gens:
+        return
     final_death = gens[-1][2]
     occ_death[r, c] = max(occ_death[r, c], final_death)
     for e, b, d in gens:
@@ -594,7 +657,7 @@ def place(x, y, rot, era, year, r, c, target_w):
             sx = BUILD_SCALE
         else:
             sx = float(np.clip(target_w / (fw * BUILD_SCALE), 0.7, 1.6)) * BUILD_SCALE
-        sy = float(rand.uniform(0.9, 1.25)) * BUILD_SCALE
+        sy = float(rand.uniform(0.9, 1.25)) * BUILD_SCALE * depth_scale
         sz = float(rand.uniform(0.9, 1.15)) * BUILD_SCALE
         if e == "tower":
             th = max(tower_info[r, c, 2], 60.0)
@@ -639,36 +702,46 @@ for rd in roads:
                     continue
                 fw, fd, fh = FOOT[era][0]
                 depth = fd * 1.05 * BUILD_SCALE
-                off = hw + depth / 2 + 1.5
-                cx, cy = px + nx_ * off * side, py + ny_ * off * side
-                r1, c1 = cell(cx, cy)
-                r2, c2 = cell(cx + nx_ * depth / 2 * side, cy + ny_ * depth / 2 * side)
-                if water_perm[r1, c1] or water_perm[r2, c2] or park[r1, c1] or forest[r1, c1] or blocked[r1, c1] or blocked[r2, c2]:
-                    continue
                 b_year = year + rand.uniform(-6, 22)
-                if water_hist[r1, c1] and b_year < water_until[r1, c1]:
-                    b_year = water_until[r1, c1] + rand.uniform(1, 15)
-                if occ_death[r1, c1] > b_year or occ_death[r2, c2] > b_year:
+                placed = False
+                for dscale in (1.0, 0.6):
+                    dep = depth * dscale
+                    off = hw + dep / 2 + 1.5
+                    cx, cy = px + nx_ * off * side, py + ny_ * off * side
+                    r1, c1 = cell(cx, cy)
+                    r2, c2 = cell(cx + nx_ * dep / 2 * side, cy + ny_ * dep / 2 * side)
+                    if water_perm[r1, c1] or water_perm[r2, c2] or park[r1, c1] or forest[r1, c1]:
+                        break
+                    ok1, cap1 = site_free(r1, c1, b_year); ok2, cap2 = site_free(r2, c2, b_year)
+                    if not (ok1 and ok2):
+                        break
+                    if water_hist[r1, c1] and b_year < water_until[r1, c1]:
+                        b_year = water_until[r1, c1] + rand.uniform(1, 15)
+                    if occ_death[r1, c1] > b_year or occ_death[r2, c2] > b_year:
+                        break
+                    if road_mask[r2, c2] and road_year[r2, c2] < b_year:
+                        continue          # the back of the house would sit on another street: try a shallower house
+                    occ_death[r2, c2] = max(occ_death[r2, c2], 9999.0)
+                    rot = ang + (math.pi if side > 0 else 0.0)
+                    place(cx, cy, rot, era, b_year, r1, c1, sp * 0.92, cap=min(cap1, cap2), depth_scale=dscale)
+                    placed = True
+                    break
+                if not placed:
                     continue
-                if road_mask[r2, c2] and road_year[r2, c2] < b_year:
-                    continue
-                occ_death[r2, c2] = max(occ_death[r2, c2], 9999.0)
-                rot = ang + (math.pi if side > 0 else 0.0)
-                place(cx, cy, rot, era, b_year, r1, c1, sp * 0.92)
                 placed_by_class[cls] = placed_by_class.get(cls, 0) + 1
             s += sp * rand.uniform(1.0, 1.18)
 log("street buildings", len(B["x"]), placed_by_class)
 
 # fill-mode A: dense historic core - block interiors get houses too
 core_fill = 0
-step = 14
+step = 11
 gx = np.arange(-4000 + step / 2, 4000, step)
 gy = np.arange(-3000 + step / 2, 3000, step)
 GX, GY = np.meshgrid(gx, gy)
 GX = GX.ravel() + rand.uniform(-step * 0.4, step * 0.4, GX.size)
 GY = GY.ravel() + rand.uniform(-step * 0.4, step * 0.4, GY.size)
 rr, cc = cells(GX, GY)
-ok = core_mask[rr, cc] & (~water_any[rr, cc]) & (~park[rr, cc]) & (~blocked[rr, cc]) & (birth[rr, cc] < 1700) & (d_road[rr, cc] > 15)
+ok = core_mask[rr, cc] & (~water_any[rr, cc]) & (~park[rr, cc]) & (birth[rr, cc] < 1700) & (d_road[rr, cc] > 9)
 idx = np.nonzero(ok)[0]
 rand.shuffle(idx)
 for i in idx:
@@ -677,12 +750,15 @@ for i in idx:
     year = float(birth[r, c]) + rand.uniform(0, 25)
     if occ_death[r, c] > year:
         continue
+    okb, cap = site_free(r, c, year)
+    if not okb:
+        continue
     if year < 43 and rand.random() < 0.6:
         continue
     era = kit_for(year, r, c)
     sp = SPACING[era]
     ang = CARDO if roman_mask[r, c] and year < 450 else rand.uniform(0, math.pi)
-    place(x, y, ang, era, year, r, c, sp * 0.9)
+    place(x, y, ang, era, year, r, c, sp * 0.9, cap=cap)
     core_fill += 1
 log("core fill buildings", core_fill)
 
@@ -703,7 +779,7 @@ GX, GY = np.meshgrid(gx, gy)
 GX = GX.ravel() + rand.uniform(-step * 0.35, step * 0.35, GX.size)
 GY = GY.ravel() + rand.uniform(-step * 0.35, step * 0.35, GY.size)
 rr, cc = cells(GX, GY)
-ok = (~water_any[rr, cc]) & (~park[rr, cc]) & (~forest[rr, cc]) & (~blocked[rr, cc]) & (d_road[rr, cc] > 40) & (birth[rr, cc] >= 1800) & (birth[rr, cc] < 9000)
+ok = (~water_any[rr, cc]) & (~park[rr, cc]) & (~forest[rr, cc]) & (d_road[rr, cc] > 40) & (birth[rr, cc] >= 1800) & (birth[rr, cc] < 9000)
 ok &= rand.random(GX.size) < density[rr, cc] * 0.8
 idx = np.nonzero(ok)[0]
 log("fill candidates", len(idx))
@@ -714,13 +790,16 @@ for j, i in enumerate(idx):
     year = float(birth[r, c]) + rand.uniform(0, 30)
     if occ_death[r, c] > year:
         continue
+    okb, cap = site_free(r, c, year)
+    if not okb:
+        continue
     seg = major_segs[int(near[j])]
     (ax, ay), (bx, by) = seg.coords[0], seg.coords[-1]
     ang = math.atan2(by - ay, bx - ax) + rand.uniform(-0.12, 0.12)
     era = kit_for(year, r, c)
     if era in ("georgian", "medieval", "tudor"):
         era = "victorian"
-    place(x, y, ang, era, year, r, c, SPACING[era] * 0.9)
+    place(x, y, ang, era, year, r, c, SPACING[era] * 0.9, cap=cap)
     fill_count += 1
 log("fill buildings", fill_count)
 

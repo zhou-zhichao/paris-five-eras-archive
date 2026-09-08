@@ -17,8 +17,8 @@ KEYS = [
     (34, 700), (38, 886),                       # Saxon Lundenwic, Alfred re-occupies the walls
     (44, 1066), (50, 1200), (56, 1300),         # Norman / medieval growth to the 1300 peak
     (60, 1400), (64, 1500), (70, 1600),         # plague, Tudor London
-    (76, 1660), (80, 1666), (82, 1675), (86, 1700),   # Great Fire and rebuilding
-    (94, 1760), (102, 1800),                    # Georgian West End and East End
+    (76, 1660), (79, 1665.5), (80, 1666.0), (82.5, 1666.95), (86.5, 1682), (90, 1700),   # Great Fire sweeps the City, then 14 years of rebuilding
+    (97, 1760), (104, 1800),                    # Georgian West End and East End
     (112, 1840), (120, 1860), (128, 1880), (136, 1900),  # Victorian explosion
     (142, 1914), (146, 1930), (150, 1945),      # Edwardian, interwar suburbia, Blitz
     (156, 1965), (160, 1985), (164, 2005), (166, 2025), (170, 2025),
@@ -29,7 +29,7 @@ for _t in range(0, 172, 2):
     i = bisect.bisect_right([k[0] for k in KEYS], _t) - 1
     i = min(max(i, 0), len(KEYS) - 2)
     (t0, y0), (t1, y1) = KEYS[i], KEYS[i + 1]
-    SAMPLES.append((_t, round(y0 + (y1 - y0) * (_t - t0) / (t1 - t0))))
+    SAMPLES.append((_t, round(y0 + (y1 - y0) * (_t - t0) / (t1 - t0), 2)))
 
 # era label, first year it is shown
 ERAS = [
