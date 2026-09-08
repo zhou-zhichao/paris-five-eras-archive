@@ -617,20 +617,17 @@ def chain(era, year, r, c, cap=9999.0):
                 continue
             if not ev["mask"][r, c] or rand.random() > ev["fraction"]:
                 continue
-            if ev.get("wave") is not None:
-                # a fire sweeps across its zone from the point of origin (Pudding Lane for 1666)
-                ox, oy, dmax = ev["wave"]
-                frac = min(1.0, math.hypot(X0 + (c + 0.5) * CELL - ox, Y1 - (r + 0.5) * CELL - oy) / dmax)
-                d = ev["year"] + 0.05 + 0.85 * frac + rand.uniform(0, 0.05)
-            else:
-                d = ev["year"] + rand.uniform(0, ev.get("duration", 0.9))
+            # no catastrophe simulation: an event only says that the houses here get replaced, one by one,
+            # at random moments of the rebuilding period, each new house taking the old one's place at once
             if ev["rebuild"]:
                 rs, re, k = ev["rebuild"]
-                ny = rand.uniform(rs, re); nxt = k
+                d = rand.uniform(max(rs, ev["year"]), max(re, rs + 1)); ny = d; nxt = k
             elif ev["resettle"]:
+                d = ev["year"] + rand.uniform(0, 30.0)          # slow abandonment
                 rs, re = ev["resettle"]
                 ny = rand.uniform(rs, re); nxt = kit_for(ny, r, c)
             else:
+                d = ev["year"] + rand.uniform(0, ev.get("duration", 10.0))
                 nxt = None
             break
         gens.append((e, y, d))

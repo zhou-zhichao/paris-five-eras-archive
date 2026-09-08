@@ -461,6 +461,26 @@ wet = WATER_R[ri, ci]
 late = R["water_late"][ri, ci] if "water_late" in R.files else np.zeros_like(wet)
 GZ = np.where(wet & ~late, -6.0, GZ)
 GZ = np.where(late, np.minimum(GZ, WATER_Z - 1.1), GZ)     # shallow: invisible until the dock / lake appears
+# level the terrain under large landmarks (stadium pitches, site decks, platforms would otherwise z-fight
+# with a sloping ground); the landmark itself is placed a little above the plateau
+LM_PLATEAU = {}
+for entry in history.LANDMARKS:
+    name, lx, ly, rot, birth, death, builder, prm = entry
+    if builder is None:
+        continue
+    w = prm.get("w", 2 * prm.get("a", 0)); d = prm.get("d", 2 * prm.get("b", 0))
+    if builder == "airport":
+        continue
+    if max(w, d) < 60:
+        continue
+    hc = h_at(lx, ly)
+    LM_PLATEAU[name] = hc
+    a = math.radians(rot); ca, sa = math.cos(a), math.sin(a)
+    hw, hd = w * LM_SCALE_XY / 2 + 14, d * LM_SCALE_XY / 2 + 14
+    dx, dy = GX - lx, GY - ly
+    u = dx * ca + dy * sa; v = -dx * sa + dy * ca
+    sel = (np.abs(u) <= hw) & (np.abs(v) <= hd) & ~wet
+    GZ[sel] = hc - 0.3
 nyv, nxv = GX.shape
 verts = np.stack([GX.ravel(), GY.ravel(), GZ.ravel()], axis=1)
 ii, jj = np.meshgrid(np.arange(nxv - 1), np.arange(nyv - 1))
@@ -669,18 +689,48 @@ if ob is not None:
 
 
 # ------------------------------------------------------------------ animated holders (landmarks, bridges)
-def animate_holder(holder, birth, death, S):
+VIEW_W = [(0, 1000), (6, 1150), (12, 1500), (22, 2300), (34, 3200), (46, 4000), (60, 5000), (72, 6200), (84, 7600),
+          (98, 9000), (110, 10500), (124, 13000), (141, 18000), (155, 26000), (166, 34000), (180, 36000)]
+
+
+def view_width(frame):
+    t = (frame - 1) / FPS
+    ts = [k[0] for k in VIEW_W]; vs = [k[1] for k in VIEW_W]
+    return float(np.exp(np.interp(t, ts, np.log(vs))))
+
+
+def lm_zoom(frame):
+    """Landmarks grow as the camera pulls back so they stay readable on the wide map (like the reference film)."""
+    W = view_width(frame)
+    fxy = float(np.clip((W / 9000.0) ** 0.7, 1.0, 2.2))
+    fz = float(np.clip((W / 9000.0) ** 0.35, 1.0, 1.5))
+    return fxy, fz
+
+
+def animate_holder(holder, birth, death, S, zoom=True):
     fb = frame_of_year(birth); fdth = frame_of_year(death) if death < 9000 else None
     pop = 1.6 * FPS
+    def Sat(f):
+        if not zoom:
+            return S
+        fxy, fz = lm_zoom(f)
+        return (S[0] * fxy, S[1] * fxy, S[2] * fz)
     holder.scale = (0.001, 0.001, 0.001); holder.keyframe_insert("scale", frame=fb - 1)
     holder.hide_render = True; holder.keyframe_insert("hide_render", frame=fb - 1)
     holder.hide_render = False; holder.keyframe_insert("hide_render", frame=fb)
-    holder.scale = S; holder.keyframe_insert("scale", frame=fb + pop)
+    holder.scale = Sat(fb + pop); holder.keyframe_insert("scale", frame=fb + pop)
+    last = (fdth - 12) if fdth else FRAMES + 1
+    f = fb + pop + 150
+    while zoom and f < last - 30:
+        holder.scale = Sat(f); holder.keyframe_insert("scale", frame=f)
+        f += 150
     if fdth:
-        holder.scale = S; holder.keyframe_insert("scale", frame=fdth - 12)
+        holder.scale = Sat(fdth - 12); holder.keyframe_insert("scale", frame=fdth - 12)
         holder.scale = (0.001, 0.001, 0.001); holder.keyframe_insert("scale", frame=fdth)
         holder.hide_render = False; holder.keyframe_insert("hide_render", frame=fdth - 1)
         holder.hide_render = True; holder.keyframe_insert("hide_render", frame=fdth)
+    else:
+        holder.scale = Sat(FRAMES + 1); holder.keyframe_insert("scale", frame=FRAMES + 1)
     for fc in holder.animation_data.action.fcurves:
         for kp in fc.keyframe_points:
             kp.interpolation = 'BEZIER' if fc.data_path == "scale" else 'CONSTANT'
@@ -697,7 +747,7 @@ for entry in history.LANDMARKS:
         ob, base = landmarks.build_landmark(entry, C_LM)
     except Exception as e:  # noqa
         log("landmark failed", name, builder, e); continue
-    z = h_at(x, y)
+    z = LM_PLATEAU.get(name, h_at(x, y)) + 0.35
     holder = bpy.data.objects.new("LMH_" + name, None)
     link(holder, C_LM)
     holder.location = (x, y, z)
@@ -780,15 +830,13 @@ for b in META["bridges"]:
         holder.rotation_euler = (0, 0, ang)
         ob.parent = holder
         ob.matrix_parent_inverse = Matrix.Identity(4)
-        animate_holder(holder, vb, vd, (fit, 1.25, LM_SCALE_Z))
+        animate_holder(holder, vb, vd, (fit, 1.25, LM_SCALE_Z), zoom=False)
         n_br += 1
 log("bridges placed", n_br)
 
 # ------------------------------------------------------------------ camera
 # The Thames runs west-east: the camera sits south-south-west of the City and looks north-north-east,
 # pulling back from Roman Londinium to the whole Greater London basin.
-VIEW_W = [(0, 1000), (6, 1150), (12, 1500), (22, 2300), (34, 3200), (46, 4000), (60, 5000), (72, 6200), (84, 7600),
-          (98, 9000), (110, 10500), (124, 13000), (141, 18000), (155, 26000), (166, 34000), (180, 36000)]
 PITCH = [(0, 29), (30, 33), (60, 39), (100, 45), (140, 50), (180, 53)]
 TARGET = [(0, 700, -150), (40, 500, -100), (90, 200, 200), (166, -300, 900), (180, -300, 900)]
 HEADING = math.radians(68)
