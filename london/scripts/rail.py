@@ -28,9 +28,9 @@ def build_rail(geo, history, cell, river, water_perm, CENTER, rand, log, PIECE=6
             return None
         pt = Point(x, y)
         best = None
-        for i in rtree.query(pt.buffer(400)):
+        for i in rtree.query(pt.buffer(800)):
             g, yr, nm = history.RAIL_LINES[int(i)]
-            if g.distance(pt) <= 400 and (best is None or yr < best):
+            if g.distance(pt) <= 800 and (best is None or yr < best):
                 best = yr
         return best
 

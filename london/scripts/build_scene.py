@@ -788,6 +788,59 @@ for entry in history.LANDMARKS:
 log("landmarks placed", n_lm)
 
 
+# ------------------------------------------------------------------ railway stations (OSM station nodes / buildings)
+def procedural_station(kind):
+    bm = bmesh.new()
+    if kind == "b":
+        for sy in (-1, 1):
+            kits._box(bm, 0, sy * 6, 0, 200, 4, 1.1, mat=0); kits._box(bm, 0, sy * 6, 3.5, 200, 5, 0.4, mat=1)
+        kits._box(bm, 0, 0, 0, 40, 22, 6, mat=2)
+    else:
+        for sy in (-1, 1):
+            kits._box(bm, 0, sy * 5, 0, 120, 3.6, 1.1, mat=0); kits._box(bm, 0, sy * 5, 3.2, 90, 4.2, 0.4, mat=1)
+        kits._box(bm, -30, 9, 0, 16, 8, 6, mat=2); kits._gable_roof(bm, -30, 9, 6, 16, 8, 3, mat=1)
+        kits._box(bm, 20, 0, 4.5, 3, 12, 0.5, mat=1)
+    me = bpy.data.meshes.new("station_" + kind); bm.to_mesh(me); bm.free()
+    me.materials.append(MAT_PLATFORM); me.materials.append(kits.material("canopy", (0.30, 0.31, 0.34))); me.materials.append(kits.material("stn_brick", (0.55, 0.36, 0.28)))
+    return me
+
+
+_station_mesh = {}
+
+
+def station_mesh(kind):
+    if kind not in _station_mesh:
+        gid = "suburban_station_" + kind
+        if os.path.exists(os.path.join(landmarks.GLB_DIR, gid + ".glb")):
+            ob, h = landmarks.load_glb(gid, {})
+            _station_mesh[kind] = ob.data
+            bpy.data.objects.remove(ob, do_unlink=True)
+        else:
+            _station_mesh[kind] = procedural_station(kind)
+    return _station_mesh[kind]
+
+
+lm_positions = [(e[1], e[2]) for e in history.LANDMARKS if e[6] and (e[6] == "station" or "station" in e[0] or "kings_cross" in e[0] or "st_pancras" in e[0] or "paddington" in e[0])]
+n_st = 0
+for st in META.get("stations", []):
+    x, y = st["x"], st["y"]
+    if abs(x) > 25000 or abs(y) > 19000:
+        continue
+    if any(math.hypot(x - lx, y - ly) < 260 for lx, ly in lm_positions):
+        continue                    # a modelled terminus already stands here
+    kind = "b" if (st.get("area", 0) > 4000 or st.get("w", 0) > 120 or st["year"] > 1925) else "a"
+    ob = bpy.data.objects.new("ST_" + (st.get("name") or "station"), station_mesh(kind))
+    link(ob, C_LM)
+    holder = bpy.data.objects.new("STH_" + (st.get("name") or "station"), None)
+    link(holder, C_LM)
+    holder.location = (x, y, h_at(x, y) + 0.35)
+    holder.rotation_euler = (0, 0, st["angle"])
+    ob.parent = holder; ob.matrix_parent_inverse = Matrix.Identity(4)
+    animate_holder(holder, st["year"], 9999, (LM_SCALE_XY, LM_SCALE_XY, LM_SCALE_Z))
+    n_st += 1
+log("stations placed", n_st)
+
+
 # ------------------------------------------------------------------ bridges: one clean deck per historical bridge
 def crossing(x, y, year=None):
     """(angle, span) of the shortest land-to-land line through the water at (x, y) in `year`."""
