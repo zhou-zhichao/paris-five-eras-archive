@@ -955,7 +955,7 @@ meta = {
 json.dump(meta, open(os.path.join(CACHE, "scene_meta.json"), "w"))
 
 # ------------------------------------------------------------------ baked rasters for shaders (10 m)
-shore_land = (255 * np.clip(1.0 - (d_water_draw * CELL - 2.0) / 16.0, 0, 1)).astype(np.uint8)
+shore_land = (255 * np.clip(1.0 - (d_water_draw * CELL - 2.0) / 9.0, 0, 1)).astype(np.uint8)   # narrower rim
 d_land = ndimage.distance_transform_edt(water_perm).astype(np.float32) * CELL
 water_depth = (255 * np.clip(d_land / 60.0, 0, 1)).astype(np.uint8)
 park_year_img = Image.new("L", (NX, NY), 0)
@@ -982,7 +982,8 @@ water_dil = ndimage.binary_dilation(water_perm, iterations=1)
 # almost level until they appear, and they get no sandy shore band
 water_late = ndimage.binary_dilation(water_perm & (water_from < 9000), iterations=1)
 np.savez_compressed(os.path.join(CACHE, "rasters.npz"), shore_land=shore_land, water_depth=water_depth,
-                    park_year=park_year_r, kind=kind_r, water=water_dil, water_late=water_late, birth=birth.astype(np.float16))
+                    park_year=park_year_r, kind=kind_r, water=water_dil, water_late=water_late, birth=birth.astype(np.float16),
+                    water_until=water_until.astype(np.float16))
 log("rasters saved")
 
 np.savez_compressed(os.path.join(CACHE, "scene_data.npz"),

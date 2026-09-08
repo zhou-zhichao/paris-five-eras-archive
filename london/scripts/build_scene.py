@@ -65,9 +65,15 @@ def h_at(x, y):
     return float(sample_h(np.array([x]), np.array([y]))[0])
 
 
-def is_water(x, y):
+WATER_UNTIL = R["water_until"].astype(np.float32) if "water_until" in R.files else None
+
+
+def is_water(x, y, year=None):
+    """water at (x, y) today, or in `year` (historic foreshore / lost rivers count while they exist)."""
     c = int(np.clip((x - RX0) / CELL, 0, NX - 1)); r = int(np.clip((RY1 - y) / CELL, 0, NY - 1))
-    return bool(WATER_R[r, c])
+    if WATER_R[r, c]:
+        return True
+    return bool(year is not None and WATER_UNTIL is not None and WATER_UNTIL[r, c] > year)
 
 
 def frame_of_year(y):
@@ -405,14 +411,14 @@ log("walls", len(fb))
 # ------------------------------------------------------------------ baked images
 def image_from_gray(name, arr, channels=None):
     h, w = (arr if arr is not None else channels[0]).shape
-    img = bpy.data.images.new(name, w, h, alpha=False, float_buffer=False)
+    img = bpy.data.images.new(name, w, h, alpha=True, float_buffer=False)
     rgba = np.empty((h, w, 4), dtype=np.float32)
+    rgba[..., 3] = 1.0
     if channels is None:
         rgba[..., 0] = rgba[..., 1] = rgba[..., 2] = arr[::-1] / 255.0
     else:
         for i, ch in enumerate(channels):
             rgba[..., i] = ch[::-1] / 255.0
-    rgba[..., 3] = 1.0
     img.pixels.foreach_set(rgba.ravel())
     img.filepath_raw = os.path.join(CACHE, name + ".png")
     img.file_format = 'PNG'
@@ -421,7 +427,10 @@ def image_from_gray(name, arr, channels=None):
     return img
 
 
-IMG_TERRAIN = image_from_gray("bake_terrain", None, channels=[R["shore_land"], R["park_year"], R["kind"]])
+WATER_LATE_R = R["water_late"] if "water_late" in R.files else np.zeros_like(WATER_R)
+IMG_TERRAIN = image_from_gray("bake_terrain", None, channels=[R["shore_land"], R["park_year"], R["kind"],
+                                                             (255 * (WATER_R & ~WATER_LATE_R)).astype(np.uint8)])
+IMG_TERRAIN.alpha_mode = 'CHANNEL_PACKED'
 IMG_WATER = image_from_gray("bake_water", R["water_depth"])
 log("images baked")
 
@@ -509,9 +518,13 @@ marshfac = nt.nodes.new("ShaderNodeMath"); marshfac.operation = 'MULTIPLY'
 nt.links.new(ismarsh.outputs[0], marshfac.inputs[0]); nt.links.new(notborn.outputs[0], marshfac.inputs[1])
 marshmix = nt.nodes.new("ShaderNodeMixRGB"); marshmix.inputs[2].default_value = (0.13, 0.19, 0.10, 1)
 nt.links.new(marshfac.outputs[0], marshmix.inputs[0]); nt.links.new(mixpark.outputs[0], marshmix.inputs[1])
-sand = nt.nodes.new("ShaderNodeMixRGB"); sand.inputs[2].default_value = (0.42, 0.38, 0.22, 1)
+sand = nt.nodes.new("ShaderNodeMixRGB"); sand.inputs[2].default_value = (0.28, 0.27, 0.16, 1)   # low-contrast shore rim
 nt.links.new(sep_lin.outputs[0], sand.inputs[0]); nt.links.new(marshmix.outputs[0], sand.inputs[1])
-nt.links.new(sand.outputs[0], bsdf.inputs["Base Color"])
+# the terrain pit under the river / lakes takes the water colour, so the water-plane / bank intersection line
+# has no contrast and cannot crawl or flicker as the camera moves
+under = nt.nodes.new("ShaderNodeMixRGB"); under.inputs[2].default_value = (0.08, 0.24, 0.28, 1)
+nt.links.new(tex.outputs["Alpha"], under.inputs[0]); nt.links.new(sand.outputs[0], under.inputs[1])
+nt.links.new(under.outputs[0], bsdf.inputs["Base Color"])
 keyframe_year(year_node.outputs[0], ".default_value")
 
 ob = mesh_from_faces("TERRAIN", verts, faces, None, [MAT_GROUND])
@@ -539,11 +552,14 @@ nt = MAT_WATER.node_tree; nt.nodes.clear()
 bsdf = nt.nodes.new("ShaderNodeBsdfPrincipled"); outn = nt.nodes.new("ShaderNodeOutputMaterial")
 nt.links.new(bsdf.outputs[0], outn.inputs[0])
 # matte water: the sun glint sweeping over a glossy river as the camera moves is what read as "flicker"
-bsdf.inputs["Roughness"].default_value = 0.85; bsdf.inputs["Specular IOR Level"].default_value = 0.04
+bsdf.inputs["Roughness"].default_value = 0.9; bsdf.inputs["Specular IOR Level"].default_value = 0.0
 tex = add_map_nodes(nt, IMG_WATER)
 wc = nt.nodes.new("ShaderNodeMixRGB"); wc.inputs[1].default_value = (0.26, 0.46, 0.44, 1); wc.inputs[2].default_value = (0.08, 0.24, 0.28, 1)
 nt.links.new(tex.outputs["Color"], wc.inputs[0])
-nt.links.new(wc.outputs[0], bsdf.inputs["Base Color"])
+# mostly emissive: the sun / sky shading (and its per-frame shadow noise along the banks) barely touches the water
+dim = nt.nodes.new("ShaderNodeMixRGB"); dim.blend_type = 'MULTIPLY'; dim.inputs[0].default_value = 1.0; dim.inputs[2].default_value = (0.25, 0.25, 0.25, 1)
+nt.links.new(wc.outputs[0], dim.inputs[1]); nt.links.new(dim.outputs[0], bsdf.inputs["Base Color"])
+nt.links.new(wc.outputs[0], bsdf.inputs["Emission Color"]); bsdf.inputs["Emission Strength"].default_value = 0.55
 
 
 def fill_polygon_mesh(bm, outer, holes, z=0.0, zfn=None):
@@ -691,8 +707,8 @@ log("landmarks placed", n_lm)
 
 
 # ------------------------------------------------------------------ bridges: one clean deck per historical bridge
-def crossing(x, y):
-    """(angle, span) of the shortest land-to-land line through the water at (x, y)."""
+def crossing(x, y, year=None):
+    """(angle, span) of the shortest land-to-land line through the water at (x, y) in `year`."""
     best = None
     for deg in range(0, 180, 4):
         a = math.radians(deg)
@@ -700,7 +716,7 @@ def crossing(x, y):
         ends = []
         for s in (1, -1):
             k = 0
-            while k < 120 and is_water(x + s * dx * k * 5, y + s * dy * k * 5):
+            while k < 160 and is_water(x + s * dx * k * 5, y + s * dy * k * 5, year):
                 k += 1
             ends.append(k * 5)
         span = ends[0] + ends[1]
@@ -714,19 +730,20 @@ for b in META["bridges"]:
     x, y = b["x"], b["y"]
     if abs(x) > 25000 or abs(y) > 19000:
         continue
-    if not is_water(x, y):
+    byear = b["birth"] + 1
+    if not is_water(x, y, byear):
         # nudge onto the water if the mid-span coordinate is slightly off
         found = False
         for r_ in (20, 40, 60, 90, 120, 160, 200, 250):
             for deg in range(0, 360, 30):
                 xx, yy = x + r_ * math.cos(math.radians(deg)), y + r_ * math.sin(math.radians(deg))
-                if is_water(xx, yy):
+                if is_water(xx, yy, byear):
                     x, y = xx, yy; found = True; break
             if found:
                 break
         if not found:
             log("bridge not on water", b["id"]); continue
-    ang, span, ends = crossing(x, y)
+    ang, span, ends = crossing(x, y, byear)
     # recentre on the span
     cx = x + math.cos(ang) * (ends[0] - ends[1]) / 2; cy = y + math.sin(ang) * (ends[0] - ends[1]) / 2
     variants = [(b["id"], b["birth"], b["death"], None)]
@@ -819,6 +836,12 @@ scene.view_settings.look = 'AgX - Medium High Contrast'
 scene.view_settings.exposure = -0.45
 scene.render.image_settings.file_format = 'PNG'; scene.render.image_settings.color_mode = 'RGB'
 scene.render.use_persistent_data = True
+# anti-shimmer: a wider reconstruction filter and velocity-based motion blur smooth the sub-pixel crawl of hard
+# contours (lake shorelines, roof edges) while the camera drifts
+scene.render.filter_size = 2.5
+scene.render.use_motion_blur = True
+scene.render.motion_blur_shutter = 0.5
+scene.eevee.motion_blur_steps = 1
 
 scene.use_nodes = True
 ct = scene.node_tree; ct.nodes.clear()
