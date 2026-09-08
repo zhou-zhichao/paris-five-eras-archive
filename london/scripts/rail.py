@@ -28,9 +28,9 @@ def build_rail(geo, history, cell, river, water_perm, CENTER, rand, log, PIECE=6
             return None
         pt = Point(x, y)
         best = None
-        for i in rtree.query(pt.buffer(800)):
+        for i in rtree.query(pt.buffer(300)):
             g, yr, nm = history.RAIL_LINES[int(i)]
-            if g.distance(pt) <= 800 and (best is None or yr < best):
+            if g.distance(pt) <= 300 and (best is None or yr < best):
                 best = yr
         return best
 
@@ -51,12 +51,12 @@ def build_rail(geo, history, cell, river, water_perm, CENTER, rand, log, PIECE=6
         if light:
             yr = 1987 + max(0.0, d - 5000) / 1000 * 1.5 + rand.uniform(0, 4)
         else:
-            yr = min(1836 + d / 1000 * 2.2, 1905) + rand.uniform(0, 8)
+            yr = min(1848 + d / 1000 * 1.8, 1905) + rand.uniform(0, 10)      # suburban lines follow the main lines
             ry = researched_year(mid.x, mid.y)
             if ry is not None:
                 yr = min(yr, ry + rand.uniform(0, 3))
         if siding:
-            yr += rand.uniform(3, 15)
+            yr += rand.uniform(8, 30)
         way_year.append(yr)
         for i in range(n):
             a, b = pts[i], pts[i + 1]
