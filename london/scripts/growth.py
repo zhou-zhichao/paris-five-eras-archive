@@ -617,7 +617,14 @@ for rd in roads:
         rd["pieces"].append((a.x, a.y, b.x, b.y, y))
         rank = CLASS_RANK.get(rd["cls"], 9)
         w_ = ROAD_WIDTH.get(rd["cls"], 6)
+        wf = float(water_from[r, c])          # the cell is dug into a dock / reservoir in this year
+        wu = float(water_until[r, c])         # ... and filled in again in this year (0 = never)
         for gi_, (gb, gd) in enumerate(road_generations(mx, my, r, c, rd, rank, y)):
+            if wf < 9000:
+                if gb >= wf - 2.0 and (wu <= 0 or gb < wu):
+                    continue                  # laid out while the site is under water: no such street
+                if gb < wf - 2.0:
+                    gd = min(gd, wf - 2.0)    # the street ends when the basin is dug
             road_pieces.append((a.x, a.y, b.x, b.y, w_, gb - (12.0 if gi_ else 0.0), gd, over_water, rank))
 road_pieces = np.array(road_pieces, dtype=np.float32)
 log("road pieces", len(road_pieces))
