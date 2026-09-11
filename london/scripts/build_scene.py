@@ -570,6 +570,15 @@ late = R["water_late"][ri, ci] if "water_late" in R.files else np.zeros_like(wet
 # cells is already ~0 m (heightmap damped to 0 at the water); the opaque water surface floats 0.5 m above it and
 # its outline is the smooth OSM polygon.
 GZ = np.where(wet, np.minimum(GZ, 0.0), GZ)
+
+
+def h_mesh(x, y):
+    """Height of the rendered TERRAIN surface (bilinear on the 25 m node grid GZ, wet cells clamped): what
+    terrain-following strips must use, h_at() samples the 50 m heightmap and is up to ~1 m off on the valley sides."""
+    fx = (x - RX0) / GRID; fy = (y - RY0) / GRID
+    i = int(np.clip(fx, 0, GZ.shape[1] - 2)); j = int(np.clip(fy, 0, GZ.shape[0] - 2))
+    u = fx - i; v = fy - j
+    return float((1 - u) * (1 - v) * GZ[j, i] + u * (1 - v) * GZ[j, i + 1] + (1 - u) * v * GZ[j + 1, i] + u * v * GZ[j + 1, i + 1])
 # level the terrain under large landmarks (stadium pitches, site decks, platforms would otherwise z-fight
 # with a sloping ground); the landmark itself is placed a little above the plateau
 LM_PLATEAU = {}
@@ -651,8 +660,11 @@ notborn = nt.nodes.new("ShaderNodeMath"); notborn.operation = 'SUBTRACT'; notbor
 nt.links.new(born.outputs[0], notborn.inputs[1])
 marshfac = nt.nodes.new("ShaderNodeMath"); marshfac.operation = 'MULTIPLY'
 nt.links.new(ismarsh.outputs[0], marshfac.inputs[0]); nt.links.new(notborn.outputs[0], marshfac.inputs[1])
-marshmix = nt.nodes.new("ShaderNodeMixRGB"); marshmix.inputs[2].default_value = (0.13, 0.19, 0.10, 1)
-nt.links.new(marshfac.outputs[0], marshmix.inputs[0]); nt.links.new(mixpark.outputs[0], marshmix.inputs[1])
+# marsh is only a hint (the 10 m mask edge is blocky at close range): a mild, slightly bluer green at 45 %
+marshsoft = nt.nodes.new("ShaderNodeMath"); marshsoft.operation = 'MULTIPLY'; marshsoft.inputs[1].default_value = 0.45
+nt.links.new(marshfac.outputs[0], marshsoft.inputs[0])
+marshmix = nt.nodes.new("ShaderNodeMixRGB"); marshmix.inputs[2].default_value = (0.16, 0.22, 0.12, 1)
+nt.links.new(marshsoft.outputs[0], marshmix.inputs[0]); nt.links.new(mixpark.outputs[0], marshmix.inputs[1])
 sand = nt.nodes.new("ShaderNodeMixRGB"); sand.inputs[2].default_value = (0.28, 0.27, 0.16, 1)   # low-contrast shore rim
 nt.links.new(sep_lin.outputs[0], sand.inputs[0]); nt.links.new(marshmix.outputs[0], sand.inputs[1])
 # the terrain pit under the river / lakes takes the water colour, so the water-plane / bank intersection line
@@ -807,7 +819,11 @@ if cpieces:
     link(ob, C_ENV); add_gn(ob, NG_FACE)
 
 # historic water (lost rivers, pre-embankment foreshore, filled docks): terrain-following surfaces with a lifetime
-items = [(w["tris"], w["birth"], w["death"]) for w in META["water_event_tris"] if w["death"] < 9000]
+STREAM_NAMES = {w["name"] for w in history.WATER_EVENTS if "line" in w}
+def _is_stream(w):
+    return bool(w.get("stream")) or w["name"] in STREAM_NAMES
+items = [(w["tris"], w["birth"], w["death"]) for w in META["water_event_tris"] if w["death"] < 9000 and not _is_stream(w)]
+stream_items = [(w["tris"], w["birth"], w["death"]) for w in META["water_event_tris"] if w["death"] < 9000 and _is_stream(w)]
 
 
 def _hist_z(x, y):
@@ -821,6 +837,12 @@ ob = tri_mesh("WATER_HIST", items, zfn=_hist_z, max_edge=40.0)
 if ob is not None:
     link(ob, C_ENV); add_gn(ob, NG_FACE)
     log("historic water faces", len(ob.data.polygons))
+# lost rivers hug the terrain everywhere (the ground under them is never lowered, see growth.py stream_mask);
+# where they run out over the river's own cells the strip simply dips under the Thames surface
+ob = tri_mesh("STREAMS", stream_items, zfn=lambda x, y: h_mesh(x, y) + 0.25, max_edge=15.0)
+if ob is not None:
+    link(ob, C_ENV); add_gn(ob, NG_FACE)
+    log("stream faces", len(ob.data.polygons))
 
 
 # ------------------------------------------------------------------ animated holders (landmarks, bridges)
@@ -924,6 +946,15 @@ def lm_zoom(frame):
 def animate_holder(holder, birth, death, S, zoom=True):
     fb = frame_of_year(birth); fdth = frame_of_year(death) if death < 9000 else None
     pop = 1.6 * FPS
+    if fdth is not None:
+        # short-lived landmarks: the pop must finish before the death key, otherwise the Sat(fb + pop) key landed
+        # AFTER the death key and the model stayed at full size for the rest of the film (Crystal Palace in
+        # Hyde Park, 1851-52, stood there until 2025)
+        if fdth - fb < 0.8 * FPS:
+            holder.scale = (0.001, 0.001, 0.001); holder.hide_render = True
+            holder.keyframe_insert("scale", frame=1); holder.keyframe_insert("hide_render", frame=1)
+            return                               # < 0.8 s of film: not worth showing at all
+        pop = min(pop, (fdth - fb) * 0.4)
     def Sat(f):
         if not zoom:
             return S

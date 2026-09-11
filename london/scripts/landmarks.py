@@ -404,6 +404,57 @@ BUILDERS = {
 _glb_cache = {}
 
 
+def _pt_in_poly(x, y, pts):
+    inside = False
+    n = len(pts)
+    for i in range(n):
+        x0, y0 = pts[i]; x1, y1 = pts[(i + 1) % n]
+        if (y0 > y) != (y1 > y):
+            xi = x0 + (y - y0) * (x1 - x0) / (y1 - y0)
+            if xi > x:
+                inside = not inside
+    return inside
+
+
+def delift_coplanar(me, step=0.08):
+    """Stacked-box models (three.js) leave two upward faces at exactly the same height wherever a roof deck, attic
+    or parapet block ends level with the block under it; with different colours they z-fight and the roof blinks
+    between the two colours as the camera moves (Harrods, 129 of 265 models).  The smaller face of every such pair
+    is lifted by `step` metres together with its vertices (the box grows by 8 cm: invisible)."""
+    verts = me.vertices
+    bins = {}
+    for pg in me.polygons:
+        if pg.normal.z < 0.98 or pg.area < 1.0:
+            continue
+        pts = [(verts[i].co.x, verts[i].co.y) for i in pg.vertices]
+        z = round(pg.center.z * 20) / 20
+        xs = [q[0] for q in pts]; ys = [q[1] for q in pts]
+        bins.setdefault(z, []).append((min(xs), max(xs), min(ys), max(ys), pts, pg.area, pg.index, (pg.center.x, pg.center.y)))
+    lift = {}          # vertex index -> metres
+    n_pairs = 0
+    for z, fs in bins.items():
+        if len(fs) < 2:
+            continue
+        fs.sort(key=lambda f: f[0])
+        for i in range(len(fs)):
+            a = fs[i]
+            for j in range(i + 1, len(fs)):
+                b = fs[j]
+                if b[0] > a[1]:
+                    break
+                if b[3] < a[2] or b[2] > a[3]:
+                    continue
+                small, big = (a, b) if a[5] <= b[5] else (b, a)
+                if not _pt_in_poly(small[7][0], small[7][1], big[4]):
+                    continue
+                n_pairs += 1
+                for vi in me.polygons[small[6]].vertices:
+                    lift[vi] = max(lift.get(vi, 0.0), step)
+    for vi, dz in lift.items():
+        verts[vi].co.z += dz
+    return n_pairs
+
+
 def load_glb(key, p):
     """Import a true-scale GLB (metres, y-up in the file; Blender converts to z-up) with its vertex colours.
     The model is centred on x/y with its base at z=0; long axis x, front towards -y."""
@@ -427,6 +478,7 @@ def load_glb(key, p):
         for pg in me.polygons:
             pg.material_index = 0
             pg.use_smooth = False
+        delift_coplanar(me); delift_coplanar(me)      # a second pass clears the few pairs the first lift creates
         xs = [v.co.x for v in me.vertices]; ys = [v.co.y for v in me.vertices]; zs = [v.co.z for v in me.vertices]
         cx, cy, z0 = (max(xs) + min(xs)) / 2, (max(ys) + min(ys)) / 2, min(zs)
         for v in me.vertices:

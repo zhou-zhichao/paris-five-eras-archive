@@ -133,10 +133,13 @@ for w in history.WATER_EVENTS:
             water_until[m] = np.maximum(water_until[m], w["death"])
     gg = g.simplify(2)
     for part in (gg.geoms if isinstance(gg, MultiPolygon) else [gg]):
-        water_events_json.append({"name": w["name"], "birth": w["birth"], "death": w["death"],
+        water_events_json.append({"name": w["name"], "birth": w["birth"], "death": w["death"], "stream": "line" in w,
                                   "outer": [[round(x, 1), round(y, 1)] for x, y in part.exterior.coords],
                                   "holes": [[[round(x, 1), round(y, 1)] for x, y in h.coords] for h in part.interiors]})
 water_hist = (water_until > 0) & ~water_perm            # historic water that is land today
+# lost rivers (line events) are drawn as terrain-following strips: the ground under them must NOT be lowered
+# into a channel (a 5 m stream over a 25 m-grid dip looked like a strip floating in the air)
+stream_mask = mask_of([w["line"].buffer(w["width"] / 2 + 12) for w in history.WATER_EVENTS if "line" in w]) if any("line" in w for w in history.WATER_EVENTS) else np.zeros((NY, NX), dtype=bool)
 water_any = water_perm | water_hist
 log("water masks", int(water_perm.sum()), "historic", int(water_hist.sum()))
 late_mask = water_perm & (water_from < 9000)
@@ -1154,6 +1157,7 @@ _tj = np.clip(((Y1 - (hr_ + 0.5) * CELL) - Y0) / TSTEP, 0, hmap.shape[0] - 1).as
 water_tidal = np.zeros_like(water_hist)
 _low = hmap[_tj, _ti] < 2.5
 water_tidal[hr_[_low], hc_[_low]] = True
+water_tidal &= ~stream_mask
 # river / lake / dock / tidal-foreshore bed: a smooth profile from 0 m at the shoreline down to -4.3 m where the
 # water is 60 m or more from land.  A flat bed 0.5 m under the surface z-fought with it in the wide views, and a
 # stepped pit on the 25 m grid drew saw-tooth banks; the ramp has neither problem.
@@ -1243,7 +1247,7 @@ for we in water_events_json:
         tris = []
         for part in parts:
             tris += tri_json(part)
-        water_event_tris.append({"name": we["name"], "birth": we["birth"], "death": we["death"], "tris": tris})
+        water_event_tris.append({"name": we["name"], "birth": we["birth"], "death": we["death"], "stream": bool(we.get("stream")), "tris": tris})
     except Exception as ex:  # noqa
         print("[growth] water event tri failed", we["name"], ex)
 log("water triangulated", sum(len(w["tris"]) for w in water_tris), sum(len(w["tris"]) for w in water_event_tris))
