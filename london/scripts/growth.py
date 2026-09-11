@@ -402,7 +402,7 @@ for name, vx, vy, vr, ys, ye in history.VILLAGES:
 log("villages applied", len(history.VILLAGES))
 
 # historic water delays building; docks dug later are handled as events
-delay = water_hist & (birth < water_until)
+delay = water_hist & (birth < water_until) & ~(water_from < 9000)      # not for docks dug later: built up before the dig
 birth[delay] = np.maximum(birth[delay], water_until[delay] + 2.0)
 
 # density (probability that a candidate building is kept)
@@ -1171,7 +1171,10 @@ _tj = np.clip(((Y1 - (hr_ + 0.5) * CELL) - Y0) / TSTEP, 0, hmap.shape[0] - 1).as
 water_tidal = np.zeros_like(water_hist)
 _low = hmap[_tj, _ti] < 2.5
 water_tidal[hr_[_low], hc_[_low]] = True
-water_tidal &= ~stream_mask
+# ... but only where the cell is stream-only: inside a dock / foreshore polygon the basin floor must still drop
+# (a stream crossing the Western Dock site left a ridge of ground poking through the basin water)
+poly_hist_mask = mask_of([w["poly"] for w in history.WATER_EVENTS if "line" not in w]) if any("line" not in w for w in history.WATER_EVENTS) else np.zeros((NY, NX), dtype=bool)
+water_tidal &= ~(stream_mask & ~poly_hist_mask)
 # river / lake / dock / tidal-foreshore bed: a smooth profile from 0 m at the shoreline down to -4.3 m where the
 # water is 60 m or more from land.  A flat bed 0.5 m under the surface z-fought with it in the wide views, and a
 # stepped pit on the 25 m grid drew saw-tooth banks; the ramp has neither problem.
