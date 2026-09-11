@@ -31,6 +31,11 @@ MIN_FRAME_BYTES=50000
 
 export LD_LIBRARY_PATH="$RUN_DIR/syslibs:${LD_LIBRARY_PATH:-}"
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# The L4 nodes have no cgroup device isolation and Blender's headless EGL always initialises the first GPU it can
+# open, so without this every worker of every task on a node piles onto GPU 0.  The shim hides the other
+# /dev/nvidiaN nodes so each task really uses the GPU Slurm gave it (tools/gpufilter.c, 2026-09-10).
+export LD_PRELOAD=${GPU_FILTER_SO:-/data/users/zhichaoz/blender-render/tools/gpufilter.so}
+export GPU_ALLOW=${CUDA_VISIBLE_DEVICES:-0}
 export EGL_PLATFORM=surfaceless
 export OMP_NUM_THREADS=6
 export PARIS_RES_X=${PARIS_RES_X:-2560}

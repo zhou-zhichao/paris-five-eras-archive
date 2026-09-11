@@ -24,12 +24,14 @@ from mathutils import Vector, Matrix
 ERA_NAMES = ["celtic", "roman", "saxon", "medieval", "tudor", "georgian", "victorian", "interwar", "postwar", "modern", "estate", "tower"]
 VARIANTS = 10
 
-# Lighter, warmer palette (2026-09-08): with dark slate roofs and mid-brown walls the Victorian city read as a
-# grey mush against the olive ground in the wide views; walls now sit around 0.75, roofs around 0.45 like Paris.
-STOCK = [(0.78, 0.70, 0.52), (0.74, 0.66, 0.48), (0.82, 0.74, 0.56), (0.70, 0.63, 0.46)]     # London yellow stock brick
-REDBRICK = [(0.68, 0.38, 0.28), (0.62, 0.34, 0.25), (0.72, 0.42, 0.31), (0.58, 0.32, 0.24)]
-STUCCO = [(0.90, 0.87, 0.78), (0.86, 0.84, 0.76)]
-SLATE = [(0.46, 0.45, 0.45), (0.41, 0.40, 0.41), (0.50, 0.49, 0.48)]                          # warm grey Welsh slate
+# Palette history: 2026-09-08 lightened (walls ~0.75, roofs ~0.45) because dark slate + mid-brown walls read as a
+# grey mush against the olive ground in the wide views; 2026-09-10 the user found the post-1666 city "pure white",
+# so the Georgian / Victorian mass is back to sooty yellow stock brick (~0.55) and mid-dark slate (~0.38), with the
+# red-brick share raised and cream stucco kept to one variant in five (only the Regency West End was stuccoed).
+STOCK = [(0.58, 0.50, 0.36), (0.52, 0.46, 0.34), (0.64, 0.56, 0.41), (0.46, 0.41, 0.31)]     # weathered London stock brick
+REDBRICK = [(0.62, 0.34, 0.25), (0.56, 0.31, 0.23), (0.68, 0.38, 0.28), (0.52, 0.29, 0.22)]
+STUCCO = [(0.86, 0.83, 0.72), (0.80, 0.77, 0.66)]                                             # cream, not white
+SLATE = [(0.38, 0.37, 0.37), (0.34, 0.33, 0.34), (0.42, 0.41, 0.40)]                          # Welsh slate
 TILE = [(0.66, 0.34, 0.22), (0.58, 0.36, 0.26), (0.72, 0.40, 0.26)]                           # clay tiles (interwar suburbia)
 PALETTE = {
     "celtic": ([(0.55, 0.42, 0.28), (0.60, 0.48, 0.32), (0.50, 0.40, 0.26)],
@@ -42,8 +44,8 @@ PALETTE = {
                  [(0.62, 0.30, 0.18), (0.50, 0.24, 0.14), (0.66, 0.36, 0.20), (0.42, 0.26, 0.16), (0.58, 0.28, 0.16)]),
     "tudor": ([(0.84, 0.78, 0.62), (0.80, 0.72, 0.56), (0.62, 0.36, 0.26), (0.86, 0.80, 0.66)],
               [(0.58, 0.28, 0.18), (0.36, 0.30, 0.26), (0.52, 0.26, 0.16), (0.40, 0.34, 0.30)]),
-    "georgian": (STOCK[:3] + STUCCO[:1] + REDBRICK[1:2], SLATE + [(0.44, 0.44, 0.46)]),
-    "victorian": (STOCK[:2] + REDBRICK[:2] + STUCCO[1:2] + STOCK[2:3], SLATE + [(0.60, 0.32, 0.22)]),
+    "georgian": (REDBRICK[:2] + STOCK[:2] + STUCCO[:1], SLATE + [(0.50, 0.30, 0.20)]),   # 1666 rebuild in red brick, stock later
+    "victorian": (STOCK[:3] + REDBRICK[:2] + STUCCO[1:2], SLATE + [(0.52, 0.30, 0.22)]),
     "interwar": ([(0.72, 0.42, 0.32), (0.88, 0.84, 0.74), (0.66, 0.40, 0.30), (0.84, 0.78, 0.66)], TILE + [(0.54, 0.36, 0.26)]),
     "postwar": ([(0.78, 0.76, 0.72), (0.64, 0.48, 0.38), (0.82, 0.80, 0.76), (0.70, 0.56, 0.44)],
                 [(0.52, 0.50, 0.46), (0.48, 0.47, 0.45), (0.56, 0.54, 0.50)]),

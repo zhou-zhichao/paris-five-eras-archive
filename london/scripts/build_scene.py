@@ -322,27 +322,91 @@ def point_cloud(name, xyz, attrs):
     return bpy.data.objects.new(name, me)
 
 
+# ------------------------------------------------------------------ time chunks
+# EEVEE syncs every instance of every visible object each frame (~2.9 M instances: 18 s per frame on an L4,
+# of which trees ~8 s and buildings ~6 s) even though on average only 26 % of the buildings are born and
+# 71 % of the trees alive.  Points are therefore split into chunks by birth (buildings) / death (trees) and
+# a chunk is render-hidden while all its instances are unborn or all are dead: same picture, far less sync.
+CHUNK = int(arg("--chunk", "40000"))       # points per chunk object
+TREE_THIN = float(arg("--tree-thin", "0"))  # 0..1: fraction of trees dropped inside dense woodland (survivors grow)
+
+
+def frame_of_year(y):
+    return int(math.floor(timeline.t_of_year(float(y)) * FPS)) + 1
+
+
+def hide_outside(ob, f_on, f_off):
+    """Keyframe hide_render / hide_viewport so `ob` only exists for frames f_on <= f < f_off (constant steps)."""
+    f_on = max(int(f_on), 1)
+    for path in ("hide_render", "hide_viewport"):
+        if f_on > 1:
+            setattr(ob, path, True); ob.keyframe_insert(path, frame=1)
+        setattr(ob, path, False); ob.keyframe_insert(path, frame=f_on)
+        if f_off is not None and f_off <= FRAMES:
+            setattr(ob, path, True); ob.keyframe_insert(path, frame=int(f_off))
+    for fc in ob.animation_data.action.fcurves:
+        if not fc.data_path.startswith("hide_"):
+            continue      # the Year f-curve of the GN modifier shares this action and must stay LINEAR
+        for kp in fc.keyframe_points:
+            kp.interpolation = 'CONSTANT'
+
+
+def chunks_by(order_key, idx):
+    """Split point indices into consecutive chunks of ~CHUNK points sorted by order_key (birth / death)."""
+    idx = idx[np.argsort(order_key[idx], kind="stable")]
+    n = max(1, int(round(len(idx) / CHUNK)))
+    return [c for c in np.array_split(idx, n) if len(c)]
+
+
 b_era = D["b_era"]
 sel_all = np.arange(len(b_era))[::SUB]
+n_city_objects = 0
 for era_i, era in enumerate(kits.ERA_NAMES):
-    idx = sel_all[b_era[sel_all] == era_i]
-    if len(idx) == 0:
+    idx_era = sel_all[b_era[sel_all] == era_i]
+    if len(idx_era) == 0:
         continue
-    xyz = np.stack([D["b_x"][idx], D["b_y"][idx], np.maximum(D["b_z"][idx], WATER_Z + 0.25)], axis=1)   # never below the water surface
-    scale = np.stack([D["b_sx"][idx], D["b_sy"][idx], D["b_sz"][idx]], axis=1)
-    ob = point_cloud(f"CITY_{era}", xyz, {
-        "birth": ('FLOAT', D["b_birth"][idx]), "death": ('FLOAT', D["b_death"][idx]), "dur": ('FLOAT', D["b_dur"][idx]),
-        "rot": ('FLOAT', D["b_rot"][idx]), "scale": ('FLOAT_VECTOR', scale), "kit": ('INT', D["b_kit"][idx])})
-    link(ob, C_CITY)
-    add_gn(ob, NG_GROWTH, bpy.data.collections[f"KIT_{era}"])
-    log("city", era, len(idx))
+    for ci, idx in enumerate(chunks_by(D["b_birth"], idx_era)):
+        xyz = np.stack([D["b_x"][idx], D["b_y"][idx], np.maximum(D["b_z"][idx], WATER_Z + 0.25)], axis=1)   # never below the water surface
+        scale = np.stack([D["b_sx"][idx], D["b_sy"][idx], D["b_sz"][idx]], axis=1)
+        ob = point_cloud(f"CITY_{era}_{ci:02d}", xyz, {
+            "birth": ('FLOAT', D["b_birth"][idx]), "death": ('FLOAT', D["b_death"][idx]), "dur": ('FLOAT', D["b_dur"][idx]),
+            "rot": ('FLOAT', D["b_rot"][idx]), "scale": ('FLOAT_VECTOR', scale), "kit": ('INT', D["b_kit"][idx])})
+        link(ob, C_CITY)
+        add_gn(ob, NG_GROWTH, bpy.data.collections[f"KIT_{era}"])
+        f_on = frame_of_year(D["b_birth"][idx].min()) - 1
+        dmax = float(D["b_death"][idx].max())
+        hide_outside(ob, f_on, frame_of_year(dmax) + 1 if dmax < 3000 else None)
+        n_city_objects += 1
+    log("city", era, len(idx_era))
+log("city chunk objects", n_city_objects)
 
 idx = np.arange(len(D["t_x"]))[::SUB]
-xyz = np.stack([D["t_x"][idx], D["t_y"][idx], np.maximum(D["t_z"][idx], WATER_Z + 0.25)], axis=1)
-ob = point_cloud("TREES", xyz, {"death": ('FLOAT', D["t_death"][idx]), "rot": ('FLOAT', D["t_rot"][idx]),
-                                "s": ('FLOAT', D["t_s"][idx] * TREE_SCALE), "kind": ('INT', D["t_kind"][idx])})
-link(ob, C_TREES)
-add_gn(ob, NG_TREE, bpy.data.collections["KIT_trees"])
+t_s = D["t_s"] * TREE_SCALE
+if TREE_THIN > 0:
+    # woodland interiors: with a median spacing of 15 m and ~34 m canopies the trees overlap 1.6x, so every
+    # other tree in dense cells can go and the survivors grow to keep the canopy closed
+    cell = 50.0
+    cx = np.floor((D["t_x"][idx] - D["t_x"].min()) / cell).astype(np.int64)
+    cy = np.floor((D["t_y"][idx] - D["t_y"].min()) / cell).astype(np.int64)
+    key = cx * (cy.max() + 1) + cy
+    _, inv, cnt = np.unique(key, return_inverse=True, return_counts=True)
+    dense = cnt[inv] >= 6
+    rng = np.random.default_rng(7)
+    drop = dense & (rng.random(len(idx)) < TREE_THIN)
+    t_s = t_s.copy(); t_s[idx[dense & ~drop]] *= (1.0 / math.sqrt(1.0 - TREE_THIN)) ** 0.7
+    log("trees thinned", int(drop.sum()), "of", len(idx), f"(dense {int(dense.sum())})")
+    idx = idx[~drop]
+n_tree_objects = 0
+for ci, ids in enumerate(chunks_by(D["t_death"], idx)):
+    xyz = np.stack([D["t_x"][ids], D["t_y"][ids], np.maximum(D["t_z"][ids], WATER_Z + 0.25)], axis=1)
+    ob = point_cloud(f"TREES_{ci:02d}", xyz, {"death": ('FLOAT', D["t_death"][ids]), "rot": ('FLOAT', D["t_rot"][ids]),
+                                              "s": ('FLOAT', t_s[ids]), "kind": ('INT', D["t_kind"][ids])})
+    link(ob, C_TREES)
+    add_gn(ob, NG_TREE, bpy.data.collections["KIT_trees"])
+    dmax = float(D["t_death"][ids].max())
+    hide_outside(ob, 1, frame_of_year(dmax) + 1 if dmax < 3000 else None)
+    n_tree_objects += 1
+log("trees", len(idx), "chunk objects", n_tree_objects)
 log("trees", len(idx))
 
 # ------------------------------------------------------------------ roads / rail / walls
@@ -1008,7 +1072,7 @@ scene.render.use_persistent_data = True
 # anti-shimmer: a wider reconstruction filter and velocity-based motion blur smooth the sub-pixel crawl of hard
 # contours (lake shorelines, roof edges) while the camera drifts
 scene.render.filter_size = 2.5
-scene.render.use_motion_blur = True
+scene.render.use_motion_blur = False   # 40 % of the frame time on an L4, invisible at this camera speed, and it smeared the first frame a resumed worker rendered
 scene.render.motion_blur_shutter = 0.5
 scene.eevee.motion_blur_steps = 1
 
