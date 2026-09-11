@@ -151,6 +151,10 @@ def water_at(r, c, year):
     """Is cell (r, c) under water in `year` (permanent river/lakes, docks once dug, historic water until reclaimed)?"""
     if water_perm[r, c]:
         return (not late_mask[r, c]) or water_from[r, c] <= year
+    if water_hist[r, c] and water_from[r, c] < 9000:
+        # a dock / reservoir dug later and filled in again: the site is ordinary land before the dig (Wapping was
+        # built up before the London Docks were cut through it) and again after the fill
+        return water_from[r, c] <= year < water_until[r, c]
     return water_hist[r, c] and water_until[r, c] > year
 
 
@@ -610,7 +614,8 @@ for rd in roads:
         elif in_roman and y < 450:
             y = max(y, 50.0)
         if water_hist[r, c] and y < water_until[r, c]:
-            y = water_until[r, c] + 1
+            if not (water_from[r, c] < 9000 and y < water_from[r, c] - 2):     # streets may precede a later dock
+                y = water_until[r, c] + 1
         if y >= 9000:
             continue
         y -= 12.0   # streets slightly precede their houses
