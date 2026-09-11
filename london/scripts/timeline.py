@@ -7,25 +7,31 @@ pacing gives the eras with the most visible change the most screen time.
 import bisect
 
 FPS = 30
-DURATION = 180.0
+DURATION = 196.0
 TOTAL_FRAMES = int(DURATION * FPS)
 
 # (t seconds, year) key points
 KEYS = [
-    (0, -60), (6, 20), (9, 43),                 # pre-Roman landscape, then Londinium is founded
-    (14, 70), (18, 130), (24, 300), (28, 420),  # Roman rise, wall, decline and abandonment
-    (34, 700), (38, 886),                       # Saxon Lundenwic, Alfred re-occupies the walls
-    (44, 1066), (50, 1200), (56, 1300),         # Norman / medieval growth to the 1300 peak
-    (60, 1400), (64, 1500), (70, 1600),         # plague, Tudor London
-    (76, 1660), (80, 1666), (83, 1680), (86, 1700),   # the City rebuilt in brick after 1666, house by house
-    (94, 1760), (102, 1800),                    # Georgian West End and East End
-    (112, 1840), (120, 1860), (128, 1880), (136, 1900),  # Victorian explosion
-    (142, 1914), (146, 1930), (150, 1945),      # Edwardian, interwar suburbia, Blitz
-    (156, 1965), (160, 1985), (164, 2005), (166, 2025), (170, 2025),
+    (0, -60), (6, 20), (9, 43),                          # pre-Roman landscape, then Londinium is founded
+    (14, 70), (18, 130), (21, 150), (29, 230),           # Roman rise; 150-230 = the forum / amphitheatre close-up
+    (33, 300), (36, 420),                                # decline and abandonment
+    (41, 700), (45, 886),                                # Saxon Lundenwic, Alfred re-occupies the walls
+    (50, 1066), (55, 1200), (60, 1300), (63, 1400),      # Norman / medieval growth to the 1300 peak
+    (65, 1420), (73, 1530),                              # late-medieval City close-up (Old St Paul's, the bridge, the Tower)
+    (76, 1600), (81, 1666), (85, 1700),                  # Tudor / Stuart London
+    (87, 1712), (95, 1740),                              # Wren's St Paul's close-up
+    (100, 1760), (106, 1800), (112, 1840),               # Georgian West End and East End
+    (118, 1862), (126, 1880),                            # Westminster close-up (the new Palace and clock tower)
+    (130, 1896), (138, 1912),                            # Tower Bridge close-up
+    (142, 1930), (147, 1945),                            # Edwardian, interwar suburbia, Blitz
+    (153, 1965), (159, 1985), (166, 2005),               # postwar
+    (174, 2016), (182, 2025),                            # skyline close-up (City cluster and the Shard)
+    (186, 2025),
 ]
+END_T = 182.0          # the year counter reaches 2025 here and holds
 
 SAMPLES = []
-for _t in range(0, 172, 2):
+for _t in range(0, int(DURATION) + 2, 2):
     i = bisect.bisect_right([k[0] for k in KEYS], _t) - 1
     i = min(max(i, 0), len(KEYS) - 2)
     (t0, y0), (t1, y1) = KEYS[i], KEYS[i + 1]
@@ -68,8 +74,8 @@ _PY = [p[0] for p in POPULATION]
 _PP = [p[1] for p in POPULATION]
 
 # outro: the city dissolves into a wireframe grid and fades out
-OUTRO_START = 168.5   # seconds: year counter frozen at 2025, grid wipe begins
-FADE_OUT_START = 175.0
+OUTRO_START = 184.5   # seconds: year counter frozen at 2025, grid wipe begins
+FADE_OUT_START = 191.0
 FADE_IN_END = 2.5
 
 
@@ -94,7 +100,7 @@ def t_of_year(year):
     if year <= _YS[0]:
         return float(_TS[0])
     if year >= _YS[-1]:
-        return 166.0
+        return END_T
     i = bisect.bisect_right(_YS, year) - 1
     while i < len(_YS) - 1 and _YS[i + 1] == _YS[i]:
         i += 1
@@ -146,6 +152,6 @@ def years_per_second(t):
 
 
 if __name__ == "__main__":
-    for t in range(0, 181, 10):
+    for t in range(0, int(DURATION) + 1, 10):
         y = year_at(t)
         print(t, round(y), era_at(y), population_label(y))

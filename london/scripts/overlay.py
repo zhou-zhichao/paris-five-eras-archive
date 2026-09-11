@@ -122,7 +122,16 @@ def post(src, dst, text, m1, m2):
     return s + f"[{dst}]"
 
 
-inputs = ["-f", "concat", "-safe", "0", "-i", lst,
+# a complete frame_%05d.png sequence goes in as an image2 sequence at exactly a.fps: the concat demuxer with
+# per-entry durations rounds 1/30 s to its 1/25 s timebase, and the fps filter then duplicated one frame and
+# dropped the next every 6 frames (429 such pairs in the v25 film).  Stepped previews keep the concat list.
+contiguous = step == 1 and frames == list(range(frames[0], frames[0] + len(frames)))
+if contiguous:
+    seq = os.path.join(a.frames, "frame_%05d.png")
+    src_in = ["-framerate", str(a.fps), "-start_number", str(frames[0]), "-i", seq]
+else:
+    src_in = ["-f", "concat", "-safe", "0", "-i", lst]
+inputs = src_in + [
           "-loop", "1", "-framerate", str(a.fps), "-i", os.path.join(a.frames, "mask_focus.png"),
           "-loop", "1", "-framerate", str(a.fps), "-i", os.path.join(a.frames, "mask_vignette.png")]
 if use_outro:

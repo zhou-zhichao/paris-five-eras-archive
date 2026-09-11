@@ -25,7 +25,7 @@ export PARIS_RES_Y=${PARIS_RES_Y:-1440}
 
 n=$(find "$FRAMES_DIR" -maxdepth 1 -name 'frame_*.png' -size +50k | wc -l)
 echo "FRAME_COUNT=$n"
-if [[ "$n" -lt ${EXPECTED_FRAMES:-5400} ]]; then echo "not all frames rendered" >&2; exit 1; fi
+if [[ "$n" -lt ${EXPECTED_FRAMES:-5880} ]]; then echo "not all frames rendered" >&2; exit 1; fi
 
 if [[ ! -s "$FRAMES_DIR/blueprint.png" ]]; then
     "$BLENDER_ROOT/blender" --background "$RUN_DIR/input/${BLEND_NAME:-london_packed.blend}" -noaudio \

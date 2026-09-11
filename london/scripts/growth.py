@@ -681,9 +681,16 @@ def event_wave(ev):
     return (ox, oy, max(dmax, 50.0))
 
 
+# catastrophes (fires, the Blitz, bombs, sacks) are NOT shown: with 3-10 s of film per century every burnt house
+# blinked out and regrew within a second and the whole City shimmered.  The city still recolours through the
+# ordinary generation chain (natural_death) and through the railway / street clearances, which are slow rebuilds.
+CATASTROPHE = ("fire", "burn", "blitz", "bomb", "explosion", "revolt", "ira", "boudica", "boudican", "tooley",
+               "viking", "sack", "v-1", "v-2", "flying", "plague", "crystal palace")
 EVENTS = []
 for ev in history.EVENTS:
     if ev["fraction"] <= 0:
+        continue
+    if any(k in ev["name"].lower() for k in CATASTROPHE):
         continue
     EVENTS.append({"mask": mask_of([ev["poly"]]), "duration": event_duration(ev), "wave": event_wave(ev), **ev})
 # docks: cells flooded at `water_from` -> buildings die, land returns when filled
@@ -797,6 +804,9 @@ def natural_death(e, year, r, c):
     return 9999.0, None
 
 
+MIN_LIFE_S = 3.0   # seconds of film a building generation must last to be placed at all
+
+
 def chain(era, year, r, c, cap=9999.0):
     """[(era, birth, death)] generations for a building first built in `year` at cell (r, c).
     `cap`: the site is cleared for a landmark in that year (no later generations)."""
@@ -836,6 +846,15 @@ def chain(era, year, r, c, cap=9999.0):
             if b2 < 9000:
                 ny = max(b2, d + 1.0) + rand.uniform(0, 25.0)
                 nxt = kit_for(ny, r, c)
+        # no house may exist for less than MIN_LIFE_S of film: such a generation is skipped, the next kit is
+        # built straight away on its birth year (or the site simply stays empty until it is really settled)
+        if d < 9000 and timeline.t_of_year(d) - timeline.t_of_year(y) < MIN_LIFE_S:
+            if nxt is None:
+                break
+            if nxt == "estate" and not (estate_mask[r, c] > 0):
+                nxt = "postwar"
+            e = nxt
+            continue
         gens.append((e, y, d))
         if nxt is None or d >= 9000:
             break

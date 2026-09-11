@@ -731,10 +731,25 @@ def dock_birth(outer):
     return best if best is not None else 1830
 
 
-def tri_mesh(name, items, zfn=None, z=0.0):
+def split_tri(t, max_edge):
+    """Midpoint-split a triangle until every edge is <= max_edge (long slivers across a valley floated in the air
+    when only their corners were dropped onto the terrain)."""
+    (x0, y0), (x1, y1), (x2, y2) = t
+    e = [math.hypot(x1 - x0, y1 - y0), math.hypot(x2 - x1, y2 - y1), math.hypot(x0 - x2, y0 - y2)]
+    if max(e) <= max_edge:
+        return [t]
+    k = int(np.argmax(e))
+    a, b, c = t[k], t[(k + 1) % 3], t[(k + 2) % 3]
+    m = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
+    return split_tri([a, m, c], max_edge) + split_tri([m, b, c], max_edge)
+
+
+def tri_mesh(name, items, zfn=None, z=0.0, max_edge=None):
     """items: list of (tris [[x,y]x3], birth, death) -> mesh object with per-face birth/death."""
     verts, faces, fb, fd = [], [], [], []
     for tris, b, d in items:
+        if max_edge:
+            tris = [st for t in tris for st in split_tri([tuple(pt) for pt in t], max_edge)]
         for t in tris:
             i0 = len(verts)
             for x, y in t:
@@ -797,21 +812,100 @@ def _hist_z(x, y):
     return h + 0.3                     # streams on the slopes follow the terrain
 
 
-ob = tri_mesh("WATER_HIST", items, zfn=_hist_z)
+ob = tri_mesh("WATER_HIST", items, zfn=_hist_z, max_edge=40.0)
 if ob is not None:
     link(ob, C_ENV); add_gn(ob, NG_FACE)
     log("historic water faces", len(ob.data.polygons))
 
 
 # ------------------------------------------------------------------ animated holders (landmarks, bridges)
-VIEW_W = [(0, 1000), (6, 1150), (12, 1500), (22, 2300), (34, 3200), (46, 4000), (60, 5000), (72, 6200), (84, 7600),
-          (98, 9000), (110, 10500), (124, 13000), (141, 18000), (155, 26000), (166, 34000), (180, 36000)]
+# camera framing is authored by YEAR (converted through the timeline) so re-pacing the film never breaks it
+VIEW_W_Y = [(-60, 1000), (20, 1150), (60, 1500), (270, 2300), (700, 3200), (1110, 4000), (1400, 5000), (1620, 6200),
+            (1690, 7600), (1795, 9000), (1832, 10500), (1870, 13000), (1912, 18000), (1960, 26000), (2025, 34000)]
+PITCH_Y = [(-60, 29), (500, 33), (1400, 39), (1790, 45), (1910, 50), (2025, 53)]
+TARGET_Y = [(-60, 700, -150), (950, 500, -100), (1730, 200, 200), (2025, -300, 900)]
+HEADING = math.radians(68)
+LENS = 35.0
+
+
+def _tkeys(keys, tail=None):
+    out = [(timeline.t_of_year(k[0]),) + tuple(k[1:]) for k in keys]
+    out.append((timeline.DURATION,) + (tail if tail is not None else tuple(keys[-1][1:])))
+    return out
+
+
+VIEW_W = _tkeys(VIEW_W_Y, (36000,))     # keeps pulling back a little through the 2025 hold and the outro
+PITCH = _tkeys(PITCH_Y)
+TARGET = _tkeys(TARGET_Y)
+
+# landmark close-ups: the camera flies down to a landmark, orbits it while the years keep running, and flies
+# back out onto the drift path.  (name, first year, last year, landmark name or (lon, lat), view width m,
+# pitch deg, heading swing deg over the shot)
+SHOTS_Y = [
+    ("londinium", 150, 230, "roman_forum", 1500, 40, 60),                   # forum, amphitheatre, the wall goes up
+    ("medieval_city", 1420, 1530, "old_st_pauls_spire", 1700, 38, -55),    # Old St Paul's spire, the bridge, the Tower
+    ("wren", 1712, 1740, "st_pauls_cathedral", 1000, 36, 70),               # the new dome over the brick City
+    ("westminster", 1862, 1880, "palace_of_westminster", 1100, 36, -60),    # the new Palace and the clock tower
+    ("tower_bridge", 1896, 1912, (-0.0753, 51.5056), 1200, 34, 80),   # the bridge is built from BRIDGES, not a landmark
+    ("skyline", 2016, 2025, (-0.0820, 51.5125), 2300, 33, 50),              # City cluster, the Shard across the river
+]
+EASE = 2.0        # seconds to fly in / fly out
+EASE_H = 3.5      # the heading swings back more slowly than the zoom
+SHOTS = []
+for _n, _y0, _y1, _lm, _w, _p, _sw in SHOTS_Y:
+    if isinstance(_lm, str):
+        _e = next(e for e in history.LANDMARKS if e[0] == _lm)
+        _x, _y = _e[1], _e[2]
+    else:
+        _x, _y = history.ll(*_lm)
+    SHOTS.append({"name": _n, "t0": timeline.t_of_year(_y0), "t1": timeline.t_of_year(_y1), "x": _x, "y": _y,
+                  "W": _w, "pitch": _p, "swing": math.radians(_sw)})
+log("shots", [(sh["name"], round(sh["t0"], 1), round(sh["t1"], 1)) for sh in SHOTS])
+
+
+def interp(keys, t, log_space=False):
+    ts = [k[0] for k in keys]; vs = [k[1] for k in keys]
+    if log_space:
+        return float(np.exp(np.interp(t, ts, np.log(vs))))
+    return float(np.interp(t, ts, vs))
+
+
+def smoothstep(x):
+    x = min(max(x, 0.0), 1.0)
+    return x * x * (3 - 2 * x)
+
+
+def cam_state(t):
+    """(view width, pitch rad, target x, target y, heading rad) at film time t, close-ups blended in."""
+    W = interp(VIEW_W, t, True)
+    pitch = interp(PITCH, t)
+    tx = float(np.interp(t, [k[0] for k in TARGET], [k[1] for k in TARGET]))
+    ty = float(np.interp(t, [k[0] for k in TARGET], [k[2] for k in TARGET]))
+    heading = HEADING
+    for sh in SHOTS:
+        if t < sh["t0"] or t > sh["t1"]:
+            continue
+        w = min(smoothstep((t - sh["t0"]) / EASE), smoothstep((sh["t1"] - t) / EASE))
+        wh = min(smoothstep((t - sh["t0"]) / EASE_H), smoothstep((sh["t1"] - t) / EASE_H))
+        u = (t - sh["t0"]) / (sh["t1"] - sh["t0"])
+        W = math.exp((1 - w) * math.log(W) + w * math.log(sh["W"]))
+        pitch = (1 - w) * pitch + w * sh["pitch"]
+        tx = (1 - w) * tx + w * sh["x"]; ty = (1 - w) * ty + w * sh["y"]
+        heading = HEADING + wh * sh["swing"] * u
+    return W, math.radians(pitch), tx, ty, heading
 
 
 def view_width(frame):
-    t = (frame - 1) / FPS
-    ts = [k[0] for k in VIEW_W]; vs = [k[1] for k in VIEW_W]
-    return float(np.exp(np.interp(t, ts, np.log(vs))))
+    return cam_state((frame - 1) / FPS)[0]
+
+
+def shot_frames():
+    """frames where the landmark zoom must have a keyframe: every fly-in / fly-out boundary."""
+    out = []
+    for sh in SHOTS:
+        for t in (sh["t0"], sh["t0"] + EASE, sh["t1"] - EASE, sh["t1"]):
+            out.append(int(round(t * FPS)) + 1)
+    return sorted(out)
 
 
 def lm_zoom(frame):
@@ -835,10 +929,11 @@ def animate_holder(holder, birth, death, S, zoom=True):
     holder.hide_render = False; holder.keyframe_insert("hide_render", frame=fb)
     holder.scale = Sat(fb + pop); holder.keyframe_insert("scale", frame=fb + pop)
     last = (fdth - 12) if fdth else FRAMES + 1
-    f = fb + pop + 150
-    while zoom and f < last - 30:
-        holder.scale = Sat(f); holder.keyframe_insert("scale", frame=f)
-        f += 150
+    if zoom:
+        fs = set(range(int(fb + pop + 150), int(last - 30), 150))
+        fs.update(f for f in shot_frames() if fb + pop < f < last - 30)
+        for f in sorted(fs):
+            holder.scale = Sat(f); holder.keyframe_insert("scale", frame=f)
     if fdth:
         holder.scale = Sat(fdth - 12); holder.keyframe_insert("scale", frame=fdth - 12)
         holder.scale = (0.001, 0.001, 0.001); holder.keyframe_insert("scale", frame=fdth)
@@ -1006,19 +1101,6 @@ log("bridges placed", n_br)
 # ------------------------------------------------------------------ camera
 # The Thames runs west-east: the camera sits south-south-west of the City and looks north-north-east,
 # pulling back from Roman Londinium to the whole Greater London basin.
-PITCH = [(0, 29), (30, 33), (60, 39), (100, 45), (140, 50), (180, 53)]
-TARGET = [(0, 700, -150), (40, 500, -100), (90, 200, 200), (166, -300, 900), (180, -300, 900)]
-HEADING = math.radians(68)
-LENS = 35.0
-
-
-def interp(keys, t, log_space=False):
-    ts = [k[0] for k in keys]; vs = [k[1] for k in keys]
-    if log_space:
-        return float(np.exp(np.interp(t, ts, np.log(vs))))
-    return float(np.interp(t, ts, vs))
-
-
 world = bpy.data.worlds.new("World"); scene.world = world; world.use_nodes = True
 wn = world.node_tree; wn.nodes.clear()
 bg = wn.nodes.new("ShaderNodeBackground"); wo = wn.nodes.new("ShaderNodeOutputWorld"); wn.links.new(bg.outputs[0], wo.inputs[0])
@@ -1028,16 +1110,20 @@ cam = bpy.data.objects.new("Camera", cam_data); link(cam, C_ENV); scene.camera =
 target = bpy.data.objects.new("CamTarget", None); link(target, C_ENV)
 con = cam.constraints.new('TRACK_TO'); con.target = target; con.track_axis = 'TRACK_NEGATIVE_Z'; con.up_axis = 'UP_Y'
 hf = 2 * math.tan(math.atan(18 / LENS))
-for f in range(1, FRAMES + 2, 5):
+def _cam_key_frames():
+    fs = set(range(1, FRAMES + 2, 5))
+    for sh in SHOTS:
+        fs.update(range(int(sh["t0"] * FPS) - 2, int(sh["t1"] * FPS) + 4, 2))
+    return sorted(f for f in fs if 1 <= f <= FRAMES + 1)
+
+
+for f in _cam_key_frames():
     t = (f - 1) / FPS
-    W = interp(VIEW_W, t, True)
-    pitch = math.radians(interp(PITCH, t))
-    tx = float(np.interp(t, [k[0] for k in TARGET], [k[1] for k in TARGET]))
-    ty = float(np.interp(t, [k[0] for k in TARGET], [k[2] for k in TARGET]))
+    W, pitch, tx, ty, heading = cam_state(t)
     tz = h_at(tx, ty)
     dist = W / hf
-    cx = tx - math.cos(HEADING) * dist * math.cos(pitch)
-    cy = ty - math.sin(HEADING) * dist * math.cos(pitch)
+    cx = tx - math.cos(heading) * dist * math.cos(pitch)
+    cy = ty - math.sin(heading) * dist * math.cos(pitch)
     cz = tz + dist * math.sin(pitch)
     cam.location = (cx, cy, cz); cam.keyframe_insert("location", frame=f)
     target.location = (tx, ty, tz); target.keyframe_insert("location", frame=f)
