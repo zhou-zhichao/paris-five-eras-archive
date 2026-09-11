@@ -156,6 +156,11 @@ VILLAGES_LL = [
 EVENTS_LL = [
     {"name": "boudica", "poly": [(-0.0960, 51.4980), (-0.0700, 51.4980), (-0.0700, 51.5180), (-0.1120, 51.5180)],
      "year": 60, "fraction": 1.0, "rebuild": (63, 95, "roman"), "resettle": None},
+    # late Roman contraction ("dark earth"): from c.200 the built-up fraction inside the walls fell by half or
+    # more; the film used to show Londinium at its 150 AD peak right up to the 420 abandonment
+    {"name": "late_roman_contraction", "poly": "CITY_BUF", "year": 200, "fraction": 0.5, "rebuild": None, "resettle": None},
+    {"name": "late_roman_contraction_southwark", "poly": [(-0.0935, 51.5060), (-0.0850, 51.5062), (-0.0845, 51.5000), (-0.0940, 51.5005)],
+     "year": 200, "fraction": 0.55, "rebuild": None, "resettle": None},
     {"name": "roman_abandonment", "poly": "CITY_BUF", "year": 420, "fraction": 1.0, "rebuild": None, "resettle": (886, 1050)},
     {"name": "lundenwic_abandoned", "poly": [(-0.1310, 51.5070), (-0.1120, 51.5090), (-0.1100, 51.5185), (-0.1330, 51.5150)],
      "year": 880, "fraction": 1.0, "rebuild": None, "resettle": (1180, 1400)},
@@ -340,6 +345,10 @@ _v = load("villages.json")
 if _v:
     VILLAGES = [(v["name"], *ll(v["lon"], v["lat"]), v["radius_m"], v["year_start"], v["year_end"]) for v in _v["villages"]
                 if abs(ll(v["lon"], v["lat"])[0]) < 26000 and abs(ll(v["lon"], v["lat"])[1]) < 20000]
+    # Southwark came as a 550 m nucleus at density 0.9 from AD 50 to 1600: a town half the size of the City through
+    # the whole Saxon and medieval period (and inhabited through the sub-Roman gap).  Roman Southwark is a zone;
+    # the village nucleus is the Saxon burh (Burghal Hidage, c.900) and stays a modest bridgehead.
+    VILLAGES = [((n, x, y, 280, 900, ye) if n == "Southwark" else (n, x, y, r, ys, ye)) for n, x, y, r, ys, ye in VILLAGES]
 else:
     VILLAGES = [(n, *ll(lon, lat), r, ys, ye) for n, lon, lat, r, ys, ye in VILLAGES_LL]
 
@@ -361,9 +370,20 @@ if _ev:
             print("[history] bad event", e.get("name"), ex)
 if any(e.get("researched") for e in EVENTS):
     # the researched event table supersedes the hand-authored fire / Blitz / Docklands entries
-    EVENTS = [e for e in EVENTS if e.get("researched") or e["name"] in ("roman_abandonment", "lundenwic_abandoned")]
+    EVENTS = [e for e in EVENTS if e.get("researched") or e["name"] in ("roman_abandonment", "lundenwic_abandoned",
+                                                                         "late_roman_contraction", "late_roman_contraction_southwark")]
+for e in EVENTS:
+    # the Black Death halved the population; as a "rebuild" event the houses were merely swapped one by one in
+    # 1450-1550 and the City never thinned.  A resettle gap (sites empty 1348-1378 -> re-founded 1450-1550) shows it.
+    if "black death" in e["name"].lower():
+        e["fraction"] = 0.3; e["rebuild"] = None; e["resettle"] = (1450, 1550)
 EVENTS.sort(key=lambda e: e["year"])
 
+# zone envelopes scaled about their centroid (applied to hand zones below and to researched zones by name)
+ZONE_SHRINK = {"medieval_suburbs": 0.62, "tudor": 0.65, "stuart": 0.65, "restoration": 0.62, "georgian_early": 0.66, "georgian_late": 0.80,
+               # Southwark drew as large as the City (54-65 % of its houses 1000-1400); the real suburb was a tenth
+               "southwark_roman": 0.6, "southwark_saxon": 0.6, "southwark_medieval": 0.6,
+               "Roman Southwark bridgehead suburb": 0.7, "Medieval Southwark - Long Southwark and Bankside": 0.75}
 _gz = load("growth_zones.json")
 ESTATES = [(*ll(lon, lat), r, ys, ye) for lon, lat, r, ys, ye in ESTATES_LL]
 TOWERS = [(*ll(lon, lat), r, ys, ye, h) for lon, lat, r, ys, ye, h in TOWERS_LL]
@@ -393,13 +413,15 @@ if _gz and HAVE_SHAPELY:
             nm = z["name"].lower()
             if any(k in nm for k in ("dereliction", "green belt", "growth stops", "contraction", "abandon")):
                 continue
+            if z["name"] in ZONE_SHRINK and HAVE_SHAPELY:
+                from shapely import affinity as _aff2
+                poly = _aff2.scale(poly, ZONE_SHRINK[z["name"]], ZONE_SHRINK[z["name"]], origin="centroid")
             RESEARCH_ZONES.append((z["name"], poly, int(z["year_start"]), int(z["year_end"]), kit))
         except Exception as ex:  # noqa
             print("[history] bad zone", z.get("name"), ex)
 
 # the hand-authored growth envelopes were 2-3x the historical built-up area (London c.1600 ~5 km2, 1700 ~13 km2,
 # 1750 ~20 km2, 1800 ~30 km2): shrink them about their centroid; the researched district polygons stay as they are
-ZONE_SHRINK = {"medieval_suburbs": 0.62, "tudor": 0.65, "stuart": 0.65, "restoration": 0.62, "georgian_early": 0.66, "georgian_late": 0.80}
 if HAVE_SHAPELY:
     from shapely import affinity as _aff
     ZONES = [(n, (_aff.scale(p, ZONE_SHRINK[n], ZONE_SHRINK[n], origin="centroid") if (n in ZONE_SHRINK and hasattr(p, "centroid")) else p), a, b, k)
@@ -438,7 +460,8 @@ if _L:
                 if not f.get("polygon"):
                     continue
                 poly = Polygon(P(f["polygon"]))
-                ceased = int(f.get("ceased_year") or f.get("year_built_over") or 1850)
+                # a marsh stops being a marsh when it is drained (Moorfields 1527), not when it is built over (1815)
+                ceased = int(f.get("drained_year") or f.get("ceased_year") or f.get("year_built_over") or 1850)
                 cover = (f.get("land_cover") or "").lower()
                 if "marsh" in cover or "fen" in cover or "reed" in cover:
                     PRE_MARSHES.append((poly, ceased))
@@ -454,6 +477,12 @@ for b in (_b if _b else BRIDGES_FALLBACK):
     BRIDGES.append({"id": b["id"], "name": b["name"], "x": x, "y": y, "birth": int(b["birth"]), "death": int(b["death"]) if b.get("death") else 9999,
                     "kind": b.get("kind", "stone_arch"), "length": float(b.get("length_m", 250)), "width": float(b.get("width_m", 12)),
                     "deck": float(b.get("deck_height_m", 8))})
+if not any("London Bridge" in b["name"] and 400 < b["birth"] < 1209 for b in BRIDGES):
+    # the research table jumps from the Roman bridge (to c.400) to the stone bridge of 1209; the late Saxon timber
+    # bridge is documented from c.1000 (Cnut / Olaf's saga 1014) and stood, rebuilt, until Peter of Colechurch's
+    _rx, _ry = ll(-0.087, 51.5078)
+    BRIDGES.append({"id": "saxon_london_bridge", "name": "Saxon London Bridge", "x": _rx, "y": _ry, "birth": 1000, "death": 1209,
+                    "kind": "roman_timber", "length": 300.0, "width": 5.0, "deck": 5.0})
 
 WATER_EVENTS = []
 _w = load("water_history.json")
@@ -536,6 +565,12 @@ if not _used_research_water and HAVE_SHAPELY:
         else:
             WATER_EVENTS.append({"name": w["name"], "poly": Polygon(P(w["poly"])), "birth": w["birth"], "death": w["death"]})
 
+# permanent lakes that are man-made: OSM name substring -> year dug (everything else counts as natural)
+LAKE_YEARS = {"Barbican": 1969, "Serpentine": 1730, "Long Water": 1730, "Round Pond": 1728, "St James's Park": 1828,
+              "Regent's Park": 1828, "Boating Lake": 1828, "Victoria Park": 1846, "Battersea Park": 1858,
+              "Pen Pond": 1746, "Hampstead No": 1700, "Highgate No": 1700, "Model Boating Pond": 1700,
+              "South Norwood Lake": 1809, "Wimbledon Park": 1765, "Crystal Palace": 1856, "Finsbury Park": 1869,
+              "Clapham Common": 1850, "Wanstead Park": 1720, "Danson": 1770, "Kenwood": 1790}
 # canal birth years by OSM name substring
 CANAL_YEARS = {"Regent's Canal": 1820, "Regents Canal": 1820, "Grand Union": 1801, "Grand Junction": 1801, "Paddington": 1801,
                "Hertford Union": 1830, "Limehouse Cut": 1770, "Lee Navigation": 1770, "Lea Navigation": 1770, "River Lea": -9999,
@@ -580,6 +615,12 @@ if _t and HAVE_SHAPELY:
 # (name, x, y, rotation deg ccw from +x, birth, death, builder, params) - builder "glb:<id>" or procedural
 from landmark_table import build_landmark_list   # noqa: E402
 LANDMARKS = build_landmark_list(load("landmarks.json"))
+# researched placeholders that duplicate a hand-authored GLB of the same building 90-200 m away (a second
+# St Pancras, a grey box through Battersea Power Station, four Canada Square towers instead of two ...)
+LANDMARK_DROP = {"custom_house_london", "st_pancras_station", "crosby_hall_bishopsgate", "battersea_power_station_a",
+                 "battersea_power_station_b", "newfoundland_tower", "old_royal_naval_college", "st_dunstan_in_the_east",
+                 "city_hall_london", "twentyfive_canada_square", "eight_canada_square"}
+LANDMARKS = [e for e in LANDMARKS if e[0] not in LANDMARK_DROP]
 
 if __name__ == "__main__":
     print("zones", len(ZONES), "research zones", len(RESEARCH_ZONES), "villages", len(VILLAGES), "events", len(EVENTS),

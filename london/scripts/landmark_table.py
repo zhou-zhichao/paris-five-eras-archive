@@ -139,7 +139,7 @@ CORE = [
     ("st_george_in_the_east", -0.0575, 51.5108, 180, 1729, 9999, "glb:christ_church_spitalfields", {"w": 50, "d": 25, "h": 50}),
     ("st_alfege_greenwich", -0.0095, 51.4805, 180, 1718, 9999, "glb:christ_church_spitalfields", {"w": 50, "d": 25, "h": 40}),
     ("buckingham_house", -0.1419, 51.5014, 90, 1705, 1826, "glb:buckingham_house", {"w": 60, "d": 30, "h": 15}),
-    ("buckingham_palace", -0.1419, 51.5014, 90, 1850, 9999, "glb:buckingham_palace", {"w": 108, "d": 120, "h": 24}),
+    ("buckingham_palace", -0.1419, 51.5014, 90, 1837, 9999, "glb:buckingham_palace", {"w": 108, "d": 120, "h": 24}),   # Nash rebuild 1826-37, occupied 1837
     ("mansion_house", -0.0893, 51.5132, 270, 1752, 9999, "glb:mansion_house", {"w": 60, "d": 40, "h": 25}),
     ("bank_of_england_early", -0.0885, 51.5142, 180, 1734, 1833, "palace_block", {"w": 40, "d": 30, "h": 14}),
     ("bank_of_england_soane", -0.0885, 51.5142, 180, 1833, 1925, "square_ring", {"w": 100, "d": 90, "h": 10}),

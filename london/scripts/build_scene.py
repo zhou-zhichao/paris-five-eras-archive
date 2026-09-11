@@ -544,6 +544,8 @@ IMG_TERRAIN = image_from_gray("bake_terrain", None, channels=[R["shore_land"], R
                                                              (255 * (WATER_R & ~WATER_LATE_R)).astype(np.uint8)])
 IMG_TERRAIN.alpha_mode = 'CHANNEL_PACKED'
 IMG_WATER = image_from_gray("bake_water", R["water_depth"])
+_zero = np.zeros_like(R["kind"])
+IMG_MARSH = image_from_gray("bake_marsh", None, channels=[R["marsh_soft"], R["marsh_year"], _zero, _zero]) if "marsh_soft" in R.files else None
 log("images baked")
 
 
@@ -650,21 +652,34 @@ nt.links.new(isheath.outputs[0], heathcol.inputs[0]); nt.links.new(parkcol.outpu
 # heath keeps the forest colour where forest, heath colour otherwise
 mixpark = nt.nodes.new("ShaderNodeMixRGB"); nt.links.new(parkfac.outputs[0], mixpark.inputs[0])
 nt.links.new(g2.outputs[0], mixpark.inputs[1]); nt.links.new(parkcol.outputs[0], mixpark.inputs[2])
-# marsh (kind == 30/255) shown until its drainage year (same encoding as park years, reversed test)
-ismarsh_lo = nt.nodes.new("ShaderNodeMath"); ismarsh_lo.operation = 'GREATER_THAN'; ismarsh_lo.inputs[1].default_value = 0.10
-ismarsh_hi = nt.nodes.new("ShaderNodeMath"); ismarsh_hi.operation = 'LESS_THAN'; ismarsh_hi.inputs[1].default_value = 0.14
-nt.links.new(sep.outputs[2], ismarsh_lo.inputs[0]); nt.links.new(sep.outputs[2], ismarsh_hi.inputs[0])
-ismarsh = nt.nodes.new("ShaderNodeMath"); ismarsh.operation = 'MULTIPLY'
-nt.links.new(ismarsh_lo.outputs[0], ismarsh.inputs[0]); nt.links.new(ismarsh_hi.outputs[0], ismarsh.inputs[1])
-notborn = nt.nodes.new("ShaderNodeMath"); notborn.operation = 'SUBTRACT'; notborn.inputs[0].default_value = 1.0
-nt.links.new(born.outputs[0], notborn.inputs[1])
+# marsh: reed beds with standing pools, shown until the drainage year.  The mask is the feathered, noise-warped
+# raster from growth.py (R = strength, G = encoded ceased year of the nearest marsh cell), sampled Linear so no
+# 10 m step and no straight rectangle edge survives (the v28 45 % flat tint read as a colour error / a hollow)
+tex_m = add_map_nodes(nt, IMG_MARSH, 'Linear')
+sep_m = nt.nodes.new("ShaderNodeSeparateColor"); nt.links.new(tex_m.outputs["Color"], sep_m.inputs[0])
+menc = nt.nodes.new("ShaderNodeMath"); menc.operation = 'MULTIPLY'; menc.inputs[1].default_value = 255.0
+nt.links.new(sep_m.outputs[1], menc.inputs[0])
+mdec = nt.nodes.new("ShaderNodeMath"); mdec.operation = 'MULTIPLY_ADD'; mdec.inputs[1].default_value = 2400.0 / 254.0; mdec.inputs[2].default_value = -300.0 - 2400.0 / 254.0
+nt.links.new(menc.outputs[0], mdec.inputs[0])
+malive = nt.nodes.new("ShaderNodeMath"); malive.operation = 'LESS_THAN'
+nt.links.new(year_node.outputs[0], malive.inputs[0]); nt.links.new(mdec.outputs[0], malive.inputs[1])
 marshfac = nt.nodes.new("ShaderNodeMath"); marshfac.operation = 'MULTIPLY'
-nt.links.new(ismarsh.outputs[0], marshfac.inputs[0]); nt.links.new(notborn.outputs[0], marshfac.inputs[1])
-# marsh is only a hint (the 10 m mask edge is blocky at close range): a mild, slightly bluer green at 45 %
-marshsoft = nt.nodes.new("ShaderNodeMath"); marshsoft.operation = 'MULTIPLY'; marshsoft.inputs[1].default_value = 0.45
+nt.links.new(sep_m.outputs[0], marshfac.inputs[0]); nt.links.new(malive.outputs[0], marshfac.inputs[1])
+marshsoft = nt.nodes.new("ShaderNodeMath"); marshsoft.operation = 'MULTIPLY'; marshsoft.inputs[1].default_value = 0.85
 nt.links.new(marshfac.outputs[0], marshsoft.inputs[0])
-marshmix = nt.nodes.new("ShaderNodeMixRGB"); marshmix.inputs[2].default_value = (0.16, 0.22, 0.12, 1)
-nt.links.new(marshsoft.outputs[0], marshmix.inputs[0]); nt.links.new(mixpark.outputs[0], marshmix.inputs[1])
+# reed grass (tan-olive, 120 m patches) with dark pools where a 40 m noise peaks
+pool_n = nt.nodes.new("ShaderNodeTexNoise"); pool_n.inputs["Scale"].default_value = 0.025; pool_n.inputs["Detail"].default_value = 4.0; pool_n.inputs["Roughness"].default_value = 0.6
+nt.links.new(tc.outputs["Object"], pool_n.inputs["Vector"])
+pool = nt.nodes.new("ShaderNodeMapRange"); pool.inputs["From Min"].default_value = 0.56; pool.inputs["From Max"].default_value = 0.62
+nt.links.new(pool_n.outputs["Fac"], pool.inputs["Value"])
+reed_n = nt.nodes.new("ShaderNodeTexNoise"); reed_n.inputs["Scale"].default_value = 0.008; reed_n.inputs["Detail"].default_value = 2.0
+nt.links.new(tc.outputs["Object"], reed_n.inputs["Vector"])
+reed = nt.nodes.new("ShaderNodeMixRGB"); reed.inputs[1].default_value = (0.17, 0.21, 0.08, 1); reed.inputs[2].default_value = (0.26, 0.25, 0.10, 1)
+nt.links.new(reed_n.outputs["Fac"], reed.inputs[0])
+marshcol = nt.nodes.new("ShaderNodeMixRGB"); marshcol.inputs[2].default_value = (0.05, 0.10, 0.10, 1)
+nt.links.new(pool.outputs["Result"], marshcol.inputs[0]); nt.links.new(reed.outputs[0], marshcol.inputs[1])
+marshmix = nt.nodes.new("ShaderNodeMixRGB")
+nt.links.new(marshsoft.outputs[0], marshmix.inputs[0]); nt.links.new(mixpark.outputs[0], marshmix.inputs[1]); nt.links.new(marshcol.outputs[0], marshmix.inputs[2])
 sand = nt.nodes.new("ShaderNodeMixRGB"); sand.inputs[2].default_value = (0.28, 0.27, 0.16, 1)   # low-contrast shore rim
 nt.links.new(sep_lin.outputs[0], sand.inputs[0]); nt.links.new(marshmix.outputs[0], sand.inputs[1])
 # the terrain pit under the river / lakes takes the water colour, so the water-plane / bank intersection line
@@ -679,6 +694,21 @@ ob = mesh_from_faces("TERRAIN", verts, faces, None, [MAT_GROUND])
 for p in ob.data.polygons:
     p.use_smooth = True
 link(ob, C_ENV)
+TERRAIN_OB = ob
+_TERRAIN_BVH = None
+
+
+def h_render(x, y):
+    """Height of the terrain EXACTLY as rendered: a ray cast onto the TERRAIN object's triangles.  h_mesh() is
+    bilinear on the 25 m quads, but the GPU draws each quad as two planar triangles; on the Walbrook valley sides
+    the two differ by up to 0.5 m, so a strip lifted 0.25 m over h_mesh() dipped under the ground in the middle
+    of every cell and the stream read as a dashed line."""
+    global _TERRAIN_BVH
+    if _TERRAIN_BVH is None:
+        from mathutils.bvhtree import BVHTree
+        _TERRAIN_BVH = BVHTree.FromObject(TERRAIN_OB, bpy.context.evaluated_depsgraph_get())
+    hit = _TERRAIN_BVH.ray_cast(Vector((x, y, 1000.0)), Vector((0.0, 0.0, -1.0)), 3000.0)
+    return float(hit[0].z) if hit[0] is not None else h_mesh(x, y)
 # far ground beyond the raster: a subdivided grid well below the water plane.  A single 600 km quad at
 # z=-3 lost depth precision against the river surface (-0.4) at some camera distances and painted over it.
 big = 300000.0; nfar = 60
@@ -739,6 +769,13 @@ def _bbox(pts):
 dock_events = [(_bbox(w["outer"]), w) for w in META["water_events"] if w["birth"] > -9000]
 
 
+def lake_birth(name):
+    for k, v in history.LAKE_YEARS.items():
+        if k.lower() in (name or "").lower():
+            return float(v)
+    return -9999.0
+
+
 def dock_birth(outer):
     x0, y0, x1, y1 = _bbox(outer)
     best = None
@@ -789,8 +826,11 @@ for w in META["water_tris"]:
     elif w["kind"] == "reservoir":
         b, d = float(dock_birth(w["outer"])) if dock_birth(w["outer"]) != 1830 else 1860.0, 9999.0
     else:
-        b, d = -9999.0, 9999.0
-    items.append((w["tris"], b, d))
+        b, d = lake_birth(w.get("name")), 9999.0
+    if w.get("z") is not None:
+        items.append((w["tris"], b, d, float(w["z"]) - WATER_Z))   # hill lake: flat surface at its local level
+    else:
+        items.append((w["tris"], b, d))
 ob = tri_mesh("WATER", items)
 ob.location.z = WATER_Z; link(ob, C_ENV); add_gn(ob, NG_FACE)
 log("water polys", len(items), "faces", len(ob.data.polygons))
@@ -840,7 +880,7 @@ if ob is not None:
     log("historic water faces", len(ob.data.polygons))
 # lost rivers hug the terrain everywhere (the ground under them is never lowered, see growth.py stream_mask);
 # where they run out over the river's own cells the strip simply dips under the Thames surface
-ob = tri_mesh("STREAMS", stream_items, zfn=lambda x, y: h_mesh(x, y) + 0.25, max_edge=15.0)
+ob = tri_mesh("STREAMS", stream_items, zfn=lambda x, y: h_render(x, y) + 0.3, max_edge=10.0)
 if ob is not None:
     link(ob, C_ENV); add_gn(ob, NG_FACE)
     log("stream faces", len(ob.data.polygons))

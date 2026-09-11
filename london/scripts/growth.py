@@ -140,6 +140,10 @@ for w in history.WATER_EVENTS:
                                   "outer": [[round(x, 1), round(y, 1)] for x, y in part.exterior.coords],
                                   "holes": [[[round(x, 1), round(y, 1)] for x, y in h.coords] for h in part.interiors]})
 water_hist = (water_until > 0) & ~water_perm            # historic water that is land today
+# a dock event polygon is a hand-drawn rectangle around the basins; only the cells that really become water (OSM
+# water today, or historic water with a fill year) are "dug".  The dry margin used to be cleared in the dig year
+# and never rebuilt: St Katharine's stood in an empty green field with a lone basin instead of warehouses.
+water_from = np.where(water_perm | (water_until > 0), water_from, 9999.0).astype(np.float32)
 # lost rivers (line events) are drawn as terrain-following strips: the ground under them must NOT be lowered
 # into a channel (a 5 m stream over a 25 m-grid dip looked like a strip floating in the air)
 stream_mask = mask_of([w["line"].buffer(w["width"] / 2 + 12) for w in history.WATER_EVENTS if "line" in w]) if any("line" in w for w in history.WATER_EVENTS) else np.zeros((NY, NX), dtype=bool)
@@ -536,8 +540,11 @@ def roman_road_fate(mx, my, r, c, rd, rank):
     """For a street already there before the Roman withdrawal: (death year, rebirth year or None).
     The long-distance Roman roads outside the walls survive as trackways; every other Roman-era street
     is lost during the sub-Roman abandonment (major ones last) and re-laid when the area is resettled."""
-    if not city_buf_mask[r, c] and not rd["synthetic"]:
-        if rd["named"] is not None and rd["named"] <= 100 and rank <= 3:
+    if not city_buf_mask[r, c] and not rd["synthetic"] and rank <= 3:
+        # only the through-routes themselves (Watling Street, Stane Street, Ermine Street ...) stay in use as
+        # trackways; a side street that merely lies within 45 m of the researched polyline is not one of them
+        # (Southwark kept a grid of lanes through the sub-Roman gap while the City went blank)
+        if rd["named"] is not None and rd["named"] <= 100:
             return None, None
         ry_ = researched_road_year(mx, my)
         if ry_ is not None and ry_ <= 120:
@@ -1163,7 +1170,15 @@ tx = np.arange(X0, X1 + 1, TSTEP); ty = np.arange(Y0, Y1 + 1, TSTEP)
 TX, TY = np.meshgrid(tx, ty)
 raw = terrain.height(TX, TY)
 rt, ct = cells(TX.ravel(), TY.ravel())
-dw = (d_water[rt, ct] * CELL).reshape(TX.shape)
+# only the tidal river system pulls the relief down to the flood plain.  The damping funnel (500 m, to 0 m) used
+# to run around EVERY permanent water cell, so each pond, reservoir and canal on the hills sat in a 30-100 m
+# crater: Barbican Lake (0.7 ha, 1969) alone sank Moorfields and the Walbrook valley by 33 m.
+def _lowland(p):
+    geoms = p.geoms if isinstance(p, MultiPolygon) else [p]
+    xs, ys = np.concatenate([np.array(g.exterior.coords) for g in geoms]).T
+    return float(np.median(terrain.height(xs, ys))) <= 4.0
+lowland_perm = mask_of(river_polys + [p for p, w in water_items if w["kind"] != "river" and _lowland(p)])
+dw = (ndimage.distance_transform_edt(~lowland_perm).astype(np.float32)[rt, ct] * CELL).reshape(TX.shape)
 damp = np.clip(dw / 500.0, 0, 1) ** 1.5
 hmap = np.maximum((raw + 5.0) * damp, 0.0).astype(np.float32)
 # tidal historic water (pre-embankment foreshore, filled docks, marsh creeks on the flood plain): the ground
@@ -1181,7 +1196,7 @@ water_tidal &= ~(stream_mask & ~poly_hist_mask)
 # river / lake / dock / tidal-foreshore bed: a smooth profile from 0 m at the shoreline down to -4.3 m where the
 # water is 60 m or more from land.  A flat bed 0.5 m under the surface z-fought with it in the wide views, and a
 # stepped pit on the 25 m grid drew saw-tooth banks; the ramp has neither problem.
-_wa = (water_perm | water_tidal)[rt, ct].reshape(TX.shape)
+_wa = (lowland_perm | water_tidal)[rt, ct].reshape(TX.shape)
 _ramp = -0.3 - 4.0 * np.clip((d_land[rt, ct].reshape(TX.shape) + 6.0) / 66.0, 0, 1)
 hmap = np.where(_wa, np.minimum(hmap, _ramp), hmap).astype(np.float32)
 # docks, reservoirs, park lakes: one flat water surface per basin (just above the river plane, or a local level
@@ -1201,7 +1216,21 @@ for _mi, (_m, _j0) in enumerate(_poly_event_masks):
     for _e in water_events_json:
         if _e["name"] == _name and not _e.get("stream"):
             _e["z"] = round(_zsurf, 2)
-log("heightmap", hmap.shape, float(hmap.max()), float(hmap.min()), "tidal historic cells", int(water_tidal.sum()), "basins", len(_poly_event_masks))
+# permanent lakes / basins on the hills (drawn ones, >= 15000 m2): one flat surface at the local level and the
+# ground under the polygon pushed 1.1 m below it, like the docks; the surface height travels to Blender as "z"
+water_z = {}
+for _i, (_p, _w) in enumerate(water_items):
+    if _w["kind"] == "river" or _w["area"] < 15000 or _lowland(_p):
+        continue
+    _r, _c = np.nonzero(mask_of([_p]))
+    if len(_r) == 0:
+        continue
+    _ti = np.clip(((X0 + (_c + 0.5) * CELL) - X0) / TSTEP, 0, hmap.shape[1] - 1).astype(int)
+    _tj = np.clip(((Y1 - (_r + 0.5) * CELL) - Y0) / TSTEP, 0, hmap.shape[0] - 1).astype(int)
+    _zsurf = float(np.percentile(hmap[_tj, _ti], 10) - 0.3)
+    hmap[_tj, _ti] = np.minimum(hmap[_tj, _ti], _zsurf - 1.1)
+    water_z[_i] = round(_zsurf, 2)
+log("heightmap", hmap.shape, float(hmap.max()), float(hmap.min()), "tidal historic cells", int(water_tidal.sum()), "basins", len(_poly_event_masks), "hill lakes", len(water_z))
 
 
 def sample_h(xs, ys):
@@ -1270,10 +1299,10 @@ def tri_json(poly):
 
 
 water_tris = []
-for p, w in water_items:
+for _i, (p, w) in enumerate(water_items):
     if w["kind"] != "river" and w["area"] < 15000:
         continue
-    water_tris.append({"kind": w["kind"], "name": w.get("name", ""), "outer": w["outer"], "tris": tri_json(p)})
+    water_tris.append({"kind": w["kind"], "name": w.get("name", ""), "outer": w["outer"], "tris": tri_json(p), "z": water_z.get(_i)})
 water_event_tris = []
 for we in water_events_json:
     try:
@@ -1365,12 +1394,34 @@ if marsh.any():
     enc = np.clip((marsh_year + 300) / 2400 * 254 + 1, 1, 255).astype(np.uint8)
     park_year_r[sel] = enc[sel]
     kind_r[sel] = 30
-water_dil = ndimage.binary_dilation(water_perm, iterations=1)
+# soft marsh mask for the ground shader: the research polygons are hand-drawn 4-5 point rectangles, so the tint
+# gets a 120 m feathered edge warped by ~250 m noise and a gentle interior mottle; the ceased year of the nearest
+# marsh cell rides along in a second channel so the feathered rim ends in the same year as the marsh itself
+marsh_soft = np.zeros((NY, NX), dtype=np.uint8)
+marsh_year_r = np.full((NY, NX), 255, dtype=np.uint8)
+if marsh.any():
+    _rng = np.random.default_rng(7)
+
+    def _noise(sig):
+        n = ndimage.gaussian_filter(_rng.standard_normal((NY, NX)).astype(np.float32), sig)
+        n -= n.mean(); n /= (n.std() + 1e-9)
+        return n
+    _D = ndimage.distance_transform_edt(~marsh) - ndimage.distance_transform_edt(marsh)     # signed cells, + outside
+    _S = np.clip(0.5 - (_D + _noise(12.0) * 9.0) / 12.0, 0.0, 1.0) * np.clip(0.85 + 0.25 * _noise(4.0), 0.5, 1.0)
+    _idx = ndimage.distance_transform_edt(~marsh, return_indices=True)[1]
+    _enc = np.clip((marsh_year + 300) / 2400 * 254 + 1, 1, 255).astype(np.uint8)
+    marsh_soft = (_S * 255).astype(np.uint8)
+    marsh_year_r = np.where(_S > 0, _enc[_idx[0], _idx[1]], 255).astype(np.uint8)
+    del _D, _S, _idx
+# the "water" raster clamps the rendered ground to <= 0 m and answers is_water(): flood-plain water only, so a
+# hill lake keeps its local level and the canals ride over the relief as terrain-following strips
+water_dil = ndimage.binary_dilation(lowland_perm, iterations=1)
 # water bodies that are dug / created later (docks, reservoirs, park lakes): the terrain under them stays
 # almost level until they appear, and they get no sandy shore band
 water_late = ndimage.binary_dilation(water_perm & (water_from < 9000), iterations=1)
 np.savez_compressed(os.path.join(CACHE, "rasters.npz"), shore_land=shore_land, water_depth=water_depth,
                     park_year=park_year_r, kind=kind_r, water=water_dil, water_late=water_late, birth=birth.astype(np.float16),
+                    marsh_soft=marsh_soft, marsh_year=marsh_year_r,
                     water_until=water_until.astype(np.float16), water_tidal=water_tidal)
 log("rasters saved")
 
