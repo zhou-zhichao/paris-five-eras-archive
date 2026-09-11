@@ -8,7 +8,7 @@ import numpy as np
 MAT_BALLAST, MAT_RAIL, MAT_BRICK, MAT_EMBANK, MAT_PLATFORM, MAT_DECK = 0, 1, 2, 3, 4, 5
 
 RAIL_GAUGE = 2.6      # exaggerated (buildings are drawn 2x): the two rails read as a double line
-RAIL_W = 0.55
+RAIL_W = 0.42
 BALLAST_W = 5.6
 TRACK_SPACING = 4.4   # multi-track ways: extra tracks side by side
 
@@ -142,14 +142,36 @@ def build_tracks(pieces, zg0, zg1):
     Every way is swept as ONE continuous ribbon with mitred joints (ballast, rails, deck, parapets,
     embankment); viaduct piers are sampled along the arc length.  No more piecewise boxes."""
     out = []
-    for pts, zg, birth, elev, kind, ntr in _chains(pieces, zg0, zg1):
-        if len(pts) < 2:
+    chains = [c for c in _chains(pieces, zg0, zg1) if len(c[0]) >= 2]
+    # grid hash of every elevated node (chain id, x, y): a parapet is drawn only where no OTHER elevated way runs
+    # within NEIGH m on that side, so a multi-track approach gets one pair of outer walls instead of a wall per way
+    NEIGH = 6.0
+    cell = {}
+    for ci, (pts, zg, birth, elev, kind, ntr) in enumerate(chains):
+        if elev != 1:
             continue
+        for x, y in pts:
+            cell.setdefault((int(x // NEIGH), int(y // NEIGH)), []).append((ci, x, y))
+
+    def other_way_near(ci, x, y):
+        gx, gy = int(x // NEIGH), int(y // NEIGH)
+        for dx in (-1, 0, 1):
+            for dy in (-1, 0, 1):
+                for cj, px, py in cell.get((gx + dx, gy + dy), ()):
+                    if cj != ci and (px - x) ** 2 + (py - y) ** 2 < NEIGH * NEIGH:
+                        return True
+        return False
+
+    for ci, (pts, zg, birth, elev, kind, ntr) in enumerate(chains):
         tn, nrm, s = _frames(pts)
         top = zg.copy()
         if elev == 1:
-            gb = float(zg.mean())
-            top[:] = gb + 7.0                                          # viaducts / bridges: deck 7 m above ground
+            # deck 7 m above the (smoothed) local ground: adjacent ways then share one deck height, so a
+            # multi-track viaduct is one flat surface instead of a stack of slightly offset strips
+            zs = zg.copy()
+            for _ in range(3):
+                zs[1:-1] = (zs[:-2] + zs[1:-1] + zs[2:]) / 3.0
+            top = zs + 7.0
         elif elev == 2:
             top += 3.5                                                 # embankments
         w_extra = 4.4 * (ntr - 1)
@@ -159,8 +181,23 @@ def build_tracks(pieces, zg0, zg1):
         if elev == 1:
             wdeck = 8.5 + w_extra
             out.append(_ribbon(pts, nrm, top, wdeck, 0.0, MAT_BRICK, birth, zlo=top - 1.6))
-            for sy in (-1, 1):                                         # parapets
-                out.append(_ribbon(pts, nrm, top + 1.0, 0.6, sy * (wdeck / 2 - 0.35), MAT_BRICK, birth, zlo=top))
+            # deck top and parapets are deck-grey: brick-pink tops made every multi-track approach read as a pink carpet
+            out.append(_ribbon(pts, nrm, top + 0.06, wdeck - 0.2, 0.0, MAT_DECK, birth))
+            for sy in (-1, 1):
+                side = pts + nrm * (sy * (wdeck / 2 + NEIGH * 0.5))
+                outer = np.array([not other_way_near(ci, x, y) for x, y in side])
+                # draw the parapet in runs of outer nodes only
+                k = 0
+                while k < len(pts):
+                    if not outer[k]:
+                        k += 1; continue
+                    j = k
+                    while j + 1 < len(pts) and outer[j + 1]:
+                        j += 1
+                    if j > k:
+                        sl = slice(k, j + 1)
+                        out.append(_ribbon(pts[sl], nrm[sl], top[sl] + 0.7, 0.5, sy * (wdeck / 2 - 0.3), MAT_DECK, birth, zlo=top[sl]))
+                    k = j + 1
             P, T = _samples(pts, tn, s, 24.0)                          # piers every 24 m of arc length
             for k in range(len(P)):
                 p0 = P[k] - T[k] * 1.5; p1 = P[k] + T[k] * 1.5

@@ -703,8 +703,10 @@ if dock_cells.any():
         m = water_from == yr
         until = water_until[m]
         fill = float(np.median(until[until > 0])) if (until > 0).any() else 9999.0
-        EVENTS.append({"name": f"dock_{int(yr)}", "mask": m, "year": float(yr), "fraction": 1.0, "rebuild": None,
-                       "resettle": ((fill + 3, fill + 25) if fill < 9000 else None)})
+        # the site is cleared in the two years BEFORE the basin floods (with the default 10-year spread the houses
+        # kept vanishing for a decade after the water had appeared, which read as water slowly rising)
+        EVENTS.append({"name": f"dock_{int(yr)}", "mask": m, "year": float(yr) - 2.0, "fraction": 1.0, "rebuild": None,
+                       "duration": 1.5, "resettle": ((fill + 3, fill + 25) if fill < 9000 else None)})
 EVENTS.sort(key=lambda e: e["year"])
 log("events", [(e["name"], e["year"]) for e in EVENTS])
 
