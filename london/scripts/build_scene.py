@@ -437,7 +437,12 @@ def strips(pieces_xy, widths, z):
 
 roads = D["roads"]
 over_water = roads[:, 7] > 0.5
-zmid0 = sample_h(roads[:, 0], roads[:, 1]) + 0.45; zmid1 = sample_h(roads[:, 2], roads[:, 3]) + 0.45
+# height layering (z-fighting was the "flicker" at road ends, banks and junctions): ground <= 0 under water,
+# river plane WATER_Z, roads >= WATER_Z + 0.35 with the major classes a few cm above the minor ones so overlapping
+# strips at junctions have a defined winner, rails above roads (see RAIL below)
+ROAD_LIFT = 0.04 * (4.0 - np.clip(roads[:, 8], 0, 4))          # class rank 0 (trunk) sits 16 cm above rank 4
+zmid0 = np.maximum(sample_h(roads[:, 0], roads[:, 1]) + 0.45, WATER_Z + 0.35) + ROAD_LIFT
+zmid1 = np.maximum(sample_h(roads[:, 2], roads[:, 3]) + 0.45, WATER_Z + 0.35) + ROAD_LIFT
 zmid0 = np.where(over_water, 1.2, zmid0); zmid1 = np.where(over_water, 1.2, zmid1)     # small culverts over canals / docks
 rw = roads[:, 4] * ROAD_W
 rw = np.where(roads[:, 8] < 0.5, rw * 1.8, rw)
@@ -475,7 +480,7 @@ if rail.shape[1] >= 8:
             link(ob, C_ROADS); add_gn(ob, NG_FACE)
             log("platforms", len(pl))
 else:
-    z0 = sample_h(rail[:, 0], rail[:, 1]) + 0.6; z1 = sample_h(rail[:, 2], rail[:, 3]) + 0.6
+    z0 = np.maximum(sample_h(rail[:, 0], rail[:, 1]) + 0.6, WATER_Z + 0.7); z1 = np.maximum(sample_h(rail[:, 2], rail[:, 3]) + 0.6, WATER_Z + 0.7)
     z0 = np.where(rail[:, 5] > 0.5, 6.0, z0); z1 = np.where(rail[:, 5] > 0.5, 6.0, z1)
     verts, faces = strips(rail[:, :4], np.full(len(rail), 7.0), np.stack([z0, z1], axis=1))
     ob = mesh_from_faces("RAIL", verts, faces, {"birth": rail[:, 4], "death": np.full(len(rail), 9999.0)}, [MAT_RAIL])
@@ -808,8 +813,8 @@ items = [(w["tris"], w["birth"], w["death"]) for w in META["water_event_tris"] i
 def _hist_z(x, y):
     h = h_at(x, y)
     if h < 0.6:
-        return WATER_Z + 0.02          # tidal: on the river plane (ground kept at <= 0 in growth.py)
-    return h + 0.3                     # streams on the slopes follow the terrain
+        return WATER_Z + 0.12          # tidal: just above the river plane (ground kept at <= 0 in growth.py)
+    return max(h + 0.3, WATER_Z + 0.24)   # streams on the slopes follow the terrain, never level with the river
 
 
 ob = tri_mesh("WATER_HIST", items, zfn=_hist_z, max_edge=40.0)
@@ -1126,10 +1131,12 @@ for f in _cam_key_frames():
     cy = ty - math.sin(heading) * dist * math.cos(pitch)
     cz = tz + dist * math.sin(pitch)
     cam.location = (cx, cy, cz); cam.keyframe_insert("location", frame=f)
+    cam_data.clip_start = float(np.clip(dist * 0.05, 5.0, 5000.0)); cam_data.keyframe_insert("clip_start", frame=f)
+    cam_data.clip_end = float(max(dist * 15.0, 30000.0)); cam_data.keyframe_insert("clip_end", frame=f)
     target.location = (tx, ty, tz); target.keyframe_insert("location", frame=f)
     scene.world.mist_settings.start = dist * 0.85; scene.world.mist_settings.depth = dist * 1.7
     scene.world.mist_settings.keyframe_insert("start", frame=f); scene.world.mist_settings.keyframe_insert("depth", frame=f)
-for o in (cam, target):
+for o in (cam, target, cam_data):
     for fc in o.animation_data.action.fcurves:
         for kp in fc.keyframe_points:
             kp.interpolation = 'LINEAR'
