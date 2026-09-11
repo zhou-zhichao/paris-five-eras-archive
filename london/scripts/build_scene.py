@@ -764,13 +764,14 @@ def split_tri(t, max_edge):
 def tri_mesh(name, items, zfn=None, z=0.0, max_edge=None):
     """items: list of (tris [[x,y]x3], birth, death) -> mesh object with per-face birth/death."""
     verts, faces, fb, fd = [], [], [], []
-    for tris, b, d in items:
-        if max_edge:
+    for tris, b, d, *rest in items:
+        zc = rest[0] if rest else None                 # optional constant height per item (flat basins)
+        if max_edge and zc is None:
             tris = [st for t in tris for st in split_tri([tuple(pt) for pt in t], max_edge)]
         for t in tris:
             i0 = len(verts)
             for x, y in t:
-                verts.append((x, y, zfn(x, y) if zfn else z))
+                verts.append((x, y, zc if zc is not None else (zfn(x, y) if zfn else z)))
             faces.append((i0, i0 + 1, i0 + 2)); fb.append(b); fd.append(d)
     if not faces:
         return None
@@ -822,7 +823,7 @@ if cpieces:
 STREAM_NAMES = {w["name"] for w in history.WATER_EVENTS if "line" in w}
 def _is_stream(w):
     return bool(w.get("stream")) or w["name"] in STREAM_NAMES
-items = [(w["tris"], w["birth"], w["death"]) for w in META["water_event_tris"] if w["death"] < 9000 and not _is_stream(w)]
+items = [(w["tris"], w["birth"], w["death"], w.get("z")) for w in META["water_event_tris"] if w["death"] < 9000 and not _is_stream(w)]
 stream_items = [(w["tris"], w["birth"], w["death"]) for w in META["water_event_tris"] if w["death"] < 9000 and _is_stream(w)]
 
 

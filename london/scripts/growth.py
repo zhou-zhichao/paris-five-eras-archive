@@ -119,6 +119,7 @@ water_perm = mask_of(river_polys + other_polys + canal_polys)          # water t
 water_until = np.zeros((NY, NX), dtype=np.float32)      # cells are water until this year (0 = never temporary)
 water_from = np.full((NY, NX), 9999.0, dtype=np.float32)  # cells become water at this year (docks)
 water_events_json = []
+_poly_event_masks = []     # (10 m mask, index of the first json entry) per polygon event: basins get a flat floor below
 for w in history.WATER_EVENTS:
     if "line" in w:
         g = w["line"].buffer(w["width"] / 2)
@@ -132,6 +133,8 @@ for w in history.WATER_EVENTS:
         if w["death"] < 9000:
             water_until[m] = np.maximum(water_until[m], w["death"])
     gg = g.simplify(2)
+    if "line" not in w:
+        _poly_event_masks.append((m, len(water_events_json)))
     for part in (gg.geoms if isinstance(gg, MultiPolygon) else [gg]):
         water_events_json.append({"name": w["name"], "birth": w["birth"], "death": w["death"], "stream": "line" in w,
                                   "outer": [[round(x, 1), round(y, 1)] for x, y in part.exterior.coords],
@@ -1181,7 +1184,24 @@ water_tidal &= ~(stream_mask & ~poly_hist_mask)
 _wa = (water_perm | water_tidal)[rt, ct].reshape(TX.shape)
 _ramp = -0.3 - 4.0 * np.clip((d_land[rt, ct].reshape(TX.shape) + 6.0) / 66.0, 0, 1)
 hmap = np.where(_wa, np.minimum(hmap, _ramp), hmap).astype(np.float32)
-log("heightmap", hmap.shape, float(hmap.max()), float(hmap.min()), "tidal historic cells", int(water_tidal.sum()))
+# docks, reservoirs, park lakes: one flat water surface per basin (just above the river plane, or a local level
+# for a reservoir on a hill) and the ground under the whole polygon pushed 1.1 m below it - half the Western
+# Dock's cells stood above the water and drew ground ridges through the basin
+_json_by_name = {}
+for _mi, (_m, _j0) in enumerate(_poly_event_masks):
+    _r, _c = np.nonzero(_m)
+    if len(_r) == 0:
+        continue
+    _ti = np.clip(((X0 + (_c + 0.5) * CELL) - X0) / TSTEP, 0, hmap.shape[1] - 1).astype(int)
+    _tj = np.clip(((Y1 - (_r + 0.5) * CELL) - Y0) / TSTEP, 0, hmap.shape[0] - 1).astype(int)
+    _zs = hmap[_tj, _ti]
+    _zsurf = float(max(np.percentile(_zs, 10) - 0.3, 0.62))
+    hmap[_tj, _ti] = np.minimum(hmap[_tj, _ti], _zsurf - 1.1)
+    _name = water_events_json[_j0]["name"]
+    for _e in water_events_json:
+        if _e["name"] == _name and not _e.get("stream"):
+            _e["z"] = round(_zsurf, 2)
+log("heightmap", hmap.shape, float(hmap.max()), float(hmap.min()), "tidal historic cells", int(water_tidal.sum()), "basins", len(_poly_event_masks))
 
 
 def sample_h(xs, ys):
@@ -1264,7 +1284,7 @@ for we in water_events_json:
         tris = []
         for part in parts:
             tris += tri_json(part)
-        water_event_tris.append({"name": we["name"], "birth": we["birth"], "death": we["death"], "stream": bool(we.get("stream")), "tris": tris})
+        water_event_tris.append({"name": we["name"], "birth": we["birth"], "death": we["death"], "stream": bool(we.get("stream")), "z": we.get("z"), "tris": tris})
     except Exception as ex:  # noqa
         print("[growth] water event tri failed", we["name"], ex)
 log("water triangulated", sum(len(w["tris"]) for w in water_tris), sum(len(w["tris"]) for w in water_event_tris))
