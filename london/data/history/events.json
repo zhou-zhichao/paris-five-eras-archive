@@ -1,0 +1,3318 @@
+{
+ "meta": {
+  "title": "Dated destruction and mass-rebuild events for a 3D timelapse of London, AD 60 - 2025",
+  "compiled": "2026-09-07",
+  "crs": "WGS84 lon,lat (decimal degrees, 5 dp)",
+  "field_semantics": {
+   "year": "Year the event happens (or begins).",
+   "year_end": "Year the destruction finishes; equal to 'year' for a single-night event.",
+   "destroyed_fraction": "Fraction of built cells inside the polygon to remove, 0-1. 1.0 = clear everything; 0.03 = scatter craters. Apply randomly, weighted by the notes.",
+   "rebuild_start": "Year rebuilding begins. 0 means NEVER REBUILT (leave the cells empty and let a later growth zone take them).",
+   "rebuild_end": "Year the rebuild is complete.",
+   "rebuild_kit": "Which building kit the replacement uses - this is where the timelapse gets its most dramatic material changes (medieval timber to Georgian brick after 1666; Victorian terrace to concrete estate after 1941).",
+   "area_km2": "Computed planar area of the polygon."
+  },
+  "usage": "Apply events in chronological order AFTER rasterising growth_zones.json. An event overrides a cell's birth year: the cell dies at 'year' and is reborn at a year interpolated between rebuild_start and rebuild_end with the event's rebuild_kit.",
+  "accuracy_note": "Pre-1666 fire extents are inferred from chronicle description and archaeology and may be wrong by several hundred metres; the Great Fire boundary is well attested. Blitz polygons are BOROUGH-SCALE generalisations of the London County Council Bomb Damage Maps - for cell-accurate damage, use the digitised maps on Layers of London (layersoflondon.org/map/overlays/bomb-damage-1945) or the London Picture Archive. V-weapon impacts should be scattered as individual craters, not applied as an area fraction. Street-improvement corridors are drawn 40-80 m wide, which is the right order for the actual takings.",
+  "companion_files": [
+   "growth_zones.json",
+   "villages.json",
+   "population.json",
+   "growth_summary.md"
+  ]
+ },
+ "events": [
+  {
+   "id": "ev01_boudica",
+   "name": "Boudican revolt - Londinium burned",
+   "year": 60,
+   "year_end": 61,
+   "destroyed_fraction": 1.0,
+   "rebuild_start": 62,
+   "rebuild_end": 90,
+   "rebuild_kit": "roman",
+   "area_km2": 0.938,
+   "polygon": [
+    [
+     -0.0932,
+     51.5093
+    ],
+    [
+     -0.0936,
+     51.5122
+    ],
+    [
+     -0.0912,
+     51.5142
+    ],
+    [
+     -0.0872,
+     51.5152
+    ],
+    [
+     -0.0828,
+     51.5148
+    ],
+    [
+     -0.0798,
+     51.5132
+    ],
+    [
+     -0.0792,
+     51.5108
+    ],
+    [
+     -0.0822,
+     51.5088
+    ],
+    [
+     -0.0872,
+     51.5081
+    ],
+    [
+     -0.0918,
+     51.5084
+    ],
+    [
+     -0.0928,
+     51.506
+    ],
+    [
+     -0.0902,
+     51.5072
+    ],
+    [
+     -0.0868,
+     51.5068
+    ],
+    [
+     -0.0846,
+     51.5048
+    ],
+    [
+     -0.0848,
+     51.5018
+    ],
+    [
+     -0.0872,
+     51.5004
+    ],
+    [
+     -0.0902,
+     51.5012
+    ],
+    [
+     -0.093,
+     51.505
+    ],
+    [
+     -0.0932,
+     51.5093
+    ]
+   ],
+   "notes": "TOTAL destruction. The archaeological signature is unmistakable: a 20-50 cm layer of burnt daub, oxidised red and black, sealing the AD 47-60 buildings across the whole excavated town on both banks - the 'Boudican destruction horizon', found on more than 100 City sites. Tacitus says the procurator Catus Decianus fled and Suetonius Paulinus abandoned the town; those who stayed were killed. Rebuilding started slowly (a decade of thin occupation) then accelerated hugely under the Flavians: the second forum-basilica, the governor's palace, the amphitheatre, the fort. Polygon combines the AD 60 north-bank town and the Southwark bridgehead.",
+   "sources": [
+    "Tacitus, Annals XIV.31-39",
+    "Wikipedia: Boudica; Londinium",
+    "MOLA excavation reports (Boudican destruction horizon)"
+   ]
+  },
+  {
+   "id": "ev02_hadrianic_fire",
+   "name": "The Hadrianic fire",
+   "year": 125,
+   "year_end": 130,
+   "destroyed_fraction": 0.6,
+   "rebuild_start": 130,
+   "rebuild_end": 160,
+   "rebuild_kit": "roman",
+   "area_km2": 0.97,
+   "polygon": [
+    [
+     -0.098,
+     51.51
+    ],
+    [
+     -0.0985,
+     51.513
+    ],
+    [
+     -0.096,
+     51.5152
+    ],
+    [
+     -0.092,
+     51.5164
+    ],
+    [
+     -0.087,
+     51.5166
+    ],
+    [
+     -0.0825,
+     51.5155
+    ],
+    [
+     -0.0795,
+     51.5138
+    ],
+    [
+     -0.0788,
+     51.5112
+    ],
+    [
+     -0.0812,
+     51.5092
+    ],
+    [
+     -0.086,
+     51.5086
+    ],
+    [
+     -0.0912,
+     51.5086
+    ],
+    [
+     -0.0955,
+     51.509
+    ],
+    [
+     -0.098,
+     51.51
+    ]
+   ],
+   "notes": "A second burnt horizon, dated by samian pottery to about AD 120-130, covers a large part of the town north of the river between the Walbrook and the eastern hill. No literary source mentions it; it is known only from excavation. The rebuild is markedly less dense than what it replaced, and this fire is often given as one cause of the long 2nd-century contraction. Date is APPROXIMATE (c.120-130).",
+   "sources": [
+    "Wikipedia: Londinium",
+    "Perring, London in the Roman World (2022)",
+    "MOLA"
+   ]
+  },
+  {
+   "id": "ev03_viking_sacks",
+   "name": "Viking raids on Lundenwic",
+   "year": 842,
+   "year_end": 872,
+   "destroyed_fraction": 0.6,
+   "rebuild_start": 0,
+   "rebuild_end": 0,
+   "rebuild_kit": "saxon",
+   "area_km2": 0.756,
+   "polygon": [
+    [
+     -0.1292,
+     51.5074
+    ],
+    [
+     -0.1278,
+     51.5104
+    ],
+    [
+     -0.1258,
+     51.5128
+    ],
+    [
+     -0.1222,
+     51.514
+    ],
+    [
+     -0.1178,
+     51.5142
+    ],
+    [
+     -0.1146,
+     51.5132
+    ],
+    [
+     -0.1116,
+     51.5122
+    ],
+    [
+     -0.1102,
+     51.5106
+    ],
+    [
+     -0.1122,
+     51.5086
+    ],
+    [
+     -0.118,
+     51.5076
+    ],
+    [
+     -0.121,
+     51.5071
+    ],
+    [
+     -0.124,
+     51.5066
+    ],
+    [
+     -0.1292,
+     51.5074
+    ]
+   ],
+   "notes": "NO REBUILD ON SITE - this is the trigger for the abandonment zone z009. The Anglo-Saxon Chronicle records 'great slaughter in Lundenwic' in 842, a raid by 350 ships in 851, and the Danish 'Great Army' wintering in London in 871-72. The survivors moved behind the Roman walls; the Strand settlement was left empty. rebuild_start/rebuild_end 0 means: do not rebuild.",
+   "sources": [
+    "Anglo-Saxon Chronicle s.a. 842, 851, 871",
+    "London Museum: Lundenwic"
+   ]
+  },
+  {
+   "id": "ev04_fire_1087",
+   "name": "The fire of 1087 - Old St Paul's destroyed",
+   "year": 1087,
+   "year_end": 1087,
+   "destroyed_fraction": 0.55,
+   "rebuild_start": 1087,
+   "rebuild_end": 1120,
+   "rebuild_kit": "medieval",
+   "area_km2": 0.993,
+   "polygon": [
+    [
+     -0.1042,
+     51.5118
+    ],
+    [
+     -0.103,
+     51.514
+    ],
+    [
+     -0.1,
+     51.5158
+    ],
+    [
+     -0.0955,
+     51.517
+    ],
+    [
+     -0.09,
+     51.5168
+    ],
+    [
+     -0.0855,
+     51.5158
+    ],
+    [
+     -0.082,
+     51.5145
+    ],
+    [
+     -0.08,
+     51.5125
+    ],
+    [
+     -0.082,
+     51.51
+    ],
+    [
+     -0.088,
+     51.5096
+    ],
+    [
+     -0.095,
+     51.5102
+    ],
+    [
+     -0.101,
+     51.511
+    ],
+    [
+     -0.1042,
+     51.5118
+    ]
+   ],
+   "notes": "The Anglo-Saxon Chronicle for 1087: 'the holy church of St Paul, the episcopal see, was burnt down, and many other churches, and the greatest and fairest part of the whole city'. Bishop Maurice began the great Norman St Paul's in the same year (-0.0984/51.5138); it took over 200 years to finish and its 149 m spire of 1314 made it the tallest building in the world until 1548. Extent is a best estimate - probably the western two-thirds of the walled area.",
+   "sources": [
+    "Anglo-Saxon Chronicle s.a. 1087",
+    "Wikipedia: Old St Paul's Cathedral",
+    "Stow, Survey of London"
+   ]
+  },
+  {
+   "id": "ev05_fire_1135",
+   "name": "The fire of 1135 (Pentecost) - London Bridge and the city centre",
+   "year": 1135,
+   "year_end": 1136,
+   "destroyed_fraction": 0.5,
+   "rebuild_start": 1136,
+   "rebuild_end": 1160,
+   "rebuild_kit": "medieval",
+   "area_km2": 0.904,
+   "polygon": [
+    [
+     -0.1132,
+     51.5136
+    ],
+    [
+     -0.109,
+     51.5146
+    ],
+    [
+     -0.104,
+     51.515
+    ],
+    [
+     -0.0995,
+     51.5152
+    ],
+    [
+     -0.095,
+     51.515
+    ],
+    [
+     -0.0905,
+     51.5142
+    ],
+    [
+     -0.0862,
+     51.5132
+    ],
+    [
+     -0.0838,
+     51.5112
+    ],
+    [
+     -0.085,
+     51.509
+    ],
+    [
+     -0.0888,
+     51.5078
+    ],
+    [
+     -0.092,
+     51.509
+    ],
+    [
+     -0.0975,
+     51.5104
+    ],
+    [
+     -0.104,
+     51.5112
+    ],
+    [
+     -0.11,
+     51.512
+    ],
+    [
+     -0.1132,
+     51.5136
+    ]
+   ],
+   "notes": "Fire broke out at the house of Ailward near London Bridge and burned, according to the chroniclers, west as far as St Clement Danes; the wooden London Bridge was destroyed. The extent is disputed and probably exaggerated by the sources - treat the polygon as a wide band along the river and Thames Street rather than a precise line. This fire and its successors caused the first London building regulation: Fitz-Ailwin's Assize of Buildings of 1189, which required party walls of stone and banned reed thatch.",
+   "sources": [
+    "Wikipedia: London Bridge; History of London",
+    "Fitz-Ailwin's Assize of Buildings 1189",
+    "Stow, Survey of London"
+   ]
+  },
+  {
+   "id": "ev06_southwark_1212",
+   "name": "The Great Fire of Southwark",
+   "year": 1212,
+   "year_end": 1212,
+   "destroyed_fraction": 0.7,
+   "rebuild_start": 1213,
+   "rebuild_end": 1240,
+   "rebuild_kit": "medieval",
+   "area_km2": 0.429,
+   "polygon": [
+    [
+     -0.0952,
+     51.5074
+    ],
+    [
+     -0.0925,
+     51.5082
+    ],
+    [
+     -0.0888,
+     51.5084
+    ],
+    [
+     -0.0862,
+     51.5078
+    ],
+    [
+     -0.0842,
+     51.5058
+    ],
+    [
+     -0.0838,
+     51.5032
+    ],
+    [
+     -0.0842,
+     51.501
+    ],
+    [
+     -0.0868,
+     51.4998
+    ],
+    [
+     -0.0896,
+     51.5008
+    ],
+    [
+     -0.0901,
+     51.5022
+    ],
+    [
+     -0.0906,
+     51.5036
+    ],
+    [
+     -0.0922,
+     51.5058
+    ],
+    [
+     -0.0952,
+     51.5074
+    ]
+   ],
+   "notes": "10 July 1212. Fire started in Southwark, destroyed the church of St Mary Overie and spread onto the newly completed stone London Bridge (finished 1209). Crowds crossing to watch were trapped when sparks set the north end alight as well; medieval chroniclers claimed 3,000 dead, which is certainly a huge exaggeration but the death toll was probably in the hundreds. Both ends of Southwark and the bridge houses burned. Southwark's timber town was rebuilt on the same lines.",
+   "sources": [
+    "Wikipedia: London Bridge; Southwark",
+    "Stow, Survey of London",
+    "Matthew Paris, Chronica Majora"
+   ]
+  },
+  {
+   "id": "ev07_black_death",
+   "name": "The Black Death and the long medieval contraction",
+   "year": 1348,
+   "year_end": 1400,
+   "destroyed_fraction": 0.18,
+   "rebuild_start": 1450,
+   "rebuild_end": 1550,
+   "rebuild_kit": "tudor",
+   "area_km2": 2.128,
+   "polygon": [
+    [
+     -0.1044,
+     51.5122
+    ],
+    [
+     -0.1034,
+     51.5148
+    ],
+    [
+     -0.1,
+     51.5172
+    ],
+    [
+     -0.0952,
+     51.5186
+    ],
+    [
+     -0.0888,
+     51.5182
+    ],
+    [
+     -0.0812,
+     51.517
+    ],
+    [
+     -0.0758,
+     51.5148
+    ],
+    [
+     -0.0752,
+     51.5108
+    ],
+    [
+     -0.079,
+     51.5086
+    ],
+    [
+     -0.0862,
+     51.508
+    ],
+    [
+     -0.087,
+     51.504
+    ],
+    [
+     -0.09,
+     51.5008
+    ],
+    [
+     -0.093,
+     51.504
+    ],
+    [
+     -0.094,
+     51.507
+    ],
+    [
+     -0.0996,
+     51.5098
+    ],
+    [
+     -0.1044,
+     51.5122
+    ]
+   ],
+   "notes": "NOT a fire - a DEPOPULATION event, and it must be rendered differently: do not delete whole streets, THIN the fabric. Plague reached London in late 1348 and killed perhaps 40-60 percent of a population of 80,000-100,000; East Smithfield and Charterhouse emergency burial grounds took tens of thousands. Further outbreaks 1361, 1369, 1375. London's population did not regain its 1300 level until about 1550. Physically: gardens and vacant plots spread inside the walls, tenements decayed, and the extramural suburbs stopped growing for 150 years. The polygon covers the city, Southwark and the suburbs; apply an 18 percent random cell removal spread over 1348-1400, then let Tudor zones refill it 1520-1600.",
+   "sources": [
+    "Wikipedia: Black Death in England; Demography of London",
+    "MOLA East Smithfield Black Death cemetery excavation",
+    "Barron, London in the Later Middle Ages"
+   ]
+  },
+  {
+   "id": "ev08_peasants_revolt",
+   "name": "The Peasants' Revolt - the Savoy Palace burned",
+   "year": 1381,
+   "year_end": 1381,
+   "destroyed_fraction": 1.0,
+   "rebuild_start": 1505,
+   "rebuild_end": 1517,
+   "rebuild_kit": "tudor",
+   "area_km2": 0.087,
+   "polygon": [
+    [
+     -0.1215,
+     51.5118
+    ],
+    [
+     -0.12,
+     51.5124
+    ],
+    [
+     -0.119,
+     51.5123
+    ],
+    [
+     -0.118,
+     51.5122
+    ],
+    [
+     -0.1168,
+     51.5112
+    ],
+    [
+     -0.1172,
+     51.51
+    ],
+    [
+     -0.1188,
+     51.5094
+    ],
+    [
+     -0.1206,
+     51.5096
+    ],
+    [
+     -0.1212,
+     51.5101
+    ],
+    [
+     -0.1218,
+     51.5106
+    ],
+    [
+     -0.122,
+     51.5112
+    ],
+    [
+     -0.1215,
+     51.5118
+    ],
+    [
+     -0.1215,
+     51.5118
+    ]
+   ],
+   "notes": "SMALL BUT ICONIC. On 13 June 1381 the rebels burned John of Gaunt's Savoy Palace on the Strand (-0.1195/51.5108), the finest private house in England, refusing to loot it on Wat Tyler's orders; they also fired the Temple, the Clerkenwell priory of St John, and Newgate and the Fleet prisons. The Savoy site lay in ruins for 124 years until Henry VII rebuilt it as the Savoy Hospital in 1505-17. A good single-building destruction beat.",
+   "sources": [
+    "Wikipedia: Peasants' Revolt; Savoy Palace",
+    "Froissart, Chronicles"
+   ]
+  },
+  {
+   "id": "ev09_dissolution",
+   "name": "The Dissolution of the Monasteries - the monastic ring privatised",
+   "year": 1536,
+   "year_end": 1541,
+   "destroyed_fraction": 0.45,
+   "rebuild_start": 1540,
+   "rebuild_end": 1620,
+   "rebuild_kit": "tudor",
+   "area_km2": 1.463,
+   "polygon": [
+    [
+     -0.11,
+     51.5178
+    ],
+    [
+     -0.1112,
+     51.5215
+    ],
+    [
+     -0.109,
+     51.5245
+    ],
+    [
+     -0.104,
+     51.5252
+    ],
+    [
+     -0.0985,
+     51.5238
+    ],
+    [
+     -0.094,
+     51.5215
+    ],
+    [
+     -0.09,
+     51.52
+    ],
+    [
+     -0.085,
+     51.5192
+    ],
+    [
+     -0.079,
+     51.5188
+    ],
+    [
+     -0.076,
+     51.5162
+    ],
+    [
+     -0.079,
+     51.5142
+    ],
+    [
+     -0.086,
+     51.515
+    ],
+    [
+     -0.093,
+     51.5162
+    ],
+    [
+     -0.099,
+     51.5168
+    ],
+    [
+     -0.105,
+     51.517
+    ],
+    [
+     -0.11,
+     51.5178
+    ]
+   ],
+   "notes": "Not fire or war but confiscation - and physically it was the largest single change of land use London had seen since the Romans. Between 1536 and 1541 something like a QUARTER of the walled city and its northern fringe changed hands: 23 religious houses in and around London were suppressed. Churches were unroofed for their lead and quarried for stone (Greyfriars, Austin Friars, Holy Trinity Aldgate, St Mary Spital, Clerkenwell, Charterhouse, Bermondsey Abbey, Barking Abbey); precinct walls came down; the gardens and courts were subdivided into tenements and workshops by the courtiers who were granted them. Render as: remove the big cloistral masses, keep a few converted halls, and infill with dense small Tudor houses over the next 80 years.",
+   "sources": [
+    "Wikipedia: Dissolution of the Monasteries",
+    "Stow, Survey of London 1598",
+    "British History Online: Survey of London vol 46"
+   ]
+  },
+  {
+   "id": "ev10_great_plague",
+   "name": "The Great Plague of London",
+   "year": 1665,
+   "year_end": 1666,
+   "destroyed_fraction": 0.0,
+   "rebuild_start": 0,
+   "rebuild_end": 0,
+   "rebuild_kit": "georgian",
+   "area_km2": 10.051,
+   "polygon": [
+    [
+     -0.133,
+     51.506
+    ],
+    [
+     -0.125,
+     51.514
+    ],
+    [
+     -0.116,
+     51.518
+    ],
+    [
+     -0.106,
+     51.523
+    ],
+    [
+     -0.095,
+     51.525
+    ],
+    [
+     -0.083,
+     51.525
+    ],
+    [
+     -0.072,
+     51.523
+    ],
+    [
+     -0.062,
+     51.518
+    ],
+    [
+     -0.062,
+     51.512
+    ],
+    [
+     -0.07,
+     51.506
+    ],
+    [
+     -0.082,
+     51.5
+    ],
+    [
+     -0.094,
+     51.498
+    ],
+    [
+     -0.106,
+     51.5
+    ],
+    [
+     -0.12,
+     51.502
+    ],
+    [
+     -0.133,
+     51.506
+    ]
+   ],
+   "notes": "NO BUILDINGS DESTROYED - included because it is essential narration and because it immediately precedes the Great Fire. The Bills of Mortality recorded 68,596 plague deaths in 1665 and the true figure was probably close to 100,000, roughly a quarter of London's population, concentrated in the poor extramural parishes (St Giles-in-the-Fields, where it started in spring 1665, Whitechapel, Stepney, Shoreditch, Southwark). The court left for Oxford in July 1665. If you want a visual, darken or empty the streets rather than remove buildings.",
+   "sources": [
+    "Wikipedia: Great Plague of London",
+    "London Bills of Mortality 1665",
+    "Defoe, A Journal of the Plague Year (1722)"
+   ]
+  },
+  {
+   "id": "ev11_great_fire",
+   "name": "The Great Fire of London",
+   "year": 1666,
+   "year_end": 1666,
+   "destroyed_fraction": 0.97,
+   "rebuild_start": 1667,
+   "rebuild_end": 1680,
+   "rebuild_kit": "georgian",
+   "area_km2": 1.473,
+   "polygon": [
+    [
+     -0.1116,
+     51.5128
+    ],
+    [
+     -0.1092,
+     51.5148
+    ],
+    [
+     -0.108,
+     51.5164
+    ],
+    [
+     -0.1054,
+     51.5178
+    ],
+    [
+     -0.1016,
+     51.5178
+    ],
+    [
+     -0.0976,
+     51.5172
+    ],
+    [
+     -0.094,
+     51.5178
+    ],
+    [
+     -0.0904,
+     51.517
+    ],
+    [
+     -0.0862,
+     51.5158
+    ],
+    [
+     -0.0822,
+     51.5148
+    ],
+    [
+     -0.0806,
+     51.5128
+    ],
+    [
+     -0.079,
+     51.5108
+    ],
+    [
+     -0.0786,
+     51.5092
+    ],
+    [
+     -0.086,
+     51.5092
+    ],
+    [
+     -0.095,
+     51.5104
+    ],
+    [
+     -0.1032,
+     51.511
+    ],
+    [
+     -0.1088,
+     51.5118
+    ],
+    [
+     -0.1116,
+     51.5128
+    ]
+   ],
+   "notes": "2-6 September 1666, from Thomas Farriner's bakehouse in Pudding Lane (-0.0862/51.5095). Losses: 13,200 houses, 87 parish churches, St Paul's Cathedral, the Royal Exchange, the Guildhall, 52 livery halls, four of the seven gates and 4 of the 5 bridges over the Fleet - about 436 acres in the traditional survey, of which 373 acres were inside the walls (roughly 80-85 percent of the walled City) and 63 acres outside. Recorded deaths: 6, though the real figure was certainly higher. BOUNDARIES: west, stopped at Fetter Lane Corner and the Temple (-0.1105/51.5130) with Holborn Bridge and Pye Corner at the north-west; north, stopped at the city wall between Cripplegate and Aldersgate; east, stopped at Mark Lane/Seething Lane just short of the Tower (gunpowder was used to make firebreaks there); the north-east - Bishopsgate ward, Leadenhall Market, Aldgate - and the Tower liberty SURVIVED and must be left standing, which is what makes the burnt shape recognisable. REBUILD: the Rebuilding of London Act 1667 mandated brick or stone, four standard house types by street class, no jetties, widened streets and a Fire Court to settle disputes in days rather than years. About 9,000 houses were back within 7 years, on the OLD medieval street lines - Wren's and Evelyn's grand plans were abandoned within months. 51 Wren churches 1670-1700, the Monument 1671-77 (-0.0861/51.5102, 61 m, exactly its own height from the bakehouse), new St Paul's 1675-1710.",
+   "sources": [
+    "Wikipedia: Great Fire of London; Rebuilding of London Act 1666",
+    "The Monument: Great Fire of London FAQs",
+    "London Fire Brigade museum",
+    "Ogilby and Morgan survey 1676"
+   ]
+  },
+  {
+   "id": "ev12_ratcliff_fire",
+   "name": "The Ratcliff fire",
+   "year": 1794,
+   "year_end": 1794,
+   "destroyed_fraction": 0.9,
+   "rebuild_start": 1795,
+   "rebuild_end": 1810,
+   "rebuild_kit": "georgian",
+   "area_km2": 0.224,
+   "polygon": [
+    [
+     -0.047,
+     51.5122
+    ],
+    [
+     -0.0442,
+     51.513
+    ],
+    [
+     -0.0426,
+     51.5131
+    ],
+    [
+     -0.041,
+     51.5132
+    ],
+    [
+     -0.0382,
+     51.5126
+    ],
+    [
+     -0.0372,
+     51.5112
+    ],
+    [
+     -0.0388,
+     51.5098
+    ],
+    [
+     -0.0418,
+     51.5092
+    ],
+    [
+     -0.0448,
+     51.5096
+    ],
+    [
+     -0.0468,
+     51.5108
+    ],
+    [
+     -0.0472,
+     51.5116
+    ],
+    [
+     -0.047,
+     51.5122
+    ],
+    [
+     -0.047,
+     51.5122
+    ]
+   ],
+   "notes": "23 July 1794. A barge of saltpetre caught fire at Cleveley's barge-builders on the Ratcliff waterfront; the East India Company's saltpetre warehouse went up and about 453 houses, 20 warehouses and 630 families' homes were destroyed - the worst London fire between 1666 and the Blitz, and almost forgotten. Rebuilt immediately, then largely swept away again by the London Docks and the 1940 Blitz.",
+   "sources": [
+    "Wikipedia: Ratcliff; Limehouse",
+    "The Times, July 1794",
+    "Survey of London vol 27"
+   ]
+  },
+  {
+   "id": "ev13_parliament_fire",
+   "name": "The burning of the Palace of Westminster",
+   "year": 1834,
+   "year_end": 1834,
+   "destroyed_fraction": 0.85,
+   "rebuild_start": 1840,
+   "rebuild_end": 1870,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.126,
+   "polygon": [
+    [
+     -0.1272,
+     51.5008
+    ],
+    [
+     -0.1258,
+     51.5016
+    ],
+    [
+     -0.124,
+     51.5014
+    ],
+    [
+     -0.1228,
+     51.5004
+    ],
+    [
+     -0.1227,
+     51.4996
+    ],
+    [
+     -0.1226,
+     51.4988
+    ],
+    [
+     -0.1236,
+     51.4976
+    ],
+    [
+     -0.1252,
+     51.4972
+    ],
+    [
+     -0.1266,
+     51.4978
+    ],
+    [
+     -0.1274,
+     51.499
+    ],
+    [
+     -0.1276,
+     51.5
+    ],
+    [
+     -0.1272,
+     51.5008
+    ],
+    [
+     -0.1272,
+     51.5008
+    ]
+   ],
+   "notes": "16 October 1834. Two cartloads of obsolete Exchequer tally sticks were burned in the House of Lords furnaces; the flues overheated and by evening the whole medieval palace was alight - the most spectacular London fire between 1666 and 1940, watched by huge crowds and painted by Turner. Westminster Hall (1097-99) and the Jewel Tower survived; St Stephen's Chapel and everything else did not. Charles Barry won the 1836 competition; construction 1840-1870, with A. W. N. Pugin's Gothic detail. The Elizabeth Tower (Big Ben, 96 m) was completed 1859 (-0.1246/51.5007), the Victoria Tower (98.5 m) in 1860 - and this is the moment London's skyline gains its second great vertical landmark after St Paul's.",
+   "sources": [
+    "Wikipedia: Burning of Parliament; Palace of Westminster",
+    "Turner, The Burning of the Houses of Lords and Commons (1835)"
+   ]
+  },
+  {
+   "id": "ev21_euston_stpancras_kingscross",
+   "name": "Railway clearance: Euston, King's Cross and St Pancras; Agar Town destroyed",
+   "year": 1835,
+   "year_end": 1868,
+   "destroyed_fraction": 0.85,
+   "rebuild_start": 1868,
+   "rebuild_end": 1900,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.546,
+   "polygon": [
+    [
+     -0.1352,
+     51.5268
+    ],
+    [
+     -0.1346,
+     51.5284
+    ],
+    [
+     -0.134,
+     51.53
+    ],
+    [
+     -0.13,
+     51.5316
+    ],
+    [
+     -0.1258,
+     51.5322
+    ],
+    [
+     -0.1216,
+     51.5318
+    ],
+    [
+     -0.118,
+     51.5306
+    ],
+    [
+     -0.1174,
+     51.5286
+    ],
+    [
+     -0.121,
+     51.5276
+    ],
+    [
+     -0.1252,
+     51.5272
+    ],
+    [
+     -0.129,
+     51.527
+    ],
+    [
+     -0.1322,
+     51.5264
+    ],
+    [
+     -0.1352,
+     51.5268
+    ]
+   ],
+   "notes": "Three main-line termini in a row along the New Road. Euston 1837 (-0.1332/51.5282, with the Doric Arch of 1838, demolished 1961); King's Cross 1852 (-0.1235/51.5308); St Pancras 1863-68 (-0.1263/51.5300), which required demolishing the whole slum suburb of AGAR TOWN plus part of Somers Town - about 4,000 houses and 10,000 people, with no compensation and no rehousing, plus the clearance of 8,000 bodies from St Pancras Old Church burial ground (supervised in 1865-67 by the young Thomas Hardy, then an architect's assistant; the 'Hardy Tree' stood over the stacked headstones until 2022). The Midland Grand Hotel (Gilbert Scott, 1873) and Barlow's 74 m single-span train shed replaced them.",
+   "sources": [
+    "Wikipedia: St Pancras railway station; Agar Town; Somers Town",
+    "Kellett, The Impact of Railways on Victorian Cities"
+   ]
+  },
+  {
+   "id": "ev20_london_bridge_viaducts",
+   "name": "Railway clearance: the South London approach viaducts",
+   "year": 1836,
+   "year_end": 1866,
+   "destroyed_fraction": 0.75,
+   "rebuild_start": 1840,
+   "rebuild_end": 1900,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.607,
+   "polygon": [
+    [
+     -0.0878,
+     51.5052
+    ],
+    [
+     -0.084,
+     51.5044
+    ],
+    [
+     -0.079,
+     51.503
+    ],
+    [
+     -0.072,
+     51.501
+    ],
+    [
+     -0.064,
+     51.499
+    ],
+    [
+     -0.056,
+     51.497
+    ],
+    [
+     -0.048,
+     51.4948
+    ],
+    [
+     -0.04,
+     51.4922
+    ],
+    [
+     -0.0392,
+     51.4906
+    ],
+    [
+     -0.0472,
+     51.493
+    ],
+    [
+     -0.0554,
+     51.4952
+    ],
+    [
+     -0.0636,
+     51.4972
+    ],
+    [
+     -0.0716,
+     51.4992
+    ],
+    [
+     -0.0788,
+     51.5012
+    ],
+    [
+     -0.0842,
+     51.5028
+    ],
+    [
+     -0.0884,
+     51.5038
+    ],
+    [
+     -0.0878,
+     51.5052
+    ]
+   ],
+   "notes": "The London and Greenwich Railway (1836) was carried into London Bridge on 878 brick arches - Britain's first elevated railway and the model for all the others. Between 1836 and 1866 the London Bridge, Bricklayers Arms, Charing Cross (1864) and Cannon Street (1866) approaches drove a widening masonry embankment right through Bermondsey and north Southwark, in places 10 tracks wide, blotting out whole streets. Render as: a permanent 100-250 m wide brick viaduct ribbon replacing the housing, with the surviving houses squeezed against it. This is the single most visible piece of railway surgery in London and it is still there.",
+   "sources": [
+    "Wikipedia: London and Greenwich Railway; London Bridge station",
+    "Kellett, The Impact of Railways on Victorian Cities (1969)"
+   ]
+  },
+  {
+   "id": "ev33_minor_mbw_streets",
+   "name": "Street improvements: Commercial Street, Farringdon Road, Clerkenwell Road, Rosebery Avenue, Northumberland Avenue",
+   "year": 1843,
+   "year_end": 1892,
+   "destroyed_fraction": 0.9,
+   "rebuild_start": 1857,
+   "rebuild_end": 1905,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.251,
+   "polygon": [
+    [
+     -0.1106,
+     51.53
+    ],
+    [
+     -0.1092,
+     51.525
+    ],
+    [
+     -0.1058,
+     51.5228
+    ],
+    [
+     -0.1,
+     51.5222
+    ],
+    [
+     -0.0952,
+     51.522
+    ],
+    [
+     -0.0902,
+     51.5218
+    ],
+    [
+     -0.085,
+     51.5222
+    ],
+    [
+     -0.08,
+     51.5228
+    ],
+    [
+     -0.0756,
+     51.523
+    ],
+    [
+     -0.0722,
+     51.5192
+    ],
+    [
+     -0.0714,
+     51.5156
+    ],
+    [
+     -0.074,
+     51.5152
+    ],
+    [
+     -0.0748,
+     51.519
+    ],
+    [
+     -0.0782,
+     51.5226
+    ],
+    [
+     -0.085,
+     51.5212
+    ],
+    [
+     -0.095,
+     51.521
+    ],
+    [
+     -0.1046,
+     51.5216
+    ],
+    [
+     -0.1072,
+     51.5244
+    ],
+    [
+     -0.1086,
+     51.5298
+    ],
+    [
+     -0.1106,
+     51.53
+    ]
+   ],
+   "notes": "A composite corridor covering the secondary Victorian street cuts, all of which took slum property: COMMERCIAL STREET 1843-57 (Whitechapel High Street north to Shoreditch, straight through Spitalfields, -0.0730/51.5190); FARRINGDON ROAD/STREET 1845-63 (over the culverted Fleet, -0.1055/51.5200); CLERKENWELL ROAD 1874-78 (-0.1030/51.5222); ROSEBERY AVENUE 1889-92 (-0.1095/51.5265); GREAT EASTERN STREET 1876; SOUTHWARK STREET 1864; NORTHUMBERLAND AVENUE 1874-76 (-0.1240/51.5070, which demolished Northumberland House, the last of the great Strand palaces); THEOBALDS ROAD and GARRICK STREET 1861. Between them the Metropolitan Board of Works spent about 12 million pounds on street improvements 1855-1889 and displaced tens of thousands.",
+   "sources": [
+    "Wikipedia: Metropolitan Board of Works; Commercial Street, London; Farringdon Road",
+    "Dyos, 'Urban Transformation' (1957)"
+   ]
+  },
+  {
+   "id": "ev25_waterloo_victoria_charingcross",
+   "name": "Railway clearance: Waterloo, Victoria, Charing Cross and Cannon Street",
+   "year": 1845,
+   "year_end": 1902,
+   "destroyed_fraction": 0.8,
+   "rebuild_start": 1850,
+   "rebuild_end": 1922,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.389,
+   "polygon": [
+    [
+     -0.1148,
+     51.504
+    ],
+    [
+     -0.113,
+     51.5062
+    ],
+    [
+     -0.1104,
+     51.5074
+    ],
+    [
+     -0.1076,
+     51.507
+    ],
+    [
+     -0.1064,
+     51.505
+    ],
+    [
+     -0.107,
+     51.5037
+    ],
+    [
+     -0.1076,
+     51.5024
+    ],
+    [
+     -0.1104,
+     51.5006
+    ],
+    [
+     -0.114,
+     51.5002
+    ],
+    [
+     -0.1168,
+     51.5012
+    ],
+    [
+     -0.1176,
+     51.5028
+    ],
+    [
+     -0.1164,
+     51.5038
+    ],
+    [
+     -0.1148,
+     51.504
+    ]
+   ],
+   "notes": "Waterloo opened 1848 on Lambeth Marsh and was rebuilt and enlarged continuously to 1922, each phase eating more of the surrounding streets; the polygon covers the Waterloo/Lambeth block, the worst-hit. Also in this family: Victoria 1860 (-0.1441/51.4952, over the filled Grosvenor Canal); Charing Cross 1864 (-0.1245/51.5074), which demolished Hungerford Market; Cannon Street 1866 (-0.0905/51.5110), which took the Steelyard, the Hanseatic merchants' 500-year-old London base; Holborn Viaduct 1874; Blackfriars 1864. By 1900 the railways occupied roughly 5-9 percent of the land area of central London.",
+   "sources": [
+    "Wikipedia: Waterloo station; Charing Cross railway station; Cannon Street station",
+    "Kellett, The Impact of Railways on Victorian Cities (1969)"
+   ]
+  },
+  {
+   "id": "ev26_new_oxford_street",
+   "name": "Street improvement: New Oxford Street and the St Giles rookery",
+   "year": 1845,
+   "year_end": 1847,
+   "destroyed_fraction": 1.0,
+   "rebuild_start": 1847,
+   "rebuild_end": 1860,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.069,
+   "polygon": [
+    [
+     -0.1318,
+     51.5168
+    ],
+    [
+     -0.129,
+     51.5168
+    ],
+    [
+     -0.1276,
+     51.5169
+    ],
+    [
+     -0.1262,
+     51.517
+    ],
+    [
+     -0.1236,
+     51.5173
+    ],
+    [
+     -0.1216,
+     51.5176
+    ],
+    [
+     -0.1212,
+     51.5167
+    ],
+    [
+     -0.1234,
+     51.5164
+    ],
+    [
+     -0.126,
+     51.5162
+    ],
+    [
+     -0.1288,
+     51.516
+    ],
+    [
+     -0.1316,
+     51.5159
+    ],
+    [
+     -0.132,
+     51.5163
+    ],
+    [
+     -0.1318,
+     51.5168
+    ]
+   ],
+   "notes": "The prototype Victorian slum clearance. New Oxford Street was driven through the heart of the St Giles 'Rookery' - the 'Holy Land', the most notorious slum in London, painted by Hogarth as Gin Lane - displacing about 5,000 people, none of whom were rehoused; they simply crowded into Seven Dials and Church Lane next door, and the density there doubled. This is the pattern for the next sixty years: cut a wide street through the poorest quarter, line it with shops and offices, and push the poor 200 m sideways.",
+   "sources": [
+    "Wikipedia: New Oxford Street; St Giles Rookery",
+    "Dyos, 'Urban Transformation: the objects of street improvement' (1957)"
+   ]
+  },
+  {
+   "id": "ev27_victoria_street",
+   "name": "Street improvement: Victoria Street and the Devil's Acre",
+   "year": 1845,
+   "year_end": 1851,
+   "destroyed_fraction": 1.0,
+   "rebuild_start": 1851,
+   "rebuild_end": 1885,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.103,
+   "polygon": [
+    [
+     -0.1268,
+     51.5
+    ],
+    [
+     -0.13,
+     51.4992
+    ],
+    [
+     -0.1336,
+     51.4982
+    ],
+    [
+     -0.1372,
+     51.4972
+    ],
+    [
+     -0.1412,
+     51.4962
+    ],
+    [
+     -0.1428,
+     51.4956
+    ],
+    [
+     -0.142,
+     51.495
+    ],
+    [
+     -0.138,
+     51.4962
+    ],
+    [
+     -0.134,
+     51.4972
+    ],
+    [
+     -0.1304,
+     51.4982
+    ],
+    [
+     -0.1272,
+     51.4992
+    ],
+    [
+     -0.1262,
+     51.4996
+    ],
+    [
+     -0.1268,
+     51.5
+    ]
+   ],
+   "notes": "A 30 m wide boulevard cut 1845-51 from Westminster Abbey to the new Victoria station site, through the 'Devil's Acre' slums of Pye Street and Orchard Street behind the Abbey - about 5,000 displaced, again with no rehousing. The street stood half-empty for 25 years before Victorian offices and mansion flats filled it; Westminster Cathedral (1895-1903, -0.1394/51.4963) sits on its south side.",
+   "sources": [
+    "Wikipedia: Victoria Street, London; Devil's Acre",
+    "Survey of London (Westminster)"
+   ]
+  },
+  {
+   "id": "ev22_metropolitan_railway_cut",
+   "name": "Railway clearance: the Metropolitan Railway cut-and-cover",
+   "year": 1860,
+   "year_end": 1884,
+   "destroyed_fraction": 0.6,
+   "rebuild_start": 1865,
+   "rebuild_end": 1900,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.611,
+   "polygon": [
+    [
+     -0.176,
+     51.5192
+    ],
+    [
+     -0.17,
+     51.5222
+    ],
+    [
+     -0.16,
+     51.5236
+    ],
+    [
+     -0.148,
+     51.524
+    ],
+    [
+     -0.136,
+     51.5248
+    ],
+    [
+     -0.125,
+     51.53
+    ],
+    [
+     -0.116,
+     51.5296
+    ],
+    [
+     -0.109,
+     51.525
+    ],
+    [
+     -0.105,
+     51.52
+    ],
+    [
+     -0.104,
+     51.5188
+    ],
+    [
+     -0.109,
+     51.5236
+    ],
+    [
+     -0.117,
+     51.5282
+    ],
+    [
+     -0.1258,
+     51.5288
+    ],
+    [
+     -0.1372,
+     51.5236
+    ],
+    [
+     -0.149,
+     51.5228
+    ],
+    [
+     -0.161,
+     51.5224
+    ],
+    [
+     -0.1706,
+     51.521
+    ],
+    [
+     -0.1762,
+     51.5182
+    ],
+    [
+     -0.176,
+     51.5192
+    ]
+   ],
+   "notes": "The world's first underground railway, Paddington to Farringdon, opened 10 January 1863 - but it was built by CUT AND COVER, digging a trench along the New Road and through the Fleet valley, and it demolished about 1,000 houses and displaced some 12,000 people, mostly poor, in Clerkenwell and around King's Cross. The Fleet sewer burst into the works twice, in 1862 and 1868. The Circle was completed in 1884. Later deep tube lines (from the City and South London, 1890) caused almost no surface demolition, which is why the deep tubes could serve the West End at all.",
+   "sources": [
+    "Wikipedia: Metropolitan Railway; History of the London Underground",
+    "Kellett, The Impact of Railways on Victorian Cities"
+   ]
+  },
+  {
+   "id": "ev14_tooley_street_fire",
+   "name": "The Tooley Street fire",
+   "year": 1861,
+   "year_end": 1861,
+   "destroyed_fraction": 0.8,
+   "rebuild_start": 1862,
+   "rebuild_end": 1875,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.144,
+   "polygon": [
+    [
+     -0.0872,
+     51.5062
+    ],
+    [
+     -0.0846,
+     51.5066
+    ],
+    [
+     -0.0832,
+     51.5065
+    ],
+    [
+     -0.0818,
+     51.5064
+    ],
+    [
+     -0.08,
+     51.5056
+    ],
+    [
+     -0.08,
+     51.5044
+    ],
+    [
+     -0.082,
+     51.5036
+    ],
+    [
+     -0.0848,
+     51.5036
+    ],
+    [
+     -0.0872,
+     51.5044
+    ],
+    [
+     -0.088,
+     51.5054
+    ],
+    [
+     -0.0876,
+     51.506
+    ],
+    [
+     -0.0872,
+     51.5062
+    ],
+    [
+     -0.0872,
+     51.5062
+    ]
+   ],
+   "notes": "22 June 1861. Cotton's Wharf and a quarter-mile of Bermondsey riverside warehouses burned for two weeks; James Braidwood, founder of the world's first municipal fire brigade, was killed by a falling wall. Losses of about 2 million pounds nearly broke the fire-insurance market and led directly to the Metropolitan Fire Brigade Act 1865 and a publicly funded London fire service.",
+   "sources": [
+    "Wikipedia: Tooley Street fire; James Braidwood",
+    "Metropolitan Fire Brigade Act 1865"
+   ]
+  },
+  {
+   "id": "ev23_liverpool_st_broad_st",
+   "name": "Railway clearance: Broad Street and Liverpool Street",
+   "year": 1861,
+   "year_end": 1875,
+   "destroyed_fraction": 0.85,
+   "rebuild_start": 1875,
+   "rebuild_end": 1900,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.407,
+   "polygon": [
+    [
+     -0.0862,
+     51.5162
+    ],
+    [
+     -0.0854,
+     51.5177
+    ],
+    [
+     -0.0846,
+     51.5192
+    ],
+    [
+     -0.0812,
+     51.521
+    ],
+    [
+     -0.0778,
+     51.5212
+    ],
+    [
+     -0.0752,
+     51.52
+    ],
+    [
+     -0.0748,
+     51.5178
+    ],
+    [
+     -0.0768,
+     51.516
+    ],
+    [
+     -0.079,
+     51.515
+    ],
+    [
+     -0.0818,
+     51.5148
+    ],
+    [
+     -0.0844,
+     51.5152
+    ],
+    [
+     -0.086,
+     51.5156
+    ],
+    [
+     -0.0862,
+     51.5162
+    ]
+   ],
+   "notes": "Broad Street (North London Railway, 1865) and Liverpool Street (Great Eastern, 1874) were driven into the north-east corner of the City through the densest slum property in Bishopsgate and Shoreditch; contemporaries put the displacement at about 7,000 people. The Great Eastern's price for its 1864 Act was the obligation to run twopenny workmen's trains - which is precisely what produced the Walthamstow, Leyton, Tottenham and Edmonton suburbs 20 years later. Destruction and growth are directly causally linked here, and that is worth showing.",
+   "sources": [
+    "Wikipedia: Liverpool Street station; Broad Street station",
+    "Great Eastern Railway Act 1864",
+    "Kellett (1969)"
+   ]
+  },
+  {
+   "id": "ev28_holborn_viaduct",
+   "name": "Street improvement: Holborn Viaduct over the Fleet valley",
+   "year": 1863,
+   "year_end": 1869,
+   "destroyed_fraction": 1.0,
+   "rebuild_start": 1869,
+   "rebuild_end": 1885,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.052,
+   "polygon": [
+    [
+     -0.1088,
+     51.5182
+    ],
+    [
+     -0.1064,
+     51.5182
+    ],
+    [
+     -0.104,
+     51.518
+    ],
+    [
+     -0.1028,
+     51.5178
+    ],
+    [
+     -0.1016,
+     51.5176
+    ],
+    [
+     -0.1,
+     51.5172
+    ],
+    [
+     -0.1002,
+     51.5166
+    ],
+    [
+     -0.1024,
+     51.5169
+    ],
+    [
+     -0.1048,
+     51.5173
+    ],
+    [
+     -0.1072,
+     51.5175
+    ],
+    [
+     -0.1092,
+     51.5176
+    ],
+    [
+     -0.1094,
+     51.518
+    ],
+    [
+     -0.1088,
+     51.5182
+    ]
+   ],
+   "notes": "The City's biggest single improvement: a 430 m cast-iron viaduct 24 m wide carrying Holborn 12 m above the Fleet valley, so that horses no longer had to climb Holborn Hill and Snow Hill. Cost 2.5 million pounds, took 1863-69, demolished about 4,000 people's homes in the Fleet valley slums, and was opened by Queen Victoria on 6 November 1869 on the same day as Blackfriars Bridge. The world's first coal-fired public electricity supply, Edison's Holborn Viaduct power station, opened alongside it in January 1882.",
+   "sources": [
+    "Wikipedia: Holborn Viaduct; Holborn Viaduct power station",
+    "City of London Corporation records"
+   ]
+  },
+  {
+   "id": "ev29_queen_victoria_street",
+   "name": "Street improvement: Queen Victoria Street",
+   "year": 1867,
+   "year_end": 1871,
+   "destroyed_fraction": 1.0,
+   "rebuild_start": 1871,
+   "rebuild_end": 1890,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.064,
+   "polygon": [
+    [
+     -0.1032,
+     51.5116
+    ],
+    [
+     -0.1006,
+     51.5118
+    ],
+    [
+     -0.098,
+     51.5122
+    ],
+    [
+     -0.0952,
+     51.5124
+    ],
+    [
+     -0.0924,
+     51.5128
+    ],
+    [
+     -0.0902,
+     51.5132
+    ],
+    [
+     -0.0898,
+     51.5126
+    ],
+    [
+     -0.0922,
+     51.5122
+    ],
+    [
+     -0.095,
+     51.5118
+    ],
+    [
+     -0.098,
+     51.5115
+    ],
+    [
+     -0.1008,
+     51.5112
+    ],
+    [
+     -0.1034,
+     51.511
+    ],
+    [
+     -0.1032,
+     51.5116
+    ]
+   ],
+   "notes": "Driven diagonally across the post-Fire street grid from Blackfriars to the Mansion House 1867-71, in conjunction with the Victoria Embankment and the Metropolitan District Railway beneath it. Notable because it cut ACROSS the medieval plan that the 1667 rebuild had preserved - the first serious break in London's street pattern since the Romans - and because it exposed the Temple of Mithras site, excavated in 1954.",
+   "sources": [
+    "Wikipedia: Queen Victoria Street, London",
+    "City of London Corporation; MBW records"
+   ]
+  },
+  {
+   "id": "ev30_shaftesbury_charing_cross_rd",
+   "name": "Street improvement: Shaftesbury Avenue and Charing Cross Road",
+   "year": 1877,
+   "year_end": 1887,
+   "destroyed_fraction": 1.0,
+   "rebuild_start": 1886,
+   "rebuild_end": 1905,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.133,
+   "polygon": [
+    [
+     -0.1348,
+     51.51
+    ],
+    [
+     -0.133,
+     51.5116
+    ],
+    [
+     -0.1312,
+     51.5132
+    ],
+    [
+     -0.1292,
+     51.5148
+    ],
+    [
+     -0.1272,
+     51.5162
+    ],
+    [
+     -0.1288,
+     51.5166
+    ],
+    [
+     -0.131,
+     51.5164
+    ],
+    [
+     -0.1316,
+     51.514
+    ],
+    [
+     -0.13,
+     51.5116
+    ],
+    [
+     -0.131,
+     51.5096
+    ],
+    [
+     -0.1296,
+     51.5084
+    ],
+    [
+     -0.1286,
+     51.509
+    ],
+    [
+     -0.1296,
+     51.511
+    ],
+    [
+     -0.1284,
+     51.5136
+    ],
+    [
+     -0.129,
+     51.516
+    ],
+    [
+     -0.1338,
+     51.5104
+    ],
+    [
+     -0.1348,
+     51.51
+    ]
+   ],
+   "notes": "Two Metropolitan Board of Works streets driven through the Soho/St Giles rookeries: Shaftesbury Avenue (opened 1886, from Piccadilly Circus to New Oxford Street, through Newport Market and Dudley Street) and Charing Cross Road (opened 1887, Trafalgar Square to St Giles Circus). Together they displaced several thousand people, and this time - after the Artizans' and Labourers' Dwellings Improvement Act 1875 and the 1885 Royal Commission on the Housing of the Working Classes - the MBW was legally obliged to rehouse them, which it did in blocks off Shaftesbury Avenue. They also created London's theatre district: seven theatres opened on Shaftesbury Avenue 1888-1907.",
+   "sources": [
+    "Wikipedia: Shaftesbury Avenue; Charing Cross Road",
+    "Survey of London vols 33-34 (Soho)",
+    "MBW records"
+   ]
+  },
+  {
+   "id": "ev31_boundary_estate",
+   "name": "Slum clearance: the Old Nichol and the Boundary Estate",
+   "year": 1890,
+   "year_end": 1900,
+   "destroyed_fraction": 1.0,
+   "rebuild_start": 1893,
+   "rebuild_end": 1900,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.136,
+   "polygon": [
+    [
+     -0.0768,
+     51.5266
+    ],
+    [
+     -0.0748,
+     51.5268
+    ],
+    [
+     -0.0737,
+     51.5266
+    ],
+    [
+     -0.0726,
+     51.5264
+    ],
+    [
+     -0.0714,
+     51.5254
+    ],
+    [
+     -0.0716,
+     51.5242
+    ],
+    [
+     -0.073,
+     51.5234
+    ],
+    [
+     -0.0752,
+     51.5232
+    ],
+    [
+     -0.077,
+     51.5238
+    ],
+    [
+     -0.0778,
+     51.5248
+    ],
+    [
+     -0.0776,
+     51.5258
+    ],
+    [
+     -0.0772,
+     51.5264
+    ],
+    [
+     -0.0768,
+     51.5266
+    ]
+   ],
+   "notes": "The single most important clearance-and-rebuild in London's housing history. The Old Nichol (-0.0742/51.5250, about 6 ha between Shoreditch High Street and Bethnal Green) had a death rate four times the London average and is the 'Jago' of Arthur Morrison's A Child of the Jago (1896). The LCC used its new powers to demolish it entirely and build the BOUNDARY ESTATE 1893-1900: 23 red-brick blocks radiating from Arnold Circus, a raised bandstand mound made from the rubble of the slum, 1,069 flats for 5,524 people. Of the 5,719 people displaced, only 11 returned - the rents were far beyond them. First council housing estate in the world.",
+   "sources": [
+    "Wikipedia: Boundary Estate; Old Nichol",
+    "Morrison, A Child of the Jago (1896)",
+    "LCC Housing of the Working Classes 1855-1912"
+   ]
+  },
+  {
+   "id": "ev24_marylebone_gcr",
+   "name": "Railway clearance: Marylebone and the Great Central",
+   "year": 1894,
+   "year_end": 1899,
+   "destroyed_fraction": 0.9,
+   "rebuild_start": 1900,
+   "rebuild_end": 1930,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.309,
+   "polygon": [
+    [
+     -0.1668,
+     51.5216
+    ],
+    [
+     -0.1664,
+     51.523
+    ],
+    [
+     -0.166,
+     51.5244
+    ],
+    [
+     -0.1668,
+     51.5272
+    ],
+    [
+     -0.169,
+     51.529
+    ],
+    [
+     -0.172,
+     51.5288
+    ],
+    [
+     -0.173,
+     51.5264
+    ],
+    [
+     -0.1718,
+     51.5238
+    ],
+    [
+     -0.17,
+     51.5216
+    ],
+    [
+     -0.1686,
+     51.5206
+    ],
+    [
+     -0.1672,
+     51.5208
+    ],
+    [
+     -0.1668,
+     51.5216
+    ],
+    [
+     -0.1668,
+     51.5216
+    ]
+   ],
+   "notes": "The last main line built into London until HS1 in 2007. The Great Central's approach to Marylebone (opened 15 March 1899, -0.1632/51.5225) demolished Wharncliffe Gardens and about 4,448 houses' worth of St John's Wood property; the company had to build replacement flats for those displaced, an early instance of a statutory rehousing obligation. It also tunnelled under Lord's cricket ground on condition that the work was done between seasons.",
+   "sources": [
+    "Wikipedia: Marylebone station; Great Central Main Line",
+    "Kellett (1969)"
+   ]
+  },
+  {
+   "id": "ev32_kingsway_aldwych",
+   "name": "Street improvement: Kingsway and Aldwych",
+   "year": 1900,
+   "year_end": 1905,
+   "destroyed_fraction": 1.0,
+   "rebuild_start": 1905,
+   "rebuild_end": 1935,
+   "rebuild_kit": "victorian",
+   "area_km2": 0.048,
+   "polygon": [
+    [
+     -0.1198,
+     51.5178
+    ],
+    [
+     -0.1176,
+     51.5178
+    ],
+    [
+     -0.116,
+     51.5164
+    ],
+    [
+     -0.1156,
+     51.5144
+    ],
+    [
+     -0.1146,
+     51.5128
+    ],
+    [
+     -0.1122,
+     51.5118
+    ],
+    [
+     -0.11,
+     51.5116
+    ],
+    [
+     -0.1098,
+     51.5124
+    ],
+    [
+     -0.1126,
+     51.5128
+    ],
+    [
+     -0.1142,
+     51.514
+    ],
+    [
+     -0.1148,
+     51.516
+    ],
+    [
+     -0.117,
+     51.5172
+    ],
+    [
+     -0.1194,
+     51.517
+    ],
+    [
+     -0.1198,
+     51.5178
+    ]
+   ],
+   "notes": "The last and largest of the great London street improvements, and the LCC's flagship: a 30 m boulevard from Holborn to the Strand with the Aldwych crescent at its foot, opened by Edward VII on 18 October 1905. It cost 5 million pounds, took 28 acres, demolished the Clare Market and Wych Street slums (and Holywell Street, the centre of the Victorian pornography trade), and displaced about 3,700 people, who WERE rehoused by the LCC under the 1890 Act. A tram subway ran beneath it, 1906-1952. The frontages took 30 years to fill: Bush House 1925-35, Africa House, India House 1930, Australia House 1918.",
+   "sources": [
+    "Wikipedia: Kingsway, London; Aldwych",
+    "Survey of London vols 3, 5",
+    "LCC improvement records"
+   ]
+  },
+  {
+   "id": "ev15_silvertown_explosion",
+   "name": "The Silvertown explosion",
+   "year": 1917,
+   "year_end": 1917,
+   "destroyed_fraction": 0.6,
+   "rebuild_start": 1919,
+   "rebuild_end": 1930,
+   "rebuild_kit": "interwar",
+   "area_km2": 0.447,
+   "polygon": [
+    [
+     0.033,
+     51.506
+    ],
+    [
+     0.0354,
+     51.5061
+    ],
+    [
+     0.0378,
+     51.5062
+    ],
+    [
+     0.042,
+     51.5056
+    ],
+    [
+     0.0442,
+     51.5042
+    ],
+    [
+     0.043,
+     51.5022
+    ],
+    [
+     0.0392,
+     51.501
+    ],
+    [
+     0.0344,
+     51.501
+    ],
+    [
+     0.0308,
+     51.5022
+    ],
+    [
+     0.0298,
+     51.504
+    ],
+    [
+     0.031,
+     51.5054
+    ],
+    [
+     0.033,
+     51.506
+    ],
+    [
+     0.033,
+     51.506
+    ]
+   ],
+   "notes": "19 January 1917, 18:52. About 50 tonnes of TNT being purified at the Brunner Mond works at Silvertown detonated (0.0370/51.5030), killing 73, injuring over 400, destroying about 900 houses outright and damaging 70,000; the blast was heard in Norfolk and the glow was seen in Guildford. The worst explosion in London's history and a reminder that the East End was industrial to a degree hard to imagine now.",
+   "sources": [
+    "Wikipedia: Silvertown explosion",
+    "Newham Archives"
+   ]
+  },
+  {
+   "id": "ev34_crystal_palace_fire",
+   "name": "The Crystal Palace fire",
+   "year": 1936,
+   "year_end": 1936,
+   "destroyed_fraction": 1.0,
+   "rebuild_start": 0,
+   "rebuild_end": 0,
+   "rebuild_kit": "modern",
+   "area_km2": 0.134,
+   "polygon": [
+    [
+     -0.0742,
+     51.4232
+    ],
+    [
+     -0.0722,
+     51.4238
+    ],
+    [
+     -0.07,
+     51.4238
+    ],
+    [
+     -0.0682,
+     51.4232
+    ],
+    [
+     -0.0678,
+     51.422
+    ],
+    [
+     -0.069,
+     51.421
+    ],
+    [
+     -0.071,
+     51.4206
+    ],
+    [
+     -0.0721,
+     51.4207
+    ],
+    [
+     -0.0732,
+     51.4208
+    ],
+    [
+     -0.0746,
+     51.4216
+    ],
+    [
+     -0.0748,
+     51.4226
+    ],
+    [
+     -0.0745,
+     51.423
+    ],
+    [
+     -0.0742,
+     51.4232
+    ]
+   ],
+   "notes": "30 November 1936. Paxton's 1851 Great Exhibition building, re-erected and enlarged on Sydenham Hill in 1852-54, burned in a few hours; the glow was visible from eight counties and 100,000 people came to watch. NEVER REBUILT - the terraces, the two 85 m water towers (demolished 1941) and the 1854 dinosaurs are all that remain, and the site is still empty in 2025. A rare and very legible 'building disappears and nothing replaces it' beat, right at the top of the highest hill in south London.",
+   "sources": [
+    "Wikipedia: The Crystal Palace",
+    "Bromley local history"
+   ]
+  },
+  {
+   "id": "ev40_blitz_city",
+   "name": "The Blitz: the City of London and the Second Great Fire",
+   "year": 1940,
+   "year_end": 1941,
+   "destroyed_fraction": 0.55,
+   "rebuild_start": 1950,
+   "rebuild_end": 1980,
+   "rebuild_kit": "postwar",
+   "area_km2": 1.331,
+   "polygon": [
+    [
+     -0.1042,
+     51.5118
+    ],
+    [
+     -0.103,
+     51.5142
+    ],
+    [
+     -0.101,
+     51.5158
+    ],
+    [
+     -0.0975,
+     51.5172
+    ],
+    [
+     -0.0938,
+     51.518
+    ],
+    [
+     -0.0888,
+     51.5176
+    ],
+    [
+     -0.0845,
+     51.517
+    ],
+    [
+     -0.0806,
+     51.5158
+    ],
+    [
+     -0.0768,
+     51.514
+    ],
+    [
+     -0.0762,
+     51.511
+    ],
+    [
+     -0.079,
+     51.5092
+    ],
+    [
+     -0.085,
+     51.5094
+    ],
+    [
+     -0.091,
+     51.5102
+    ],
+    [
+     -0.097,
+     51.5108
+    ],
+    [
+     -0.102,
+     51.5112
+    ],
+    [
+     -0.1042,
+     51.5118
+    ]
+   ],
+   "notes": "About one THIRD of the City's floorspace was destroyed and roughly 164 ha of it left as cleared ground. The decisive night was 29/30 December 1940, the 'Second Great Fire of London': incendiaries at a Sunday-night low tide with the water mains cut started about 1,500 fires from Moorgate to Aldersgate and burned out an area larger than the Great Fire. Losses: 8 Wren churches, the Guildhall roof, Paternoster Row and 5 million books, the Great Hall of the Middle Temple. St Paul's survived and Herbert Mason's photograph of its dome above the smoke became the war's defining British image. Rebuilt 1950-1980 as offices to the London Building Act height limit until that was relaxed in 1954-56; the Barbican (1965-76) covers the worst-hit ground.",
+   "sources": [
+    "Wikipedia: The Blitz; Second Great Fire of London",
+    "LCC / City of London Bomb Damage Maps (London Metropolitan Archives)",
+    "Layers of London: Bomb Damage 1945"
+   ]
+  },
+  {
+   "id": "ev41_blitz_cripplegate",
+   "name": "The Blitz: Cripplegate obliterated",
+   "year": 1940,
+   "year_end": 1941,
+   "destroyed_fraction": 0.97,
+   "rebuild_start": 1962,
+   "rebuild_end": 1982,
+   "rebuild_kit": "tower",
+   "area_km2": 0.341,
+   "polygon": [
+    [
+     -0.0988,
+     51.5178
+    ],
+    [
+     -0.0975,
+     51.5185
+    ],
+    [
+     -0.0962,
+     51.5192
+    ],
+    [
+     -0.0932,
+     51.52
+    ],
+    [
+     -0.09,
+     51.5198
+    ],
+    [
+     -0.0876,
+     51.5188
+    ],
+    [
+     -0.0868,
+     51.5172
+    ],
+    [
+     -0.088,
+     51.5158
+    ],
+    [
+     -0.0908,
+     51.515
+    ],
+    [
+     -0.094,
+     51.515
+    ],
+    [
+     -0.0968,
+     51.5158
+    ],
+    [
+     -0.0986,
+     51.5168
+    ],
+    [
+     -0.0988,
+     51.5178
+    ]
+   ],
+   "notes": "The most completely destroyed ground in Britain. On the night of 29/30 December 1940 the whole of Cripplegate ward burned; when the smoke cleared, St Giles Cripplegate church stood roofless and almost nothing else was left standing over about 14 ha. The resident population of the ward went from a few thousand to 48 people. The site lay as a cleared bombsite with wild flowers and rosebay willowherb for twenty years and was then rebuilt as the Barbican Estate (Chamberlin, Powell and Bon, 1965-76, 2,014 flats and three 123 m towers, -0.0936/51.5202) and the Barbican Centre (1971-82). Kit for the rebuild is 'tower'.",
+   "sources": [
+    "Wikipedia: Cripplegate; Barbican Estate; The Blitz",
+    "City of London Bomb Damage Maps"
+   ]
+  },
+  {
+   "id": "ev42_blitz_stepney",
+   "name": "The Blitz: Stepney, Whitechapel, Wapping and Shadwell",
+   "year": 1940,
+   "year_end": 1941,
+   "destroyed_fraction": 0.35,
+   "rebuild_start": 1948,
+   "rebuild_end": 1975,
+   "rebuild_kit": "estate",
+   "area_km2": 6.75,
+   "polygon": [
+    [
+     -0.076,
+     51.525
+    ],
+    [
+     -0.07,
+     51.529
+    ],
+    [
+     -0.062,
+     51.53
+    ],
+    [
+     -0.053,
+     51.529
+    ],
+    [
+     -0.044,
+     51.5262
+    ],
+    [
+     -0.036,
+     51.522
+    ],
+    [
+     -0.032,
+     51.516
+    ],
+    [
+     -0.036,
+     51.5106
+    ],
+    [
+     -0.047,
+     51.5086
+    ],
+    [
+     -0.058,
+     51.506
+    ],
+    [
+     -0.069,
+     51.505
+    ],
+    [
+     -0.0762,
+     51.5062
+    ],
+    [
+     -0.079,
+     51.512
+    ],
+    [
+     -0.079,
+     51.519
+    ],
+    [
+     -0.076,
+     51.525
+    ]
+   ],
+   "notes": "The East End took the first and heaviest raids because the docks were the target and Stepney sat between the docks and the City. Stepney's population fell from about 200,000 in 1931 to under 100,000 by 1951. Notable incidents: the first raid on the afternoon of 7 September 1940 ('Black Saturday', 430 killed in London that night); the Bethnal Green tube shelter crush of 3 March 1943 (173 killed, -0.0555/51.5270, the worst British civilian disaster of the war and not caused by a bomb at all). Rebuilt overwhelmingly as LCC/GLC and Stepney-Poplar Reconstruction Area council estates 1948-1975 - the Lansbury Estate (1951) is the showpiece.",
+   "sources": [
+    "Wikipedia: The Blitz; Bethnal Green tube station disaster",
+    "LCC Bomb Damage Maps",
+    "Stepney-Poplar Reconstruction Area, County of London Plan 1943"
+   ]
+  },
+  {
+   "id": "ev43_blitz_poplar",
+   "name": "The Blitz: Poplar, Bow, Blackwall and the Isle of Dogs",
+   "year": 1940,
+   "year_end": 1941,
+   "destroyed_fraction": 0.42,
+   "rebuild_start": 1948,
+   "rebuild_end": 1975,
+   "rebuild_kit": "estate",
+   "area_km2": 9.188,
+   "polygon": [
+    [
+     -0.032,
+     51.532
+    ],
+    [
+     -0.025,
+     51.535
+    ],
+    [
+     -0.016,
+     51.534
+    ],
+    [
+     -0.008,
+     51.53
+    ],
+    [
+     -0.002,
+     51.522
+    ],
+    [
+     -0.001,
+     51.513
+    ],
+    [
+     -0.004,
+     51.504
+    ],
+    [
+     -0.011,
+     51.49
+    ],
+    [
+     -0.021,
+     51.487
+    ],
+    [
+     -0.03,
+     51.493
+    ],
+    [
+     -0.031,
+     51.504
+    ],
+    [
+     -0.033,
+     51.514
+    ],
+    [
+     -0.0345,
+     51.523
+    ],
+    [
+     -0.032,
+     51.532
+    ]
+   ],
+   "notes": "Poplar had the highest proportion of buildings destroyed of any metropolitan borough. The West India and East India Docks, the Blackwall works and the gasworks were bombed continuously from 7 September 1940; whole streets on the Isle of Dogs went. Poplar's population fell from 155,100 in 1931 to 73,700 in 1951. Rebuilt as the Lansbury Estate (1949-53, the Festival of Britain's Live Architecture Exhibition), Robin Hood Gardens, Balfron Tower and dozens of LCC/GLC blocks - which is why the Isle of Dogs in 1980 was almost entirely council-built.",
+   "sources": [
+    "Wikipedia: Poplar, London; The Blitz",
+    "LCC Bomb Damage Maps",
+    "Survey of London vols 43-44"
+   ]
+  },
+  {
+   "id": "ev44_blitz_silvertown",
+   "name": "The Blitz: West Ham, Canning Town, Silvertown and the Royal Docks",
+   "year": 1940,
+   "year_end": 1941,
+   "destroyed_fraction": 0.45,
+   "rebuild_start": 1948,
+   "rebuild_end": 1975,
+   "rebuild_kit": "estate",
+   "area_km2": 17.051,
+   "polygon": [
+    [
+     -0.004,
+     51.534
+    ],
+    [
+     0.011,
+     51.536
+    ],
+    [
+     0.029,
+     51.534
+    ],
+    [
+     0.048,
+     51.529
+    ],
+    [
+     0.066,
+     51.523
+    ],
+    [
+     0.074,
+     51.514
+    ],
+    [
+     0.07,
+     51.503
+    ],
+    [
+     0.05,
+     51.499
+    ],
+    [
+     0.028,
+     51.499
+    ],
+    [
+     0.009,
+     51.502
+    ],
+    [
+     -0.002,
+     51.509
+    ],
+    [
+     -0.003,
+     51.52
+    ],
+    [
+     -0.004,
+     51.534
+    ]
+   ],
+   "notes": "The worst-hit local area in Britain. Silvertown was almost cut off on the night of 7 September 1940 when the Royal Docks, Tate and Lyle and the timber wharves burned; residents were evacuated by boat. On 10 September a bomb hit South Hallsville School in Canning Town where evacuees were waiting for buses - the official toll was 73, the local belief has always been that it was several hundred (0.0140/51.5150). West Ham had 14,000 houses destroyed and 85 percent of its housing stock damaged. Rebuilt as Newham's Keir Hardie, Freemasons and Ronan Point estates, with the last of the big system-built towers going up here in 1966-68.",
+   "sources": [
+    "Wikipedia: The Blitz; South Hallsville School disaster; Silvertown",
+    "Newham Archives",
+    "LCC Bomb Damage Maps"
+   ]
+  },
+  {
+   "id": "ev45_blitz_bermondsey_southwark",
+   "name": "The Blitz: Bermondsey, Rotherhithe, Southwark and Lambeth",
+   "year": 1940,
+   "year_end": 1941,
+   "destroyed_fraction": 0.35,
+   "rebuild_start": 1947,
+   "rebuild_end": 1975,
+   "rebuild_kit": "estate",
+   "area_km2": 8.502,
+   "polygon": [
+    [
+     -0.118,
+     51.503
+    ],
+    [
+     -0.108,
+     51.506
+    ],
+    [
+     -0.094,
+     51.507
+    ],
+    [
+     -0.08,
+     51.506
+    ],
+    [
+     -0.064,
+     51.504
+    ],
+    [
+     -0.048,
+     51.502
+    ],
+    [
+     -0.045,
+     51.494
+    ],
+    [
+     -0.058,
+     51.49
+    ],
+    [
+     -0.074,
+     51.489
+    ],
+    [
+     -0.09,
+     51.488
+    ],
+    [
+     -0.105,
+     51.489
+    ],
+    [
+     -0.118,
+     51.493
+    ],
+    [
+     -0.121,
+     51.498
+    ],
+    [
+     -0.118,
+     51.503
+    ]
+   ],
+   "notes": "The south-bank docks, wharves and food warehouses burned on the first night and repeatedly afterwards - Surrey Commercial's timber ponds produced the largest fire ever seen in Britain on 7 September 1940. Bermondsey lost about a third of its housing; Southwark's Borough and Lambeth's Waterloo also suffered heavily. Rebuilt as a near-continuous belt of LCC and borough estates - which is why inner south-east London today is dominated by 1950s-70s council housing.",
+   "sources": [
+    "Wikipedia: The Blitz; Surrey Commercial Docks",
+    "LCC Bomb Damage Maps",
+    "Southwark and Lambeth local histories"
+   ]
+  },
+  {
+   "id": "ev46_blitz_deptford_woolwich",
+   "name": "The Blitz: Deptford, Greenwich, Charlton and Woolwich",
+   "year": 1940,
+   "year_end": 1941,
+   "destroyed_fraction": 0.22,
+   "rebuild_start": 1948,
+   "rebuild_end": 1975,
+   "rebuild_kit": "estate",
+   "area_km2": 16.143,
+   "polygon": [
+    [
+     -0.042,
+     51.488
+    ],
+    [
+     -0.03,
+     51.49
+    ],
+    [
+     -0.014,
+     51.49
+    ],
+    [
+     0.005,
+     51.49
+    ],
+    [
+     0.025,
+     51.491
+    ],
+    [
+     0.048,
+     51.493
+    ],
+    [
+     0.07,
+     51.493
+    ],
+    [
+     0.086,
+     51.49
+    ],
+    [
+     0.086,
+     51.479
+    ],
+    [
+     0.062,
+     51.476
+    ],
+    [
+     0.036,
+     51.474
+    ],
+    [
+     0.01,
+     51.472
+    ],
+    [
+     -0.014,
+     51.472
+    ],
+    [
+     -0.034,
+     51.476
+    ],
+    [
+     -0.042,
+     51.482
+    ],
+    [
+     -0.042,
+     51.488
+    ]
+   ],
+   "notes": "The Royal Arsenal, Woolwich Dockyard and the Deptford and Greenwich power stations and gasworks were priority targets, but the surrounding housing was less densely hit than Poplar or West Ham. Rebuilt with the Pepys Estate (1966-73, on the Royal Victoria Victualling Yard) and Greenwich and Woolwich borough estates. Note the two heaviest V-weapon incidents in London are in this area - see ev48.",
+   "sources": [
+    "Wikipedia: The Blitz; Royal Arsenal",
+    "LCC Bomb Damage Maps",
+    "Survey of London vol 48 (Woolwich)"
+   ]
+  },
+  {
+   "id": "ev47_blitz_west_central",
+   "name": "The Blitz: Westminster, Holborn, Chelsea and the West End",
+   "year": 1940,
+   "year_end": 1941,
+   "destroyed_fraction": 0.14,
+   "rebuild_start": 1950,
+   "rebuild_end": 1975,
+   "rebuild_kit": "postwar",
+   "area_km2": 18.338,
+   "polygon": [
+    [
+     -0.19,
+     51.5
+    ],
+    [
+     -0.18,
+     51.51
+    ],
+    [
+     -0.165,
+     51.518
+    ],
+    [
+     -0.145,
+     51.522
+    ],
+    [
+     -0.125,
+     51.524
+    ],
+    [
+     -0.108,
+     51.523
+    ],
+    [
+     -0.102,
+     51.516
+    ],
+    [
+     -0.105,
+     51.506
+    ],
+    [
+     -0.115,
+     51.496
+    ],
+    [
+     -0.135,
+     51.488
+    ],
+    [
+     -0.16,
+     51.486
+    ],
+    [
+     -0.18,
+     51.49
+    ],
+    [
+     -0.19,
+     51.495
+    ],
+    [
+     -0.19,
+     51.5
+    ]
+   ],
+   "notes": "Lighter than the east but far from spared, and the incidents here are the famous ones. 10/11 May 1941, the heaviest raid of the whole Blitz: 1,436 killed, 2,154 fires, the Chamber of the House of Commons destroyed (-0.1246/51.4995, rebuilt by Giles Gilbert Scott 1945-50), Westminster Abbey's lantern roof burnt, Westminster Hall saved, the British Museum and the Queen's Hall gutted. Buckingham Palace was hit nine times. John Lewis on Oxford Street burnt out 18 September 1940. Rebuilt in the 1950s-60s with offices and, on cleared sites, Westminster and LCC flats; Churchill Gardens (1946-62) is the biggest single scheme.",
+   "sources": [
+    "Wikipedia: The Blitz; Palace of Westminster",
+    "LCC Bomb Damage Maps",
+    "Layers of London: Bomb Damage 1945"
+   ]
+  },
+  {
+   "id": "ev48_v_weapons",
+   "name": "V-1 flying bombs and V-2 rockets",
+   "year": 1944,
+   "year_end": 1945,
+   "destroyed_fraction": 0.03,
+   "rebuild_start": 1946,
+   "rebuild_end": 1970,
+   "rebuild_kit": "postwar",
+   "area_km2": 486.659,
+   "polygon": [
+    [
+     -0.29,
+     51.52
+    ],
+    [
+     -0.24,
+     51.56
+    ],
+    [
+     -0.16,
+     51.59
+    ],
+    [
+     -0.07,
+     51.605
+    ],
+    [
+     0.02,
+     51.6
+    ],
+    [
+     0.1,
+     51.575
+    ],
+    [
+     0.16,
+     51.54
+    ],
+    [
+     0.16,
+     51.49
+    ],
+    [
+     0.09,
+     51.45
+    ],
+    [
+     0.01,
+     51.425
+    ],
+    [
+     -0.08,
+     51.415
+    ],
+    [
+     -0.17,
+     51.425
+    ],
+    [
+     -0.24,
+     51.455
+    ],
+    [
+     -0.29,
+     51.49
+    ],
+    [
+     -0.29,
+     51.52
+    ]
+   ],
+   "notes": "DIFFUSE, NOT CONCENTRATED - scatter individual craters of 30-80 m radius across this whole polygon, weighted towards south and east London, rather than clearing blocks. V-1 flying bombs: first fell on Grove Road, Bow at 04:25 on 13 June 1944 (-0.0330/51.5290, 6 killed, and the railway bridge still carries a plaque); about 2,419 reached the London region and killed 6,184 people. V-2 rockets: first at Staveley Road, Chiswick, 18:43 on 8 September 1944 (-0.2620/51.4880, 3 killed); 1,358 fell on the London region and killed 2,754. Worst single incidents: the Guards Chapel at Wellington Barracks, 18 June 1944, 121 killed (-0.1348/51.5010); the New Cross Woolworths V-2, 25 November 1944, 168 killed, the worst single V-weapon strike in Britain (-0.0362/51.4762); Smithfield Market V-2, 8 March 1945, 110 killed. Together the V-weapons destroyed about 30,000 London houses and damaged over a million. They arrived after the population had returned from evacuation, which is why casualties per bomb were so high.",
+   "sources": [
+    "Wikipedia: V-1 flying bomb; V-2 rocket; New Cross Woolworth's bombing",
+    "Bomb Sight project (V-1/V-2 incident maps)",
+    "LCC Bomb Damage Maps"
+   ]
+  },
+  {
+   "id": "ev49_postwar_clearance",
+   "name": "Comprehensive redevelopment and slum clearance, 1955-1979",
+   "year": 1955,
+   "year_end": 1979,
+   "destroyed_fraction": 0.22,
+   "rebuild_start": 1958,
+   "rebuild_end": 1982,
+   "rebuild_kit": "estate",
+   "area_km2": 221.391,
+   "polygon": [
+    [
+     -0.24,
+     51.53
+    ],
+    [
+     -0.2,
+     51.552
+    ],
+    [
+     -0.15,
+     51.565
+    ],
+    [
+     -0.09,
+     51.57
+    ],
+    [
+     -0.03,
+     51.565
+    ],
+    [
+     0.025,
+     51.55
+    ],
+    [
+     0.065,
+     51.525
+    ],
+    [
+     0.07,
+     51.49
+    ],
+    [
+     0.03,
+     51.465
+    ],
+    [
+     -0.03,
+     51.452
+    ],
+    [
+     -0.1,
+     51.448
+    ],
+    [
+     -0.17,
+     51.46
+    ],
+    [
+     -0.22,
+     51.485
+    ],
+    [
+     -0.24,
+     51.51
+    ],
+    [
+     -0.24,
+     51.53
+    ]
+   ],
+   "notes": "The largest deliberate demolition programme in London's history - considerably bigger than the Blitz. Under Comprehensive Development Area powers roughly 384,000 dwellings were cleared in Greater London between 1955 and 1985, most of them structurally sound Victorian and Georgian terraces declared unfit. Peak 1965-1972. Replaced with system-built slabs, decks and towers at first, then, after the RONAN POINT collapse of 16 May 1968 (0.0168/51.5148) and the Fifth Amendment to the Building Regulations in 1970, with low-rise high-density brick. Public reaction turned decisively against it in the mid-1970s and the 1974 Housing Act shifted money to rehabilitation - which is why the surviving Georgian and Victorian terraces of Islington, Camden and Spitalfields were saved and gentrified rather than cleared.",
+   "sources": [
+    "Wikipedia: Comprehensive development area; Ronan Point; Slum clearance in the United Kingdom",
+    "GLC Housing statistics",
+    "Housing Act 1974"
+   ]
+  },
+  {
+   "id": "ev50_docklands_closure",
+   "name": "The docks close - Docklands dereliction",
+   "year": 1967,
+   "year_end": 1981,
+   "destroyed_fraction": 0.4,
+   "rebuild_start": 1982,
+   "rebuild_end": 2005,
+   "rebuild_kit": "modern",
+   "area_km2": 18.918,
+   "polygon": [
+    [
+     -0.079,
+     51.509
+    ],
+    [
+     -0.064,
+     51.51
+    ],
+    [
+     -0.048,
+     51.511
+    ],
+    [
+     -0.03,
+     51.512
+    ],
+    [
+     -0.01,
+     51.512
+    ],
+    [
+     0.01,
+     51.512
+    ],
+    [
+     0.035,
+     51.513
+    ],
+    [
+     0.06,
+     51.513
+    ],
+    [
+     0.062,
+     51.499
+    ],
+    [
+     0.035,
+     51.496
+    ],
+    [
+     0.01,
+     51.496
+    ],
+    [
+     -0.01,
+     51.488
+    ],
+    [
+     -0.03,
+     51.487
+    ],
+    [
+     -0.048,
+     51.493
+    ],
+    [
+     -0.064,
+     51.498
+    ],
+    [
+     -0.079,
+     51.503
+    ],
+    [
+     -0.079,
+     51.509
+    ]
+   ],
+   "notes": "Not bombs but containerisation. East India Dock closed 1967, St Katharine 1968, London 1969, Surrey Commercial 1970, West India and Millwall 1980, the Royal Docks 1981. About 150,000 port-related jobs went; the five Docklands boroughs lost roughly 20 percent of their population during the 1970s; some 2,200 ha of warehouse, wharf and water lay derelict within 8 km of the Bank of England, the largest area of dereliction in any Western European capital. Warehouses were demolished wholesale in the 1970s and the survivors converted to lofts from 1980. Rebuild kit 'modern': the LDDC (1981-98) and the Isle of Dogs Enterprise Zone (1982-92) delivered 24,046 homes and 2.3 million m2 of commercial space by 1998, with Canary Wharf's One Canada Square (235 m) topping out in 1990.",
+   "sources": [
+    "Wikipedia: London Docklands; London Docklands Development Corporation",
+    "LDDC Completion Booklets 1998",
+    "Port of London Authority records"
+   ]
+  },
+  {
+   "id": "ev51_ira_city_bombs",
+   "name": "IRA bombs: Baltic Exchange, Bishopsgate and South Quay",
+   "year": 1992,
+   "year_end": 1996,
+   "destroyed_fraction": 0.35,
+   "rebuild_start": 1997,
+   "rebuild_end": 2014,
+   "rebuild_kit": "tower",
+   "area_km2": 0.24,
+   "polygon": [
+    [
+     -0.084,
+     51.5178
+    ],
+    [
+     -0.081,
+     51.5182
+    ],
+    [
+     -0.0782,
+     51.5176
+    ],
+    [
+     -0.0772,
+     51.516
+    ],
+    [
+     -0.0777,
+     51.515
+    ],
+    [
+     -0.0782,
+     51.514
+    ],
+    [
+     -0.0806,
+     51.513
+    ],
+    [
+     -0.0832,
+     51.5134
+    ],
+    [
+     -0.0848,
+     51.5148
+    ],
+    [
+     -0.0852,
+     51.5164
+    ],
+    [
+     -0.0848,
+     51.5174
+    ],
+    [
+     -0.0844,
+     51.5177
+    ],
+    [
+     -0.084,
+     51.5178
+    ]
+   ],
+   "notes": "Three very large bombs reshaped the City skyline. BALTIC EXCHANGE, St Mary Axe, 10 April 1992: 3 killed, about 800 million pounds of damage - more than the total paid out for all Troubles damage in Northern Ireland to that date; the wrecked 1903 Exchange was dismantled and its site became 30 St Mary Axe, the Gherkin (2001-04, -0.0803/51.5145). BISHOPSGATE, 24 April 1993: one tonne of fertiliser explosive, 1 killed, 44 injured, about 350 million pounds of damage, the medieval church of St Ethelburga destroyed and the NatWest Tower gutted; it triggered the City's 'ring of steel' traffic cordon and the wholesale replacement of 1960s-70s blocks with the modern towers. SOUTH QUAY, Docklands, 9 February 1996: 2 killed, about 150 million pounds, ending the first IRA ceasefire (-0.0208/51.4990). Insurance market reforms (Pool Re, 1993) followed. Treat as small-footprint destruction with very large, delayed, high-rise rebuilds.",
+   "sources": [
+    "Wikipedia: Baltic Exchange bombing; 1993 Bishopsgate bombing; 1996 Docklands bombing; 30 St Mary Axe",
+    "City of London Police records"
+   ]
+  },
+  {
+   "id": "ev52_estate_demolitions",
+   "name": "Estate demolition and 'regeneration', 1993-2025",
+   "year": 1993,
+   "year_end": 2025,
+   "destroyed_fraction": 0.05,
+   "rebuild_start": 1995,
+   "rebuild_end": 2035,
+   "rebuild_kit": "modern",
+   "area_km2": 278.47,
+   "polygon": [
+    [
+     -0.28,
+     51.525
+    ],
+    [
+     -0.23,
+     51.55
+    ],
+    [
+     -0.17,
+     51.57
+    ],
+    [
+     -0.1,
+     51.58
+    ],
+    [
+     -0.03,
+     51.575
+    ],
+    [
+     0.035,
+     51.555
+    ],
+    [
+     0.075,
+     51.525
+    ],
+    [
+     0.07,
+     51.485
+    ],
+    [
+     0.025,
+     51.46
+    ],
+    [
+     -0.04,
+     51.445
+    ],
+    [
+     -0.11,
+     51.44
+    ],
+    [
+     -0.18,
+     51.455
+    ],
+    [
+     -0.245,
+     51.48
+    ],
+    [
+     -0.28,
+     51.505
+    ],
+    [
+     -0.28,
+     51.525
+    ]
+   ],
+   "notes": "The postwar estates are themselves now being demolished, on a scale comparable to the slum clearances that built them. Named cases with dates, all in the 'estates' key of growth_zones.json: Holly Street Dalston 1993-2003; Stonebridge 1997-2010; Nightingale Hackney 1998-2003; North Peckham 1998-2006; Chalkhill Wembley 1997-2003; Woodberry Down 2009 onward; Heygate 2011-2014; Ferrier Kidbrooke 2009-2012; Aylesbury 2010 onward; Robin Hood Gardens 2017-2025; South Acton 2010 onward; Winstanley Battersea 2021 onward. The pattern is consistent: about 1,900 council flats replaced by about 4,800 mostly private homes, at higher density and greater height. Also here: GRENFELL TOWER, 14 June 2017 (-0.2163/51.5139), where a refurbishment cladding fire killed 72 and led to the Building Safety Act 2022; the tower is to be taken down from 2025-26.",
+   "sources": [
+    "Wikipedia: Grenfell Tower fire; Heygate Estate; Robin Hood Gardens",
+    "GLA estate regeneration data",
+    "Building Safety Act 2022"
+   ]
+  }
+ ]
+}

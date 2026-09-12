@@ -1,4 +1,21 @@
-# Repository metadata and preview images only
+# Generated media and rebuildable data
 *.blend
 *.blend1
 *.mp4
+*.npz
+__pycache__/
+*.py[cod]
+node_modules/
+.claude/
+replica/cache/
+replica/renders/
+replica/previews/
+replica/data/osm_raw.json
+london/cache/
+london/renders/
+london/previews/
+london/data/osm_raw.json
+# Existing local artifacts from the retired Paris implementation
+/blender/
+/tools/
+/renders/

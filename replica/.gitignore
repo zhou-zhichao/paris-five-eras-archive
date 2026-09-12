@@ -1,0 +1,9 @@
+# generated / heavy artifacts
+renders/
+previews/
+cache/
+*.blend
+*.blend1
+*.mp4
+*.npz
+data/osm_raw.json

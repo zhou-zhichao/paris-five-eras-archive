@@ -1,0 +1,1516 @@
+{
+  "meta": {
+    "title": "Pre-existing villages, hamlets and towns within the future Greater London area",
+    "compiled": "2026-09-07",
+    "count_note": "149 entries. Coordinates are WGS84 lon/lat to 4 decimals (~7-11 m precision), placed on the historic nucleus - normally the parish church, market place, village green or manor house, NOT the modern town centre or railway station, which is often 300-800 m away (e.g. Ealing, Hendon, Wembley, Croydon).",
+    "field_semantics": {
+      "name": "Historic settlement name (modern spelling), with the earliest recorded form in notes where known.",
+      "lon": "WGS84 longitude of the historic nucleus.",
+      "lat": "WGS84 latitude of the historic nucleus.",
+      "radius_m": "Radius of the pre-suburban nucleus as a built cluster. 100-180 m = hamlet of a dozen buildings; 200-300 m = village with church and street; 350-600 m = market town or large linear village. These are deliberately small: pre-1800 these places were tiny.",
+      "year_start": "First attestation, or the earliest date at which a settlement is reasonably certain here. Where the source is Domesday Book the value is 1086; where a pre-Conquest charter or chronicle names the place, that date is used.",
+      "year_end": "The year by which the nucleus itself was fully built up and (for inner places) absorbed into the continuous urban mass. For outer villages this is the year the surrounding suburb closed over the old core - usually 1900-1939.",
+      "absorbed": "Year the place was engulfed by the continuous built-up area of London (may be later than year_end for the nucleus itself)."
+    },
+    "usage_note": "For a growth-engine, seed each of these as a small built patch at year_start (very low density, 1-2 storey), let it grow slowly to year_end, then let the surrounding growth ring overwrite the gaps. Most had populations of 100-800 before 1800; only Southwark, Westminster, Kingston, Croydon, Barking, Greenwich, Woolwich, Uxbridge, Brentford, Romford, Barnet and Hounslow were towns.",
+    "sources": [
+      "Domesday Book 1086 (Middlesex, Surrey, Kent, Essex, Herts folios)",
+      "Victoria County History: Middlesex, Surrey, Kent, Essex (British History Online)",
+      "A. D. Mills, A Dictionary of London Place Names (OUP)",
+      "Wikipedia articles for each place (first-attestation forms and dates)",
+      "Ordnance Survey / Google Earth for coordinates of the surviving church, green or market place"
+    ]
+  },
+  "villages": [
+    {
+      "name": "Southwark",
+      "lon": -0.091,
+      "lat": 51.504,
+      "radius_m": 550,
+      "year_start": 50,
+      "year_end": 1600,
+      "absorbed": 1600,
+      "notes": "Roman bridgehead suburb on two sand islands from c. AD 50; refounded as the burh 'Suthringa geweorche' in the Burghal Hidage c. 915. Medieval 'Long Southwark' ran ~1.2 km south along Borough High Street from the bridge foot. London Bridge was the only Thames crossing east of Kingston until 1750, which is the whole reason Southwark exists."
+    },
+    {
+      "name": "Westminster",
+      "lon": -0.1273,
+      "lat": 51.4993,
+      "radius_m": 500,
+      "year_start": 960,
+      "year_end": 1600,
+      "absorbed": 1650,
+      "notes": "Benedictine monastery on Thorney Island c. 960 (Dunstan/Edgar). Edward the Confessor's abbey 1045-1065; royal palace alongside from the 1040s. A separate town 3 km upstream of the City until the Strand ribbon closed the gap c. 1600-1660."
+    },
+    {
+      "name": "Charing",
+      "lon": -0.1278,
+      "lat": 51.5074,
+      "radius_m": 180,
+      "year_start": 1000,
+      "year_end": 1620,
+      "absorbed": 1620,
+      "notes": "Hamlet at the bend ('cierring') of the Thames between the City and Westminster; Eleanor Cross erected 1291-94. Site of the pre-1600 gap in the Strand ribbon."
+    },
+    {
+      "name": "St Giles-in-the-Fields",
+      "lon": -0.1272,
+      "lat": 51.5148,
+      "radius_m": 200,
+      "year_start": 1101,
+      "year_end": 1660,
+      "absorbed": 1660,
+      "notes": "Leper hospital founded 1101 by Queen Matilda, in open fields well outside the city. Became the notorious St Giles rookery by 1700; largely swept away by New Oxford Street 1847."
+    },
+    {
+      "name": "Holborn",
+      "lon": -0.109,
+      "lat": 51.518,
+      "radius_m": 300,
+      "year_start": 959,
+      "year_end": 1500,
+      "absorbed": 1500,
+      "notes": "'Holeburne' 959. Ribbon suburb outside Newgate along the road west, up to Holborn Bars; the legal quarter (Inns of Court, Chancery Lane) forms here in the 14th century."
+    },
+    {
+      "name": "Clerkenwell",
+      "lon": -0.1055,
+      "lat": 51.522,
+      "radius_m": 280,
+      "year_start": 1100,
+      "year_end": 1650,
+      "absorbed": 1650,
+      "notes": "Named from the Clerks' Well. St Mary's nunnery and the Priory of St John of Jerusalem both c. 1144; Charterhouse 1371. Dissolution released the precincts for building from the 1540s - one of the first Tudor suburbs."
+    },
+    {
+      "name": "Smithfield",
+      "lon": -0.101,
+      "lat": 51.5195,
+      "radius_m": 250,
+      "year_start": 1123,
+      "year_end": 1550,
+      "absorbed": 1550,
+      "notes": "St Bartholomew's priory and hospital 1123; Bartholomew Fair from 1133; horse and cattle market from the 12th century. Extramural suburb NW of Aldersgate."
+    },
+    {
+      "name": "Shoreditch",
+      "lon": -0.0779,
+      "lat": 51.5262,
+      "radius_m": 250,
+      "year_start": 1148,
+      "year_end": 1620,
+      "absorbed": 1620,
+      "notes": "'Soersditch' c. 1148. IMPORTANT CORRECTION: Shoreditch was still thin at 1300 and grew mainly in the late-16th-century boom - do not treat it as a medieval suburb. Holywell Priory here; The Theatre (1576) and The Curtain (1577), England's first purpose-built playhouses."
+    },
+    {
+      "name": "Hoxton",
+      "lon": -0.079,
+      "lat": 51.53,
+      "radius_m": 200,
+      "year_start": 1086,
+      "year_end": 1700,
+      "absorbed": 1700,
+      "notes": "Domesday 'Hochestone'. Hamlet north of Shoreditch, built over in the late 17th and 18th centuries."
+    },
+    {
+      "name": "Whitechapel",
+      "lon": -0.062,
+      "lat": 51.517,
+      "radius_m": 300,
+      "year_start": 1250,
+      "year_end": 1650,
+      "absorbed": 1650,
+      "notes": "Chapel of ease to Stepney, 'St Mary Matfelon', c. 1250; ribbon along the Colchester road outside Aldgate. Thin at 1300, substantial by 1600."
+    },
+    {
+      "name": "Stepney",
+      "lon": -0.043,
+      "lat": 51.518,
+      "radius_m": 250,
+      "year_start": 1000,
+      "year_end": 1750,
+      "absorbed": 1750,
+      "notes": "'Stybbanhythe' c. 1000; St Dunstan's church, the mother church of the whole East End (all of Tower Hamlets was Stepney parish). Village around the church until the 18th century."
+    },
+    {
+      "name": "Bethnal Green",
+      "lon": -0.057,
+      "lat": 51.527,
+      "radius_m": 220,
+      "year_start": 1443,
+      "year_end": 1820,
+      "absorbed": 1820,
+      "notes": "'Blithehale' 1443. Hamlet of Stepney; from the 1680s covered with two-storey Huguenot silk-weavers' cottages spreading east from Spitalfields. Globe Town from 1800."
+    },
+    {
+      "name": "Mile End",
+      "lon": -0.033,
+      "lat": 51.525,
+      "radius_m": 200,
+      "year_start": 1288,
+      "year_end": 1830,
+      "absorbed": 1830,
+      "notes": "'La Mile End' 1288 - one mile from Aldgate along the Colchester road. Mile End Old Town and Mile End New Town; the latter built over from 1820. Population c. 260 in the 1670s."
+    },
+    {
+      "name": "Limehouse",
+      "lon": -0.038,
+      "lat": 51.512,
+      "radius_m": 250,
+      "year_start": 1350,
+      "year_end": 1750,
+      "absorbed": 1750,
+      "notes": "'Le Lymhostes' c. 1350 - lime kilns. Riverside shipbuilding and victualling hamlet; St Anne's Limehouse (Hawksmoor) 1714-30."
+    },
+    {
+      "name": "Ratcliff",
+      "lon": -0.0435,
+      "lat": 51.5095,
+      "radius_m": 200,
+      "year_start": 1348,
+      "year_end": 1750,
+      "absorbed": 1750,
+      "notes": "'Radeclive' - the red cliff on the riverside. The main deep-water landing place of Tudor London; Frobisher and Willoughby sailed from here. Population c. 2,000 in the 1670s."
+    },
+    {
+      "name": "Shadwell",
+      "lon": -0.0555,
+      "lat": 51.5095,
+      "radius_m": 280,
+      "year_start": 1222,
+      "year_end": 1700,
+      "absorbed": 1700,
+      "notes": "A maritime new town rather than an old village: it went from open ground to c. 8,000 people by 1674 - the fastest 17th-century growth anywhere in London. St Paul's Shadwell 1656."
+    },
+    {
+      "name": "Wapping",
+      "lon": -0.0605,
+      "lat": 51.5045,
+      "radius_m": 250,
+      "year_start": 1231,
+      "year_end": 1680,
+      "absorbed": 1680,
+      "notes": "Stow records essentially no houses c. 1560; by c. 1600 occupied by 'seafaring men and tradesmen' in a ribbon along the river wall. Population c. 2,000 in the 1670s. London Docks cut through it 1800-05."
+    },
+    {
+      "name": "Poplar",
+      "lon": -0.013,
+      "lat": 51.509,
+      "radius_m": 200,
+      "year_start": 1327,
+      "year_end": 1850,
+      "absorbed": 1850,
+      "notes": "'Popler' 1327. Small hamlet (population c. 500 in the 1670s) transformed by the East India Company yards and then the West India Docks (1799-1802)."
+    },
+    {
+      "name": "Bow (Stratford-atte-Bowe)",
+      "lon": -0.018,
+      "lat": 51.529,
+      "radius_m": 250,
+      "year_start": 1110,
+      "year_end": 1870,
+      "absorbed": 1870,
+      "notes": "Named from the bow-arched bridge over the Lea built c. 1110 for Queen Matilda - the first arched bridge in England. Bow church (St Mary) c. 1311, marooned in the middle of Bow Road."
+    },
+    {
+      "name": "Bermondsey",
+      "lon": -0.081,
+      "lat": 51.4985,
+      "radius_m": 300,
+      "year_start": 715,
+      "year_end": 1750,
+      "absorbed": 1750,
+      "notes": "'Vermundesei' 715 (charter, disputed); Domesday 1086. Cluniac abbey founded 1082. Tanning, leather and brewing quarter; riverside and Tooley Street built up through the 17th-18th centuries."
+    },
+    {
+      "name": "Rotherhithe",
+      "lon": -0.0525,
+      "lat": 51.501,
+      "radius_m": 250,
+      "year_start": 1105,
+      "year_end": 1830,
+      "absorbed": 1830,
+      "notes": "'Rederheia' c. 1105 - 'mariners' landing place'. Shipbuilding hamlet on the peninsula; the Mayflower sailed from here 1620. Surrey Commercial Docks from 1807 fill the peninsula."
+    },
+    {
+      "name": "Lambeth",
+      "lon": -0.12,
+      "lat": 51.495,
+      "radius_m": 280,
+      "year_start": 1041,
+      "year_end": 1800,
+      "absorbed": 1800,
+      "notes": "'Lambehitha' 1062 - the landing place for lambs. Archbishops of Canterbury acquired the manor 1197; Lambeth Palace from c. 1200. The rest of the parish was marsh until Westminster Bridge (1750)."
+    },
+    {
+      "name": "Kennington",
+      "lon": -0.108,
+      "lat": 51.487,
+      "radius_m": 220,
+      "year_start": 1086,
+      "year_end": 1840,
+      "absorbed": 1840,
+      "notes": "Domesday 'Chenintune'. Manor of the Black Prince from 1337, still Duchy of Cornwall land. Kennington Road authorised 1751; Clayton's building lease Act 1776; Duchy 99-year demises from 1791."
+    },
+    {
+      "name": "Newington (Newington Butts)",
+      "lon": -0.098,
+      "lat": 51.495,
+      "radius_m": 200,
+      "year_start": 1086,
+      "year_end": 1800,
+      "absorbed": 1800,
+      "notes": "Domesday 'Neweton'. The hamlet at the fork that became Elephant & Castle (named from a coaching inn recorded 1765). Built over 1760s-1800 after the Blackfriars approach roads."
+    },
+    {
+      "name": "Camberwell",
+      "lon": -0.0895,
+      "lat": 51.474,
+      "radius_m": 280,
+      "year_start": 1086,
+      "year_end": 1870,
+      "absorbed": 1870,
+      "notes": "Domesday 'Cambrewelle'. Village around St Giles; genteel villa suburb 1780-1830, then working-class terraces. H. J. Dyos's 'Victorian Suburb' (1961) is the classic study: population 7,000 in 1801, 259,000 by 1901."
+    },
+    {
+      "name": "Peckham",
+      "lon": -0.069,
+      "lat": 51.47,
+      "radius_m": 250,
+      "year_start": 1086,
+      "year_end": 1880,
+      "absorbed": 1880,
+      "notes": "Domesday 'Pecheham'. Village on the Peckham Rye road; market gardens and villas until the Grand Surrey Canal (1826) and the railway (1865)."
+    },
+    {
+      "name": "Dulwich",
+      "lon": -0.0855,
+      "lat": 51.445,
+      "radius_m": 250,
+      "year_start": 967,
+      "year_end": 1930,
+      "absorbed": 1900,
+      "notes": "Charter of Edgar 967, 'Dilwihs'. Bought by Edward Alleyn 1605 for the College of God's Gift (1619); the College estate's tight control is why Dulwich Village still looks like a village inside London."
+    },
+    {
+      "name": "Clapham",
+      "lon": -0.139,
+      "lat": 51.463,
+      "radius_m": 250,
+      "year_start": 880,
+      "year_end": 1880,
+      "absorbed": 1880,
+      "notes": "'Cloppaham' in a will of c. 880; Domesday 1086. Merchant villas round the Common from the 1690s; the Clapham Sect from the 1790s. Terraced streets from the 1860s."
+    },
+    {
+      "name": "Battersea",
+      "lon": -0.1795,
+      "lat": 51.4718,
+      "radius_m": 250,
+      "year_start": 693,
+      "year_end": 1890,
+      "absorbed": 1890,
+      "notes": "'Badrices ieg' 693 (Battersea charter). Riverside village at St Mary's; market gardens (Battersea asparagus) until the railways arrived 1838-1863. Population 6,600 in 1841, 168,000 by 1901 - one of the fastest transformations in London."
+    },
+    {
+      "name": "Wandsworth",
+      "lon": -0.19,
+      "lat": 51.457,
+      "radius_m": 300,
+      "year_start": 1086,
+      "year_end": 1890,
+      "absorbed": 1890,
+      "notes": "Domesday 'Wandesorde' - the ford over the Wandle. Industrial from the 17th century (Huguenot hat-makers, calico, brewing); the Surrey Iron Railway (1803, the world's first public railway) ran up the Wandle from here."
+    },
+    {
+      "name": "Putney",
+      "lon": -0.2166,
+      "lat": 51.4671,
+      "radius_m": 250,
+      "year_start": 1086,
+      "year_end": 1900,
+      "absorbed": 1900,
+      "notes": "Domesday 'Putelei'. Ferry then wooden bridge (1729, the first new Thames bridge in central London since 1209). Putney Debates in St Mary's church, 1647."
+    },
+    {
+      "name": "Fulham",
+      "lon": -0.214,
+      "lat": 51.47,
+      "radius_m": 280,
+      "year_start": 691,
+      "year_end": 1900,
+      "absorbed": 1900,
+      "notes": "'Fulanham' 691, granted to the Bishop of London; Fulham Palace was the bishops' country house for 1,200 years. A Viking army overwintered here 879. Market gardens until 1870; population 12,000 in 1861, 137,000 by 1901."
+    },
+    {
+      "name": "Chelsea",
+      "lon": -0.1712,
+      "lat": 51.483,
+      "radius_m": 300,
+      "year_start": 785,
+      "year_end": 1880,
+      "absorbed": 1870,
+      "notes": "'Cealchyth' - Council of Chelsea 785 (probably this place). Riverside village at Chelsea Old Church; Thomas More's house 1520s; Royal Hospital 1682-92. Hans Town laid out from 1777 by Henry Holland for the Cadogan estate."
+    },
+    {
+      "name": "Kensington",
+      "lon": -0.192,
+      "lat": 51.501,
+      "radius_m": 280,
+      "year_start": 1086,
+      "year_end": 1870,
+      "absorbed": 1860,
+      "notes": "Domesday 'Chenesitun'. Village around St Mary Abbots on the Bath road. Nottingham House bought by William III in 1689 and enlarged as Kensington Palace, which made the village fashionable a century before it was built over."
+    },
+    {
+      "name": "Paddington",
+      "lon": -0.1745,
+      "lat": 51.5215,
+      "radius_m": 220,
+      "year_start": 1050,
+      "year_end": 1850,
+      "absorbed": 1840,
+      "notes": "'Padington' c. 1050; not in Domesday. A tiny hamlet at Paddington Green with under 200 people in 1750; transformed by the Grand Junction Canal basin (1801), Tyburnia (from 1821) and the GWR terminus (1838)."
+    },
+    {
+      "name": "Marylebone (Tyburn)",
+      "lon": -0.152,
+      "lat": 51.522,
+      "radius_m": 220,
+      "year_start": 1086,
+      "year_end": 1800,
+      "absorbed": 1780,
+      "notes": "Domesday 'Tiburne', on the Tyburn brook near modern Marylebone Lane/Oxford Street. The village moved north c. 1400 to the new church of St Mary at the Bourne, hence Marylebone High Street's slight kink. Built over 1717-1800 by the Cavendish-Harley, Portman and Portland estates."
+    },
+    {
+      "name": "Knightsbridge",
+      "lon": -0.162,
+      "lat": 51.5015,
+      "radius_m": 180,
+      "year_start": 1046,
+      "year_end": 1860,
+      "absorbed": 1850,
+      "notes": "'Knightsbridge' 1046 - a bridge over the Westbourne. A rough hamlet of inns on the Bath road; still ribbon development in the 1820s. Grandeur (Rutland Gate, Princes Gate, Albert Gate) only from the late 1830s."
+    },
+    {
+      "name": "Brompton",
+      "lon": -0.172,
+      "lat": 51.4955,
+      "radius_m": 180,
+      "year_start": 1294,
+      "year_end": 1870,
+      "absorbed": 1860,
+      "notes": "'Brunton' 1294 - broom farm. Nursery gardens; Brompton Square begun 1821, Alexander Square 1826. Albertopolis (V&A, Natural History, Imperial) built on the 1851 Exhibition profits from 1857."
+    },
+    {
+      "name": "Hammersmith",
+      "lon": -0.225,
+      "lat": 51.493,
+      "radius_m": 280,
+      "year_start": 1294,
+      "year_end": 1910,
+      "absorbed": 1900,
+      "notes": "First recorded 1294 as 'Hermodewode'. Hamlet of Fulham parish until 1834; village at the Broadway on the Bath road, plus a riverside strip at Hammersmith Terrace/Chiswick Mall."
+    },
+    {
+      "name": "Chiswick",
+      "lon": -0.256,
+      "lat": 51.487,
+      "radius_m": 250,
+      "year_start": 1000,
+      "year_end": 1910,
+      "absorbed": 1910,
+      "notes": "'Ceswican' c. 1000 - cheese farm. Riverside village at St Nicholas and the Mall; Chiswick House 1729. Turnham Green and Strand-on-the-Green are separate hamlets in the same parish."
+    },
+    {
+      "name": "Brentford",
+      "lon": -0.309,
+      "lat": 51.487,
+      "radius_m": 400,
+      "year_start": 700,
+      "year_end": 1910,
+      "absorbed": 1910,
+      "notes": "Ford of the Brent on the Roman road west; Battle of Brentford 1016 (Edmund Ironside v Cnut) and 1642 (Civil War). County town of Middlesex; market town with a long High Street and dock at the Grand Junction Canal junction (1794)."
+    },
+    {
+      "name": "Isleworth",
+      "lon": -0.324,
+      "lat": 51.47,
+      "radius_m": 250,
+      "year_start": 695,
+      "year_end": 1930,
+      "absorbed": 1930,
+      "notes": "'Gislheresuuyrth' 695. Riverside village at All Saints; Syon Abbey 1431, Syon House from 1547."
+    },
+    {
+      "name": "Hounslow",
+      "lon": -0.362,
+      "lat": 51.47,
+      "radius_m": 350,
+      "year_start": 1217,
+      "year_end": 1930,
+      "absorbed": 1930,
+      "notes": "Trinitarian priory 'Hundeslawe' 1217. Coaching town on the Bath and Exeter roads - up to 500 coaches a day at its peak - beside Hounslow Heath, notorious for highwaymen. Heath enclosed 1818."
+    },
+    {
+      "name": "Feltham",
+      "lon": -0.411,
+      "lat": 51.447,
+      "radius_m": 200,
+      "year_start": 1086,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "Domesday 'Felteham'. Small agricultural village; grew with the railway (1848) and interwar industry."
+    },
+    {
+      "name": "Twickenham",
+      "lon": -0.3262,
+      "lat": 51.4463,
+      "radius_m": 300,
+      "year_start": 704,
+      "year_end": 1930,
+      "absorbed": 1930,
+      "notes": "'Tuiccanham' 704. Riverside village at St Mary's; a fashionable villa retreat 1700-1800 (Pope's villa 1719, Marble Hill 1724, Strawberry Hill 1749). Built over 1890-1930."
+    },
+    {
+      "name": "Teddington",
+      "lon": -0.334,
+      "lat": 51.425,
+      "radius_m": 200,
+      "year_start": 969,
+      "year_end": 1930,
+      "absorbed": 1930,
+      "notes": "'Tudingtun' 969. Hamlet at the tidal limit of the Thames; suburbanised after the railway (1863) and rapidly 1890-1930."
+    },
+    {
+      "name": "Hampton",
+      "lon": -0.369,
+      "lat": 51.42,
+      "radius_m": 250,
+      "year_start": 1086,
+      "year_end": 1935,
+      "absorbed": 1935,
+      "notes": "Domesday 'Hamntone'. Hampton Court Palace (Wolsey from 1514, Henry VIII from 1529) is 3 km SE at 51.4036, -0.3378 and is the real reason anyone knows the name."
+    },
+    {
+      "name": "Richmond (Sheen)",
+      "lon": -0.307,
+      "lat": 51.461,
+      "radius_m": 350,
+      "year_start": 1086,
+      "year_end": 1920,
+      "absorbed": 1920,
+      "notes": "Domesday 'Sceon'. Royal manor house from 1299; rebuilt by Henry VII after a fire in 1497 and renamed Richmond after his Yorkshire earldom in 1501. Riverside town round the Green; a fashionable resort by 1700."
+    },
+    {
+      "name": "Kew",
+      "lon": -0.288,
+      "lat": 51.484,
+      "radius_m": 200,
+      "year_start": 1327,
+      "year_end": 1930,
+      "absorbed": 1920,
+      "notes": "'Cayho' 1327 - key/quay spur of land. Hamlet on Kew Green; royal gardens from 1759, Royal Botanic Gardens from 1840. Kew Bridge 1759."
+    },
+    {
+      "name": "Mortlake",
+      "lon": -0.266,
+      "lat": 51.468,
+      "radius_m": 220,
+      "year_start": 1086,
+      "year_end": 1920,
+      "absorbed": 1920,
+      "notes": "Domesday 'Mortelage'. Archbishops of Canterbury's manor; the Mortlake Tapestry Works 1619-1703; John Dee lived here. Watney's brewery from 1889."
+    },
+    {
+      "name": "Barnes",
+      "lon": -0.243,
+      "lat": 51.472,
+      "radius_m": 220,
+      "year_start": 1086,
+      "year_end": 1920,
+      "absorbed": 1920,
+      "notes": "Domesday 'Berne'. Village round Barnes Green and Church Road, inside the great loop of the Thames; kept its village form because of the Common and the loop."
+    },
+    {
+      "name": "Wimbledon",
+      "lon": -0.218,
+      "lat": 51.4335,
+      "radius_m": 280,
+      "year_start": 967,
+      "year_end": 1920,
+      "absorbed": 1915,
+      "notes": "'Wimbedounyng' 967; Iron Age hillfort ('Caesar's Camp') on the Common, c. 700 BC. Hilltop village around the High Street; the new town grew round the station (1838) in the valley below, a classic split between Village and Town."
+    },
+    {
+      "name": "Merton",
+      "lon": -0.196,
+      "lat": 51.414,
+      "radius_m": 250,
+      "year_start": 967,
+      "year_end": 1930,
+      "absorbed": 1925,
+      "notes": "Charter 967; Merton Priory founded 1114 (Thomas Becket educated there; the Statute of Merton, 1236, is the oldest English statute still partly in force). Calico and later Liberty print works on the Wandle; William Morris's works from 1881."
+    },
+    {
+      "name": "Mitcham",
+      "lon": -0.166,
+      "lat": 51.399,
+      "radius_m": 280,
+      "year_start": 1086,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "Domesday 'Michelham'; a large pagan Saxon cemetery here dates occupation from c. AD 450-550, one of the earliest Saxon sites in the London area. Village around Cricket Green (cricket played here since 1685); lavender and physic-herb fields until c. 1900."
+    },
+    {
+      "name": "Tooting",
+      "lon": -0.167,
+      "lat": 51.427,
+      "radius_m": 220,
+      "year_start": 675,
+      "year_end": 1915,
+      "absorbed": 1915,
+      "notes": "'Totinge' in a disputed charter of 675; Domesday as Tooting Bec and Tooting Graveney. Two small villages on the Roman Stane Street line; built over 1890-1915 and by the LCC Totterdown Fields estate (1903-11, London's first council 'cottage estate')."
+    },
+    {
+      "name": "Balham",
+      "lon": -0.152,
+      "lat": 51.443,
+      "radius_m": 200,
+      "year_start": 957,
+      "year_end": 1910,
+      "absorbed": 1905,
+      "notes": "'Bælgenham' 957. Hamlet on the Streatham-Clapham road; suburbanised 1865-1910."
+    },
+    {
+      "name": "Streatham",
+      "lon": -0.129,
+      "lat": 51.4285,
+      "radius_m": 250,
+      "year_start": 1086,
+      "year_end": 1915,
+      "absorbed": 1910,
+      "notes": "Domesday 'Estreham' - the settlement on the street (Roman road to Brighton). A mineral-spa village 1660-1800 (Streatham Wells); Dr Johnson stayed with the Thrales at Streatham Park. Built over 1880-1915."
+    },
+    {
+      "name": "Brixton",
+      "lon": -0.1145,
+      "lat": 51.462,
+      "radius_m": 200,
+      "year_start": 1062,
+      "year_end": 1890,
+      "absorbed": 1885,
+      "notes": "'Brixges stan' 1062 - the stone of Brihtsige, the hundred meeting-place, probably on Brixton Hill. Almost nothing existed until Vauxhall Bridge (1816) and the Brixton Road; villas 1820s, terraces 1860s-80s, Electric Avenue 1888 (first street in London lit by electricity)."
+    },
+    {
+      "name": "Norwood (Upper Norwood)",
+      "lon": -0.083,
+      "lat": 51.418,
+      "radius_m": 250,
+      "year_start": 1176,
+      "year_end": 1910,
+      "absorbed": 1905,
+      "notes": "'Norwuda' 1176 - the north wood of Croydon, the Great North Wood of oak that gave Gipsy Hill and Honor Oak their names. Scattered until the Crystal Palace was re-erected at Sydenham in 1852-54, which triggered villa building across Upper Norwood, Anerley and Sydenham."
+    },
+    {
+      "name": "Sydenham",
+      "lon": -0.053,
+      "lat": 51.427,
+      "radius_m": 220,
+      "year_start": 1206,
+      "year_end": 1900,
+      "absorbed": 1895,
+      "notes": "'Chipenham' 1206 (corrupted). Common-edge hamlet; medicinal wells discovered 1640. Transformed by the Croydon Canal (1809), the railway (1839) and above all the Crystal Palace (1854)."
+    },
+    {
+      "name": "Penge",
+      "lon": -0.055,
+      "lat": 51.413,
+      "radius_m": 200,
+      "year_start": 957,
+      "year_end": 1900,
+      "absorbed": 1895,
+      "notes": "'Penceat' 957 - a Celtic name ('head of the wood'), one of very few surviving Brittonic place-names in London. A detached common of Battersea parish until 1900."
+    },
+    {
+      "name": "Beckenham",
+      "lon": -0.025,
+      "lat": 51.408,
+      "radius_m": 250,
+      "year_start": 862,
+      "year_end": 1930,
+      "absorbed": 1920,
+      "notes": "'Beohhahema mearc' 862; Domesday 1086. Village round St George's and the High Street; a wealthy villa suburb after the railway reached it in 1857."
+    },
+    {
+      "name": "Bromley",
+      "lon": -0.017,
+      "lat": 51.406,
+      "radius_m": 400,
+      "year_start": 862,
+      "year_end": 1930,
+      "absorbed": 1925,
+      "notes": "'Bromleag' 862 - the woodland clearing where broom grows. Manor of the Bishops of Rochester from the 10th century; market charter 1205; Bromley Palace. A genuine market town before London reached it in the 1860s-1900s."
+    },
+    {
+      "name": "Chislehurst",
+      "lon": 0.068,
+      "lat": 51.416,
+      "radius_m": 250,
+      "year_start": 1089,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "'Cyselhyrst' 1089 - gravelly wooded hill. Village around the Common; Napoleon III died in exile at Camden Place here, 1873."
+    },
+    {
+      "name": "Orpington",
+      "lon": 0.099,
+      "lat": 51.374,
+      "radius_m": 250,
+      "year_start": 1032,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "'Orpedingtun' 1032. A farming village of a few hundred people until the 1920s; the Southern Railway electrification and the 1930s speculative builders made it a byword for commuter suburbia. Orpington chickens bred here from 1886."
+    },
+    {
+      "name": "Eltham",
+      "lon": 0.052,
+      "lat": 51.45,
+      "radius_m": 300,
+      "year_start": 1086,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "Domesday 'Elteham'. Eltham Palace (51.4483, 0.0530) was a principal royal residence from 1305 to the 1530s - Henry VIII grew up here. Village on the High Street. Well Hall garden suburb 1915, Page Estate 1923-31, then blanket 1930s semis."
+    },
+    {
+      "name": "Lewisham",
+      "lon": -0.0139,
+      "lat": 51.4553,
+      "radius_m": 300,
+      "year_start": 862,
+      "year_end": 1900,
+      "absorbed": 1895,
+      "notes": "'Liofshema' 862 (charter of Ethelbert). Long linear village up the Ravensbourne valley, with watermills; built over 1860-1900 after the railway (1849)."
+    },
+    {
+      "name": "Blackheath",
+      "lon": 0.0085,
+      "lat": 51.4655,
+      "radius_m": 220,
+      "year_start": 1166,
+      "year_end": 1900,
+      "absorbed": 1890,
+      "notes": "'Blachehedfeld' 1166. The heath was a muster and rebellion ground (Wat Tyler 1381, Jack Cade 1450, Cornish rebels 1497). The Village is an 1790s-1850s creation on the south edge; the Paragon 1794-1805, Cator estate from 1783."
+    },
+    {
+      "name": "Greenwich",
+      "lon": -0.0093,
+      "lat": 51.4816,
+      "radius_m": 350,
+      "year_start": 918,
+      "year_end": 1880,
+      "absorbed": 1870,
+      "notes": "'Grenewic' 918. A Danish fleet camped here 1011-14 and murdered Archbishop Alphege in 1012 (hence St Alfege). Palace of Placentia from 1433 - birthplace of Henry VIII, Mary I and Elizabeth I; Queen's House 1616-35; Royal Hospital (Wren) 1696-1712; Royal Observatory 1675."
+    },
+    {
+      "name": "Deptford",
+      "lon": -0.0271,
+      "lat": 51.4854,
+      "radius_m": 300,
+      "year_start": 1086,
+      "year_end": 1870,
+      "absorbed": 1860,
+      "notes": "'Depeford' - the deep ford where the Roman Watling Street crossed the Ravensbourne. Henry VIII founded the Royal Dockyard here in 1513; Deptford was a naval town of several thousand by 1600, far bigger than most 'villages' in this list. Christopher Marlowe killed here 1593."
+    },
+    {
+      "name": "Charlton",
+      "lon": 0.033,
+      "lat": 51.482,
+      "radius_m": 200,
+      "year_start": 1086,
+      "year_end": 1930,
+      "absorbed": 1920,
+      "notes": "Domesday 'Cerletone'. Village green with St Luke's church and Charlton House (1607-12), one of the best surviving Jacobean houses in London."
+    },
+    {
+      "name": "Woolwich",
+      "lon": 0.069,
+      "lat": 51.49,
+      "radius_m": 400,
+      "year_start": 918,
+      "year_end": 1900,
+      "absorbed": 1890,
+      "notes": "'Uuluuich' 918 - wool trading place. Royal Dockyard from 1512 (Henry Grace a Dieu built here 1514); the Royal Arsenal from 1671 employed up to 80,000 people in WWI. A large industrial town, not a village, from the 16th century."
+    },
+    {
+      "name": "Plumstead",
+      "lon": 0.087,
+      "lat": 51.487,
+      "radius_m": 220,
+      "year_start": 960,
+      "year_end": 1910,
+      "absorbed": 1900,
+      "notes": "Charter of 960, 'Plumstede'. Village on the marsh edge; swamped by Arsenal workers' terraces 1870-1900."
+    },
+    {
+      "name": "Erith",
+      "lon": 0.177,
+      "lat": 51.483,
+      "radius_m": 250,
+      "year_start": 695,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "'Earhyth' 695 - gravel landing place. Riverside village; Lesnes Abbey (1178) nearby; a Victorian resort and then a heavy-engineering town from 1860."
+    },
+    {
+      "name": "Bexley",
+      "lon": 0.149,
+      "lat": 51.441,
+      "radius_m": 250,
+      "year_start": 814,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "Charter of 814, 'Bixle'. Village on the Cray with St Mary's church and Hall Place (1537). The surrounding Bexleyheath/Welling/Blackfen fields were covered by speculative semis 1929-39 - among the most complete 1930s landscapes in London."
+    },
+    {
+      "name": "Sidcup",
+      "lon": 0.103,
+      "lat": 51.426,
+      "radius_m": 220,
+      "year_start": 1254,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "'Cetecopp' 1254. A hamlet of under 500 people in 1900; the Sidcup bypass (1920s) and Southern Railway electrification (1926) turned it into continuous 1930s suburbia."
+    },
+    {
+      "name": "Dartford (outside Greater London)",
+      "lon": 0.217,
+      "lat": 51.446,
+      "radius_m": 400,
+      "year_start": 1086,
+      "year_end": 1950,
+      "absorbed": null,
+      "notes": "Domesday 'Tarentefort' - ford over the Darent on Watling Street. Kentish market town; INCLUDED FOR CONTEXT ONLY - it lies outside the 1965 Greater London boundary and is separated from London by green belt, though functionally part of the conurbation."
+    },
+    {
+      "name": "Croydon",
+      "lon": -0.1027,
+      "lat": 51.3722,
+      "radius_m": 500,
+      "year_start": 809,
+      "year_end": 1910,
+      "absorbed": 1930,
+      "notes": "Synod of 809 at 'Crogedena'; Domesday 1086. Archbishops of Canterbury's summer palace from the 12th century; Croydon Minster; market charter 1276. A substantial town of 5,700 in 1801 and 134,000 by 1901 - the largest independent town swallowed by London. Note it remained physically separate from the London mass until the 1920s-30s."
+    },
+    {
+      "name": "Addington",
+      "lon": -0.033,
+      "lat": 51.355,
+      "radius_m": 150,
+      "year_start": 1086,
+      "year_end": 1970,
+      "absorbed": 1970,
+      "notes": "Domesday 'Eddintone'. Tiny village; Addington Palace was the Archbishops of Canterbury's residence 1808-97. Built over only by the New Addington LCC estate (1936-39, resumed 1947-60s)."
+    },
+    {
+      "name": "Beddington",
+      "lon": -0.14,
+      "lat": 51.373,
+      "radius_m": 200,
+      "year_start": 1086,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "Domesday 'Beddintone'. Carew Manor and St Mary's; the first orange trees in England grown here c. 1560."
+    },
+    {
+      "name": "Wallington",
+      "lon": -0.15,
+      "lat": 51.36,
+      "radius_m": 200,
+      "year_start": 1086,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "Domesday 'Waletone' - the settlement of the Britons (Welsh). Hamlet; suburbanised 1900-1935."
+    },
+    {
+      "name": "Carshalton",
+      "lon": -0.166,
+      "lat": 51.366,
+      "radius_m": 250,
+      "year_start": 1086,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "Domesday 'Aultone'. Village around the spring-fed Carshalton Ponds at the head of the Wandle; watermills, snuff and paper. Built over 1900-1935."
+    },
+    {
+      "name": "Sutton",
+      "lon": -0.194,
+      "lat": 51.361,
+      "radius_m": 300,
+      "year_start": 1086,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "Domesday 'Sudtone'. A hamlet of 600 people in 1801; a coaching stop on the Brighton road; the railway (1847) and then the 1920s-30s builders made it a town of 60,000."
+    },
+    {
+      "name": "Cheam",
+      "lon": -0.216,
+      "lat": 51.36,
+      "radius_m": 200,
+      "year_start": 675,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "'Cegeham' in a charter of 675 (or 727). Village with Whitehall (c. 1500) and Nonsuch Palace (Henry VIII, 1538-1682) just to the south. Buried in 1930s semis."
+    },
+    {
+      "name": "Epsom (outside Greater London)",
+      "lon": -0.267,
+      "lat": 51.335,
+      "radius_m": 350,
+      "year_start": 1086,
+      "year_end": 1940,
+      "absorbed": null,
+      "notes": "Domesday 'Evesham'. Spa town (Epsom salts) from 1618; the Derby run on the Downs since 1780. OUTSIDE the 1965 Greater London boundary, in Surrey, but continuous with the conurbation."
+    },
+    {
+      "name": "Kingston upon Thames",
+      "lon": -0.305,
+      "lat": 51.412,
+      "radius_m": 450,
+      "year_start": 838,
+      "year_end": 1920,
+      "absorbed": 1930,
+      "notes": "Council of Kingston 838. Coronation place of up to seven Anglo-Saxon kings 900-979 (the Coronation Stone stands outside the Guildhall). The lowest bridge over the Thames above London Bridge until 1729 - hence a genuine market town of 4,000+ in 1801, independent of London."
+    },
+    {
+      "name": "New Malden / Malden",
+      "lon": -0.257,
+      "lat": 51.4,
+      "radius_m": 180,
+      "year_start": 1086,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "Domesday 'Meldone' (Old Malden, 51.3860, -0.2510). New Malden is entirely a railway creation from 1846 onwards; blanket suburbia 1900-1935."
+    },
+    {
+      "name": "Surbiton",
+      "lon": -0.305,
+      "lat": 51.393,
+      "radius_m": 220,
+      "year_start": 1179,
+      "year_end": 1930,
+      "absorbed": 1920,
+      "notes": "'Suberton' 1179 - the southern grange of Kingston. A hamlet until the LSWR station opened in 1838 (Kingston having refused the line); one of the first true railway suburbs in the world, laid out from 1838-55."
+    },
+    {
+      "name": "Ealing",
+      "lon": -0.302,
+      "lat": 51.509,
+      "radius_m": 280,
+      "year_start": 700,
+      "year_end": 1920,
+      "absorbed": 1910,
+      "notes": "'Gillingas' c. 700 - the people of Gilla; Domesday 1086. St Mary's church at 51.5065, -0.3015; the Broadway grew round the GWR station (1838). 'Queen of the Suburbs' - Ealing built London's first council houses under the 1890 Act, in 1901."
+    },
+    {
+      "name": "Hanwell",
+      "lon": -0.339,
+      "lat": 51.51,
+      "radius_m": 200,
+      "year_start": 959,
+      "year_end": 1930,
+      "absorbed": 1920,
+      "notes": "Charter of 959, 'Hanewelle'. Village on the Brent; the Wharncliffe Viaduct (Brunel, 1837) and the County Lunatic Asylum (1831) dominate it."
+    },
+    {
+      "name": "Acton",
+      "lon": -0.268,
+      "lat": 51.5085,
+      "radius_m": 250,
+      "year_start": 1181,
+      "year_end": 1910,
+      "absorbed": 1900,
+      "notes": "'Acton' 1181 - oak farm. Village on the Uxbridge road; 'Soapsud Island' - by 1900 some 600 laundries here washed the West End's linen. Terraces 1875-1910."
+    },
+    {
+      "name": "Greenford",
+      "lon": -0.348,
+      "lat": 51.535,
+      "radius_m": 200,
+      "year_start": 845,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "'Grenan forda' 845. Hamlet on the Brent; still rural in 1930. The Western Avenue (A40, opened in stages 1921-43) and the Central line extension (1947) created the modern suburb."
+    },
+    {
+      "name": "Northolt",
+      "lon": -0.367,
+      "lat": 51.548,
+      "radius_m": 180,
+      "year_start": 1086,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "Domesday 'Northala'. Village green with St Mary's on the hill; a Saxon settlement excavated here. Population 900 in 1931; the Northolt Park and Racecourse estates 1930s, then the huge LCC/GLC estates 1947-60s."
+    },
+    {
+      "name": "Hayes (Middlesex)",
+      "lon": -0.413,
+      "lat": 51.509,
+      "radius_m": 220,
+      "year_start": 793,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "Charter of 793, 'Hesa'. Archbishops of Canterbury's manor; St Mary's church. Industrialised by the Grand Junction Canal and the GWR: EMI (1907), Nestle (1913), Fairey Aviation."
+    },
+    {
+      "name": "Uxbridge",
+      "lon": -0.478,
+      "lat": 51.546,
+      "radius_m": 350,
+      "year_start": 1200,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "'Woxbrigge' c. 1200; market from the 1170s. Corn-market town on the Oxford road and the Colne; the Treaty of Uxbridge negotiations 1645. Metropolitan/Piccadilly line 1904/1933."
+    },
+    {
+      "name": "Hillingdon",
+      "lon": -0.449,
+      "lat": 51.533,
+      "radius_m": 200,
+      "year_start": 1086,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "Domesday 'Hillendone'. Village on the Oxford road with St John's church; built over in the 1930s."
+    },
+    {
+      "name": "Ickenham",
+      "lon": -0.442,
+      "lat": 51.562,
+      "radius_m": 180,
+      "year_start": 1086,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "Domesday 'Ticheham'. Village green with pump and St Giles; Metropolitan line halt 1905, suburbanised 1930s."
+    },
+    {
+      "name": "Ruislip",
+      "lon": -0.421,
+      "lat": 51.573,
+      "radius_m": 250,
+      "year_start": 1086,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "Domesday 'Rislepe' - rushy leaping-place. Village with St Martin's, a 16th-century barn and Manor Farm. Ruislip-Northwood UDC's 1914 town-planning scheme was one of the first in Britain; built out 1920-39. Ruislip Woods survive as the largest ancient woodland in London."
+    },
+    {
+      "name": "Pinner",
+      "lon": -0.381,
+      "lat": 51.593,
+      "radius_m": 220,
+      "year_start": 1231,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "'Pinnora' 1231. Village High Street with St John's and timber-framed houses; fair charter 1336. Metropolitan Railway 1885, then Metro-land semis 1923-39 all round it."
+    },
+    {
+      "name": "Harrow-on-the-Hill",
+      "lon": -0.3355,
+      "lat": 51.5723,
+      "radius_m": 280,
+      "year_start": 767,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "'Gumeninga hergae' 767 - the heathen shrine of the Gumeningas, a rare pagan-temple place-name. Hilltop village round St Mary's (spire visible for 20 km); Harrow School founded 1572. Wealdstone and Harrow Weald below were separate hamlets."
+    },
+    {
+      "name": "Stanmore",
+      "lon": -0.314,
+      "lat": 51.619,
+      "radius_m": 200,
+      "year_start": 1086,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "Domesday 'Stanmere'. The Roman posting station Sulloniacae is thought to lie near Brockley Hill just north. Village with two St John's churches; Bentley Priory (RAF Fighter Command HQ 1936-68). Jubilee/Bakerloo branch 1932."
+    },
+    {
+      "name": "Edgware",
+      "lon": -0.275,
+      "lat": 51.613,
+      "radius_m": 220,
+      "year_start": 975,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "'Aegces wer' c. 975 - Ecgi's weir. Village on Watling Street (the Roman road, now the A5) with St Margaret's and coaching inns. The Northern line extension of 1924 detonated the surrounding fields into suburbia within a decade."
+    },
+    {
+      "name": "Mill Hill",
+      "lon": -0.234,
+      "lat": 51.614,
+      "radius_m": 200,
+      "year_start": 1547,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "First recorded 1547. Ridge-top hamlet in Hendon parish; Mill Hill School 1807. Suburbanised 1920s-30s."
+    },
+    {
+      "name": "Hendon",
+      "lon": -0.232,
+      "lat": 51.5836,
+      "radius_m": 250,
+      "year_start": 959,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "Charter of 959, 'Hendun' - at the high hill. Village at Church End round St Mary's; Hendon Aerodrome from 1908. Population 22,000 in 1921, 155,000 by 1939 - one of the fastest-growing districts in Britain."
+    },
+    {
+      "name": "Golders Green",
+      "lon": -0.194,
+      "lat": 51.572,
+      "radius_m": 150,
+      "year_start": 1612,
+      "year_end": 1925,
+      "absorbed": 1920,
+      "notes": "First recorded 1612 as a green in Hendon parish - a handful of cottages. The Northern line reached it in 1907 and it was completely built out by about 1925; the textbook example of tube-led suburbanisation. Hampstead Garden Suburb, laid out by Henrietta Barnett from 1907, adjoins to the north-east."
+    },
+    {
+      "name": "Finchley",
+      "lon": -0.193,
+      "lat": 51.599,
+      "radius_m": 220,
+      "year_start": 1208,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "'Finchelee' c. 1208 - finches' clearing. Three hamlets: Church End, East End (East Finchley) and North End (Whetstone). Finchley Common was highwayman country until enclosure in 1816. Built over 1900-1935."
+    },
+    {
+      "name": "Hampstead",
+      "lon": -0.178,
+      "lat": 51.556,
+      "radius_m": 280,
+      "year_start": 986,
+      "year_end": 1900,
+      "absorbed": 1890,
+      "notes": "Charter of Ethelred, 986, 'Hemstede'. Hilltop village; chalybeate spa from 1698 made it fashionable, so the Georgian village survives. The Heath (protected 1871) blocked northward growth - a rare pre-Green-Belt limit."
+    },
+    {
+      "name": "Highgate",
+      "lon": -0.147,
+      "lat": 51.571,
+      "radius_m": 250,
+      "year_start": 1350,
+      "year_end": 1910,
+      "absorbed": 1900,
+      "notes": "First recorded c. 1350 - the toll gate on the Bishop of London's road over the hill. Hilltop village on the Great North Road; Highgate School 1565; Highgate Cemetery 1839."
+    },
+    {
+      "name": "Muswell Hill",
+      "lon": -0.144,
+      "lat": 51.59,
+      "radius_m": 180,
+      "year_start": 1152,
+      "year_end": 1914,
+      "absorbed": 1910,
+      "notes": "'Mosswell' c. 1152 - a holy well of the nuns of Clerkenwell. A hamlet until James Edmondson bought and built the whole hilltop 1896-1914; one of the most complete Edwardian townscapes in London."
+    },
+    {
+      "name": "Hornsey",
+      "lon": -0.12,
+      "lat": 51.587,
+      "radius_m": 220,
+      "year_start": 1201,
+      "year_end": 1905,
+      "absorbed": 1900,
+      "notes": "'Haringeie' 1201 (which also gives 'Haringey' and 'Harringay'). Village round St Mary's in the Moselle valley; built over 1870-1905."
+    },
+    {
+      "name": "Crouch End",
+      "lon": -0.123,
+      "lat": 51.579,
+      "radius_m": 180,
+      "year_start": 1465,
+      "year_end": 1905,
+      "absorbed": 1900,
+      "notes": "First recorded 1465 - the end at the cross(roads). Hamlet in Hornsey parish; built over 1880-1905."
+    },
+    {
+      "name": "Wood Green",
+      "lon": -0.109,
+      "lat": 51.597,
+      "radius_m": 180,
+      "year_start": 1502,
+      "year_end": 1910,
+      "absorbed": 1900,
+      "notes": "First recorded 1502. Hamlet in Tottenham parish; the Great Northern Railway (1859) and Alexandra Palace (1873) drove growth 1870-1910."
+    },
+    {
+      "name": "Tottenham",
+      "lon": -0.0715,
+      "lat": 51.5985,
+      "radius_m": 280,
+      "year_start": 1086,
+      "year_end": 1900,
+      "absorbed": 1895,
+      "notes": "Domesday 'Toteham'. Long linear village along the High Road (Roman Ermine Street) at All Hallows. The Cheap Trains Act 1883 forced the GER to run workmen's fares here, which turned Tottenham into dense working-class terraces 20 years before comparable places elsewhere."
+    },
+    {
+      "name": "Edmonton",
+      "lon": -0.067,
+      "lat": 51.618,
+      "radius_m": 250,
+      "year_start": 1086,
+      "year_end": 1910,
+      "absorbed": 1900,
+      "notes": "Domesday 'Adelmetone'. Village on Ermine Street at All Saints; Charles Lamb and John Keats connections. Like Tottenham, densified early by cheap workmen's trains."
+    },
+    {
+      "name": "Southgate",
+      "lon": -0.128,
+      "lat": 51.632,
+      "radius_m": 200,
+      "year_start": 1370,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "First recorded 1370 - the south gate of Enfield Chase. Hamlet round Southgate Green; stayed rural until the Piccadilly line extension of 1933 (Charles Holden's Southgate station, 1933) triggered blanket semis."
+    },
+    {
+      "name": "Enfield",
+      "lon": -0.081,
+      "lat": 51.652,
+      "radius_m": 350,
+      "year_start": 1086,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "Domesday 'Enefelde'. Market charter 1303; Enfield Chase was a royal hunting forest until disafforestation in 1777. The Royal Small Arms Factory (1816) gave the world the Lee-Enfield rifle and created the industrial suburb of Enfield Lock/Ordnance Road."
+    },
+    {
+      "name": "Chingford",
+      "lon": 0.01,
+      "lat": 51.628,
+      "radius_m": 220,
+      "year_start": 1086,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "Domesday 'Cingefort' - the shingle ford over the Lea. Old church at 51.6320, 0.0130. Queen Elizabeth's Hunting Lodge (1543) on the Epping Forest edge. Suburbanised 1900-1935; Epping Forest (protected 1878) stopped further growth east."
+    },
+    {
+      "name": "Walthamstow",
+      "lon": -0.0165,
+      "lat": 51.5855,
+      "radius_m": 250,
+      "year_start": 1086,
+      "year_end": 1905,
+      "absorbed": 1900,
+      "notes": "Domesday 'Wilcumestowe' - the place of welcome. Walthamstow Village survives round St Mary's and the Ancient House. Cheap workmen's fares from 1870 made it one of the densest late-Victorian working-class suburbs in London: population 11,000 in 1871, 95,000 by 1901."
+    },
+    {
+      "name": "Leyton",
+      "lon": -0.01,
+      "lat": 51.562,
+      "radius_m": 220,
+      "year_start": 1050,
+      "year_end": 1900,
+      "absorbed": 1895,
+      "notes": "'Lugetune' c. 1050 - farm on the Lea; Domesday 1086. Roman finds. Built over 1870-1900, again driven by cheap fares."
+    },
+    {
+      "name": "Leytonstone",
+      "lon": 0.01,
+      "lat": 51.568,
+      "radius_m": 200,
+      "year_start": 1370,
+      "year_end": 1910,
+      "absorbed": 1900,
+      "notes": "Named from the Leyton Stone, a Roman milestone on the Epping road. Hamlet; built over 1880-1910. Alfred Hitchcock born here 1899."
+    },
+    {
+      "name": "Wanstead",
+      "lon": 0.027,
+      "lat": 51.577,
+      "radius_m": 220,
+      "year_start": 1055,
+      "year_end": 1930,
+      "absorbed": 1925,
+      "notes": "'Waenstede' c. 1055; Domesday. Wanstead House (1715-22), one of the greatest Palladian houses in England, demolished 1825 - its park is now Wanstead Flats/Park. Suburbanised 1900-1930."
+    },
+    {
+      "name": "Woodford",
+      "lon": 0.025,
+      "lat": 51.607,
+      "radius_m": 220,
+      "year_start": 1062,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "'Wudeforda' 1062; Domesday. Several greens (Woodford Green, Woodford Bridge, South Woodford) on the Epping Forest edge; Central line 1947 but built mainly 1900-1935."
+    },
+    {
+      "name": "Ilford",
+      "lon": 0.07,
+      "lat": 51.559,
+      "radius_m": 300,
+      "year_start": 1086,
+      "year_end": 1915,
+      "absorbed": 1910,
+      "notes": "Domesday 'Ilefort' - ford over the Hyle (Roding). Hospital of St Mary and St Thomas c. 1145. A village of 11,000 in 1891 became a town of 78,000 by 1911 - the fastest-growing district in England in that decade, built by Cameron Corbett's estates (1898-1910)."
+    },
+    {
+      "name": "Barking",
+      "lon": 0.0808,
+      "lat": 51.5348,
+      "radius_m": 400,
+      "year_start": 666,
+      "year_end": 1930,
+      "absorbed": 1925,
+      "notes": "Barking Abbey founded 666 by St Erkenwald - one of the most important nunneries in England, dissolved 1539. Fishing town on the Roding: in 1850 the Barking fishing fleet was the largest in England. Market town, not a village."
+    },
+    {
+      "name": "Dagenham",
+      "lon": 0.165,
+      "lat": 51.542,
+      "radius_m": 250,
+      "year_start": 692,
+      "year_end": 1935,
+      "absorbed": 1932,
+      "notes": "'Daeccanhaam' 692/695 (charter). Marsh-edge village round St Peter and St Paul; population under 9,000 in 1921. Then the Becontree estate (1921-35) and the Ford plant (opened 1931) took it to 90,000 by 1939."
+    },
+    {
+      "name": "Hornchurch",
+      "lon": 0.219,
+      "lat": 51.561,
+      "radius_m": 250,
+      "year_start": 1222,
+      "year_end": 1940,
+      "absorbed": 1938,
+      "notes": "'Hornedchurch' 1222 - the church with horns (a bull's head still sits on St Andrew's east gable). Part of the royal liberty of Havering. RAF Hornchurch flew in the Battle of Britain. Built over 1925-39."
+    },
+    {
+      "name": "Romford",
+      "lon": 0.183,
+      "lat": 51.5757,
+      "radius_m": 400,
+      "year_start": 1177,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "'Romfort' 1177; market charter 1247, and the Market Place still functions. The Roman posting station Durolitum is thought to be nearby. A genuine Essex market town of 8,000 in 1901, engulfed by 1930s estates and 87,000 people by 1951."
+    },
+    {
+      "name": "Upminster",
+      "lon": 0.251,
+      "lat": 51.556,
+      "radius_m": 220,
+      "year_start": 1086,
+      "year_end": 1945,
+      "absorbed": 1938,
+      "notes": "Domesday 'Upmynstre'. Village with St Laurence, a 1712 smock mill and a medieval tithe barn. District line from 1932; built out 1930s, completed post-war."
+    },
+    {
+      "name": "West Ham",
+      "lon": 0.011,
+      "lat": 51.5345,
+      "radius_m": 250,
+      "year_start": 1086,
+      "year_end": 1890,
+      "absorbed": 1885,
+      "notes": "Domesday 'Hame'. Village round All Saints. Outside the Metropolitan Buildings Acts, so noxious trades (chemicals, dyes, gutta-percha) moved here from the 1840s: population 19,000 in 1851, 267,000 by 1901 - the largest county borough in England."
+    },
+    {
+      "name": "Stratford",
+      "lon": 0.002,
+      "lat": 51.541,
+      "radius_m": 280,
+      "year_start": 1135,
+      "year_end": 1880,
+      "absorbed": 1875,
+      "notes": "Stratford Langthorne Abbey founded 1135; the name is the 'street ford' where the Roman road crossed the Lea. The Eastern Counties Railway works arrived 1847 and built Stratford New Town for its workers - a company town inside London."
+    },
+    {
+      "name": "East Ham",
+      "lon": 0.051,
+      "lat": 51.539,
+      "radius_m": 220,
+      "year_start": 1086,
+      "year_end": 1905,
+      "absorbed": 1900,
+      "notes": "Domesday. St Mary Magdalene (c. 1130) is one of the oldest largely unaltered Norman parish churches in England, and stood almost alone in fields until 1880. Population 9,700 in 1891, 133,000 by 1911."
+    },
+    {
+      "name": "Little Ilford / Manor Park",
+      "lon": 0.043,
+      "lat": 51.551,
+      "radius_m": 180,
+      "year_start": 1086,
+      "year_end": 1910,
+      "absorbed": 1900,
+      "notes": "Domesday 'Ilefort' (the lesser manor). Tiny hamlet; built over completely 1880-1910 with dense terraces."
+    },
+    {
+      "name": "Hackney",
+      "lon": -0.0555,
+      "lat": 51.548,
+      "radius_m": 280,
+      "year_start": 1198,
+      "year_end": 1880,
+      "absorbed": 1870,
+      "notes": "'Hakeneia' 1198 (in Domesday under Stepney). A village of merchants' houses round St Augustine's tower (the 13th-century tower survives; the church was rebuilt 1792). Built over 1840-1880."
+    },
+    {
+      "name": "Stoke Newington",
+      "lon": -0.076,
+      "lat": 51.562,
+      "radius_m": 220,
+      "year_start": 1086,
+      "year_end": 1890,
+      "absorbed": 1885,
+      "notes": "Domesday 'Neutone' - the new farm in the stocks (wood). Church Street village and Clissold Park; a Dissenters' stronghold (Defoe, Poe schooled here). Built over 1850-1890."
+    },
+    {
+      "name": "Islington",
+      "lon": -0.103,
+      "lat": 51.5386,
+      "radius_m": 280,
+      "year_start": 1005,
+      "year_end": 1850,
+      "absorbed": 1840,
+      "notes": "'Gislandune' 1005 - Gisla's hill. Dairy village on the Great North Road, supplying London's milk; the New River (1613) terminated here. Built over 1770-1850, starting with Pentonville (from 1773) and Canonbury/Barnsbury (1820s)."
+    },
+    {
+      "name": "Highbury",
+      "lon": -0.098,
+      "lat": 51.552,
+      "radius_m": 200,
+      "year_start": 1274,
+      "year_end": 1890,
+      "absorbed": 1880,
+      "notes": "'Neweton Barrewe' then Highbury from 1271 - the high manor of the Knights Hospitaller. Highbury Fields; built over 1850-1890."
+    },
+    {
+      "name": "Holloway",
+      "lon": -0.116,
+      "lat": 51.553,
+      "radius_m": 200,
+      "year_start": 1307,
+      "year_end": 1880,
+      "absorbed": 1875,
+      "notes": "'Le Holwey' 1307 - the hollow (sunken) way, the Great North Road. Roadside hamlet; built over 1840-1880."
+    },
+    {
+      "name": "Kentish Town",
+      "lon": -0.14,
+      "lat": 51.55,
+      "radius_m": 200,
+      "year_start": 1207,
+      "year_end": 1870,
+      "absorbed": 1865,
+      "notes": "'Kentisston' 1207 - probably 'Le Kentiss's estate', not a Kent connection. Hamlet on the Fleet; built over 1840-1870, then torn about by the Midland Railway's approach to St Pancras (1866-68)."
+    },
+    {
+      "name": "Camden Town",
+      "lon": -0.143,
+      "lat": 51.539,
+      "radius_m": 200,
+      "year_start": 1791,
+      "year_end": 1860,
+      "absorbed": 1850,
+      "notes": "NOT a village: a planned development laid out in 1791 by Charles Pratt, 1st Earl Camden, on former farmland. Included because it is a named growth nucleus. The Regent's Canal (1820) and the LNWR (1837) industrialised it."
+    },
+    {
+      "name": "Kilburn",
+      "lon": -0.194,
+      "lat": 51.547,
+      "radius_m": 200,
+      "year_start": 1134,
+      "year_end": 1890,
+      "absorbed": 1880,
+      "notes": "Kilburn Priory founded 1134 by the hermit Godwyn at the Kilburn (Cyneburna) stream, on Watling Street. Roadside hamlet with the Bell inn; built over 1860-1890 with dense terraces."
+    },
+    {
+      "name": "Willesden",
+      "lon": -0.241,
+      "lat": 51.548,
+      "radius_m": 200,
+      "year_start": 1086,
+      "year_end": 1910,
+      "absorbed": 1905,
+      "notes": "Domesday 'Wellesdone' - hill of the spring. Village round St Mary's; a place of pilgrimage (Our Lady of Willesden). Population 3,000 in 1861, 154,000 by 1901 - almost all of it railway-driven (Willesden Junction 1866)."
+    },
+    {
+      "name": "Harlesden",
+      "lon": -0.251,
+      "lat": 51.536,
+      "radius_m": 180,
+      "year_start": 1086,
+      "year_end": 1910,
+      "absorbed": 1900,
+      "notes": "Domesday 'Herulvestune'. Hamlet in Willesden parish; built over 1880-1910 around the railway works."
+    },
+    {
+      "name": "Neasden",
+      "lon": -0.25,
+      "lat": 51.562,
+      "radius_m": 150,
+      "year_start": 1000,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "'Neasdun' c. 1000 - nose-shaped hill. Hamlet; Metropolitan Railway depot 1882, then Metro-land housing 1920s-30s."
+    },
+    {
+      "name": "Kingsbury",
+      "lon": -0.279,
+      "lat": 51.584,
+      "radius_m": 180,
+      "year_start": 1044,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "'Kynges Byrig' 1044 - the king's manor. Old St Andrew's is a tiny Saxon/Norman church. Population 1,800 in 1921, 16,000 by 1931 and 45,000 by 1939 - proportionally one of the most explosive growths in interwar Britain."
+    },
+    {
+      "name": "Wembley",
+      "lon": -0.297,
+      "lat": 51.552,
+      "radius_m": 200,
+      "year_start": 825,
+      "year_end": 1935,
+      "absorbed": 1930,
+      "notes": "'Wemba lea' 825 - Wemba's clearing. Hamlet in Harrow parish. Watkin's Tower (abandoned 1899) stood where Wembley Stadium was built for the 1924-25 British Empire Exhibition, which put roads, a station and 27 million visitors into open fields and pulled the suburb after it."
+    },
+    {
+      "name": "Barnet (Chipping Barnet)",
+      "lon": -0.2,
+      "lat": 51.652,
+      "radius_m": 350,
+      "year_start": 1070,
+      "year_end": 1940,
+      "absorbed": 1935,
+      "notes": "'Barneto' c. 1070 - the burnt clearing. Market charter 1199 ('Chipping' = market); hilltop town on the Great North Road. Battle of Barnet 1471. Genuinely separate from London until the 1930s, and still nearly so."
+    },
+    {
+      "name": "Totteridge",
+      "lon": -0.19,
+      "lat": 51.63,
+      "radius_m": 180,
+      "year_start": 1188,
+      "year_end": 1960,
+      "absorbed": 1940,
+      "notes": "'Taterugge' 1188. Ridge-top hamlet along a green lane; still semi-rural, protected by green belt - its village green and common survive intact."
+    },
+    {
+      "name": "Friern Barnet",
+      "lon": -0.16,
+      "lat": 51.612,
+      "radius_m": 180,
+      "year_start": 1235,
+      "year_end": 1930,
+      "absorbed": 1925,
+      "notes": "'Frerenbarnet' 1235 - the friars' (Knights Hospitaller's) Barnet. Hamlet with St James; Colney Hatch Asylum (1851) was the largest building in Europe when built."
+    },
+    {
+      "name": "New Southgate / Colney Hatch",
+      "lon": -0.142,
+      "lat": 51.616,
+      "radius_m": 150,
+      "year_start": 1500,
+      "year_end": 1930,
+      "absorbed": 1925,
+      "notes": "'Colney Hatch' first recorded c. 1500 - a gate into the wood. Hamlet; railway 1851."
+    }
+  ]
+}

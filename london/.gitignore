@@ -1,0 +1,8 @@
+london/cache/
+london/renders/
+london/data/osm_raw.json
+london/assets/model_src/node_modules/
+*.blend
+*.blend1
+*.mp4
+__pycache__/
